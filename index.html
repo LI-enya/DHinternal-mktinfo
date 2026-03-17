@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DH Internal MktInfo | マーケティング情報</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #8C7B6B; --primary-light: #A89888; --accent: #9C6B4A;
+            --bg: #F5F0EB; --card: #FFFFFF; --card-hover: #FDFBF9; --text: #3A3330; --text-light: #8A8078;
+            --border: #E5DDD5; --tag-bag: #8C7B6B; --tag-shoe: #7B8A96;
+            --tag-online: #6B8E7B; --tag-offline: #8E7B96;
+            --sns-x: #3A3330; --sns-ig: #9C6B4A; --sns-threads: #3A3330;
+            --warm: #9C6B4A; --warm-dim: rgba(156,107,74,.08); --warm-border: rgba(156,107,74,.2);
+        }
+        body { font-family: 'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 14px; }
+
+        /* Header */
+        header { background: #FFFFFF; color: var(--text); padding: 24px 0 20px; border-bottom: 1px solid var(--border); }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .logo { font-weight: 700; font-size: 20px; letter-spacing: 2px; color: var(--text); }
+        .logo span { color: var(--warm); font-weight: 700; }
+        .date-display { font-size: 12px; color: var(--text-light); background: var(--bg); padding: 6px 16px; border-radius: 20px; letter-spacing: .3px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+        /* Section Index Nav */
+        .section-index { position: sticky; top: 0; z-index: 99; background: #FFFFFF; border-bottom: 1px solid var(--border); padding: 0; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+        .section-index-inner { max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; gap: 4px; overflow-x: auto; }
+        .section-index-inner::-webkit-scrollbar { height: 0; }
+        .section-index-btn { padding: 8px 16px; border: none; background: transparent; border-radius: 8px; cursor: pointer; font-size: 12px; font-family: inherit; transition: all .2s; text-decoration: none; color: var(--text-light); white-space: nowrap; display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+        .section-index-btn:hover { background: var(--bg); color: var(--text); }
+        .section-index-btn .idx-icon { font-size: 14px; }
+        .section-index-btn .idx-label { font-weight: 500; }
+        .section-index-btn .idx-count { font-size: 10px; background: var(--bg); color: var(--text-light); padding: 1px 6px; border-radius: 8px; margin-left: 2px; }
+
+        /* Quick Nav (legacy, hidden) */
+        .quick-nav { display: none; }
+        .qnav-btn { display: none; }
+
+        /* Archive */
+        .archive-bar { background: var(--card); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 1px 6px rgba(0,0,0,.04); }
+        .archive-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .archive-title { font-size: 13px; font-weight: 600; color: var(--text); }
+        .archive-count { font-size: 12px; color: var(--text-light); }
+        .archive-dates { display: flex; gap: 8px; flex-wrap: wrap; }
+        .archive-date-btn { padding: 7px 16px; border: 1px solid var(--border); background: var(--bg); border-radius: 10px; cursor: pointer; font-size: 13px; font-family: inherit; transition: all .2s; display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 90px; color: var(--text-light); }
+        .archive-date-btn:hover { border-color: var(--warm); color: var(--warm); }
+        .archive-date-btn.active { background: var(--text); color: #fff; border-color: var(--text); }
+        .archive-date-btn .date-label { font-weight: 500; font-size: 13px; }
+        .archive-date-btn .today-badge { font-size: 9px; background: var(--warm-dim); color: var(--warm); padding: 1px 8px; border-radius: 8px; margin-top: 2px; }
+        .archive-date-btn.active .today-badge { background: rgba(255,255,255,.2); color: #fff; }
+        .viewing-archive { background: var(--warm-dim); border: 1px solid var(--warm-border); border-radius: 10px; padding: 10px 20px; margin-bottom: 20px; font-size: 13px; color: var(--warm); display: flex; justify-content: space-between; align-items: center; }
+        .viewing-archive.hidden { display: none; }
+        .back-today-btn { padding: 5px 14px; background: var(--text); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 12px; font-family: inherit; font-weight: 500; }
+
+        /* Stats */
+        .stats-bar { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 12px; margin-bottom: 24px; }
+        .stat-card { background: var(--card); border-radius: 12px; padding: 18px; text-align: center; box-shadow: 0 1px 6px rgba(0,0,0,.04); }
+        .stat-card .number { font-size: 26px; font-weight: 700; color: var(--text); }
+        .stat-card.shoe .number { color: var(--tag-shoe); }
+        .stat-card.trend .number { color: var(--accent); }
+        .stat-card.sns .number { color: var(--sns-ig); }
+        .stat-card .label { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+
+        /* Marketing Calendar */
+        .calendar-section { background: var(--card); border-radius: 12px; padding: 20px; margin-bottom: 24px; box-shadow: 0 1px 6px rgba(0,0,0,.04); }
+        .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+        .calendar-title { font-size: 16px; font-weight: 600; color: var(--text); }
+        .calendar-events { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; }
+        .calendar-events::-webkit-scrollbar { height: 3px; }
+        .calendar-events::-webkit-scrollbar-track { background: transparent; }
+        .calendar-events::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+        .cal-event { min-width: 200px; padding: 14px 16px; border-radius: 10px; border-left: 3px solid var(--accent); background: #FDF8F4; flex-shrink: 0; }
+        .cal-event.soon { border-left-color: #C4884A; background: #FEF6EE; }
+        .cal-event.future { border-left-color: var(--tag-shoe); background: #F4F6F8; }
+        .cal-event-date { font-size: 12px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+        .cal-event.soon .cal-event-date { color: #C4884A; }
+        .cal-event.future .cal-event-date { color: var(--tag-shoe); }
+        .cal-event-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--text); }
+        .cal-event-hint { font-size: 12px; color: var(--text-light); }
+        .cal-countdown { display: inline-block; font-size: 10px; background: rgba(156,107,74,.1); color: var(--accent); padding: 2px 8px; border-radius: 8px; margin-left: 6px; }
+        .cal-event.soon .cal-countdown { background: rgba(196,136,74,.12); color: #C4884A; }
+        .cal-event.future .cal-countdown { background: rgba(123,138,150,.1); color: var(--tag-shoe); }
+
+        /* Filter Bar */
+        .filter-bar { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
+        .filter-bar label { font-size: 13px; font-weight: 500; color: var(--text-light); margin-right: 4px; }
+        .filter-btn { padding: 6px 16px; border: 1px solid var(--border); background: var(--card); border-radius: 20px; cursor: pointer; font-size: 13px; font-family: inherit; transition: all .2s; color: var(--text-light); }
+        .filter-btn:hover { border-color: var(--warm); color: var(--warm); }
+        .filter-btn.active { background: var(--text); color: #fff; border-color: var(--text); }
+
+        /* Sections */
+        .section { margin-bottom: 36px; scroll-margin-top: 120px; }
+        .calendar-section { scroll-margin-top: 120px; }
+        .section-title { font-size: 16px; font-weight: 600; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; color: var(--text); }
+
+        /* SNS Section */
+        .sns-platform-tabs { display: flex; gap: 6px; margin-bottom: 16px; }
+        .sns-tab { padding: 6px 16px; border: 1px solid var(--border); background: var(--card); border-radius: 20px; cursor: pointer; font-size: 13px; font-family: inherit; transition: all .2s; display: flex; align-items: center; gap: 5px; color: var(--text-light); }
+        .sns-tab:hover { border-color: var(--text); color: var(--text); }
+        .sns-tab.active { background: var(--text); color: #fff; border-color: var(--text); }
+        .sns-tab .platform-dot { width: 7px; height: 7px; border-radius: 50%; }
+        .sns-tab .dot-x { background: var(--text-light); }
+        .sns-tab .dot-ig { background: var(--sns-ig); }
+        .sns-tab .dot-threads { background: var(--text-light); }
+        .sns-tab.active .dot-x, .sns-tab.active .dot-ig, .sns-tab.active .dot-threads { background: #fff; }
+
+        .sns-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(340px,1fr)); gap: 14px; }
+        .sns-card { background: var(--card); border-radius: 12px; padding: 18px; box-shadow: 0 1px 6px rgba(0,0,0,.04); border-left: 3px solid #D5CCC4; transition: all .2s; }
+        .sns-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.08); }
+        .sns-card.ig { border-left-color: var(--sns-ig); }
+        .sns-card.threads { border-left-color: var(--text-light); }
+        .sns-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .sns-hashtag { font-size: 15px; font-weight: 600; color: var(--text); }
+        .sns-volume { font-size: 11px; color: var(--text-light); background: var(--bg); padding: 3px 10px; border-radius: 10px; }
+        .sns-volume.up { color: #B85C3A; background: #FDF4F0; }
+        .sns-desc { font-size: 13px; color: var(--text-light); margin-bottom: 8px; line-height: 1.7; }
+        .sns-action { font-size: 13px; color: #5A7A5E; background: #F2F7F3; padding: 10px 14px; border-radius: 8px; margin-top: 10px; border-left: 3px solid #7BA07E; }
+
+        /* Hashtag Trends */
+        .hashtag-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap: 10px; }
+        .hashtag-card { background: var(--card); border-radius: 10px; padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.03); display: flex; justify-content: space-between; align-items: center; transition: all .2s; }
+        .hashtag-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+        .hashtag-info { flex: 1; }
+        .hashtag-name { font-size: 14px; font-weight: 600; color: var(--text); }
+        .hashtag-posts { font-size: 12px; color: var(--text-light); }
+        .hashtag-trend { text-align: right; }
+        .hashtag-change { font-size: 14px; font-weight: 700; }
+        .hashtag-change.up { color: #B85C3A; }
+        .hashtag-change.down { color: var(--tag-shoe); }
+        .hashtag-change.stable { color: var(--text-light); }
+        .hashtag-period { font-size: 11px; color: #aaa; }
+        .hashtag-bar { height: 3px; border-radius: 2px; margin-top: 8px; background: #EDE8E3; }
+        .hashtag-bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg,var(--primary),var(--accent)); }
+
+        /* Competitor */
+        .competitor-cat-tabs { display: flex; gap: 6px; margin-bottom: 16px; }
+        .competitor-cat-tab { padding: 6px 16px; border: 1px solid var(--border); background: var(--card); border-radius: 20px; cursor: pointer; font-size: 13px; font-family: inherit; transition: all .2s; color: var(--text-light); }
+        .competitor-cat-tab:hover { border-color: var(--text); color: var(--text); }
+        .competitor-cat-tab.active { background: var(--text); color: #fff; border-color: var(--text); }
+        .competitor-cat-tab.active-shoe { background: var(--tag-shoe); color: #fff; border-color: var(--tag-shoe); }
+        .competitor-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(340px,1fr)); gap: 14px; }
+        .competitor-card { background: var(--card); border-radius: 12px; padding: 18px; box-shadow: 0 1px 6px rgba(0,0,0,.04); border-left: 3px solid #D5CCC4; transition: all .2s; }
+        .competitor-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.08); }
+        .competitor-card.direct { border-left-color: var(--accent); }
+        .competitor-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .competitor-brand { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; color: var(--text); }
+        .competitor-type { font-size: 11px; padding: 3px 10px; border-radius: 10px; }
+        .competitor-type.direct { background: #FDF4F0; color: #B85C3A; }
+        .competitor-type.indirect { background: #FEF6EE; color: #C4884A; }
+        .competitor-price-range { font-size: 11px; padding: 3px 10px; border-radius: 10px; background: #F2F7F3; color: #5A7A5E; margin-left: 4px; }
+        .competitor-move { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+        .competitor-detail { font-size: 13px; color: var(--text-light); margin-bottom: 8px; line-height: 1.7; }
+
+        /* Topic / Campaign Cards */
+        .topics-grid, .campaign-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(340px,1fr)); gap: 14px; }
+        .topic-card { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 1px 6px rgba(0,0,0,.04); transition: all .2s; border-left: 3px solid transparent; }
+        .topic-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.08); }
+        .topic-card.hot { border-left-color: var(--accent); }
+        .topic-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .topic-title { font-size: 15px; font-weight: 600; flex: 1; color: var(--text); }
+        .hot-badge { background: #FDF4F0; color: #B85C3A; font-size: 11px; padding: 3px 10px; border-radius: 10px; white-space: nowrap; margin-left: 8px; }
+        .topic-desc { font-size: 13px; color: var(--text-light); margin-bottom: 10px; line-height: 1.7; }
+        .source-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .source-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--primary); text-decoration: none; background: var(--bg); padding: 4px 12px; border-radius: 14px; transition: all .2s; }
+        .source-link:hover { background: var(--primary); color: #fff; }
+        .source-link.shoe-link { color: var(--tag-shoe); background: #F0F3F6; }
+        .source-link.shoe-link:hover { background: var(--tag-shoe); color: #fff; }
+
+        .campaign-card { background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,.04); transition: all .2s; }
+        .campaign-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.08); }
+        .campaign-banner { height: 4px; background: linear-gradient(90deg,var(--primary),var(--accent)); }
+        .campaign-card.shoe .campaign-banner { background: linear-gradient(90deg,var(--tag-shoe),#95A5B2); }
+        .campaign-body { padding: 20px; }
+        .campaign-tags { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+        .tag { font-size: 11px; padding: 3px 10px; border-radius: 10px; font-weight: 500; }
+        .tag-bag { background: #F5EDE5; color: var(--tag-bag); }
+        .tag-shoe { background: #EEF1F4; color: var(--tag-shoe); }
+        .tag-online { background: #EDF4EF; color: var(--tag-online); }
+        .tag-offline { background: #F2EDF5; color: var(--tag-offline); }
+        .campaign-brand { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+        .campaign-name { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+        .campaign-desc { font-size: 13px; color: var(--text-light); margin-bottom: 12px; line-height: 1.7; }
+        .campaign-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--border); font-size: 13px; }
+        .campaign-date { color: var(--text-light); }
+        .campaign-price { font-weight: 700; color: var(--accent); }
+        .campaign-card.shoe .campaign-price { color: var(--tag-shoe); }
+
+        /* Action hint */
+        .action-hint { font-size: 13px; color: #5A7A5E; background: #F2F7F3; padding: 10px 14px; border-radius: 8px; margin-top: 10px; border-left: 3px solid #7BA07E; }
+
+        .age-tags { display: flex; gap: 6px; margin-top: 6px; }
+        .age-tag { font-size: 11px; padding: 2px 10px; border-radius: 10px; background: var(--bg); color: var(--text-light); }
+        .age-tag.highlight { background: #FEF6EE; color: #C4884A; }
+
+        .update-note { background: #FDFBF8; border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; margin-bottom: 20px; font-size: 13px; color: var(--text-light); line-height: 1.8; }
+
+        footer { text-align: center; padding: 36px 24px; color: var(--text-light); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        /* Tablet */
+        @media (max-width:768px) {
+            .header-inner { flex-direction: column; text-align: center; gap: 8px; }
+            .container { padding: 16px; }
+            .topics-grid,.campaign-grid,.sns-grid,.competitor-grid,.hashtag-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: repeat(2,1fr); gap: 8px; }
+            .archive-date-btn { min-width: 75px; padding: 6px 10px; }
+            .calendar-events { flex-direction: column; }
+            .cal-event { min-width: auto; }
+            .section-title { font-size: 15px; }
+        }
+
+        /* Mobile */
+        @media (max-width:480px) {
+            body { font-size: 13px; }
+            .header-inner { padding: 0 16px; }
+            .logo { font-size: 17px; }
+            .date-display { font-size: 11px; padding: 5px 12px; }
+            .container { padding: 12px; }
+
+            /* Section Index Nav - horizontal scroll on mobile */
+            .section-index-inner { padding: 8px 12px; gap: 2px; }
+            .section-index-btn { padding: 6px 10px; font-size: 11px; }
+            .section-index-btn .idx-icon { font-size: 12px; }
+            .section-index-btn .idx-label { font-size: 11px; }
+            .section-index-btn .idx-count { font-size: 9px; padding: 1px 5px; }
+
+            /* Archive */
+            .archive-bar { padding: 12px 14px; margin-bottom: 14px; }
+            .archive-dates { gap: 6px; }
+            .archive-date-btn { min-width: 68px; padding: 5px 8px; font-size: 12px; }
+            .archive-date-btn .date-label { font-size: 12px; }
+            .archive-date-btn .today-badge { font-size: 8px; }
+            .viewing-archive { padding: 8px 14px; font-size: 12px; flex-direction: column; gap: 8px; text-align: center; }
+
+            /* Stats */
+            .stats-bar { grid-template-columns: repeat(2,1fr); gap: 6px; margin-bottom: 16px; }
+            .stat-card { padding: 12px 8px; border-radius: 10px; }
+            .stat-card .number { font-size: 22px; }
+            .stat-card .label { font-size: 10px; }
+
+            /* Calendar */
+            .calendar-section { padding: 14px; margin-bottom: 16px; }
+            .calendar-title { font-size: 14px; }
+            .cal-event { padding: 12px 14px; }
+            .cal-event-name { font-size: 13px; }
+            .cal-event-hint { font-size: 11px; }
+
+            /* Update note */
+            .update-note { padding: 10px 14px; font-size: 12px; margin-bottom: 14px; line-height: 1.7; }
+
+            /* Section titles */
+            .section { margin-bottom: 24px; scroll-margin-top: 100px; }
+            .calendar-section { scroll-margin-top: 100px; }
+            .section-title { font-size: 14px; margin-bottom: 12px; padding-bottom: 8px; }
+
+            /* SNS */
+            .sns-platform-tabs { gap: 4px; flex-wrap: wrap; }
+            .sns-tab { padding: 5px 10px; font-size: 11px; }
+            .sns-grid { gap: 10px; }
+            .sns-card { padding: 14px; border-radius: 10px; }
+            .sns-hashtag { font-size: 14px; }
+            .sns-volume { font-size: 10px; padding: 2px 8px; }
+            .sns-desc { font-size: 12px; }
+            .sns-action { font-size: 12px; padding: 8px 12px; }
+
+            /* Hashtag */
+            .hashtag-grid { gap: 8px; }
+            .hashtag-card { padding: 12px 14px; }
+            .hashtag-name { font-size: 13px; }
+            .hashtag-posts { font-size: 11px; }
+            .hashtag-change { font-size: 13px; }
+
+            /* Competitor */
+            .competitor-cat-tabs { gap: 4px; flex-wrap: wrap; }
+            .competitor-cat-tab { padding: 5px 12px; font-size: 11px; }
+            .competitor-grid { gap: 10px; }
+            .competitor-card { padding: 14px; border-radius: 10px; }
+            .competitor-brand { font-size: 12px; }
+            .competitor-type { font-size: 10px; padding: 2px 8px; }
+            .competitor-price-range { font-size: 10px; padding: 2px 6px; }
+            .competitor-move { font-size: 14px; margin-bottom: 4px; }
+            .competitor-detail { font-size: 12px; }
+
+            /* Topics */
+            .topics-grid { gap: 10px; }
+            .topic-card { padding: 14px; border-radius: 10px; }
+            .topic-title { font-size: 14px; }
+            .topic-desc { font-size: 12px; }
+            .hot-badge { font-size: 10px; padding: 2px 8px; }
+            .action-hint { font-size: 12px; padding: 8px 12px; }
+            .age-tags { gap: 4px; }
+            .age-tag { font-size: 10px; padding: 2px 8px; }
+
+            /* Campaigns */
+            .campaign-grid { gap: 10px; }
+            .campaign-body { padding: 14px; }
+            .campaign-brand { font-size: 10px; }
+            .campaign-name { font-size: 14px; margin-bottom: 6px; }
+            .campaign-desc { font-size: 12px; margin-bottom: 10px; }
+            .campaign-meta { font-size: 12px; padding-top: 10px; }
+            .campaign-price { font-size: 13px; }
+            .tag { font-size: 10px; padding: 2px 8px; }
+
+            /* Source links */
+            .source-links { gap: 4px; margin-top: 8px; }
+            .source-link { font-size: 11px; padding: 3px 10px; }
+
+            /* Filter */
+            .filter-bar { gap: 6px; margin-bottom: 16px; }
+            .filter-bar label { font-size: 12px; }
+            .filter-btn { padding: 5px 12px; font-size: 12px; }
+
+            /* Footer */
+            footer { padding: 24px 16px; font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">DH<span>internal</span> MktInfo</div>
+        <div class="date-display" id="currentDate"></div>
+    </div>
+</header>
+
+<div class="section-index" id="sectionIndex">
+    <div class="section-index-inner" id="sectionIndexInner"></div>
+</div>
+
+<div class="container">
+
+    <div class="update-note">
+        📅 本ページは毎日更新されます。日本の30〜60代女性に人気のトレンドとキャンペーン情報を収集・掲載しています。<br>
+        対象カテゴリ：👜 バッグ（客単価 ¥30,000前後）/ 👟 シューズ（客単価 ¥20,000前後）
+    </div>
+
+    <!-- Quick Nav -->
+    <div class="quick-nav">
+        <a class="qnav-btn" href="#calendarSection">📅 営業カレンダー</a>
+        <a class="qnav-btn" href="#snsSection">📱 SNS話題</a>
+        <a class="qnav-btn" href="#hashtagSection">📊 Hashtag動向</a>
+        <a class="qnav-btn" href="#competitorSection">🔍 競合動向</a>
+        <a class="qnav-btn" href="#topicSection">🔥 トピック</a>
+        <a class="qnav-btn" href="#bagSection">👜 バッグ</a>
+        <a class="qnav-btn" href="#shoeSection">👟 シューズ</a>
+    </div>
+
+    <!-- Archive -->
+    <div class="archive-bar">
+        <div class="archive-header">
+            <div class="archive-title">📂 日付を選択</div>
+            <div class="archive-count" id="archiveCount"></div>
+        </div>
+        <div class="archive-dates" id="archiveDates"></div>
+    </div>
+    <div class="viewing-archive hidden" id="viewingArchive">
+        <span id="archiveLabel"></span>
+        <button class="back-today-btn" onclick="switchToDate(ALL_DATA[0].date)">最新に戻る</button>
+    </div>
+
+    <div class="stats-bar" id="statsBar"></div>
+
+    <!-- Marketing Calendar -->
+    <div class="calendar-section" id="calendarSection">
+        <div class="calendar-header">
+            <div class="calendar-title">📅 直近の営業カレンダー（日本市場）</div>
+        </div>
+        <div class="calendar-events" id="calendarEvents"></div>
+    </div>
+
+    <!-- SNS Hot Topics -->
+    <div class="section" id="snsSection">
+        <div class="section-title">📱 SNS 話題トピック</div>
+        <div class="sns-platform-tabs" id="snsTabs"></div>
+        <div class="sns-grid" id="snsGrid"></div>
+    </div>
+
+    <!-- Hashtag Trends -->
+    <div class="section" id="hashtagSection">
+        <div class="section-title">📊 注目キーワード & Hashtag 動向</div>
+        <div class="hashtag-grid" id="hashtagGrid"></div>
+    </div>
+
+    <!-- Competitor Watch -->
+    <div class="section" id="competitorSection">
+        <div class="section-title">🔍 競合ブランド動向</div>
+        <div class="competitor-cat-tabs" id="competitorTabs"></div>
+        <div class="competitor-grid" id="competitorGrid"></div>
+    </div>
+
+    <div class="filter-bar">
+        <label>フィルター：</label>
+        <button class="filter-btn active" data-filter="all">すべて</button>
+        <button class="filter-btn" data-filter="bag">👜 バッグ</button>
+        <button class="filter-btn" data-filter="shoe">👟 シューズ</button>
+        <button class="filter-btn" data-filter="online">🌐 オンライン</button>
+        <button class="filter-btn" data-filter="offline">🏬 オフライン</button>
+    </div>
+
+    <!-- Topics -->
+    <div class="section" id="topicSection">
+        <div class="section-title" id="topicSectionTitle">🔥 今日の注目トピック（30〜60代女性）</div>
+        <div class="topics-grid" id="topicsGrid"></div>
+    </div>
+
+    <!-- Bag Campaigns -->
+    <div class="section" id="bagSection">
+        <div class="section-title">👜 バッグ キャンペーン情報（客単価 ¥30,000）</div>
+        <div class="campaign-grid" id="bagGrid"></div>
+    </div>
+
+    <!-- Shoe Campaigns -->
+    <div class="section" id="shoeSection">
+        <div class="section-title">👟 シューズ キャンペーン情報（客単価 ¥20,000）</div>
+        <div class="campaign-grid" id="shoeGrid"></div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 DHinternal MktInfo — 30〜60代日本女性向けトレンド＆キャンペーン情報<br>
+    データソース: 各ブランド公式サイト・SNS・ECプラットフォーム
+</footer>
+
+<script>
+// ============================================================
+// MARKETING CALENDAR (固定データ、手動更新)
+// ============================================================
+const CALENDAR = [
+    { date: "2026-03-20", name: "春分の日", hint: "春の装いコーデ投稿のタイミング", category: "祝日" },
+    { date: "2026-04-01", name: "新年度・入社式", hint: "通勤バッグ/パンプス訴求のピーク。「新生活応援」切り口", category: "ビジネス" },
+    { date: "2026-04-07", name: "入学式シーズン（〜4月中旬）", hint: "フォーマルバッグ/シューズ。30代ママ＋50代祖母向け", category: "イベント" },
+    { date: "2026-04-29", name: "昭和の日（GW開始）", hint: "GWお出かけ用バッグ/歩きやすい靴の訴求開始", category: "祝日" },
+    { date: "2026-05-05", name: "ゴールデンウィーク", hint: "旅行・レジャー向けバッグ特集。セール連動も", category: "大型連休" },
+    { date: "2026-05-10", name: "母の日", hint: "最重要ギフト商戦。40〜60代向け上質バッグ/靴ギフト。4月から仕込み", category: "ギフト商戦" },
+    { date: "2026-06-01", name: "衣替え", hint: "夏バッグ切替。カゴバッグ・リネン素材提案", category: "季節" },
+    { date: "2026-06-21", name: "父の日", hint: "直接関係薄いが「自分へのご褒美」切り口で女性向け訴求可", category: "ギフト商戦" },
+];
+
+// ============================================================
+// ALL_DATA — 日付別アーカイブ
+// ============================================================
+const ALL_DATA = [
+// ==================== 2026-03-17 ====================
+{
+    date: "2026-03-17",
+
+    // --- SNS話題 ---
+    sns: [
+        {
+            platform: "x",
+            hashtag: "#春バッグ2026",
+            volume: "12,400件/日",
+            trend: "+180%",
+            desc: "春の新作バッグ投稿が急増。40代女性インフルエンサーの「通勤バッグ中身紹介」が5,000RT超え。",
+            action: "【施策案】自社バッグの「中身紹介」投稿を今週中に。ユーザー投稿を促すリポストキャンペーンも有効。",
+            sources: [{ name: "X検索", url: "https://x.com/search?q=%23%E6%98%A5%E3%83%90%E3%83%83%E3%82%B02026" }]
+        },
+        {
+            platform: "x",
+            hashtag: "#美脚パンプス",
+            volume: "3,200件/日",
+            trend: "+85%",
+            desc: "「歩ける美脚パンプス」のクチコミ投稿が増加。銀座かねまつ・卑弥呼の比較ツイートがバズ。",
+            action: "【施策案】「歩きやすさ×美脚」のビフォーアフター動画コンテンツが効果的。比較レビューに参戦すべき。",
+            sources: [{ name: "X検索", url: "https://x.com/search?q=%23%E7%BE%8E%E8%84%9A%E3%83%91%E3%83%B3%E3%83%97%E3%82%B9" }]
+        },
+        {
+            platform: "instagram",
+            hashtag: "#大人バッグコーデ",
+            volume: "8,700件/週",
+            trend: "+120%",
+            desc: "40〜50代向けファッションアカウントで「きれいめバッグ×カジュアル」のミックスコーデが流行。リール動画中心。",
+            action: "【施策案】リール動画で「1つのバッグ×3コーデ」提案。40代モデル起用がエンゲージメント高い。",
+            sources: [{ name: "Instagram", url: "https://www.instagram.com/explore/tags/%E5%A4%A7%E4%BA%BA%E3%83%90%E3%83%83%E3%82%B0%E3%82%B3%E3%83%BC%E3%83%87/" }]
+        },
+        {
+            platform: "instagram",
+            hashtag: "#卒入園ママコーデ",
+            volume: "15,200件/週",
+            trend: "+250%",
+            desc: "3月の式典シーズンで爆発的に増加。30代ママのフォーマルコーデ（バッグ+パンプスセット）投稿が中心。",
+            action: "【施策案】「式典3点セット（バッグ+靴+サブバッグ）」提案コンテンツ。今が旬、即投稿すべき。",
+            sources: [{ name: "Instagram", url: "https://www.instagram.com/explore/tags/%E5%8D%92%E5%85%A5%E5%9C%92%E3%83%9E%E3%83%9E%E3%82%B3%E3%83%BC%E3%83%87/" }]
+        },
+        {
+            platform: "threads",
+            hashtag: "通勤バッグ論争",
+            volume: "話題投稿300+",
+            trend: "トレンド入り",
+            desc: "「通勤バッグは軽さ？見た目？収納力？」の論争スレッドが盛り上がり。40代キャリア女性の本音が多数。",
+            action: "【施策案】自社アカウントで「あなたは何派？」のアンケート投稿。ユーザーの本音収集にも活用可。",
+            sources: [{ name: "Threads", url: "https://www.threads.net/search?q=%E9%80%9A%E5%8B%A4%E3%83%90%E3%83%83%E3%82%B0" }]
+        },
+        {
+            platform: "threads",
+            hashtag: "足に合う靴探し",
+            volume: "話題投稿180+",
+            trend: "+60%",
+            desc: "50〜60代女性による「足に合う靴が見つからない」体験談スレッドが共感を呼ぶ。ワイドフィット・外反母趾対策が話題。",
+            action: "【施策案】「足の悩み別おすすめ靴ガイド」コンテンツ。共感型の体験談投稿が効くプラットフォーム。",
+            sources: [{ name: "Threads", url: "https://www.threads.net/search?q=%E8%B6%B3%E3%81%AB%E5%90%88%E3%81%86%E9%9D%B4" }]
+        }
+    ],
+
+    // --- Hashtag動向 ---
+    hashtags: [
+        { tag: "#春バッグ", posts: "45,200", change: "+180%", direction: "up", heat: 95 },
+        { tag: "#卒入園コーデ", posts: "38,900", change: "+250%", direction: "up", heat: 90 },
+        { tag: "#美脚パンプス", posts: "22,100", change: "+85%", direction: "up", heat: 75 },
+        { tag: "#大人カジュアル", posts: "128,000", change: "+12%", direction: "up", heat: 60 },
+        { tag: "#通勤バッグ", posts: "31,500", change: "+45%", direction: "up", heat: 70 },
+        { tag: "#サステナブルファッション", posts: "18,400", change: "+30%", direction: "up", heat: 55 },
+        { tag: "#推し活バッグ", posts: "12,800", change: "+65%", direction: "up", heat: 50 },
+        { tag: "#ワイドフィットシューズ", posts: "5,200", change: "+40%", direction: "up", heat: 45 },
+        { tag: "#母の日ギフト", posts: "8,900", change: "+320%", direction: "up", heat: 85 },
+        { tag: "#レザートート", posts: "9,100", change: "-5%", direction: "stable", heat: 35 }
+    ],
+
+    // --- 競合動向（バッグ） ---
+    competitors: [
+        // ===== バッグブランド =====
+        {
+            brand: "COACH Japan", type: "direct", category: "bag", priceRange: "¥25,000〜¥45,000",
+            move: "アウトレット50%OFFセール開始 + LINE友達限定クーポン",
+            detail: "3/14からアウトレット全店でスプリングセール。LINE公式アカウントで追加10%OFFクーポン配布。若年層からミドル世代まで幅広く集客。",
+            action: "【対策】同価格帯での差別化が必要。「日本製」「職人品質」など品質訴求で対抗。クーポン戦略の検討も。",
+            sources: [{ name: "COACH公式", url: "https://japan.coach.com/" }]
+        },
+        {
+            brand: "FURLA", type: "direct", category: "bag", priceRange: "¥28,000〜¥48,000",
+            move: "春夏新作を会員限定プレセールで先行発売",
+            detail: "公式オンライン会員限定で新作先行販売。ノベルティポーチプレゼント付き。Instagram広告を積極展開中。",
+            action: "【対策】会員施策の強化。先行販売やノベルティなど「会員限定感」の演出を参考にすべき。",
+            sources: [{ name: "FURLA公式", url: "https://www.furla.com/jp/" }]
+        },
+        {
+            brand: "土屋鞄製造所", type: "indirect", category: "bag", priceRange: "¥30,000〜¥50,000",
+            move: "「春の装い展」で職人ワークショップ同時開催",
+            detail: "表参道・日本橋で体験型イベント。SNSでの拡散を狙い、フォトスポット設置。修理永久保証をUSPとして訴求。",
+            action: "【参考】体験型コンテンツ×SNS拡散の好事例。「永久保証」のような長期信頼施策も検討価値あり。",
+            sources: [{ name: "土屋鞄", url: "https://tsuchiya-kaban.jp/" }]
+        },
+        {
+            brand: "ATAO（アタオ）", type: "direct", category: "bag", priceRange: "¥25,000〜¥38,000",
+            move: "新作「elvy」シリーズ発売 + 楽天スーパーSALEにエントリー",
+            detail: "神戸発のレザーバッグブランド。薄型・軽量のお財布ポシェットが30〜40代に大人気。楽天ランキング常連でEC力が強い。",
+            action: "【対策】EC販売力が強い競合。楽天内SEOとレビュー施策の強化を。薄型・軽量訴求は参考になる。",
+            sources: [{ name: "ATAO公式", url: "https://ataoland.com/" }]
+        },
+        {
+            brand: "HAYNI（ヘイニ）", type: "direct", category: "bag", priceRange: "¥15,000〜¥30,000",
+            move: "春の新色追加 & インフルエンサーPR強化",
+            detail: "本革バッグをEC中心に展開。Instagram施策に力を入れ、30〜40代主婦層にリーチ。レビュー数も非常に多い。",
+            action: "【参考】インフルエンサー×EC直販モデルの好例。UGC施策の強化を検討。",
+            sources: [{ name: "HAYNI公式", url: "https://hayni.jp/" }]
+        },
+        {
+            brand: "Dakota（ダコタ）", type: "direct", category: "bag", priceRange: "¥18,000〜¥35,000",
+            move: "母の日ギフト特集を早期スタート、名入れサービス開始",
+            detail: "ナチュラルレザーで40〜60代に根強い人気。百貨店での取り扱いも多く、ギフト需要を早めに取り込む戦略。",
+            action: "【対策】母の日需要の先取りは重要。名入れ・ラッピングなどギフト対応強化を検討。",
+            sources: [{ name: "Dakota公式", url: "https://www.dakota-bag.com/" }]
+        },
+        {
+            brand: "aniary（アニアリ）", type: "direct", category: "bag", priceRange: "¥28,000〜¥42,000",
+            move: "新レザーシリーズ発表 + 直営店フェア",
+            detail: "日本製革小物・バッグブランド。カラーバリエーションが豊富。ユニセックスだが40代女性の通勤バッグとして支持。",
+            action: "【参考】カラー展開の豊富さは差別化要素。自社商品のカラバリ拡充を検討。",
+            sources: [{ name: "aniary公式", url: "https://www.aniary.com/" }]
+        },
+        {
+            brand: "Cledran（クレドラン）", type: "direct", category: "bag", priceRange: "¥22,000〜¥38,000",
+            move: "春夏コレクション展示会 + 刻印無料キャンペーン",
+            detail: "大阪発の革製品ブランド。ナチュラル系ファッション誌に多数掲載。30〜50代の「大人かわいい」層に支持。",
+            action: "【参考】ライフスタイル誌との連携が上手い。メディアリレーション強化を。",
+            sources: [{ name: "Cledran公式", url: "https://www.cledran.com/" }]
+        },
+        {
+            brand: "NAGATANI（ナガタニ）", type: "direct", category: "bag", priceRange: "¥25,000〜¥45,000",
+            move: "エキゾチックレザー新作発表 + 銀座ショールーム限定フェア",
+            detail: "日本製ハンドメイドの高品質バッグ。エキゾチックレザーに強み。50〜60代の上質志向層をターゲット。",
+            action: "【参考】「日本の職人技」訴求の好例。上質志向のコンテンツマーケティングに活用。",
+            sources: [{ name: "NAGATANI公式", url: "https://nagatani.co.jp/" }]
+        },
+        {
+            brand: "AETHER（エーテル）", type: "direct", category: "bag", priceRange: "¥28,000〜¥42,000",
+            move: "桜レザーシリーズの春限定カラー発売 + SNSキャンペーン",
+            detail: "花柄レザーが特徴的な女性向けブランド。桜モチーフが毎年SNSで話題に。30〜40代のEC購入が中心。",
+            action: "【対策】季節限定・数量限定の訴求は参考になる。自社でも春限定カラーの展開を検討。",
+            sources: [{ name: "AETHER公式", url: "https://afrench.net/" }]
+        },
+        {
+            brand: "Kitamura（キタムラ）", type: "direct", category: "bag", priceRange: "¥20,000〜¥38,000",
+            move: "横浜元町本店リニューアル記念フェア + オンライン同時開催",
+            detail: "横浜発の老舗バッグブランド。40〜60代に圧倒的な知名度。百貨店チャネルが強い。",
+            action: "【対策】同年齢層をターゲットとする強力な競合。品質と価格帯が近いため、独自のブランドストーリーで差別化。",
+            sources: [{ name: "Kitamura公式", url: "https://www.kitamura.co.jp/" }]
+        },
+        {
+            brand: "russet（ラシット）", type: "direct", category: "bag", priceRange: "¥18,000〜¥32,000",
+            move: "新作モノグラムシリーズ + 伊勢丹ポップアップ",
+            detail: "軽量ナイロン×レザーのコンビが人気。通勤バッグとして30〜50代に支持。百貨店との連携が強い。",
+            action: "【参考】軽量素材の訴求力は高い。異素材コンビネーションの商品開発を検討。",
+            sources: [{ name: "russet公式", url: "https://www.russet.jp/" }]
+        },
+        {
+            brand: "BARCOS（バルコス）", type: "direct", category: "bag", priceRange: "¥15,000〜¥30,000",
+            move: "TV通販で春の新作特集 + 楽天ポイント10倍キャンペーン",
+            detail: "鳥取発の革バッグブランド。テレビ通販に強くシニア層のリーチ力が高い。楽天でも上位常連。",
+            action: "【参考】テレビ通販×EC連携の成功事例。シニア層へのリーチ手段として検討。",
+            sources: [{ name: "BARCOS公式", url: "https://www.barcos.co.jp/" }]
+        },
+        {
+            brand: "MOTHERHOUSE", type: "indirect", category: "bag", priceRange: "¥25,000〜¥45,000",
+            move: "「春のクラフトフェア」開催 + リペアサービスPR強化",
+            detail: "途上国生産のソーシャルブランド。サステナブル志向の30〜40代に強い支持。直営店舗を積極展開中。",
+            action: "【参考】サステナブル訴求の好例。自社のエシカルな取り組みをコンテンツ化して発信。",
+            sources: [{ name: "MOTHERHOUSE公式", url: "https://www.mother-house.jp/" }]
+        },
+        {
+            brand: "GIANNI CHIARINI", type: "direct", category: "bag", priceRange: "¥25,000〜¥40,000",
+            move: "日本限定カラーの春新作発売 + Instagram PR投稿増加",
+            detail: "イタリア発で日本市場でも人気急上昇。軽量レザーと手頃な価格帯で30〜50代のおしゃれ層に支持。",
+            action: "【対策】インポートブランドの価格競争力に注目。日本限定施策は参考になる。",
+            sources: [{ name: "GIANNI CHIARINI Japan", url: "https://giannichiarini.jp/" }]
+        },
+
+        // ===== シューズブランド =====
+        {
+            brand: "銀座かねまつ", type: "direct", category: "shoe", priceRange: "¥18,000〜¥28,000",
+            move: "セミオーダーパンプス15%OFF + 足型計測無料イベント",
+            detail: "銀座本店でフィッティングイベント開催。「50〜60代の足の悩みに寄り添う」をテーマに集客。SNSでの口コミ評価も高い。",
+            action: "【対策】体験型イベントは差別化要素大。自社でもポップアップでのフィッティング体験を検討。",
+            sources: [{ name: "銀座かねまつ", url: "https://www.ginza-kanematsu.co.jp/" }]
+        },
+        {
+            brand: "DIANA", type: "direct", category: "shoe", priceRange: "¥15,000〜¥25,000",
+            move: "公式アプリ会員限定で最大20%OFFスプリングセール",
+            detail: "アプリDL促進を兼ねたセール。ポイント3倍＋対象50型が割引。30〜40代向けSNS広告を強化中。",
+            action: "【対策】アプリ施策は今後の顧客囲い込みに重要。自社アプリorLINEミニアプリでの施策構築を検討。",
+            sources: [{ name: "DIANA公式", url: "https://www.dianashoes.com/" }]
+        },
+        {
+            brand: "卑弥呼（himiko）", type: "direct", category: "shoe", priceRange: "¥15,000〜¥25,000",
+            move: "春の「美脚パンプスフェア」開催 + オンライン限定カラー発売",
+            detail: "日本の老舗婦人靴ブランド。百貨店チャネルに強い。40〜60代の定番として根強い人気。クッション性を改良した新ラインが好評。",
+            action: "【対策】同年齢層を狙う直接競合。「履き心地」×「美脚」の訴求ポイントで差別化が必要。",
+            sources: [{ name: "卑弥呼公式", url: "https://www.himiko.co.jp/" }]
+        },
+        {
+            brand: "MAMIAN", type: "direct", category: "shoe", priceRange: "¥14,000〜¥22,000",
+            move: "楽天スーパーSALE参加 + レビューキャンペーン",
+            detail: "EC特化の美脚パンプスブランド。楽天ランキング常連。30〜40代のコスパ重視層に人気。サイズ交換無料が強み。",
+            action: "【参考】EC特化＋レビュー重視のビジネスモデル。レビュー促進施策は参考になる。",
+            sources: [{ name: "MAMIAN公式", url: "https://www.mamian.co.jp/" }]
+        },
+        {
+            brand: "REGAL Ladies", type: "direct", category: "shoe", priceRange: "¥16,000〜¥26,000",
+            move: "スプリングコレクション発売 + 百貨店フェア",
+            detail: "日本の定番革靴ブランドのレディースライン。品質の安定感で40〜60代に信頼。ローファーが特に人気。",
+            action: "【対策】品質・信頼感では強力な競合。「品質＋デザイン性」の二軸で差別化を。",
+            sources: [{ name: "REGAL公式", url: "https://www.regal.co.jp/" }]
+        },
+        {
+            brand: "Odette e Odile", type: "direct", category: "shoe", priceRange: "¥15,000〜¥25,000",
+            move: "UNITED ARROWS系列春フェア + ポイント5倍",
+            detail: "UA系のシューズブランド。トレンド感と履きやすさのバランスが良く30〜40代に人気。セレクトショップ経由の販売も多い。",
+            sources: [{ name: "Odette e Odile", url: "https://store.united-arrows.co.jp/brand/odetteeodile/" }],
+            action: "【参考】セレクトショップ系ブランドの卸チャネル拡大に注目。BtoB連携の検討も。"
+        },
+        {
+            brand: "FABIO RUSCONI", type: "direct", category: "shoe", priceRange: "¥20,000〜¥30,000",
+            move: "春夏新作入荷 + セレクトショップでのフェア展開",
+            detail: "イタリア発で日本市場に定着。上品なデザインが40〜50代に支持。ESTNATION等セレクト系で展開。",
+            action: "【参考】インポート靴の価格帯が近い。「デザイン×快適性」で対抗できるポジション。",
+            sources: [{ name: "FABIO RUSCONI", url: "https://fabiorusconi.jp/" }]
+        },
+        {
+            brand: "PELLICO", type: "direct", category: "shoe", priceRange: "¥22,000〜¥35,000",
+            move: "「アネッリ」パンプス新色追加 + 伊勢丹限定展開",
+            detail: "イタリア製の高品質パンプス。8cmヒールでも歩けると定評。40〜50代の「きちんと」需要に強い。",
+            action: "【対策】やや高価格帯だが品質で支持される競合。自社の価格優位性を訴求するチャンス。",
+            sources: [{ name: "PELLICO Japan", url: "https://www.pellico.jp/" }]
+        },
+        {
+            brand: "fitfit（フィットフィット）", type: "direct", category: "shoe", priceRange: "¥12,000〜¥20,000",
+            move: "春の新作ウォーキングパンプス + テレビ通販スペシャル",
+            detail: "外反母趾対応シューズで50〜60代に圧倒的な支持。テレビ通販で高い販売力。「痛くない靴」のポジション確立。",
+            action: "【対策】シニア層へのリーチ力が非常に強い。健康・快適訴求は自社でも取り入れるべき。",
+            sources: [{ name: "fitfit公式", url: "https://www.fitfit.jp/" }]
+        },
+        {
+            brand: "Velikoko（ヴェリココ）", type: "direct", category: "shoe", priceRange: "¥8,000〜¥18,000",
+            move: "「らくちんきれいパンプス」春の新色12色展開",
+            detail: "マルイのPBシューズ。「走れるパンプス」として30〜50代に大人気。サイズ展開の広さとEC試着が強み。",
+            action: "【対策】価格競争力が非常に高い。自社は「質感・高級感」で差別化。マルイ系EC（d fashion等）の動向にも注意。",
+            sources: [{ name: "Velikoko（マルイ）", url: "https://www.0101.co.jp/vericocobyfitfit/" }]
+        },
+        {
+            brand: "SAYA（サヤ）", type: "direct", category: "shoe", priceRange: "¥18,000〜¥28,000",
+            move: "春の新作レザーシューズ入荷 + 直営店フェア",
+            detail: "日本製の丁寧なものづくりが特徴。ナチュラル系ファッション層（40〜60代）に根強い人気。リピーターが多い。",
+            action: "【参考】「日本製×ナチュラル」のポジション。リピーター育成の仕組みは参考になる。",
+            sources: [{ name: "SAYA公式", url: "https://saya-shoes.com/" }]
+        },
+        {
+            brand: "RABOKIGOSHI works", type: "direct", category: "shoe", priceRange: "¥16,000〜¥24,000",
+            move: "春夏コレクション展開 + 百貨店ポップアップ",
+            detail: "神戸発のコンフォートシューズ。デザイン性と履き心地の両立で40〜50代に支持。百貨店での取り扱い拡大中。",
+            action: "【参考】コンフォート×デザインの好事例。ポップアップ出店戦略も参考になる。",
+            sources: [{ name: "RABOKIGOSHI", url: "https://www.rabokigoshi.com/" }]
+        },
+        {
+            brand: "YOSHITO（ヨシト）", type: "direct", category: "shoe", priceRange: "¥18,000〜¥28,000",
+            move: "百貨店フェアで新作展開 + 顧客限定サイズオーダー会",
+            detail: "日本製パンプスの老舗。足に優しい設計で50〜60代に人気。百貨店の婦人靴売場で高い存在感。",
+            action: "【参考】サイズオーダー会はCRM施策として有効。自社でも顧客限定イベントの検討を。",
+            sources: [{ name: "YOSHITO", url: "https://www.yoshito.co.jp/" }]
+        },
+        {
+            brand: "ing（イング）", type: "direct", category: "shoe", priceRange: "¥13,000〜¥20,000",
+            move: "春のコンフォートパンプスフェア + ポイント還元キャンペーン",
+            detail: "「究極の履き心地」がコンセプト。30〜50代のOL層に人気。マルイやルミネでの販売が中心。",
+            action: "【参考】ファッションビル系チャネルの開拓に参考になる。「快適通勤靴」の訴求も。",
+            sources: [{ name: "ing公式", url: "https://www.ing-shoes.com/" }]
+        }
+    ],
+
+    // --- トピック（既存 + actionヒント追加） ---
+    topics: [
+        {
+            title: "春のミニマル通勤バッグ特集",
+            desc: "40〜50代のキャリア女性を中心に、軽量・A4対応のミニマルバッグが注目。特にベージュ・グレージュ系が人気。",
+            hot: true, ageGroup: ["40代","50代"],
+            action: "「軽量×A4対応」を軸にした商品特集ページを作成。ベージュ系の在庫を確認し、SNSで先行公開。",
+            sources: [
+                { name: "VERY 3月号", url: "https://veryweb.jp/" },
+                { name: "STORY 3月号", url: "https://storyweb.jp/" },
+                { name: "X トレンド", url: "https://x.com/search?q=%E9%80%9A%E5%8B%A4%E3%83%90%E3%83%83%E3%82%B0%E3%80%80%E8%BB%BD%E9%87%8F" }
+            ]
+        },
+        {
+            title: "歩きやすさ重視の「美脚パンプス」再ブーム",
+            desc: "50〜60代を中心に、5cm以下ヒール＋クッション性の高いパンプスの検索数が前月比35%増。",
+            hot: true, ageGroup: ["50代","60代"],
+            action: "「5cmヒール美脚パンプス」の比較コンテンツを作成。クッション性をアピールする動画が効果的。",
+            sources: [
+                { name: "楽天トレンド", url: "https://ranking.rakuten.co.jp/keyword/" },
+                { name: "Google Trends", url: "https://trends.google.co.jp/trends/explore?geo=JP&q=%E7%BE%8E%E8%84%9A%E3%83%91%E3%83%B3%E3%83%97%E3%82%B9" }
+            ]
+        },
+        {
+            title: "「推し活バッグ」ミドル世代にも拡大",
+            desc: "30〜40代女性の間で、推し活グッズ収納に適した整理ポケット付きトートが話題。カジュアルすぎないデザインが支持。",
+            hot: false, ageGroup: ["30代","40代"],
+            action: "「大人の推し活」切り口でバッグを訴求。ポケット数や整理機能を訴求ポイントに。",
+            sources: [
+                { name: "Instagram #推し活コーデ", url: "https://www.instagram.com/explore/tags/%E6%8E%A8%E3%81%97%E6%B4%BB%E3%82%B3%E3%83%BC%E3%83%87/" },
+                { name: "note.com", url: "https://note.com/search?q=%E6%8E%A8%E3%81%97%E6%B4%BB%E3%83%90%E3%83%83%E3%82%B0" }
+            ]
+        },
+        {
+            title: "母の日ギフト需要が早期化",
+            desc: "3月中旬から母の日向けバッグ・靴の検索が開始。30代からの母へのギフト、50〜60代向け商品が対象。",
+            hot: true, ageGroup: ["50代","60代"],
+            action: "母の日ギフト特集を今週から開始。「名入れ」「ラッピング無料」「メッセージカード」付きで差別化。",
+            sources: [
+                { name: "Yahoo!ショッピング", url: "https://shopping.yahoo.co.jp/search?p=%E6%AF%8D%E3%81%AE%E6%97%A5+%E3%83%90%E3%83%83%E3%82%B0" },
+                { name: "楽天市場", url: "https://search.rakuten.co.jp/search/mall/%E6%AF%8D%E3%81%AE%E6%97%A5+%E3%83%90%E3%83%83%E3%82%B0/" }
+            ]
+        }
+    ],
+
+    // --- バッグ Campaign ---
+    bagCampaigns: [
+        {
+            brand: "TOPKAPI", name: "春の新作レザートート 先行予約 10%OFF",
+            desc: "スコッチグレインネオレザー使用の通勤トート。A4対応・軽量設計。先行予約で10%OFF＋送料無料。",
+            channel: "online", price: "¥28,600 → ¥25,740", date: "2026/3/15 〜 3/31", ageTarget: ["40代","50代"],
+            sources: [{ name: "TOPKAPI 公式", url: "https://topkapi.co.jp/" }, { name: "楽天ショップ", url: "https://www.rakuten.co.jp/topkapi/" }]
+        },
+        {
+            brand: "HAYNI（ヘイニ）", name: "本革2WAYショルダーバッグ 春カラー記念セール",
+            desc: "累計10万個突破の人気シリーズ春色4カラー追加。購入者全員にレザークリームプレゼント。",
+            channel: "online", price: "¥29,800", date: "2026/3/10 〜 4/10", ageTarget: ["30代","40代"],
+            sources: [{ name: "HAYNI 公式", url: "https://hayni.jp/" }, { name: "Instagram", url: "https://www.instagram.com/hayni_bag/" }]
+        },
+        {
+            brand: "ATAO（アタオ）", name: "神戸本店リニューアル記念フェア",
+            desc: "店頭限定カラーのelvy（エルヴィ）発売。ノベルティ付き＋名入れ無料サービス。",
+            channel: "offline", price: "¥31,900", date: "2026/3/20 〜 4/5", ageTarget: ["30代","40代","50代"],
+            sources: [{ name: "ATAO 公式", url: "https://atao-official.com/" }, { name: "店舗情報", url: "https://atao-official.com/shop/" }]
+        },
+        {
+            brand: "傳濱野はんどばっぐ", name: "皇室御用達ブランド 春のフォーマルバッグフェア",
+            desc: "入学式・卒業式シーズンに向けたフォーマルバッグフェア。日本橋高島屋にて対面接客＋オンラインでも同時開催。",
+            channel: "offline", price: "¥33,000〜", date: "2026/3/1 〜 4/15", ageTarget: ["40代","50代"],
+            sources: [{ name: "傳濱野 公式", url: "https://denhamanobag.jp/" }, { name: "高島屋オンライン", url: "https://www.takashimaya.co.jp/" }]
+        }
+    ],
+
+    // --- シューズ Campaign ---
+    shoeCampaigns: [
+        {
+            brand: "卑弥呼（HIMIKO）", name: "スプリングコレクション＋サイズ交換無料",
+            desc: "美脚ポインテッドパンプス新色5色追加。オンライン限定でサイズ交換何度でも無料。",
+            channel: "online", price: "¥19,800", date: "2026/3/10 〜 4/20", ageTarget: ["30代","40代"],
+            sources: [{ name: "卑弥呼 公式", url: "https://www.himiko.co.jp/" }]
+        },
+        {
+            brand: "REGAL LADIES", name: "歩けるパンプス 春キャンペーン",
+            desc: "クッション内蔵パンプス購入で靴磨きセットプレゼント。公式オンラインストア＋全国百貨店同時開催。",
+            channel: "online", price: "¥20,900", date: "2026/3/15 〜 3/31", ageTarget: ["40代","50代"],
+            sources: [{ name: "REGAL 公式", url: "https://www.regal.co.jp/" }, { name: "オンラインショップ", url: "https://shoes.regal.co.jp/" }]
+        },
+        {
+            brand: "MAMIAN", name: "美脚パンプス 楽天ランキング1位記念セール",
+            desc: "5cmヒール美脚パンプスが期間限定20%OFF。レビュー投稿でインソールプレゼント。",
+            channel: "online", price: "¥19,360 → ¥15,488", date: "2026/3/17 〜 3/25", ageTarget: ["30代","40代"],
+            sources: [{ name: "MAMIAN 公式", url: "https://www.mamian.co.jp/" }, { name: "楽天ショップ", url: "https://www.rakuten.co.jp/mamian/" }]
+        }
+    ]
+},
+
+// ==================== 2026-03-16 ====================
+{
+    date: "2026-03-16",
+    sns: [
+        {
+            platform: "x", hashtag: "#卒業式バッグ", volume: "8,900件/日", trend: "+200%",
+            desc: "卒業式シーズンでフォーマルバッグの投稿が急増。「サブバッグ必要？」論争も盛り上がり。",
+            action: "【施策案】「式典バッグ+サブバッグセット」提案。実用的なQ&A投稿も反応が良い。",
+            sources: [{ name: "X検索", url: "https://x.com/search?q=%23%E5%8D%92%E6%A5%AD%E5%BC%8F%E3%83%90%E3%83%83%E3%82%B0" }]
+        },
+        {
+            platform: "instagram", hashtag: "#春コーデ2026", volume: "52,000件/週", trend: "+95%",
+            desc: "春物コーデ投稿でバッグ・靴がコーディネートの主役に。パステルカラーが目立つ。",
+            action: "【施策案】春カラーの商品をコーデ提案リールで紹介。ハッシュタグ参加で露出拡大。",
+            sources: [{ name: "Instagram", url: "https://www.instagram.com/explore/tags/%E6%98%A5%E3%82%B3%E3%83%BC%E3%83%872026/" }]
+        }
+    ],
+    hashtags: [
+        { tag: "#卒業式コーデ", posts: "41,000", change: "+200%", direction: "up", heat: 92 },
+        { tag: "#春コーデ", posts: "185,000", change: "+95%", direction: "up", heat: 80 },
+        { tag: "#フォーマルバッグ", posts: "11,200", change: "+150%", direction: "up", heat: 70 }
+    ],
+    competitors: [
+        // バッグ
+        {
+            brand: "Samantha Thavasa", type: "indirect", category: "bag", priceRange: "¥20,000〜¥35,000",
+            move: "スプリングフェア 対象バッグ20%OFFクーポン配布",
+            detail: "公式オンラインストアにて春の新作バッグがクーポン利用で20%OFF。ラッピング無料。SNS広告強化中。",
+            action: "【参考】クーポン施策の参考に。ラッピング無料は母の日前に有効。",
+            sources: [{ name: "Samantha Thavasa", url: "https://www.samantha.co.jp/" }]
+        },
+        {
+            brand: "ATAO（アタオ）", type: "direct", category: "bag", priceRange: "¥25,000〜¥38,000",
+            move: "楽天お買い物マラソン参加 + 限定ノベルティ配布",
+            detail: "楽天ランキング上位の薄型バッグが人気。ポイント還元施策でリピーター獲得。",
+            action: "【参考】楽天での販促施策の参考に。ノベルティ付きは購入率向上に効果的。",
+            sources: [{ name: "ATAO公式", url: "https://ataoland.com/" }]
+        },
+        {
+            brand: "Dakota（ダコタ）", type: "direct", category: "bag", priceRange: "¥18,000〜¥35,000",
+            move: "百貨店での春フェア先行展開 + ギフトラッピング強化",
+            detail: "ナチュラルレザーの人気ライン新色追加。百貨店チャネルでの売上好調。",
+            action: "【参考】百貨店でのフェア展開は参考に。ギフト需要対応も重要。",
+            sources: [{ name: "Dakota公式", url: "https://www.dakota-bag.com/" }]
+        },
+        {
+            brand: "Kitamura（キタムラ）", type: "direct", category: "bag", priceRange: "¥20,000〜¥38,000",
+            move: "オンラインストア会員限定セール + 新作先行公開",
+            detail: "老舗ブランドのEC強化が加速。会員限定施策でロイヤル顧客の囲い込みを推進。",
+            action: "【対策】同ターゲット層を狙う老舗競合。会員限定施策は自社でも参考に。",
+            sources: [{ name: "Kitamura公式", url: "https://www.kitamura.co.jp/" }]
+        },
+        {
+            brand: "MOTHERHOUSE", type: "indirect", category: "bag", priceRange: "¥25,000〜¥45,000",
+            move: "リペアイベント開催 + サステナビリティレポート公開",
+            detail: "サステナブル路線を一貫して訴求。リペアサービスが顧客ロイヤルティ向上に貢献。",
+            action: "【参考】サステナブル訴求とアフターサービスの好事例。",
+            sources: [{ name: "MOTHERHOUSE公式", url: "https://www.mother-house.jp/" }]
+        },
+        // シューズ
+        {
+            brand: "銀座かねまつ", type: "direct", category: "shoe", priceRange: "¥18,000〜¥28,000",
+            move: "春の足型計測イベント告知 + メルマガ限定クーポン",
+            detail: "来週の銀座本店イベントに向けて事前告知を強化。メルマガ会員に500円引きクーポン配布。",
+            action: "【対策】事前告知でのCRM施策は参考に。自社でもメルマガ活用を強化。",
+            sources: [{ name: "銀座かねまつ", url: "https://www.ginza-kanematsu.co.jp/" }]
+        },
+        {
+            brand: "DIANA", type: "direct", category: "shoe", priceRange: "¥15,000〜¥25,000",
+            move: "Instagram広告出稿を強化 + アプリDL促進キャンペーン",
+            detail: "30〜40代女性向けのターゲティング広告を増加。アプリ新規DLでポイントプレゼント。",
+            action: "【対策】SNS広告×アプリ誘導の一体施策は参考になる。",
+            sources: [{ name: "DIANA公式", url: "https://www.dianashoes.com/" }]
+        },
+        {
+            brand: "fitfit（フィットフィット）", type: "direct", category: "shoe", priceRange: "¥12,000〜¥20,000",
+            move: "テレビ通販での新作紹介 + 早期購入特典",
+            detail: "QVCでの放映を予定。外反母趾対応シューズの新モデルを紹介。早期購入者にインソールプレゼント。",
+            action: "【参考】テレビ通販でのシニア層リーチは競争力が高い。",
+            sources: [{ name: "fitfit公式", url: "https://www.fitfit.jp/" }]
+        },
+        {
+            brand: "Velikoko（ヴェリココ）", type: "direct", category: "shoe", priceRange: "¥8,000〜¥18,000",
+            move: "春の新色先行発売 + マルイウェブ限定ポイント還元",
+            detail: "12色の新色パンプスをEC先行発売。マルイアプリ会員ポイント3倍キャンペーン同時開催。",
+            action: "【対策】圧倒的な価格競争力。自社は品質・デザインで差別化。",
+            sources: [{ name: "Velikoko", url: "https://www.0101.co.jp/vericocobyfitfit/" }]
+        },
+        {
+            brand: "REGAL Ladies", type: "direct", category: "shoe", priceRange: "¥16,000〜¥26,000",
+            move: "春のローファーコレクション展開 + 修理サービスPR",
+            detail: "定番ローファーの新色追加。長期使用できる品質訴求と修理対応をアピール。",
+            action: "【参考】長期使用・修理訴求は品質重視層に響く。自社でもアフターサービス強化を。",
+            sources: [{ name: "REGAL公式", url: "https://www.regal.co.jp/" }]
+        }
+    ],
+    topics: [
+        {
+            title: "卒業式・入学式のフォーマルバッグ需要ピーク",
+            desc: "3月の式典シーズンに向け、40〜50代のフォーマルバッグ検索が前週比50%増。ネイビー・ブラックの上品なデザインが人気。",
+            hot: true, ageGroup: ["40代","50代"],
+            action: "フォーマルバッグの在庫確認と特集ページ作成。「式典×普段使い兼用」の訴求が刺さる。",
+            sources: [{ name: "Google Trends", url: "https://trends.google.co.jp/" }, { name: "WEAR", url: "https://wear.jp/" }]
+        },
+        {
+            title: "春のローファー回帰 — 大人女性の定番に",
+            desc: "30〜40代を中心にビットローファーが再注目。通勤からカジュアルまで使える汎用性が支持される。",
+            hot: true, ageGroup: ["30代","40代"],
+            action: "ローファーのスタイリング提案コンテンツを作成。「パンプス疲れ」からの乗り換え訴求。",
+            sources: [{ name: "ELLE Japan", url: "https://www.elle.com/jp/" }]
+        }
+    ],
+    bagCampaigns: [
+        {
+            brand: "FURLA", name: "新作バッグ 会員限定プレセール",
+            desc: "FURLA公式オンライン会員限定で春夏新作バッグの先行販売。ノベルティポーチプレゼント付き。",
+            channel: "online", price: "¥29,700〜", date: "2026/3/15 〜 3/25", ageTarget: ["30代","40代"],
+            sources: [{ name: "FURLA 公式", url: "https://www.furla.com/jp/" }]
+        }
+    ],
+    shoeCampaigns: [
+        {
+            brand: "ASICS Walking", name: "レディースウォーキングシューズ ポイント5倍",
+            desc: "公式オンラインにて対象ウォーキングシューズ購入でポイント5倍。サイズ交換無料キャンペーンも同時開催。",
+            channel: "online", price: "¥17,600〜¥20,900", date: "2026/3/10 〜 3/31", ageTarget: ["50代","60代"],
+            sources: [{ name: "ASICS 公式", url: "https://www.asics.com/jp/" }]
+        }
+    ]
+}
+];
+
+// ============================================================
+// RENDER LOGIC
+// ============================================================
+let currentData = ALL_DATA[0];
+let currentSnsPlatform = 'all';
+let currentCompetitorCat = 'all';
+
+function init() {
+    renderArchiveBar();
+    renderPage(currentData);
+    setupFilters();
+    renderCalendar();
+}
+
+function renderCalendar() {
+    const container = document.getElementById('calendarEvents');
+    const today = new Date(ALL_DATA[0].date);
+    container.innerHTML = CALENDAR.map(ev => {
+        const evDate = new Date(ev.date);
+        const diff = Math.ceil((evDate - today) / (1000*60*60*24));
+        let cls = 'future';
+        if (diff <= 7) cls = 'soon';
+        if (diff <= 0) cls = '';
+        const countdownText = diff <= 0 ? '本日' : diff + '日後';
+        return `
+            <div class="cal-event ${cls}">
+                <div class="cal-event-date">${(evDate.getMonth()+1)}/${evDate.getDate()} ${ev.category} <span class="cal-countdown">${countdownText}</span></div>
+                <div class="cal-event-name">${ev.name}</div>
+                <div class="cal-event-hint">💡 ${ev.hint}</div>
+            </div>
+        `;
+    }).join('');
+}
+
+function renderArchiveBar() {
+    const container = document.getElementById('archiveDates');
+    const countEl = document.getElementById('archiveCount');
+    countEl.textContent = ALL_DATA.length + ' 日分のデータ';
+    const weekdays = ['日','月','火','水','木','金','土'];
+    container.innerHTML = ALL_DATA.map((entry,i) => {
+        const d = new Date(entry.date);
+        return `<button class="archive-date-btn ${entry.date===currentData.date?'active':''}" data-date="${entry.date}" onclick="switchToDate('${entry.date}')">
+            <span class="date-label">${d.getMonth()+1}/${d.getDate()} (${weekdays[d.getDay()]})</span>
+            ${i===0?'<span class="today-badge">最新</span>':''}
+        </button>`;
+    }).join('');
+}
+
+function switchToDate(dateStr) {
+    const entry = ALL_DATA.find(d => d.date === dateStr);
+    if (!entry) return;
+    currentData = entry;
+    const isLatest = entry.date === ALL_DATA[0].date;
+    document.querySelectorAll('.archive-date-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.date === dateStr));
+    const banner = document.getElementById('viewingArchive');
+    if (isLatest) { banner.classList.add('hidden'); }
+    else {
+        banner.classList.remove('hidden');
+        const d = new Date(dateStr);
+        document.getElementById('archiveLabel').textContent = '📂 アーカイブ表示中：' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+    }
+    const titleEl = document.getElementById('topicSectionTitle');
+    if (isLatest) titleEl.textContent = '🔥 今日の注目トピック（30〜60代女性）';
+    else { const d = new Date(dateStr); titleEl.textContent = '📂 ' + (d.getMonth()+1)+'/'+d.getDate()+' の注目トピック（30〜60代女性）'; }
+    currentCompetitorCat = 'all';
+    renderPage(currentData);
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+    document.getElementById('bagSection').style.display = '';
+    document.getElementById('shoeSection').style.display = '';
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderPage(data) {
+    renderDate(data.date);
+    renderStats(data);
+    renderSectionIndex(data);
+    renderSns(data.sns || []);
+    renderHashtags(data.hashtags || []);
+    renderCompetitors(data.competitors || []);
+    renderTopics(data.topics);
+    renderCampaigns('bag', data.bagCampaigns);
+    renderCampaigns('shoe', data.shoeCampaigns);
+}
+
+function renderSectionIndex(data) {
+    const sections = [
+        { id: 'calendarSection', icon: '📅', label: '営業カレンダー' },
+        { id: 'snsSection', icon: '📱', label: 'SNS話題', count: (data.sns||[]).length },
+        { id: 'hashtagSection', icon: '📊', label: 'Hashtag動向', count: (data.hashtags||[]).length },
+        { id: 'competitorSection', icon: '🔍', label: '競合ブランド', count: (data.competitors||[]).length },
+        { id: 'topicSection', icon: '🔥', label: '注目トピック', count: (data.topics||[]).length },
+        { id: 'bagSection', icon: '👜', label: 'バッグ施策', count: (data.bagCampaigns||[]).length },
+        { id: 'shoeSection', icon: '👟', label: 'シューズ施策', count: (data.shoeCampaigns||[]).length }
+    ];
+    document.getElementById('sectionIndexInner').innerHTML = sections.map(s =>
+        `<a class="section-index-btn" href="#${s.id}">
+            <span class="idx-icon">${s.icon}</span>
+            <span class="idx-label">${s.label}</span>
+            ${s.count != null ? `<span class="idx-count">${s.count}</span>` : ''}
+        </a>`
+    ).join('');
+}
+
+function renderDate(dateStr) {
+    const d = new Date(dateStr);
+    document.getElementById('currentDate').textContent = '📅 ' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'}) + ' 更新';
+}
+
+function renderStats(data) {
+    const container = document.getElementById('statsBar');
+    const hotTopics = data.topics.filter(t=>t.hot).length;
+    const snsCount = (data.sns||[]).length;
+    const competitorCount = (data.competitors||[]).length;
+    container.innerHTML = `
+        <div class="stat-card trend"><div class="number">${hotTopics}</div><div class="label">🔥 注目トピック</div></div>
+        <div class="stat-card sns"><div class="number">${snsCount}</div><div class="label">📱 SNS話題</div></div>
+        <div class="stat-card"><div class="number">${data.bagCampaigns.length}</div><div class="label">👜 バッグ施策</div></div>
+        <div class="stat-card shoe"><div class="number">${data.shoeCampaigns.length}</div><div class="label">👟 シューズ施策</div></div>
+        <div class="stat-card"><div class="number">${competitorCount}</div><div class="label">🔍 競合動向</div></div>
+    `;
+}
+
+// --- SNS ---
+function renderSns(snsItems) {
+    const tabContainer = document.getElementById('snsTabs');
+    const platforms = [{id:'all',label:'すべて'},{id:'x',label:'X (Twitter)',dot:'dot-x'},{id:'instagram',label:'Instagram',dot:'dot-ig'},{id:'threads',label:'Threads',dot:'dot-threads'}];
+    tabContainer.innerHTML = platforms.map(p => `
+        <button class="sns-tab ${currentSnsPlatform===p.id?'active':''}" onclick="filterSns('${p.id}')">
+            ${p.dot?'<span class="platform-dot '+p.dot+'"></span>':''}${p.label}
+        </button>
+    `).join('');
+    const grid = document.getElementById('snsGrid');
+    const filtered = currentSnsPlatform === 'all' ? snsItems : snsItems.filter(s => s.platform === currentSnsPlatform);
+    if (!filtered.length) { grid.innerHTML = '<div style="padding:20px;color:#999;text-align:center;">該当するSNS話題はありません</div>'; return; }
+    grid.innerHTML = filtered.map(s => `
+        <div class="sns-card ${s.platform}">
+            <div class="sns-card-header">
+                <div class="sns-hashtag">${s.hashtag}</div>
+                <div class="sns-volume ${s.trend.includes('+')?'up':''}">${s.trend} ${s.volume}</div>
+            </div>
+            <div class="sns-desc">${s.desc}</div>
+            <div class="sns-action">${s.action}</div>
+            <div class="source-links">${s.sources.map(src=>`<a class="source-link" href="${src.url}" target="_blank" rel="noopener">🔗 ${src.name}</a>`).join('')}</div>
+        </div>
+    `).join('');
+}
+function filterSns(platform) { currentSnsPlatform = platform; renderSns(currentData.sns || []); }
+
+// --- Hashtags ---
+function renderHashtags(hashtags) {
+    const grid = document.getElementById('hashtagGrid');
+    if (!hashtags.length) { grid.innerHTML = ''; return; }
+    grid.innerHTML = hashtags.map(h => `
+        <div class="hashtag-card">
+            <div class="hashtag-info">
+                <div class="hashtag-name">${h.tag}</div>
+                <div class="hashtag-posts">${h.posts} 件</div>
+                <div class="hashtag-bar"><div class="hashtag-bar-fill" style="width:${h.heat}%"></div></div>
+            </div>
+            <div class="hashtag-trend">
+                <div class="hashtag-change ${h.direction}">${h.change}</div>
+                <div class="hashtag-period">vs 先週</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// --- Competitors ---
+function renderCompetitorTabs(competitors) {
+    const tabs = document.getElementById('competitorTabs');
+    const bagCount = competitors.filter(c => c.category === 'bag').length;
+    const shoeCount = competitors.filter(c => c.category === 'shoe').length;
+    tabs.innerHTML = [
+        { key: 'all', label: `すべて (${competitors.length})` },
+        { key: 'bag', label: `👜 バッグ (${bagCount})` },
+        { key: 'shoe', label: `👟 シューズ (${shoeCount})` }
+    ].map(t => `<button class="competitor-cat-tab ${currentCompetitorCat===t.key?'active':''}${currentCompetitorCat===t.key&&t.key==='shoe'?' active-shoe':''}" onclick="filterCompetitors('${t.key}')">${t.label}</button>`).join('');
+}
+function filterCompetitors(cat) {
+    currentCompetitorCat = cat;
+    renderCompetitors(currentData.competitors || []);
+}
+function renderCompetitors(competitors) {
+    renderCompetitorTabs(competitors);
+    const grid = document.getElementById('competitorGrid');
+    if (!competitors.length) { grid.innerHTML = ''; return; }
+    const filtered = currentCompetitorCat === 'all' ? competitors : competitors.filter(c => c.category === currentCompetitorCat);
+    grid.innerHTML = filtered.map(c => `
+        <div class="competitor-card ${c.type}">
+            <div class="competitor-header">
+                <div class="competitor-brand">${c.brand}${c.priceRange ? `<span class="competitor-price-range">${c.priceRange}</span>` : ''}</div>
+                <span class="competitor-type ${c.type}">${c.type==='direct'?'直接競合':'間接競合'} · ${c.category==='bag'?'👜':'👟'}</span>
+            </div>
+            <div class="competitor-move">${c.move}</div>
+            <div class="competitor-detail">${c.detail}</div>
+            <div class="sns-action">${c.action}</div>
+            <div class="source-links">${c.sources.map(src=>`<a class="source-link" href="${src.url}" target="_blank" rel="noopener">🔗 ${src.name}</a>`).join('')}</div>
+        </div>
+    `).join('');
+}
+
+// --- Topics ---
+function renderTopics(topics) {
+    const grid = document.getElementById('topicsGrid');
+    grid.innerHTML = topics.map(t => `
+        <div class="topic-card ${t.hot?'hot':''}">
+            <div class="topic-header">
+                <div class="topic-title">${t.title}</div>
+                ${t.hot?'<span class="hot-badge">🔥 HOT</span>':''}
+            </div>
+            <div class="topic-desc">${t.desc}</div>
+            <div class="age-tags">${t.ageGroup.map(a=>`<span class="age-tag highlight">${a}</span>`).join('')}</div>
+            ${t.action?`<div class="action-hint">💡 ${t.action}</div>`:''}
+            <div class="source-links">${t.sources.map(s=>`<a class="source-link" href="${s.url}" target="_blank" rel="noopener">🔗 ${s.name}</a>`).join('')}</div>
+        </div>
+    `).join('');
+}
+
+// --- Campaigns ---
+function renderCampaigns(type, campaigns) {
+    const grid = document.getElementById(type==='bag'?'bagGrid':'shoeGrid');
+    grid.innerHTML = campaigns.map(c => `
+        <div class="campaign-card ${type}" data-channel="${c.channel}" data-type="${type}">
+            <div class="campaign-banner"></div>
+            <div class="campaign-body">
+                <div class="campaign-tags">
+                    <span class="tag tag-${type}">${type==='bag'?'👜 バッグ':'👟 シューズ'}</span>
+                    <span class="tag tag-${c.channel}">${c.channel==='online'?'🌐 オンライン':'🏬 オフライン'}</span>
+                </div>
+                <div class="campaign-brand">${c.brand}</div>
+                <div class="campaign-name">${c.name}</div>
+                <div class="campaign-desc">${c.desc}</div>
+                <div class="age-tags">${c.ageTarget.map(a=>`<span class="age-tag">${a}</span>`).join('')}</div>
+                <div class="campaign-meta">
+                    <span class="campaign-date">📅 ${c.date}</span>
+                    <span class="campaign-price">${c.price}</span>
+                </div>
+                <div class="source-links">${c.sources.map(s=>`<a class="source-link ${type==='shoe'?'shoe-link':''}" href="${s.url}" target="_blank" rel="noopener">🔗 ${s.name}</a>`).join('')}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function setupFilters() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            const allCards = document.querySelectorAll('.campaign-card');
+            document.getElementById('bagSection').style.display = '';
+            document.getElementById('shoeSection').style.display = '';
+            allCards.forEach(card => { card.style.display = ''; });
+            if (filter==='bag') document.getElementById('shoeSection').style.display='none';
+            else if (filter==='shoe') document.getElementById('bagSection').style.display='none';
+            else if (filter==='online'||filter==='offline') allCards.forEach(card => { card.style.display = card.dataset.channel===filter?'':'none'; });
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
