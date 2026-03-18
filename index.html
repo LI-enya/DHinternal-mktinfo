@@ -450,6 +450,391 @@ const CALENDAR = [
 // ALL_DATA — 日付別アーカイブ
 // ============================================================
 const ALL_DATA = [
+// ==================== 2026-03-18 ====================
+{
+    date: "2026-03-18",
+
+    // --- SNS話題 ---
+    sns: [
+        {
+            platform: "x",
+            hashtag: "#春コーデ2026",
+            volume: "18,600件/日",
+            trend: "+220%",
+            desc: "春分の日を前に春コーデ投稿が爆発的に増加。40〜50代の「大人カジュアル×バッグ」投稿が特に好反応。",
+            action: "【施策案】自社バッグを使った春コーデ提案を即日投稿。ユーザー投稿をリポストして巻き込み型施策に。",
+            sources: [{ name: "X検索", url: "https://x.com/search?q=%23%E6%98%A5%E3%82%B3%E3%83%BC%E3%83%872026" }]
+        },
+        {
+            platform: "x",
+            hashtag: "#卒業式ママコーデ",
+            volume: "9,800件/日",
+            trend: "+310%",
+            desc: "卒業式シーズンのピークで式典コーデ投稿が最大級に。フォーマルバッグとパンプスのセット提案が高エンゲージメント。",
+            action: "【施策案】「式典バッグ＋パンプスセット」の投稿を至急。実際の式典で使った写真のUGCキャンペーンも効果的。",
+            sources: [{ name: "X検索", url: "https://x.com/search?q=%23%E5%8D%92%E6%A5%AD%E5%BC%8F%E3%83%9E%E3%83%9E%E3%82%B3%E3%83%BC%E3%83%87" }]
+        },
+        {
+            platform: "instagram",
+            hashtag: "#春バッグ",
+            volume: "投稿8,200件/週",
+            trend: "+150%",
+            desc: "パステルカラーのバッグ投稿が増加中。特にピスタチオグリーンとラベンダーが今季トレンドカラーとして注目。",
+            action: "【施策案】トレンドカラー（ピスタチオ・ラベンダー）の商品をフィード投稿＋ストーリーズで訴求。カラー比較リールが効果的。",
+            sources: [{ name: "Instagram検索", url: "https://www.instagram.com/explore/tags/%E6%98%A5%E3%83%90%E3%83%83%E3%82%B0/" }]
+        },
+        {
+            platform: "instagram",
+            hashtag: "#大人の靴選び",
+            volume: "投稿3,500件/週",
+            trend: "+95%",
+            desc: "40〜50代のインフルエンサーが「痛くならないパンプス」比較投稿。卑弥呼・銀座かねまつ・DIANAの3ブランド比較が特に人気。",
+            action: "【施策案】自社パンプスの「1日履いてみた」レビュー動画を制作。比較コンテンツに自社も参戦すべき。",
+            sources: [{ name: "Instagram検索", url: "https://www.instagram.com/explore/tags/%E5%A4%A7%E4%BA%BA%E3%81%AE%E9%9D%B4%E9%81%B8%E3%81%B3/" }]
+        },
+        {
+            platform: "threads",
+            hashtag: "お花見バッグ",
+            volume: "1,800件/日",
+            trend: "+180%",
+            desc: "「お花見に持っていくバッグ」の議論がThreadsで活発。軽量×自立するトートの需要が顕在化。",
+            action: "【施策案】「お花見に最適なバッグ5選」的なスレッド投稿を。自立するバッグの機能性を動画で訴求。",
+            sources: [{ name: "Threads検索", url: "https://www.threads.net/search?q=%E3%81%8A%E8%8A%B1%E8%A6%8B%E3%83%90%E3%83%83%E3%82%B0" }]
+        },
+        {
+            platform: "threads",
+            hashtag: "入学式準備",
+            volume: "2,400件/日",
+            trend: "+260%",
+            desc: "4月の入学式に向けた準備投稿が本格化。30代ママの「何を着るか問題」と合わせてバッグ・靴の質問が多数。",
+            action: "【施策案】「入学式コーデ完全ガイド」として靴＋バッグのセットコーディネート提案。色の合わせ方Tips付きで。",
+            sources: [{ name: "Threads検索", url: "https://www.threads.net/search?q=%E5%85%A5%E5%AD%A6%E5%BC%8F%E6%BA%96%E5%82%99" }]
+        }
+    ],
+
+    // --- ハッシュタグ動向 ---
+    hashtags: [
+        { tag: "#春分の日コーデ", platform: "Instagram", volume: "5,200件/日", change: "+350%", note: "3/20の春分の日に向けて急上昇中" },
+        { tag: "#桜バッグ", platform: "Instagram", volume: "3,100件/日", change: "+200%", note: "桜モチーフ・桜カラーバッグの投稿増加" },
+        { tag: "#卒業式ママ", platform: "X", volume: "11,200件/日", change: "+280%", note: "式典シーズンのピーク" },
+        { tag: "#お花見コーデ", platform: "X", volume: "6,700件/日", change: "+190%", note: "来週の開花予報に合わせて上昇" },
+        { tag: "#大人の足元", platform: "Instagram", volume: "2,800件/日", change: "+120%", note: "パンプス・ローファーの比較投稿増加" },
+        { tag: "#入園式バッグ", platform: "Threads", volume: "1,900件/日", change: "+240%", note: "フォーマル×実用のバッグ需要" },
+        { tag: "#推し活トート", platform: "X", volume: "4,100件/日", change: "+85%", note: "整理ポケット付きトートへの関心継続" },
+        { tag: "#ご褒美バッグ", platform: "Instagram", volume: "2,200件/日", change: "+110%", note: "年度末の自分へのご褒美需要" }
+    ],
+
+    // --- 競合ブランド ---
+    competitors: [
+        // ===== バッグブランド =====
+        {
+            brand: "COACH Japan", type: "direct", category: "bag", priceRange: "¥25,000〜¥45,000",
+            move: "「Cherry Blossom」限定コレクション発売 + 渋谷スクランブルスクエアでポップアップ",
+            detail: "日本限定の桜モチーフコレクション。SNSでのUGC施策を強化中。20〜40代のエントリーラグジュアリー需要を狙う。",
+            action: "【対策】桜モチーフ限定品の話題性に注意。自社も季節限定のストーリー性ある商品展開で対抗。",
+            sources: [{ name: "COACH Japan", url: "https://japan.coach.com/" }]
+        },
+        {
+            brand: "FURLA", type: "direct", category: "bag", priceRange: "¥30,000〜¥50,000",
+            move: "新アイコンバッグ「1927」のスプリングカラー展開 + 公式EC限定ノベルティ",
+            detail: "EC購入者に限定チャーム付与。パステルカラー強化でインスタ映えを狙う。30〜40代に強い。",
+            action: "【対策】ノベルティ施策は購入転換率UPに有効。自社ECでも「購入特典」の導入を検討。",
+            sources: [{ name: "FURLA Japan", url: "https://www.furla.com/jp/" }]
+        },
+        {
+            brand: "土屋鞄製造所", type: "indirect", category: "bag", priceRange: "¥30,000〜¥50,000",
+            move: "「革と暮らすワークショップ」全国5都市開催を発表",
+            detail: "体験型マーケティングを強化。職人がレザーの手入れ方法を教えるイベント。ブランドロイヤルティ向上施策。",
+            action: "【参考】体験型コンテンツの好事例。「長く使える」メンテナンス訴求は自社でも応用可能。",
+            sources: [{ name: "土屋鞄", url: "https://tsuchiya-kaban.jp/" }]
+        },
+        {
+            brand: "ATAO（アタオ）", type: "direct", category: "bag", priceRange: "¥25,000〜¥38,000",
+            move: "楽天スーパーSALE連動企画 + 新色ミントグリーン発売",
+            detail: "楽天ランキング1位を獲得。お財布ポシェット「limo」シリーズの春カラーが即完売ペース。EC特化の販売力が光る。",
+            action: "【対策】EC販売力は脅威。楽天内でのSEOと広告投資の最適化を早急に。",
+            sources: [{ name: "ATAO公式", url: "https://ataoland.com/" }]
+        },
+        {
+            brand: "HAYNI（ヘイニ）", type: "direct", category: "bag", priceRange: "¥15,000〜¥30,000",
+            move: "Instagram限定フラッシュセール実施 + 新作2WAYバッグ公開",
+            detail: "Instagramフォロワー向け限定セールで即日完売実績。30〜40代主婦層のエンゲージメント率が非常に高い。",
+            action: "【参考】SNS限定施策のスピード感は参考になる。自社でもInstagram限定オファーを検討。",
+            sources: [{ name: "HAYNI公式", url: "https://hayni.jp/" }]
+        },
+        {
+            brand: "Dakota（ダコタ）", type: "direct", category: "bag", priceRange: "¥18,000〜¥35,000",
+            move: "母の日ギフト早割キャンペーン開始（〜4/20は10%OFF）",
+            detail: "母の日需要をさらに早期化。名入れ＋ギフトボックス無料サービスで差別化。40〜60代への直接ギフト訴求。",
+            action: "【対策】母の日早割は自社も即検討すべき。4月前半から訴求開始が今年のトレンド。",
+            sources: [{ name: "Dakota公式", url: "https://www.dakota-bag.com/" }]
+        },
+        {
+            brand: "aniary（アニアリ）", type: "direct", category: "bag", priceRange: "¥28,000〜¥42,000",
+            move: "新色アンティークレザーシリーズ発売 + 表参道ヒルズフェア",
+            detail: "カラーバリエーション20色展開でSNS話題化。「色で選ぶバッグ」のポジショニングが明確。40代女性通勤用途。",
+            action: "【参考】カラー戦略の好事例。自社商品でもカラー展開をSNSでのアンケート連動で企画。",
+            sources: [{ name: "aniary公式", url: "https://www.aniary.com/" }]
+        },
+        {
+            brand: "Cledran（クレドラン）", type: "direct", category: "bag", priceRange: "¥22,000〜¥38,000",
+            move: "春夏新作＋CLUEL掲載記念 オンラインストア送料無料",
+            detail: "ライフスタイル誌CLUELに特集掲載。ナチュラル系読者層へのリーチ拡大。30〜50代の「上質カジュアル」層。",
+            action: "【参考】雑誌掲載→EC連動の導線設計が上手い。自社もPR記事→EC特典の一気通貫施策を。",
+            sources: [{ name: "Cledran公式", url: "https://www.cledran.com/" }]
+        },
+        {
+            brand: "AETHER（エーテル）", type: "direct", category: "bag", priceRange: "¥28,000〜¥42,000",
+            move: "桜レザーシリーズ追加入荷 + Instagramライブ販売",
+            detail: "先行販売分が即完売した桜レザーを追加生産。Instagramライブでの販売が好調。30〜40代のEC購入中心。",
+            action: "【対策】ライブコマースの成功事例。自社でもInstagramライブ販売の試験導入を検討。",
+            sources: [{ name: "AETHER公式", url: "https://afrench.net/" }]
+        },
+        {
+            brand: "Kitamura（キタムラ）", type: "direct", category: "bag", priceRange: "¥20,000〜¥38,000",
+            move: "春のフォーマルバッグフェア + 入学式向け特集ページ公開",
+            detail: "入学式需要を狙ったフォーマルバッグ特集。セットバッグ（メイン＋サブ）提案が好評。40〜60代の定番ブランド。",
+            action: "【対策】フォーマル需要は入学式までがピーク。急ぎでフォーマルバッグの特集を組むべき。",
+            sources: [{ name: "Kitamura公式", url: "https://www.kitamura.co.jp/" }]
+        },
+        {
+            brand: "russet（ラシット）", type: "direct", category: "bag", priceRange: "¥18,000〜¥32,000",
+            move: "新モノグラム柄A4トート発売 + ルミネカード10%OFFに連動",
+            detail: "ルミネカードセールに合わせた販促。通勤需要の高い新年度前のタイミングで新作投入。30〜50代OL層。",
+            action: "【参考】商業施設のセール連動は効果大。自社も百貨店・SCのイベントカレンダーに合わせた施策を。",
+            sources: [{ name: "russet公式", url: "https://www.russet.jp/" }]
+        },
+        {
+            brand: "BARCOS（バルコス）", type: "direct", category: "bag", priceRange: "¥15,000〜¥30,000",
+            move: "QVC春の特別番組放送 + 楽天お買い物マラソン参加",
+            detail: "テレビ通販QVCで60分特番。視聴者限定価格で販売。楽天でも同時にポイント施策展開。シニア層に強い。",
+            action: "【参考】テレビ×ECの同時展開による相乗効果。シニアへのリーチ手段として引き続き注目。",
+            sources: [{ name: "BARCOS公式", url: "https://www.barcos.co.jp/" }]
+        },
+        {
+            brand: "MOTHERHOUSE", type: "indirect", category: "bag", priceRange: "¥25,000〜¥45,000",
+            move: "「Ethical Spring」フェア + リペア工房の予約枠拡大",
+            detail: "サステナブル消費への関心が高まる中、リペアサービスの需要が前年比2倍。30〜40代のエシカル志向層に支持。",
+            action: "【参考】リペア・リユースはブランド信頼構築に有効。自社でもメンテナンスサービスの展開を検討。",
+            sources: [{ name: "MOTHERHOUSE公式", url: "https://www.mother-house.jp/" }]
+        },
+        {
+            brand: "GIANNI CHIARINI", type: "direct", category: "bag", priceRange: "¥25,000〜¥40,000",
+            move: "日本限定「SAKURA ROSA」カラー発売 + 伊勢丹新宿ポップアップ",
+            detail: "日本市場向け桜カラーが好評。百貨店ポップアップで実物を見せる戦略が奏功。30〜50代のインポート志向層。",
+            action: "【対策】インポートブランドの日本限定施策は脅威。自社の「日本製」の強みで差別化を明確に。",
+            sources: [{ name: "GIANNI CHIARINI Japan", url: "https://giannichiarini.jp/" }]
+        },
+        {
+            brand: "NAGATANI（ナガタニ）", type: "direct", category: "bag", priceRange: "¥25,000〜¥45,000",
+            move: "銀座ショールーム限定「春の特別受注会」開催",
+            detail: "エキゾチックレザーのオーダーメイド受付。完全予約制で高単価顧客にフォーカス。50〜60代の上質志向層。",
+            action: "【参考】完全予約制の特別感は高単価戦略のヒント。自社でもVIP向け限定イベントを検討。",
+            sources: [{ name: "NAGATANI公式", url: "https://nagatani.co.jp/" }]
+        },
+
+        // ===== シューズブランド =====
+        {
+            brand: "銀座かねまつ", type: "direct", category: "shoe", priceRange: "¥18,000〜¥28,000",
+            move: "「入学式・入園式パンプス特集」公開 + オンライン接客予約開始",
+            detail: "式典向けパンプスのオンライン接客を開始。ZOOMで足の相談ができるサービスが50〜60代に好評。",
+            action: "【対策】オンライン接客は新しいCRM施策として注目。自社でもLINEビデオ通話接客の導入を検討。",
+            sources: [{ name: "銀座かねまつ", url: "https://www.ginza-kanematsu.co.jp/" }]
+        },
+        {
+            brand: "DIANA", type: "direct", category: "shoe", priceRange: "¥15,000〜¥25,000",
+            move: "アプリ会員限定「Spring Selection」+ ポイント5倍キャンペーン",
+            detail: "アプリDL数が前月比30%増。限定カラーのポインテッドパンプスが人気。30〜40代のリピーター獲得に注力。",
+            action: "【対策】アプリ会員囲い込みが進む競合。自社のLINE公式アカウントでのポイント施策で対抗。",
+            sources: [{ name: "DIANA公式", url: "https://www.dianashoes.com/" }]
+        },
+        {
+            brand: "卑弥呼（himiko）", type: "direct", category: "shoe", priceRange: "¥15,000〜¥25,000",
+            move: "百貨店限定「美歩パンプス」新作投入 + 伊勢丹フェア",
+            detail: "クッション性を強化した「美歩」ラインの新作。百貨店の婦人靴売場での存在感が増す。40〜60代の定番。",
+            action: "【対策】百貨店チャネルでの直接競合。売場での視認性とPOP訴求の改善を急ぐべき。",
+            sources: [{ name: "卑弥呼公式", url: "https://www.himiko.co.jp/" }]
+        },
+        {
+            brand: "MAMIAN", type: "direct", category: "shoe", priceRange: "¥14,000〜¥22,000",
+            move: "楽天お買い物マラソン参加 + レビュー投稿でポイント3倍",
+            detail: "楽天での販売ランキング上位を維持。レビュー数8,000件超えの信頼感。サイズ交換無料がCVR向上に寄与。",
+            action: "【参考】レビュー件数の多さは最大の武器。自社ECでもレビュー促進（割引特典付き）を強化。",
+            sources: [{ name: "MAMIAN公式", url: "https://www.mamian.co.jp/" }]
+        },
+        {
+            brand: "REGAL Ladies", type: "direct", category: "shoe", priceRange: "¥16,000〜¥26,000",
+            move: "新作ビットローファー発売 + 紳士靴ノウハウを活かした履き心地訴求",
+            detail: "メンズの技術を活かしたレディースローファーが40〜50代に好評。「夫婦でREGAL」の切り口が新鮮。",
+            action: "【対策】ローファートレンドに乗った競合。自社のパンプス以外のラインナップ拡充も検討。",
+            sources: [{ name: "REGAL公式", url: "https://www.regal.co.jp/" }]
+        },
+        {
+            brand: "Odette e Odile", type: "direct", category: "shoe", priceRange: "¥15,000〜¥25,000",
+            move: "春の「カラーパンプスフェア」+ UA系列ポイント連動",
+            detail: "ベリーレッド・ラベンダーなどトレンドカラー展開。UNITED ARROWS系列のポイント連動でリピーター確保。",
+            action: "【参考】トレンドカラー×ポイント連動の施策設計は参考になる。自社の色展開戦略を見直す機会。",
+            sources: [{ name: "Odette e Odile", url: "https://store.united-arrows.co.jp/brand/odetteeodile/" }]
+        },
+        {
+            brand: "FABIO RUSCONI", type: "direct", category: "shoe", priceRange: "¥20,000〜¥30,000",
+            move: "セレクトショップ向け先行販売 + 春夏サンダルコレクション発表",
+            detail: "TOMORROWLAND、ESTNATION等でのフェア展開。イタリア製の品質感で40〜50代の支持を獲得。",
+            action: "【参考】セレクトショップ経由のブランディングは有効。自社もBtoBチャネル開拓を検討。",
+            sources: [{ name: "FABIO RUSCONI", url: "https://fabiorusconi.jp/" }]
+        },
+        {
+            brand: "PELLICO", type: "direct", category: "shoe", priceRange: "¥22,000〜¥35,000",
+            move: "アネッリ新色「ローズベージュ」発売 + 三越伊勢丹限定",
+            detail: "百貨店限定カラーが即日完売するほどの人気。40〜50代の「ここぞ」パンプスとして定着。",
+            action: "【対策】百貨店限定×即完売の希少性マーケティング。自社でも限定色の展開で話題性を創出。",
+            sources: [{ name: "PELLICO Japan", url: "https://www.pellico.jp/" }]
+        },
+        {
+            brand: "fitfit（フィットフィット）", type: "direct", category: "shoe", priceRange: "¥12,000〜¥20,000",
+            move: "新作ストレッチパンプス発売 + TV通販ゲスト出演予定",
+            detail: "外反母趾対応の新素材ストレッチパンプス。テレビ通販での単日売上1億円超えの実績あり。50〜60代中心。",
+            action: "【対策】テレビ通販でのリーチ力は桁違い。自社のシニア向けチャネル戦略を再考。",
+            sources: [{ name: "fitfit公式", url: "https://www.fitfit.jp/" }]
+        },
+        {
+            brand: "Velikoko（ヴェリココ）", type: "direct", category: "shoe", priceRange: "¥8,000〜¥18,000",
+            move: "新年度応援「通勤パンプスまとめ買い割引」実施",
+            detail: "2足目20%OFFのまとめ買い施策。「走れるパンプス」のポジションをさらに強化。30〜50代通勤層。",
+            action: "【対策】まとめ買い割引は客単価UPに効果的。自社でもセット販売・複数買い割引を検討。",
+            sources: [{ name: "Velikoko（マルイ）", url: "https://www.0101.co.jp/vericocobyfitfit/" }]
+        },
+        {
+            brand: "SAYA（サヤ）", type: "direct", category: "shoe", priceRange: "¥18,000〜¥28,000",
+            move: "春のレザーシューズ新作 + 直営店購入者にケアキットプレゼント",
+            detail: "ナチュラル系ファッション層に根強い人気。購入後のケアまでフォローする姿勢がリピーターを生む。",
+            action: "【参考】アフターケア訴求はブランド信頼構築に有効。ケアグッズの同梱を自社でも検討。",
+            sources: [{ name: "SAYA公式", url: "https://saya-shoes.com/" }]
+        },
+        {
+            brand: "RABOKIGOSHI works", type: "direct", category: "shoe", priceRange: "¥16,000〜¥24,000",
+            move: "大丸・高島屋での春フェア出展 + 新作メッシュパンプス",
+            detail: "メッシュ素材のパンプスが春夏の注目アイテム。神戸製で品質と価格のバランスが40〜50代に支持される。",
+            action: "【参考】メッシュ素材は春夏の新トレンド。自社でも素材バリエーションの拡充を検討。",
+            sources: [{ name: "RABOKIGOSHI", url: "https://www.rabokigoshi.com/" }]
+        },
+        {
+            brand: "YOSHITO（ヨシト）", type: "direct", category: "shoe", priceRange: "¥18,000〜¥28,000",
+            move: "百貨店婦人靴売場で「足の相談会」開催 + 春の新作展示",
+            detail: "足の悩みに応える接客力で50〜60代のリピーターが多い。「サイズ難民」の救済ブランドとして認知。",
+            action: "【参考】「足の相談会」のような専門性を活かしたイベントはCRM効果大。自社でも応用可能。",
+            sources: [{ name: "YOSHITO", url: "https://www.yoshito.co.jp/" }]
+        },
+        {
+            brand: "ing（イング）", type: "direct", category: "shoe", priceRange: "¥13,000〜¥20,000",
+            move: "新作コンフォートローファー + ルミネ・マルイでフェア",
+            detail: "ローファートレンドに対応した新作。快適性とトレンド性の両立で30〜40代の新規獲得に成功。",
+            action: "【参考】トレンドへの素早い対応力は見習うべき。自社も市場トレンドへの反応速度を上げる。",
+            sources: [{ name: "ing公式", url: "https://www.ing-shoes.com/" }]
+        }
+    ],
+
+    // --- トピック ---
+    topics: [
+        {
+            title: "春分の日に向けた「春の装い」特集記事が急増",
+            desc: "ファッション誌Web版で春コーデ特集が一斉公開。バッグとシューズのカラーコーディネート記事が特に読まれている。",
+            hot: true, ageGroup: ["30代","40代","50代"],
+            action: "自社商品を使った春コーデ提案記事をオウンドメディアに掲載。雑誌Web版へのPR記事出稿も検討。",
+            sources: [
+                { name: "VERY web", url: "https://veryweb.jp/" },
+                { name: "STORY web", url: "https://storyweb.jp/" }
+            ]
+        },
+        {
+            title: "「桜レザー」「桜カラー」が今年のバッグトレンドに",
+            desc: "桜モチーフや桜色のバッグがSNSで大量投稿。AETHERの桜レザーが火付け役。限定感が購買を促進。",
+            hot: true, ageGroup: ["30代","40代"],
+            action: "桜カラー・春限定カラーの商品があれば即訴求。在庫がなければ来年に向けた商品企画のメモを。",
+            sources: [
+                { name: "Instagram #桜バッグ", url: "https://www.instagram.com/explore/tags/%E6%A1%9C%E3%83%90%E3%83%83%E3%82%B0/" },
+                { name: "X 桜レザー", url: "https://x.com/search?q=%E6%A1%9C%E3%83%AC%E3%82%B6%E3%83%BC" }
+            ]
+        },
+        {
+            title: "入学式準備が本格化 — フォーマルバッグ・靴の検索ピーク",
+            desc: "Googleトレンドで「入学式 バッグ」「入学式 パンプス」が急上昇。30代ママ＋50代祖母のダブル需要。",
+            hot: true, ageGroup: ["30代","50代"],
+            action: "入学式向け特集を即日公開。「ママ向け」「祖母・お母様向け」の2軸で訴求すると幅広くリーチ可能。",
+            sources: [
+                { name: "Google Trends", url: "https://trends.google.co.jp/trends/explore?geo=JP&q=%E5%85%A5%E5%AD%A6%E5%BC%8F%20%E3%83%90%E3%83%83%E3%82%B0" },
+                { name: "Yahoo!検索", url: "https://search.yahoo.co.jp/search?p=%E5%85%A5%E5%AD%A6%E5%BC%8F+%E3%83%91%E3%83%B3%E3%83%97%E3%82%B9" }
+            ]
+        },
+        {
+            title: "「お花見ピクニック」需要でカジュアルトートが注目",
+            desc: "お花見シーズン到来で、軽量・汚れに強いカジュアルトートの検索が増加。自立する・ポケット多い商品が人気。",
+            hot: false, ageGroup: ["30代","40代","50代"],
+            action: "お花見シーンでの使用イメージ写真を撮影し、SNS投稿。「自立する」「洗える」等の機能訴求が効果的。",
+            sources: [
+                { name: "楽天トレンド", url: "https://ranking.rakuten.co.jp/keyword/" },
+                { name: "Instagram #お花見コーデ", url: "https://www.instagram.com/explore/tags/%E3%81%8A%E8%8A%B1%E8%A6%8B%E3%82%B3%E3%83%BC%E3%83%87/" }
+            ]
+        }
+    ],
+
+    // --- バッグ Campaign ---
+    bagCampaigns: [
+        {
+            brand: "TOPKAPI", name: "春の新作レザートート 先行予約 最終追加枠",
+            desc: "先行予約の追加枠を公開。スコッチグレインネオレザー使用、A4対応。好評のベージュ・グレーが残りわずか。",
+            channel: "online", price: "¥28,600 → ¥25,740", date: "2026/3/15 〜 3/31", ageTarget: ["40代","50代"],
+            sources: [{ name: "TOPKAPI 公式", url: "https://topkapi.co.jp/" }]
+        },
+        {
+            brand: "Dakota", name: "母の日ギフト早割キャンペーン 10%OFF",
+            desc: "4月20日までの注文で10%OFF。名入れ＋ギフトボックス無料。40〜60代向けのクラシックレザーバッグが対象。",
+            channel: "online", price: "¥22,000〜¥31,500（10%OFF後）", date: "2026/3/18 〜 4/20", ageTarget: ["40代","50代","60代"],
+            sources: [{ name: "Dakota 公式", url: "https://www.dakota-bag.com/" }]
+        },
+        {
+            brand: "Kitamura", name: "入学式フォーマルバッグフェア",
+            desc: "セミショルダー＋サブバッグのセット提案。ネイビー・ベージュの式典定番カラー。購入者にポーチプレゼント。",
+            channel: "offline", price: "¥25,000〜¥35,000", date: "2026/3/15 〜 4/10", ageTarget: ["30代","40代","50代"],
+            sources: [{ name: "Kitamura 公式", url: "https://www.kitamura.co.jp/" }]
+        },
+        {
+            brand: "AETHER", name: "桜レザーシリーズ 追加入荷＋ライブ販売",
+            desc: "即完売した桜レザーを追加生産。3/20のInstagramライブで先行販売予定。数量限定。",
+            channel: "online", price: "¥30,800〜¥38,500", date: "2026/3/20 ライブ販売", ageTarget: ["30代","40代"],
+            sources: [{ name: "AETHER 公式", url: "https://afrench.net/" }, { name: "Instagram", url: "https://www.instagram.com/aether_tokyo/" }]
+        }
+    ],
+
+    // --- シューズ Campaign ---
+    shoeCampaigns: [
+        {
+            brand: "銀座かねまつ", name: "入学式・入園式パンプスフェア＋オンライン接客",
+            desc: "式典向けパンプスの特別展開。ZOOMでの足の相談サービスも利用可。フォーマルデザイン12型を展開。",
+            channel: "online", price: "¥19,800〜¥26,400", date: "2026/3/15 〜 4/10", ageTarget: ["40代","50代","60代"],
+            sources: [{ name: "銀座かねまつ 公式", url: "https://www.ginza-kanematsu.co.jp/" }]
+        },
+        {
+            brand: "DIANA", name: "Spring Selection アプリ会員限定セール",
+            desc: "アプリ会員限定で対象60型が最大20%OFF。ポイント5倍も同時開催。新作ポインテッドパンプスが注目。",
+            channel: "online", price: "¥15,000〜¥22,000", date: "2026/3/15 〜 3/31", ageTarget: ["30代","40代"],
+            sources: [{ name: "DIANA 公式", url: "https://www.dianashoes.com/" }]
+        },
+        {
+            brand: "Velikoko", name: "新年度応援 通勤パンプスまとめ買い割引",
+            desc: "2足目以降20%OFF。人気の「らくちんきれいパンプス」春の新色12色展開中。サイズ交換無料。",
+            channel: "online", price: "¥9,900〜¥15,800", date: "2026/3/18 〜 4/15", ageTarget: ["30代","40代","50代"],
+            sources: [{ name: "Velikoko（マルイ）", url: "https://www.0101.co.jp/vericocobyfitfit/" }]
+        },
+        {
+            brand: "MAMIAN", name: "楽天お買い物マラソン レビューキャンペーン",
+            desc: "購入後レビュー投稿でポイント3倍。人気の美脚パンプス7cmヒールが対象。サイズ交換送料無料。",
+            channel: "online", price: "¥14,800〜¥19,800", date: "2026/3/18 〜 3/25", ageTarget: ["30代","40代"],
+            sources: [{ name: "MAMIAN 公式", url: "https://www.mamian.co.jp/" }, { name: "楽天ショップ", url: "https://www.rakuten.co.jp/mamian/" }]
+        }
+    ]
+},
+
 // ==================== 2026-03-17 ====================
 {
     date: "2026-03-17",
