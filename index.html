@@ -200,6 +200,47 @@
 
         footer { text-align: center; padding: 36px 24px; color: var(--text-light); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
 
+        /* Back to Top */
+        .back-to-top { position: fixed; bottom: 28px; right: 28px; width: 44px; height: 44px; border-radius: 50%; background: var(--text); color: #fff; border: none; cursor: pointer; font-size: 18px; box-shadow: 0 3px 12px rgba(0,0,0,.15); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s; transform: translateY(8px); }
+        .back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .back-to-top:hover { background: var(--accent); }
+
+        /* Bookmark Button */
+        .bookmark-btn { position: relative; background: none; border: none; cursor: pointer; font-size: 16px; padding: 4px; border-radius: 6px; transition: all .2s; color: var(--text-light); flex-shrink: 0; }
+        .bookmark-btn:hover { background: var(--bg); color: var(--accent); }
+        .bookmark-dropdown { display: none; position: absolute; top: 100%; right: 0; background: var(--card); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,.1); z-index: 100; min-width: 160px; overflow: hidden; }
+        .bookmark-dropdown.open { display: block; }
+        .bookmark-dropdown-item { padding: 10px 14px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background .15s; font-family: inherit; white-space: nowrap; color: var(--text); }
+        .bookmark-dropdown-item:hover { background: var(--bg); }
+        .bookmark-dropdown-item .bm-check { width: 16px; height: 16px; border: 1.5px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0; transition: all .2s; }
+        .bookmark-dropdown-item .bm-check.saved { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .bookmark-btn.has-bookmark { color: var(--accent); }
+
+        /* Favorites Panel */
+        .fav-toggle { position: fixed; bottom: 28px; right: 82px; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; cursor: pointer; font-size: 18px; box-shadow: 0 3px 12px rgba(0,0,0,.15); z-index: 999; display: flex; align-items: center; justify-content: center; transition: transform .3s; }
+        .fav-toggle:hover { transform: scale(1.1); }
+        .fav-toggle .fav-count { position: absolute; top: -4px; right: -4px; background: #B85C3A; color: #fff; font-size: 10px; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+        .fav-panel { position: fixed; top: 0; right: -420px; width: 400px; max-width: 90vw; height: 100vh; background: var(--card); z-index: 1000; box-shadow: -4px 0 24px rgba(0,0,0,.12); transition: right .3s ease; display: flex; flex-direction: column; }
+        .fav-panel.open { right: 0; }
+        .fav-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,.3); z-index: 999; }
+        .fav-overlay.open { display: block; }
+        .fav-panel-header { padding: 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .fav-panel-title { font-size: 16px; font-weight: 600; }
+        .fav-close { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-light); padding: 4px 8px; border-radius: 6px; }
+        .fav-close:hover { background: var(--bg); color: var(--text); }
+        .fav-tabs { display: flex; border-bottom: 1px solid var(--border); }
+        .fav-tab { flex: 1; padding: 12px; text-align: center; font-size: 13px; font-weight: 500; cursor: pointer; border: none; background: none; color: var(--text-light); font-family: inherit; transition: all .2s; border-bottom: 2px solid transparent; }
+        .fav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .fav-tab:hover { background: var(--bg); }
+        .fav-list { flex: 1; overflow-y: auto; padding: 12px; }
+        .fav-item { background: var(--bg); border-radius: 10px; padding: 14px; margin-bottom: 10px; position: relative; }
+        .fav-item-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--text); }
+        .fav-item-desc { font-size: 12px; color: var(--text-light); line-height: 1.6; }
+        .fav-item-meta { font-size: 11px; color: var(--text-light); margin-top: 6px; display: flex; gap: 8px; align-items: center; }
+        .fav-item-remove { position: absolute; top: 10px; right: 10px; background: none; border: none; cursor: pointer; font-size: 14px; color: var(--text-light); padding: 2px 6px; border-radius: 4px; }
+        .fav-item-remove:hover { background: #FDF4F0; color: #B85C3A; }
+        .fav-empty { text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 13px; }
+
         /* Scrollbar */
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -321,6 +362,11 @@
 
             /* Footer */
             footer { padding: 24px 16px; font-size: 11px; }
+
+            /* Back to top & Fav on mobile */
+            .back-to-top { bottom: 20px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+            .fav-toggle { bottom: 20px; right: 66px; width: 40px; height: 40px; font-size: 16px; }
+            .fav-panel { width: 100vw; max-width: 100vw; right: -100vw; }
         }
     </style>
 </head>
@@ -424,6 +470,30 @@
         <div class="section-title">👟 シューズ キャンペーン情報（客単価 ¥20,000）</div>
         <div class="campaign-grid" id="shoeGrid"></div>
     </div>
+</div>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- Favorites Toggle -->
+<button class="fav-toggle" id="favToggle" onclick="toggleFavPanel()">
+    ★
+    <span class="fav-count" id="favCount" style="display:none">0</span>
+</button>
+
+<!-- Favorites Panel -->
+<div class="fav-overlay" id="favOverlay" onclick="toggleFavPanel()"></div>
+<div class="fav-panel" id="favPanel">
+    <div class="fav-panel-header">
+        <div class="fav-panel-title">★ 收藏夹</div>
+        <button class="fav-close" onclick="toggleFavPanel()">✕</button>
+    </div>
+    <div class="fav-tabs" id="favTabs">
+        <button class="fav-tab active" onclick="switchFavTab(0)">冉收藏</button>
+        <button class="fav-tab" onclick="switchFavTab(1)">玥收藏</button>
+        <button class="fav-tab" onclick="switchFavTab(2)">兔收藏</button>
+    </div>
+    <div class="fav-list" id="favList"></div>
 </div>
 
 <footer>
@@ -1360,6 +1430,7 @@ function init() {
     renderPage(currentData);
     setupFilters();
     renderCalendar();
+    updateFavCount();
 }
 
 function renderCalendar() {
@@ -1483,17 +1554,21 @@ function renderSns(snsItems) {
     const grid = document.getElementById('snsGrid');
     const filtered = currentSnsPlatform === 'all' ? snsItems : snsItems.filter(s => s.platform === currentSnsPlatform);
     if (!filtered.length) { grid.innerHTML = '<div style="padding:20px;color:#999;text-align:center;">該当するSNS話題はありません</div>'; return; }
-    grid.innerHTML = filtered.map(s => `
-        <div class="sns-card ${s.platform}">
+    grid.innerHTML = filtered.map(s => {
+        const itemId = makeItemId(s);
+        return `<div class="sns-card ${s.platform}">
             <div class="sns-card-header">
                 <div class="sns-hashtag">${s.hashtag}</div>
-                <div class="sns-volume ${s.trend.includes('+')?'up':''}">${s.trend} ${s.volume}</div>
+                <div style="display:flex;align-items:center;gap:6px">
+                    <div class="sns-volume ${s.trend.includes('+')?'up':''}">${s.trend} ${s.volume}</div>
+                    ${bookmarkBtnHtml(itemId, s.hashtag, s.desc, 'SNS')}
+                </div>
             </div>
             <div class="sns-desc">${s.desc}</div>
             <div class="sns-action">${s.action}</div>
             <div class="source-links">${s.sources.map(src=>`<a class="source-link" href="${src.url}" target="_blank" rel="noopener">🔗 ${src.name}</a>`).join('')}</div>
-        </div>
-    `).join('');
+        </div>`;
+    }).join('');
 }
 function filterSns(platform) { currentSnsPlatform = platform; renderSns(currentData.sns || []); }
 
@@ -1536,47 +1611,59 @@ function renderCompetitors(competitors) {
     const grid = document.getElementById('competitorGrid');
     if (!competitors.length) { grid.innerHTML = ''; return; }
     const filtered = currentCompetitorCat === 'all' ? competitors : competitors.filter(c => c.category === currentCompetitorCat);
-    grid.innerHTML = filtered.map(c => `
-        <div class="competitor-card ${c.type}">
+    grid.innerHTML = filtered.map(c => {
+        const itemId = makeItemId(c);
+        return `<div class="competitor-card ${c.type}">
             <div class="competitor-header">
                 <div class="competitor-brand">${c.brand}${c.priceRange ? `<span class="competitor-price-range">${c.priceRange}</span>` : ''}</div>
-                <span class="competitor-type ${c.type}">${c.type==='direct'?'直接競合':'間接競合'} · ${c.category==='bag'?'👜':'👟'}</span>
+                <div style="display:flex;align-items:center;gap:6px">
+                    <span class="competitor-type ${c.type}">${c.type==='direct'?'直接競合':'間接競合'} · ${c.category==='bag'?'👜':'👟'}</span>
+                    ${bookmarkBtnHtml(itemId, c.brand, c.move, '競合')}
+                </div>
             </div>
             <div class="competitor-move">${c.move}</div>
             <div class="competitor-detail">${c.detail}</div>
             <div class="sns-action">${c.action}</div>
             <div class="source-links">${c.sources.map(src=>`<a class="source-link" href="${src.url}" target="_blank" rel="noopener">🔗 ${src.name}</a>`).join('')}</div>
-        </div>
-    `).join('');
+        </div>`;
+    }).join('');
 }
 
 // --- Topics ---
 function renderTopics(topics) {
     const grid = document.getElementById('topicsGrid');
-    grid.innerHTML = topics.map(t => `
-        <div class="topic-card ${t.hot?'hot':''}">
+    grid.innerHTML = topics.map(t => {
+        const itemId = makeItemId(t);
+        return `<div class="topic-card ${t.hot?'hot':''}">
             <div class="topic-header">
                 <div class="topic-title">${t.title}</div>
-                ${t.hot?'<span class="hot-badge">🔥 HOT</span>':''}
+                <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+                    ${t.hot?'<span class="hot-badge">🔥 HOT</span>':''}
+                    ${bookmarkBtnHtml(itemId, t.title, t.desc, 'トピック')}
+                </div>
             </div>
             <div class="topic-desc">${t.desc}</div>
             <div class="age-tags">${t.ageGroup.map(a=>`<span class="age-tag highlight">${a}</span>`).join('')}</div>
             ${t.action?`<div class="action-hint">💡 ${t.action}</div>`:''}
             <div class="source-links">${t.sources.map(s=>`<a class="source-link" href="${s.url}" target="_blank" rel="noopener">🔗 ${s.name}</a>`).join('')}</div>
-        </div>
-    `).join('');
+        </div>`;
+    }).join('');
 }
 
 // --- Campaigns ---
 function renderCampaigns(type, campaigns) {
     const grid = document.getElementById(type==='bag'?'bagGrid':'shoeGrid');
-    grid.innerHTML = campaigns.map(c => `
-        <div class="campaign-card ${type}" data-channel="${c.channel}" data-type="${type}">
+    grid.innerHTML = campaigns.map(c => {
+        const itemId = makeItemId(c);
+        return `<div class="campaign-card ${type}" data-channel="${c.channel}" data-type="${type}">
             <div class="campaign-banner"></div>
             <div class="campaign-body">
-                <div class="campaign-tags">
-                    <span class="tag tag-${type}">${type==='bag'?'👜 バッグ':'👟 シューズ'}</span>
-                    <span class="tag tag-${c.channel}">${c.channel==='online'?'🌐 オンライン':'🏬 オフライン'}</span>
+                <div class="campaign-tags" style="display:flex;justify-content:space-between;align-items:center">
+                    <div style="display:flex;gap:6px;flex-wrap:wrap">
+                        <span class="tag tag-${type}">${type==='bag'?'👜 バッグ':'👟 シューズ'}</span>
+                        <span class="tag tag-${c.channel}">${c.channel==='online'?'🌐 オンライン':'🏬 オフライン'}</span>
+                    </div>
+                    ${bookmarkBtnHtml(itemId, c.name, c.desc, type==='bag'?'バッグ施策':'シューズ施策')}
                 </div>
                 <div class="campaign-brand">${c.brand}</div>
                 <div class="campaign-name">${c.name}</div>
@@ -1588,8 +1675,8 @@ function renderCampaigns(type, campaigns) {
                 </div>
                 <div class="source-links">${c.sources.map(s=>`<a class="source-link ${type==='shoe'?'shoe-link':''}" href="${s.url}" target="_blank" rel="noopener">🔗 ${s.name}</a>`).join('')}</div>
             </div>
-        </div>
-    `).join('');
+        </div>`;
+    }).join('');
 }
 
 function setupFilters() {
@@ -1607,6 +1694,121 @@ function setupFilters() {
             else if (filter==='online'||filter==='offline') allCards.forEach(card => { card.style.display = card.dataset.channel===filter?'':'none'; });
         });
     });
+}
+
+// ============================================================
+// BACK TO TOP
+// ============================================================
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backToTop');
+    if (window.scrollY > 400) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+});
+
+// ============================================================
+// FAVORITES / BOOKMARKS (localStorage)
+// ============================================================
+const FAV_KEYS = ['fav_ran', 'fav_yue', 'fav_tu'];
+const FAV_NAMES = ['冉收藏', '玥收藏', '兔收藏'];
+let currentFavTab = 0;
+
+function getFavs(idx) {
+    try { return JSON.parse(localStorage.getItem(FAV_KEYS[idx]) || '[]'); }
+    catch { return []; }
+}
+function saveFavs(idx, items) {
+    localStorage.setItem(FAV_KEYS[idx], JSON.stringify(items));
+    updateFavCount();
+}
+function updateFavCount() {
+    const total = FAV_KEYS.reduce((sum, k) => sum + getFavs(FAV_KEYS.indexOf(k)).length, 0);
+    const el = document.getElementById('favCount');
+    if (total > 0) { el.textContent = total; el.style.display = ''; }
+    else { el.style.display = 'none'; }
+}
+function makeItemId(item) {
+    return (item.title || item.brand || item.hashtag || item.tag || item.name || '').replace(/\s+/g, '_').substring(0, 50) + '_' + (item.date || currentData.date || '');
+}
+function isBookmarked(itemId, favIdx) {
+    return getFavs(favIdx).some(f => f.id === itemId);
+}
+function toggleBookmark(itemId, title, desc, type, favIdx) {
+    const items = getFavs(favIdx);
+    const existIdx = items.findIndex(f => f.id === itemId);
+    if (existIdx >= 0) {
+        items.splice(existIdx, 1);
+    } else {
+        items.push({ id: itemId, title, desc: desc.substring(0, 120), type, date: currentData.date, savedAt: new Date().toISOString() });
+    }
+    saveFavs(favIdx, items);
+    renderPage(currentData);
+}
+
+function bookmarkBtnHtml(itemId, title, desc, type) {
+    const hasAny = FAV_KEYS.some((_, i) => isBookmarked(itemId, i));
+    return `<button class="bookmark-btn ${hasAny ? 'has-bookmark' : ''}" onclick="event.stopPropagation();toggleBmDropdown(this)" title="收藏">
+        ${hasAny ? '★' : '☆'}
+        <div class="bookmark-dropdown">
+            ${FAV_NAMES.map((name, i) => {
+                const saved = isBookmarked(itemId, i);
+                return `<div class="bookmark-dropdown-item" onclick="event.stopPropagation();toggleBookmark('${itemId.replace(/'/g,"\\'")}','${title.replace(/'/g,"\\'")}','${desc.replace(/'/g,"\\'")}','${type}',${i})">
+                    <span class="bm-check ${saved ? 'saved' : ''}">${saved ? '✓' : ''}</span>
+                    ${name}
+                </div>`;
+            }).join('')}
+        </div>
+    </button>`;
+}
+
+function toggleBmDropdown(btn) {
+    const dd = btn.querySelector('.bookmark-dropdown');
+    // close all other dropdowns first
+    document.querySelectorAll('.bookmark-dropdown.open').forEach(d => { if (d !== dd) d.classList.remove('open'); });
+    dd.classList.toggle('open');
+}
+
+// Close bookmark dropdowns on outside click
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.bookmark-btn')) {
+        document.querySelectorAll('.bookmark-dropdown.open').forEach(d => d.classList.remove('open'));
+    }
+});
+
+// Favorites panel
+function toggleFavPanel() {
+    document.getElementById('favPanel').classList.toggle('open');
+    document.getElementById('favOverlay').classList.toggle('open');
+    if (document.getElementById('favPanel').classList.contains('open')) renderFavList();
+}
+function switchFavTab(idx) {
+    currentFavTab = idx;
+    document.querySelectorAll('.fav-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
+    renderFavList();
+}
+function renderFavList() {
+    const list = document.getElementById('favList');
+    const items = getFavs(currentFavTab);
+    if (!items.length) {
+        list.innerHTML = `<div class="fav-empty">まだ収藏がありません<br><span style="font-size:11px;margin-top:8px;display:inline-block">各カードの ☆ ボタンから追加できます</span></div>`;
+        return;
+    }
+    list.innerHTML = items.map(f => `
+        <div class="fav-item">
+            <button class="fav-item-remove" onclick="removeFav(${currentFavTab},'${f.id.replace(/'/g,"\\'")}')">✕</button>
+            <div class="fav-item-title">${f.title}</div>
+            <div class="fav-item-desc">${f.desc}</div>
+            <div class="fav-item-meta">
+                <span>${f.type}</span>
+                <span>📅 ${f.date}</span>
+            </div>
+        </div>
+    `).join('');
+}
+function removeFav(favIdx, itemId) {
+    const items = getFavs(favIdx).filter(f => f.id !== itemId);
+    saveFavs(favIdx, items);
+    renderFavList();
+    renderPage(currentData);
 }
 
 document.addEventListener('DOMContentLoaded', init);
