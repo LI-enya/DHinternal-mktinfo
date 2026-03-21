@@ -1,0 +1,50 @@
+name: Daily Data Update
+
+on:
+  schedule:
+    # 毎日日本時間 8:07 AM (UTC 23:07 前日)
+    - cron: '7 23 * * *'
+  workflow_dispatch:  # 手動実行も可能
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run data collection
+        run: python scripts/collect_data.py
+
+      - name: Check for changes
+        id: check
+        run: |
+          git diff --quiet index.html && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          DATE=$(date -u +%Y-%m-%d -d "+9 hours")
+          git add index.html
+          git commit -m "Daily auto-update: ${DATE}
+
+          Automated data collection from brand official sites.
+
+          Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          git push
+
+  # push後にpages.ymlが自動的にデプロイを実行

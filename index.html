@@ -520,6 +520,291 @@ const CALENDAR = [
 // ALL_DATA — 日付別アーカイブ
 // ============================================================
 const ALL_DATA = [
+// ==================== 2026-03-21 (検証済みデータ) ====================
+{
+    date: "2026-03-21",
+
+    // --- SNS・メディア トレンド（メディア記事で検証済み） ---
+    sns: [
+        {
+            platform: "instagram",
+            hashtag: "2026春夏バッグトレンド：異素材MIX＆ワンハンドル",
+            volume: "メディア多数報道",
+            trend: "注目",
+            desc: "2026年春夏のバッグトレンドは「異素材ミックス」「ワンハンドル復権」「でかバッグ抱え持ち」が3大キーワード。実用性とデザインの両立がテーマ。",
+            action: "【施策案】異素材コンビバッグやワンハンドルバッグの在庫を確認し、トレンド訴求で特集ページを作成。",
+            sources: [{ name: "STYLE HAUS トレンド速報", url: "https://stylehaus.jp/articles/29717/" }, { name: "WWDJAPAN でかバッグ", url: "https://www.wwdjapan.com/articles/2292332" }]
+        },
+        {
+            platform: "instagram",
+            hashtag: "トレンドカラー：ピーチ・フィズ＆ルミナスグリーン",
+            volume: "メディア多数報道",
+            trend: "注目",
+            desc: "2026年春はピーチ・フィズ（オレンジ×ピンク中間色）が圧倒的トレンドカラー。明度・彩度のある色が復活し、春夏らしい楽しさを表現。",
+            action: "【施策案】該当カラーの商品をピックアップして「2026春カラー」特集を作成。",
+            sources: [{ name: "Pierrot 40代トレンド", url: "https://pierrotshop.jp/blog/archives/38002" }, { name: "USAGI ONLINE特集", url: "https://usagi-online.com/s/260116USG/" }]
+        },
+        {
+            platform: "x",
+            hashtag: "卒業式・入学式 フォーマルバッグ＆パンプス需要ピーク",
+            volume: "シーズン最需要期",
+            trend: "急上昇",
+            desc: "3月卒業式→4月入学式シーズン真っ只中。黒バッグ＋スエードパンプス（卒業式）、エナメル素材（入学式）が推奨。サブバッグの準備も必須。",
+            action: "【施策案】式典マナー解説投稿＋自社商品コーデ提案。「失敗しない式典バッグ選び」ガイドが刺さる。",
+            sources: [{ name: "VERY", url: "https://veryweb.jp/fashion/" }, { name: "STYLE HAUS マナー解説", url: "https://stylehaus.jp/articles/26428/" }]
+        },
+        {
+            platform: "x",
+            hashtag: "2026春夏パンプス「原点回帰」",
+            volume: "三越伊勢丹発表",
+            trend: "注目",
+            desc: "三越伊勢丹が2026年春夏婦人靴テーマを「原点回帰」と発表。ポインテッドトゥ、バレリーナシューズ、メリージェーンが注目トレンド。",
+            action: "【施策案】「原点回帰」をキーワードにクラシカルパンプスの訴求を強化。",
+            sources: [{ name: "三越伊勢丹 婦人靴", url: "https://www.mistore.jp/shopping/feature/women_f2/ladiesshoes_spring_w.html" }, { name: "ファッションプレス", url: "https://www.fashion-press.net/news/139521" }]
+        },
+        {
+            platform: "instagram",
+            hashtag: "母の日ギフト（5月10日）早期需要開始",
+            volume: "EC各社特集準備中",
+            trend: "上昇中",
+            desc: "大丸松坂屋・高島屋が母の日特集を公開開始。人気バッグは巾着型ショルダー、バケツ型、2wayショルダー。4月から本格仕込み。",
+            action: "【施策案】母の日ギフト特集を今週中に準備開始。名入れ・ラッピング対応の商品を優先的に訴求。",
+            sources: [{ name: "大丸松坂屋 母の日", url: "https://www.daimaru-matsuzakaya.jp/mothersday/chishiki1/" }, { name: "高島屋 母の日", url: "https://www.takashimaya.co.jp/shopping/gift/mothersday/" }]
+        },
+        {
+            platform: "threads",
+            hashtag: "かごバッグ＆ラフィア素材 2026年春夏",
+            volume: "メディア報道中",
+            trend: "新トレンド",
+            desc: "ラフィアだけでなくさまざまな素材を編み込んだ「かご風バッグ」がトレンドイン。職人技が光るクラフト感のあるデザインが豊富。",
+            action: "【施策案】かごバッグ特集を4月に向けて準備。素材感を活かした撮影で訴求。",
+            sources: [{ name: "STYLE HAUS かごバッグ", url: "https://stylehaus.jp/articles/24214/" }, { name: "Flathority トレンド分析", url: "https://flathority.com/blog/all/20250801/" }]
+        }
+    ],
+
+    // --- 注目ハッシュタグ（Instagram定番人気タグ） ---
+    hashtags: [
+        { tag: "#春コーデ2026", posts: "定番人気", change: "シーズン上昇", direction: "up", heat: 95 },
+        { tag: "#春バッグ", posts: "定番人気", change: "シーズン上昇", direction: "up", heat: 90 },
+        { tag: "#入学式コーデ", posts: "シーズン需要", change: "急上昇", direction: "up", heat: 93 },
+        { tag: "#大人カジュアル", posts: "通年人気", change: "安定", direction: "up", heat: 80 },
+        { tag: "#今日のコーデ", posts: "定番人気", change: "安定", direction: "up", heat: 85 },
+        { tag: "#骨格ストレート", posts: "定番人気", change: "安定", direction: "up", heat: 70 },
+        { tag: "#かごバッグ", posts: "シーズン立ち上がり", change: "上昇中", direction: "up", heat: 68 },
+        { tag: "#シンプルコーデ", posts: "定番人気", change: "安定", direction: "up", heat: 75 }
+    ],
+
+    // --- 競合ブランド（2026-03-21 検証済み） ---
+    competitors: [
+        // ===== バッグブランド =====
+        {
+            brand: "COACH Japan", type: "direct", category: "bag", priceRange: "¥25,000〜¥45,000",
+            move: "Spring 2026「Explore Your Story」キャンペーン継続中。幾田りら起用。ワークショップイベント開催",
+            detail: "Spring 2026キャンペーン「Explore Your Story（あなたの物語を描こう）」を展開。幾田りら（YOASOBI ikura）、Elle Fanning等を起用。Tabby・Brooklynなどアイコンバッグを訴求。参加型ワークショップも開催中。",
+            action: "【対策】体験型イベント×有名モデル起用の施策力に注目。自社でもワークショップ型ブランド体験を検討。",
+            sources: [{ name: "COACH Spring 2026", url: "https://japan.coach.com/feature/explore-your-story.html" }, { name: "毎日キレイ記事", url: "https://mainichikirei.jp/article/20260226dog00m100010000a.html" }]
+        },
+        {
+            brand: "土屋鞄製造所", type: "indirect", category: "bag", priceRange: "¥30,000〜¥132,000",
+            move: "新シリーズ「マレゾン（Maraison）」3/26発売。¥110,000〜¥132,000。Pre-Spring 2026展開中",
+            detail: "新シリーズ「マレゾン」はジュエルバックル付きエレガントトート。クリスプエンボスドレザー使用。トート（¥132,000）と2WAYミニトート（¥110,000）の2型、各3色。切り目コバ塗りの職人技が特徴。Diarioシリーズ限定カーキ色、Clarte新色シェルピンクも。",
+            action: "【参考】限定カラー戦略と新シリーズ投入が活発。高価格帯だが職人技訴求は参考に。",
+            sources: [{ name: "PR Times マレゾン発表", url: "https://prtimes.jp/main/html/rd/p/000000447.000007557.html" }, { name: "ファッションプレス", url: "https://www.fashion-press.net/news/142721" }]
+        },
+        {
+            brand: "ATAO（アタオ）", type: "direct", category: "bag", priceRange: "¥25,000〜¥38,000",
+            move: "創業20周年記念：2,000円OFFクーポン（3/6〜）+ ノベルティプレゼント（3/13〜）+ 2026SS「祝福のカーニバル」",
+            detail: "20周年記念キャンペーン三連発。①2,000円OFFクーポン（3/6〜、1.1万円以上対象）②エコバッグノベルティ（3/13〜、1万円以上先着）③2026SS新作「祝福のカーニバル」テーマ。新アニバーサリー柄「モノグラム・バレンタイン」誕生。季刊誌「アタプラボ」春号も3/13発刊。",
+            action: "【対策】周年記念の多段キャンペーンに注意。クーポン＋ノベルティ＋新作の三段構えは参考になる。",
+            sources: [{ name: "ATAO 2026SS特集", url: "https://ataoland.com/blogs/feature/2026ss" }, { name: "ATAOLAND+公式", url: "https://ataoland.com/" }]
+        },
+        {
+            brand: "Dakota（ダコタ）", type: "direct", category: "bag", priceRange: "¥18,000〜¥35,000",
+            move: "FUKUROMONO STUDIOで春コレクション展開中。一部商品最大55%OFF",
+            detail: "公式FUKUROMONO STUDIOで春コレクション展開中。新作「Kare」撥水ショルダー、「Kubreel」日本製レザーなど。一部商品は最大55%OFF。",
+            action: "【対策】55%OFF級のセールは集客力が高い。自社でも時期を見計らったセール施策を。",
+            sources: [{ name: "FUKUROMONO STUDIO", url: "https://fukuromono-studio.com/collections/dakota" }]
+        },
+        {
+            brand: "Kitamura（キタムラ）", type: "direct", category: "bag", priceRange: "¥20,000〜¥38,000",
+            move: "マンスリーバッグ2026展開中。Suicaペンギンコラボ Vol.11発売中。チャーミングセール終了後の通常営業",
+            detail: "元町チャーミングセール（2/21〜3/1）は終了。現在はマンスリーバッグ2026展開中。Suicaペンギン×キタムラVol.11コラボも継続販売中。",
+            action: "【参考】セール終了後の通常営業フェーズ。コラボ商品の話題性を継続活用する姿勢は参考に。",
+            sources: [{ name: "キタムラ キャンペーン", url: "https://www.motomachi-kitamura.com/Page/campaign.aspx" }]
+        },
+        {
+            brand: "russet（ラシット）", type: "direct", category: "bag", priceRange: "¥18,000〜¥32,000",
+            move: "2026 SS Collection Vol.1公開。俳優・宮下今日子をビジュアルモデルに起用。PAL CLOSETで複合キャンペーン",
+            detail: "PAL CLOSETで春夏コレクション第1弾展開。「ハヤトクキャンペーン」（先行予約割引）、「RED CROSS DAY」（複数買い最大15%OFF）、+3%ポイントアップも同時開催。「2026パルクロ春一番」セール参加中。",
+            action: "【参考】先行予約割引＋複数買い割引＋ポイントアップの三重施策は参考になる。",
+            sources: [{ name: "russet（PAL CLOSET）", url: "https://www.palcloset.jp/russet/" }, { name: "russet公式", url: "https://russet.jp/" }]
+        },
+        {
+            brand: "BARCOS（バルコス）", type: "direct", category: "bag", priceRange: "¥15,000〜¥30,000",
+            move: "「新生活を彩るSpring Collection」開催中（2/27〜）。35周年おまとめ買いセール終了。オンラインでスプリングセール",
+            detail: "各店で「新生活を彩るSpring Collection」展開中。35周年おまとめ買いセール（2点10%OFF/3点以上20%OFF）は2/23終了。公式オンラインでスプリングセール開催中、GLウォレット2026年最新作も登場。LINEお友達登録で500ポイント。",
+            action: "【参考】新生活切り口のSpring Collection展開は時期的に適切。LINE特典も注目。",
+            sources: [{ name: "BARCOS 35周年企画", url: "https://barcos.jp/2026/02/13/35thkikaku/" }, { name: "BARCOS公式", url: "https://barcos.jp/" }]
+        },
+        {
+            brand: "MOTHERHOUSE", type: "indirect", category: "bag", priceRange: "¥25,000〜¥45,000",
+            move: "創立20周年（3/9）。新商品「Zipzip」特許申請。大丸京都店4/16リニューアル",
+            detail: "2026年3月9日に創立20周年。20周年記念トークイベントをオンライン開催中。初の特許申請商品「Zipzip」が注目。大丸京都店は4/16に4Fでリニューアルオープン（3/6〜仮店舗営業）。ERIKO YAMAGUCHI 2026SS取扱店舗も案内中。",
+            action: "【参考】20周年の節目を活用した多面的PRは参考に。特許商品での話題作りも注目。",
+            sources: [{ name: "IDEAS FOR GOOD 20周年記事", url: "https://ideasforgood.jp/2026/02/26/motherhouse-20th-anniversary/" }, { name: "MOTHERHOUSE公式", url: "https://www.motherhouse.co.jp/" }]
+        },
+        {
+            brand: "HAYNI（ヘイニ）", type: "direct", category: "bag", priceRange: "¥15,000〜¥25,000",
+            move: "池田真子コラボ第3弾（初回完売・予約受付中）。Nene Loche（¥18,800）、Crymit第4世代（¥19,500）展開中",
+            detail: "池田真子さんコラボ第3弾が初回分完売で予約受付中。定番品Nene Loche（¥18,800）、Crymit第4世代改良版（¥19,500）、Marollet第3世代（¥20,000）も販売中。累計販売20万個達成。入卒式向けバッグ特集も展開。",
+            action: "【参考】インフルエンサーコラボでの完売→予約の流れは参考になる。累計実績の訴求も効果的。",
+            sources: [{ name: "HAYNI公式", url: "https://www.hayni.jp/" }]
+        },
+        // ===== シューズブランド =====
+        {
+            brand: "銀座かねまつ", type: "direct", category: "shoe", priceRange: "¥24,200〜¥44,000",
+            move: "2026 Spring Collection公開。「LIGHT UP Series」（2/18〜）「SPRING LOAFER SELECT」（2/14〜）+3月新特集多数",
+            detail: "春コレクション展開中。LIGHT UP Series（2/18〜）、SPRING LOAFER SELECT（2/14〜）に加え、3/17「春コーデに効くきれいめパンプス」、3/5「GINZA/WEB LIMITED」限定商品、3/4「Spring NEW TOTE 大人の春色トート」と特集を連発。パンプス¥24,200〜、バッグ¥39,600〜。",
+            action: "【対策】週1ペースの新特集投入に注目。自社ECでもコンテンツ更新頻度を上げて対抗。",
+            sources: [{ name: "シューズコンシェルジュ", url: "https://www.shoesconcierge.jp/" }, { name: "PR Times Spring Collection", url: "https://prtimes.jp/main/html/rd/p/000000055.000085425.html" }]
+        },
+        {
+            brand: "DIANA", type: "direct", category: "shoe", priceRange: "¥15,000〜¥25,000",
+            move: "2026SS「Playful Celebration」+ サンリオキャラクターズコラボ + Harry Potterコラボ + 3/23 WEB限定新色",
+            detail: "2026SSテーマ「Playful Celebration」。サンリオキャラクターズ初コラボ（2/2発売、全9型）、Harry Potter Butterbeer Seasonコラボ、西陣織シリーズも展開。3/23にWEB限定カラーのジュート巻きウェッジ発売予定。i LUMINEで春特集連発中。",
+            action: "【対策】コラボ戦略の多さに注意。サンリオコラボは若年層〜40代の幅広い層に訴求力あり。",
+            sources: [{ name: "DIANA公式", url: "https://www.dianashoes.com/" }, { name: "PR Times サンリオコラボ", url: "https://prtimes.jp/main/html/rd/p/000000219.000047083.html" }]
+        },
+        {
+            brand: "卑弥呼（himiko）", type: "direct", category: "shoe", priceRange: "¥19,800〜¥27,500",
+            move: "26SS新作24型展開中。厚底メダリオン661107（¥27,500）。HANAE MORI×HIMIKOコラボ先行予約。アプリ1000円OFFクーポン",
+            detail: "26SS新作を大量展開。厚底メダリオンシューズ661107（¥27,500）、メタルバーポインテッドローファー661101（¥25,300）、ラウンドトゥパンプス661109（¥23,100）等。HANAE MORI×HIMIKOフラワーフリルミュール661226をオンライン限定先行予約中（4月中旬入荷）。公式アプリDLで1,000円OFFクーポン配布中（〜3/31）。",
+            action: "【対策】新作24型は品揃え充実。アプリクーポン施策にも注目。",
+            sources: [{ name: "卑弥呼 NEW ITEM", url: "https://himiko.jp/collections/new-item" }, { name: "卑弥呼 26SS新作入荷", url: "https://himiko.jp/blogs/topics/newarrival" }]
+        },
+        {
+            brand: "MAMIAN", type: "direct", category: "shoe", priceRange: "¥14,000〜¥22,000",
+            move: "2026SS新作予約受付中。iCoN Colors（C57173）、リボン付きパンプス（m72027）、Vカットパンプス（m45021）等",
+            detail: "iCoN COLORSシリーズ「運命を感じるほどの感動の履き心地」で2026SS展開。ポインテッドトゥパンプスm81001、リボン付きm72027（予約中）、メタルパーツVカットm45021（予約中）等。旧モデルは20〜30%OFF。42カ国配送対応。",
+            action: "【参考】感情訴求ブランドメッセージ＋先行予約＋旧モデルセールの組み合わせは参考に。",
+            sources: [{ name: "MAMIAN公式", url: "https://www.mamian.co.jp/" }, { name: "MAMIAN 2026SS", url: "https://en-us.mamian-online.com/collections/2026-01-27" }]
+        },
+        {
+            brand: "REGAL Ladies", type: "direct", category: "shoe", priceRange: "¥17,600〜¥24,200",
+            move: "「REGAL WEEK 2026」開催中（3/13〜3/29）。ポイント2倍 or オリジナルショルダーバッグプレゼント",
+            detail: "REGAL WEEK 2026実施中。特典A：REGAL MEMBERSポイント2倍、特典B：¥15,000以上でオリジナルショルダーバッグ（黒or ベージュ）。さらにBIGチャンス抽選でギフトカード5万円×4名＋2万円×10名。F79R BJ（¥22,000）、BF10 AF（¥17,600）等。",
+            action: "【対策】現在キャンペーン期間中の直接競合。ポイント2倍＋ノベルティ＋抽選の三重特典は強力。",
+            sources: [{ name: "REGAL WEEK 2026公式", url: "https://www.regal.co.jp/features/detail/regal-shoes/26s-regalweek" }, { name: "PR Times", url: "https://www.atpress.ne.jp/news/7096361" }]
+        },
+        {
+            brand: "Odette e Odile", type: "indirect", category: "shoe", priceRange: "¥15,000〜¥28,000",
+            move: "2026 SPRING COLLECTION展開中。i LUMINEおよびUNITED ARROWS公式で販売",
+            detail: "UNITED ARROWSブランドとして2026 SPRING COLLECTIONを展開。i LUMINEの公式ショップページで新作を販売中。",
+            action: "【参考】百貨店＋EC展開のUAブランド。トレンド感のある品揃えに注目。",
+            sources: [{ name: "Odette e Odile（i LUMINE）", url: "https://i.lumine.jp/shops/101/" }]
+        },
+        {
+            brand: "fitfit TOKYO", type: "direct", category: "shoe", priceRange: "¥12,000〜¥20,000",
+            move: "ブランドロゴ「fitfit TOKYO」へ刷新。2026SSテーマ「Unfold」3/2全国発売。LINE500円OFF",
+            detail: "2026年春夏よりブランドロゴを「fitfit TOKYO」へ刷新。SSテーマ「Unfold ときめきが、未来をひらく。」で3/2より全国57店舗＋EC発売。LINE公式お友だち追加で500円OFFクーポン配布中。",
+            action: "【参考】ブランドリニューアルの訴求力に注目。LINE友だち施策も参考に。",
+            sources: [{ name: "fitfit TOKYO リブランド", url: "https://fitfit.jp/cont/20260218/" }, { name: "シューズポスト記事", url: "https://shoespost.jp/company/42963/" }]
+        }
+    ],
+
+    // --- 注目トピック（メディア検証済み） ---
+    topics: [
+        {
+            title: "土屋鞄「マレゾン」3/26発売 — 職人技のエレガントトート",
+            summary: "土屋鞄が新シリーズ「マレゾン」を3/26発売。クリスプエンボスドレザー使用、トート¥132,000とミニトート¥110,000の2型。切り目コバ塗りの職人技が特徴。",
+            source: "PR Times / ファッションプレス",
+            url: "https://prtimes.jp/main/html/rd/p/000000447.000007557.html",
+            impact: "high",
+            action: "【参考】高価格帯だが職人技×新素材の訴求は中価格帯でも応用可能。"
+        },
+        {
+            title: "REGAL WEEK 2026開催中（3/13〜3/29）— ギフトカード抽選も",
+            summary: "全国REGAL SHOES店舗でキャンペーン実施中。ポイント2倍 or ショルダーバッグプレゼント＋ギフトカード抽選（5万円×4名）。",
+            source: "REGAL公式 / atpress",
+            url: "https://www.regal.co.jp/features/detail/regal-shoes/26s-regalweek",
+            impact: "high",
+            action: "【対策】3/29まで。同時期に対抗施策を打つか、4月以降に差別化施策を準備。"
+        },
+        {
+            title: "ATAO 20周年記念三連キャンペーン — クーポン＋ノベルティ＋新作",
+            summary: "ATAO創業20周年で2,000円OFFクーポン（3/6〜）、エコバッグノベルティ（3/13〜先着）、2026SS「祝福のカーニバル」を同時展開。",
+            source: "ATAOLAND+公式",
+            url: "https://ataoland.com/blogs/feature/2026ss",
+            impact: "medium",
+            action: "【参考】周年記念の多段キャンペーン設計は自社の記念日施策にも応用可。"
+        },
+        {
+            title: "DIANA × サンリオキャラクターズ初コラボ — 幅広い層に訴求",
+            summary: "DIANAがサンリオキャラクターズと初コラボ（2/2発売、全9型）。マイメロディ、シナモロール等。Harry Potterコラボや西陣織シリーズも同時展開。",
+            source: "PR Times",
+            url: "https://prtimes.jp/main/html/rd/p/000000219.000047083.html",
+            impact: "medium",
+            action: "【参考】キャラクターコラボの多面展開は異なるターゲット層の開拓に有効。"
+        }
+    ],
+
+    // --- バッグキャンペーン（検証済み） ---
+    bagCampaigns: [
+        {
+            brand: "ATAO", name: "20周年記念三連キャンペーン（クーポン＋ノベルティ＋新作）",
+            desc: "①2,000円OFFクーポン（3/6〜、1.1万円以上）②モノグラムエコバッグ先着プレゼント（3/13〜、1万円以上）③2026SS「祝福のカーニバル」新作。20周年記念アニバーサリー柄も。",
+            channel: "online", price: "¥25,000〜¥38,000", date: "2026/3/6〜 展開中", ageTarget: ["30代","40代","50代"],
+            sources: [{ name: "ATAO 2026SS", url: "https://ataoland.com/blogs/feature/2026ss" }]
+        },
+        {
+            brand: "russet", name: "PAL CLOSET 春一番セール＋複合キャンペーン",
+            desc: "「2026パルクロ春一番」セール参加中。先行予約割引「ハヤトクキャンペーン」、複数買い最大15%OFF「RED CROSS DAY」、+3%ポイントアップを同時開催。",
+            channel: "online", price: "¥18,000〜¥32,000", date: "2026/3月 展開中", ageTarget: ["30代","40代","50代"],
+            sources: [{ name: "russet（PAL CLOSET）", url: "https://www.palcloset.jp/russet/" }]
+        },
+        {
+            brand: "BARCOS", name: "新生活を彩るSpring Collection＋オンラインスプリングセール",
+            desc: "各店で「新生活Spring Collection」展開中（2/27〜）。公式オンラインでスプリングセール開催。LINEお友達登録で500ポイントプレゼント。",
+            channel: "store+online", price: "¥15,000〜¥30,000", date: "2026/2/27〜 展開中", ageTarget: ["40代","50代","60代"],
+            sources: [{ name: "BARCOS公式", url: "https://barcos.jp/" }]
+        },
+        {
+            brand: "HAYNI", name: "池田真子コラボ第3弾（初回完売→予約受付中）＋入卒式向けバッグ特集",
+            desc: "池田真子コラボ第3弾が初回分完売、予約受付中。入卒式に使えるバッグ特集も展開。Nene Loche ¥18,800、Crymit第4世代 ¥19,500。",
+            channel: "online", price: "¥15,000〜¥25,000", date: "2026/3月 展開中", ageTarget: ["30代","40代","50代"],
+            sources: [{ name: "HAYNI公式", url: "https://www.hayni.jp/" }]
+        }
+    ],
+
+    // --- シューズキャンペーン（検証済み） ---
+    shoeCampaigns: [
+        {
+            brand: "REGAL", name: "REGAL WEEK 2026（3/13〜3/29）ポイント2倍 or ショルダーバッグ＋抽選",
+            desc: "全国REGAL SHOESでキャンペーン。特典A：ポイント2倍、特典B：¥15,000以上でオリジナルショルダーバッグ。抽選でギフトカード5万円×4名＋2万円×10名。",
+            channel: "store+online", price: "¥17,600〜¥24,200", date: "2026/3/13〜3/29", ageTarget: ["30代","40代","50代"],
+            sources: [{ name: "REGAL WEEK 2026", url: "https://www.regal.co.jp/features/detail/regal-shoes/26s-regalweek" }]
+        },
+        {
+            brand: "DIANA", name: "Playful Celebration 2026SS＋サンリオ＆Harry Potterコラボ",
+            desc: "2026SSテーマ「Playful Celebration」。サンリオ初コラボ全9型（2/2発売）、Harry Potterコラボ、西陣織シリーズ。3/23 WEB限定カラー発売予定。",
+            channel: "store+online", price: "¥15,000〜¥25,000", date: "2026 SS展開中", ageTarget: ["30代","40代","50代"],
+            sources: [{ name: "DIANA公式", url: "https://www.dianashoes.com/" }]
+        },
+        {
+            brand: "卑弥呼", name: "26SS新作24型展開＋HANAE MORI先行予約＋アプリ1,000円OFF",
+            desc: "26SS新作を24型展開。厚底メダリオン¥27,500、メタルバーローファー¥25,300等。HANAE MORI×HIMIKOコラボ先行予約中（4月中旬入荷）。アプリDLで1,000円OFFクーポン（〜3/31）。",
+            channel: "store+online", price: "¥19,800〜¥27,500", date: "2026/3月 展開中", ageTarget: ["40代","50代","60代"],
+            sources: [{ name: "卑弥呼 NEW ITEM", url: "https://himiko.jp/collections/new-item" }]
+        },
+        {
+            brand: "fitfit TOKYO", name: "ブランドリニューアル＋2026SSテーマ「Unfold」全国発売",
+            desc: "ブランドロゴを「fitfit TOKYO」へ刷新。SSテーマ「Unfold ときめきが、未来をひらく。」で3/2より全国57店舗＋EC発売。LINE友だち追加で500円OFF。",
+            channel: "store+online", price: "¥12,000〜¥20,000", date: "2026/3/2〜 展開中", ageTarget: ["40代","50代","60代"],
+            sources: [{ name: "fitfit TOKYO リブランド", url: "https://fitfit.jp/cont/20260218/" }]
+        }
+    ]
+},
+
 // ==================== 2026-03-18 (検証済みデータのみ) ====================
 {
     date: "2026-03-18",
