@@ -14,6 +14,9 @@ permissions:
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -38,7 +41,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          DATE=$(date -u +%Y-%m-%d -d "+9 hours")
+          DATE=$(TZ=Asia/Tokyo date +%Y-%m-%d)
           git add index.html
           git commit -m "Daily auto-update: ${DATE}
 
@@ -47,4 +50,10 @@ jobs:
           Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
           git push
 
-  # push後にpages.ymlが自動的にデプロイを実行
+      # データ更新後、直接GitHub Pagesにデプロイ（別workflowに依存しない）
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - id: deployment
+        uses: actions/deploy-pages@v4
