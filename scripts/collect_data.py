@@ -22,7 +22,9 @@ HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 }
 
-TODAY = datetime.date.today().isoformat()  # "2026-03-21"
+# GitHub Actionsの実行環境はUTC。日本時間(JST=UTC+9)で日付を取得する
+JST = datetime.timezone(datetime.timedelta(hours=9))
+TODAY = datetime.datetime.now(JST).strftime("%Y-%m-%d")  # 日本時間の今日の日付
 
 # --- ブランドURL定義 ---
 BAG_BRANDS = [
