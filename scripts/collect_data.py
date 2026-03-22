@@ -453,11 +453,17 @@ def generate_js_entry(entry):
 
 
 def update_html(new_entry_js):
-    """index.htmlにデータを挿入"""
+    """index.htmlにデータを挿入（重複日付チェック付き）"""
     html_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "index.html")
 
     with open(html_path, "r", encoding="utf-8") as f:
         content = f.read()
+
+    # 重複チェック: 同じ日付のエントリが既に存在するかを確認
+    date_pattern = f'date: "{TODAY}"'
+    if date_pattern in content:
+        print(f"[SKIP] {TODAY} data already exists in index.html. Skipping to avoid duplicates.")
+        return False
 
     # ALL_DATAの先頭に新しいエントリを挿入
     marker = "const ALL_DATA = ["
@@ -473,6 +479,7 @@ def update_html(new_entry_js):
         f.write(new_content)
 
     print(f"[OK] Updated index.html with {TODAY} data")
+    return True
 
 
 def main():
