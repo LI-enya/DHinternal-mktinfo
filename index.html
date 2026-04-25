@@ -9,44 +9,48 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            /* Dark Editorial Luxe — 深く暖い黒 + クリームベージュ文字 + 古銅金 */
-            --primary: #E8DFC9;          /* クリームベージュ */
-            --primary-light: #B8AC93;
-            --accent: #C9A77A;            /* 古銅金（dark bg で映える明るめ）*/
-            --accent-deep: #A8895C;
-            --accent-soft: #DDC2A0;
-            --bg: #353B33;                /* Westwood "VISIT THE GROUNDS" 暖い暗オリーブ */
-            --bg-light: #3D413A;
-            --card: #3D413A;
-            --card-hover: #474B43;
-            --card-elevated: #474B43;
-            --text: #EFE7D3;              /* メインテキスト：クリーム */
-            --text-secondary: #C8BC9F;
-            --text-light: #8A7F6A;        /* 弱化：muted bronze */
-            --text-muted: #6B6256;
-            --border: rgba(232, 223, 201, .10);
-            --border-strong: rgba(232, 223, 201, .18);
-            --border-light: rgba(232, 223, 201, .05);
-            --tag-bag: #C9A77A;
-            --tag-shoe: #B8AC93;
-            --tag-online: #B8AC93;
-            --tag-offline: #8A7F6A;
-            --sns-x: #EFE7D3;
-            --sns-ig: #C9A77A;
-            --sns-threads: #EFE7D3;
-            --warm: #C9A77A;
-            --warm-dim: rgba(201,167,122,.10);
-            --warm-border: rgba(201,167,122,.30);
-            /* SUNSET ORANGE — moodboard "people come and go" のサンセット光線色 */
-            --signal: #CC5520;          /* 截图正确取色：温かい sunset orange-red */
+            /* 統一クリーム版 — 全 section 同じクリーム底、カードを白で強コントラスト */
+            --primary: #2A2D27;
+            --primary-light: #4A463A;
+            --accent: #8B6F47;          /* 古銅金（cream bg で十分映える深め）*/
+            --accent-deep: #6B5232;
+            --accent-soft: #C9A77A;
+            --bg: #E5DBC4;              /* 全 section 共通 cream */
+            --bg-light: #DCD0B6;
+            --card: #FAF4E5;            /* 白に近いカード — 強コントラスト */
+            --card-hover: #FFFFFF;
+            --card-elevated: #F0E5CB;
+            --text: #2A2D27;            /* 暗オリーブテキスト、最大可読性 */
+            --text-secondary: #4A463A;
+            --text-light: #7A715F;
+            --text-muted: #9A9180;
+            --border: rgba(45,48,42,.12);
+            --border-strong: rgba(45,48,42,.25);
+            --border-light: rgba(45,48,42,.06);
+            --tag-bag: #8B6F47;
+            --tag-shoe: #4A463A;
+            --tag-online: #5C5247;
+            --tag-offline: #8A8170;
+            --sns-x: #2A2D27;
+            --sns-ig: #8B6F47;
+            --sns-threads: #2A2D27;
+            --warm: #8B6F47;
+            --warm-dim: rgba(139,111,71,.08);
+            --warm-border: rgba(139,111,71,.25);
+            /* SUNSET ORANGE — 信号色（unchanged）*/
+            --signal: #CC5520;
             --signal-deep: #8B3A14;
             --signal-soft: #E2702E;
             --signal-glow: rgba(204,85,32,.35);
+            /* Header/Footer 用 dark olive アンカー色 */
+            --dark-anchor: #353B33;
         }
         body { font-family: 'Noto Sans JP','Hiragino Kaku Gothic ProN','Source Han Sans JP',sans-serif; background: var(--bg); color: var(--text); line-height: 1.85; font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: "tnum" 1, "kern" 1; }
 
-        /* Header */
-        header { background: var(--bg-light); color: var(--text); padding: 36px 0 32px; border-bottom: 1px solid var(--border); }
+        /* Header — dark olive anchor、視覚的着地点 */
+        header { background: var(--dark-anchor); color: #E8DDC4; padding: 36px 0 32px; border-bottom: 3px solid var(--accent); }
+        header .logo { color: #E8DDC4; }
+        header .date-display { background: rgba(232,221,196,.10); color: #E8DDC4; }
         .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
         .logo { font-weight: 700; font-size: 28px; letter-spacing: 4px; color: var(--text); }
         .logo span { color: var(--accent); font-weight: 300; letter-spacing: 5px; }
@@ -172,57 +176,11 @@
         .filter-btn:hover { border-color: var(--warm); color: var(--warm); }
         .filter-btn.active { background: var(--accent); color: var(--bg); border-color: var(--text); }
 
-        /* Sections — Westwood 截图正確取色 ／ 2色厳格限定 */
-        .section { margin-bottom: 32px; scroll-margin-top: 120px; padding: 48px 40px; }
+        /* Sections — 全て統一 cream 底、カード白で強コントラスト */
+        .section { margin-bottom: 28px; scroll-margin-top: 120px; padding: 40px 36px; background: var(--bg); border-top: 1px solid var(--border); }
+        .section + .section { border-top: none; }
 
-        /* ① DARK OLIVE — Westwood「VISIT THE GROUNDS」の暖い暗オリーブ */
-        .section.bg-dark {
-            --text: #E8DDC4;
-            --text-secondary: #B8AC93;
-            --text-light: #888070;
-            --card: #3D413A;
-            --card-elevated: #474B43;
-            --card-hover: #525650;
-            --border: rgba(232,221,196,.12);
-            --border-strong: rgba(232,221,196,.22);
-            --bg-light: #353B33;
-            --accent: #C9A77A;
-            --accent-deep: #A8895C;
-            background: #353B33;
-            color: var(--text);
-        }
-
-        /* ② CREAM — Westwood「WELCOME TO THE WEDDING」の米奶油 */
-        .section.bg-cream {
-            --bg: #E5DBC4;
-            --text: #2A2D27;
-            --text-secondary: #4A463A;
-            --text-light: #7A715F;
-            --card: #F2E8D2;
-            --card-elevated: #E8DDC4;
-            --card-hover: #FAF1DD;
-            --border: rgba(42,45,39,.14);
-            --border-strong: rgba(42,45,39,.25);
-            --bg-light: #E8DDC4;
-            --warm-dim: rgba(168,137,92,.12);
-            background: var(--bg);
-            color: var(--text);
-        }
-        /* Cream block 内 Threads/X dark + cream（反転で視認） */
-        .section.bg-cream .sns-platform-btn.threads,
-        .section.bg-cream .sns-platform-btn.x {
-            background: #353B33; color: #E5DBC4; border-color: #353B33;
-        }
-        .section.bg-cream .sns-platform-btn.threads:hover,
-        .section.bg-cream .sns-platform-btn.x:hover { background: #454B43; }
-        /* Cream block 内 active state も dark + cream */
-        .section.bg-cream .archive-date-btn.active,
-        .section.bg-cream .competitor-cat-tab.active,
-        .section.bg-cream .filter-btn.active,
-        .section.bg-cream .activity-filter-btn.active,
-        .section.bg-cream .brand-list-tab.active {
-            background: #353B33; color: #E5DBC4; border-color: #353B33;
-        }
+        /* Section 識別アクセントを左上にゴールドバーで（リズム作り）*/
 
         .calendar-section { scroll-margin-top: 120px; margin-bottom: 56px; }
         .section-title { font-size: 26px; font-weight: 700; margin-bottom: 28px; padding: 0 0 20px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; color: var(--text); letter-spacing: -0.02em; position: relative; text-transform: none; }
@@ -574,7 +532,7 @@
     </div>
 
     <!-- 2. SNS トレンド — CREAM block -->
-    <div class="section bg-cream" id="snsSection">
+    <div class="section" id="snsSection">
         <div class="section-title">📱 SNS トレンド</div>
         <div class="sns-trend-tabs" id="snsTrendTabs"></div>
         <div class="sns-grid" id="snsGrid"></div>
@@ -582,13 +540,13 @@
     </div>
 
     <!-- 3. 注目トピック — CREAM block（HOT 信号色が際立つ） -->
-    <div class="section bg-cream" id="topicSection">
+    <div class="section" id="topicSection">
         <div class="section-title" id="topicSectionTitle">🔥 今日の注目トピック（30〜60代女性）</div>
         <div class="topics-grid" id="topicsGrid"></div>
     </div>
 
     <!-- 4. Competitor Watch — DARK OLIVE block -->
-    <div class="section bg-dark" id="competitorSection">
+    <div class="section" id="competitorSection">
         <div class="section-title">🔍 競合ブランド動向</div>
         <div class="competitor-cat-tabs" id="competitorTabs"></div>
         <div class="competitor-activity-filter" id="competitorActivityFilter"></div>
@@ -606,19 +564,19 @@
     </div>
 
     <!-- 5. Bag Campaigns — CREAM block -->
-    <div class="section bg-cream" id="bagSection">
+    <div class="section" id="bagSection">
         <div class="section-title">👜 バッグ キャンペーン情報（客単価 ¥30,000）</div>
         <div class="campaign-grid" id="bagGrid"></div>
     </div>
 
     <!-- 6. Shoe Campaigns — DARK OLIVE block -->
-    <div class="section bg-dark" id="shoeSection">
+    <div class="section" id="shoeSection">
         <div class="section-title">👟 シューズ キャンペーン情報（客単価 ¥20,000）</div>
         <div class="campaign-grid" id="shoeGrid"></div>
     </div>
 
     <!-- 7. Brand List — CREAM browse mode -->
-    <div class="section bg-cream" id="brandListSection">
+    <div class="section" id="brandListSection">
         <div class="section-title">
             📚 対標ブランドリスト
             <span style="font-size:11px;color:var(--text-light);font-weight:400;margin-left:8px">永続参照・brands.json より</span>
