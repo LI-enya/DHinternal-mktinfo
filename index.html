@@ -118,6 +118,24 @@
         .brand-chip.ai-suggested:hover { border-color: #7BA07E; color: #5A7A5E; background: #E8F2EA; }
         .brand-chip-icon { font-size: 11px; opacity: .8; }
         .brand-chip-arrow { font-size: 10px; opacity: .5; margin-left: 2px; }
+        .brand-chip.has-new { box-shadow: 0 0 0 2px rgba(184, 92, 58, .25); border-color: #B85C3A; }
+        .brand-chip-new { font-size: 11px; background: #B85C3A; color: #fff; padding: 1px 6px; border-radius: 6px; font-weight: 600; margin-left: 2px; }
+
+        /* SNS Trend Tabs（詳細トピック/Hashtag一覧 切替） */
+        .sns-trend-tabs { display: flex; gap: 6px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 0; }
+        .sns-trend-tab { padding: 10px 18px; border: none; background: transparent; border-bottom: 2px solid transparent; cursor: pointer; font-size: 14px; font-family: inherit; transition: all .2s; color: var(--text-light); margin-bottom: -1px; display: flex; align-items: center; gap: 6px; }
+        .sns-trend-tab:hover { color: var(--text); }
+        .sns-trend-tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+        .sns-trend-tab .count-pill { font-size: 11px; padding: 1px 8px; border-radius: 8px; background: var(--bg); color: var(--text-light); }
+        .sns-trend-tab.active .count-pill { background: var(--warm-dim); color: var(--accent); }
+
+        /* Competitor Activity Filter */
+        .competitor-activity-filter { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; padding: 8px 0; }
+        .activity-filter-label { font-size: 11px; color: var(--text-light); align-self: center; margin-right: 4px; }
+        .activity-filter-btn { padding: 5px 12px; border: 1px solid var(--border); background: var(--card); border-radius: 8px; cursor: pointer; font-size: 12px; font-family: inherit; transition: all .15s; color: var(--text-light); }
+        .activity-filter-btn:hover { border-color: var(--warm); color: var(--warm); }
+        .activity-filter-btn.active { background: var(--text); color: #fff; border-color: var(--text); font-weight: 500; }
+        .activity-filter-btn .a-count { font-size: 10px; opacity: .7; margin-left: 3px; }
 
         /* Filter Bar */
         .filter-bar { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
@@ -460,7 +478,7 @@
 
     <div class="stats-bar" id="statsBar"></div>
 
-    <!-- Marketing Calendar -->
+    <!-- 1. Marketing Calendar -->
     <div class="calendar-section" id="calendarSection">
         <div class="calendar-header">
             <div class="calendar-title">📅 直近の営業カレンダー（日本市場）</div>
@@ -469,7 +487,51 @@
         <div id="calendarPastWrapper"></div>
     </div>
 
-    <!-- Brand List (永続参照、brands.json から) -->
+    <!-- 2. SNS トレンド（旧 SNS + Hashtag を統合、Tab 切替） -->
+    <div class="section" id="snsSection">
+        <div class="section-title">📱 SNS トレンド</div>
+        <div class="sns-trend-tabs" id="snsTrendTabs"></div>
+        <div class="sns-grid" id="snsGrid"></div>
+        <div class="hashtag-grid" id="hashtagGrid" style="display:none"></div>
+    </div>
+
+    <!-- 3. 注目トピック -->
+    <div class="section" id="topicSection">
+        <div class="section-title" id="topicSectionTitle">🔥 今日の注目トピック（30〜60代女性）</div>
+        <div class="topics-grid" id="topicsGrid"></div>
+    </div>
+
+    <!-- 4. Competitor Watch（活動フィルタ追加） -->
+    <div class="section" id="competitorSection">
+        <div class="section-title">🔍 競合ブランド動向</div>
+        <div class="competitor-cat-tabs" id="competitorTabs"></div>
+        <div class="competitor-activity-filter" id="competitorActivityFilter"></div>
+        <div class="competitor-grid" id="competitorGrid"></div>
+    </div>
+
+    <!-- 5+6. キャンペーン（バッグ/シューズ）共通フィルタ -->
+    <div class="filter-bar">
+        <label>フィルター：</label>
+        <button class="filter-btn active" data-filter="all">すべて</button>
+        <button class="filter-btn" data-filter="bag">👜 バッグのみ</button>
+        <button class="filter-btn" data-filter="shoe">👟 シューズのみ</button>
+        <button class="filter-btn" data-filter="online">🌐 オンライン</button>
+        <button class="filter-btn" data-filter="offline">🏬 オフライン</button>
+    </div>
+
+    <!-- 5. Bag Campaigns -->
+    <div class="section" id="bagSection">
+        <div class="section-title">👜 バッグ キャンペーン情報（客単価 ¥30,000）</div>
+        <div class="campaign-grid" id="bagGrid"></div>
+    </div>
+
+    <!-- 6. Shoe Campaigns -->
+    <div class="section" id="shoeSection">
+        <div class="section-title">👟 シューズ キャンペーン情報（客単価 ¥20,000）</div>
+        <div class="campaign-grid" id="shoeGrid"></div>
+    </div>
+
+    <!-- 7. Brand List（永続参照、brands.json から）— 底部 appendix -->
     <div class="section" id="brandListSection">
         <div class="section-title">
             📚 対標ブランドリスト
@@ -477,53 +539,6 @@
         </div>
         <div class="brand-list-tabs" id="brandListTabs"></div>
         <div id="brandListContent"></div>
-    </div>
-
-    <!-- SNS Hot Topics -->
-    <div class="section" id="snsSection">
-        <div class="section-title">📱 SNS 話題トピック</div>
-        <div class="sns-platform-tabs" id="snsTabs"></div>
-        <div class="sns-grid" id="snsGrid"></div>
-    </div>
-
-    <!-- Hashtag Trends -->
-    <div class="section" id="hashtagSection">
-        <div class="section-title">📊 注目キーワード & Hashtag 動向</div>
-        <div class="hashtag-grid" id="hashtagGrid"></div>
-    </div>
-
-    <!-- Competitor Watch -->
-    <div class="section" id="competitorSection">
-        <div class="section-title">🔍 競合ブランド動向</div>
-        <div class="competitor-cat-tabs" id="competitorTabs"></div>
-        <div class="competitor-grid" id="competitorGrid"></div>
-    </div>
-
-    <div class="filter-bar">
-        <label>フィルター：</label>
-        <button class="filter-btn active" data-filter="all">すべて</button>
-        <button class="filter-btn" data-filter="bag">👜 バッグ</button>
-        <button class="filter-btn" data-filter="shoe">👟 シューズ</button>
-        <button class="filter-btn" data-filter="online">🌐 オンライン</button>
-        <button class="filter-btn" data-filter="offline">🏬 オフライン</button>
-    </div>
-
-    <!-- Topics -->
-    <div class="section" id="topicSection">
-        <div class="section-title" id="topicSectionTitle">🔥 今日の注目トピック（30〜60代女性）</div>
-        <div class="topics-grid" id="topicsGrid"></div>
-    </div>
-
-    <!-- Bag Campaigns -->
-    <div class="section" id="bagSection">
-        <div class="section-title">👜 バッグ キャンペーン情報（客単価 ¥30,000）</div>
-        <div class="campaign-grid" id="bagGrid"></div>
-    </div>
-
-    <!-- Shoe Campaigns -->
-    <div class="section" id="shoeSection">
-        <div class="section-title">👟 シューズ キャンペーン情報（客単価 ¥20,000）</div>
-        <div class="campaign-grid" id="shoeGrid"></div>
     </div>
 </div>
 
@@ -584,6 +599,8 @@ let BRANDS = null;
 let currentData = null;
 let currentCompetitorCat = 'all';
 let currentBrandTab = 'bag';  // 'bag' | 'shoe'
+let currentSnsTrendTab = 'detail';  // 'detail' | 'hashtag'
+let currentActivityFilter = 'all';  // 'all' | 'new' | 'sale' | 'collab' | 'popup' | 'store'
 
 function init() {
     renderArchiveBar();
@@ -676,13 +693,29 @@ const BRAND_TIER_LABELS = {
 const BRAND_TIER_ORDER_PRIMARY = ['core', 'price-aligned'];
 const BRAND_TIER_ORDER_REFERENCE = ['tone-aligned', 'trend-watch', 'activity-watch'];
 
+// 今日のentry に該当ブランドの動向があるか判定
+function brandHasTodayActivity(brandName) {
+    if (!currentData?.competitors) return false;
+    const norm = s => (s || '').replace(/[（）()「」『』\s・]/g, '').toLowerCase();
+    const target = norm(brandName);
+    return currentData.competitors.some(c => {
+        const cn = norm(c.brand);
+        return cn === target || cn.includes(target) || target.includes(cn);
+    });
+}
+
 function brandChipHtml(b, tier, isAi) {
     const url = b.officialUrl || '#';
     const cls = isAi ? 'ai-suggested' : (tier === 'core' ? 'primary-core' : (tier === 'price-aligned' ? 'primary-price' : ''));
     const icon = isAi ? '✨' : (tier === 'core' ? '⭐' : '');
-    return `<a class="brand-chip ${cls}" href="${url}" target="_blank" rel="noopener" title="${b.name}${isAi?'（AI拓展品牌）':''} → 公式サイト">
+    const hasNew = brandHasTodayActivity(b.name);
+    const hasNewClass = hasNew ? ' has-new' : '';
+    const hasNewBadge = hasNew ? '<span class="brand-chip-new" title="今日に新動向あり">NEW</span>' : '';
+    const titleAttr = `${b.name}${isAi?'（AI拓展品牌）':''}${hasNew?' — 今日に新動向あり':''} → 公式サイト`;
+    return `<a class="brand-chip ${cls}${hasNewClass}" href="${url}" target="_blank" rel="noopener" title="${titleAttr}">
         ${icon ? `<span class="brand-chip-icon">${icon}</span>` : ''}
         <span>${b.name}</span>
+        ${hasNewBadge}
         <span class="brand-chip-arrow">↗</span>
     </a>`;
 }
@@ -843,12 +876,15 @@ function renderPage(data) {
     renderDate(data.date);
     renderStats(data);
     renderSectionIndex(data);
+    renderSnsTrendTabs(data);   // SNS + Hashtag 統合 tabs
     renderSns(data.sns || []);
     renderHashtags(data.hashtags || []);
+    applySnsTrendTabVisibility();
     renderCompetitors(data.competitors || []);
     renderTopics(data.topics);
     renderCampaigns('bag', data.bagCampaigns);
     renderCampaigns('shoe', data.shoeCampaigns);
+    if (typeof renderBrandList === 'function' && BRANDS) renderBrandList();  // brand chip new-badge 更新
 }
 
 function renderSectionIndex(data) {
@@ -856,15 +892,16 @@ function renderSectionIndex(data) {
         ? ((BRANDS.bag?.primary||[]).length + (BRANDS.bag?.reference?.seed||[]).length + (BRANDS.bag?.reference?.aiSuggested||[]).length
          + (BRANDS.shoe?.primary||[]).length + (BRANDS.shoe?.reference?.seed||[]).length + (BRANDS.shoe?.reference?.aiSuggested||[]).length)
         : null;
+    const snsTotal = (data.sns||[]).length + (data.hashtags||[]).length;
+    // 新しい順序：Cal → SNS → Topic → Comp → Bag → Shoe → Brands
     const sections = [
         { id: 'calendarSection', icon: '📅', label: '営業カレンダー' },
-        { id: 'brandListSection', icon: '📚', label: '対標ブランド', count: brandTotal },
-        { id: 'snsSection', icon: '📱', label: 'SNS話題', count: (data.sns||[]).length },
-        { id: 'hashtagSection', icon: '📊', label: 'Hashtag動向', count: (data.hashtags||[]).length },
-        { id: 'competitorSection', icon: '🔍', label: '競合ブランド', count: (data.competitors||[]).length },
+        { id: 'snsSection', icon: '📱', label: 'SNSトレンド', count: snsTotal },
         { id: 'topicSection', icon: '🔥', label: '注目トピック', count: (data.topics||[]).length },
+        { id: 'competitorSection', icon: '🔍', label: '競合ブランド', count: (data.competitors||[]).length },
         { id: 'bagSection', icon: '👜', label: 'バッグ施策', count: (data.bagCampaigns||[]).length },
-        { id: 'shoeSection', icon: '👟', label: 'シューズ施策', count: (data.shoeCampaigns||[]).length }
+        { id: 'shoeSection', icon: '👟', label: 'シューズ施策', count: (data.shoeCampaigns||[]).length },
+        { id: 'brandListSection', icon: '📚', label: '対標リスト', count: brandTotal }
     ];
     document.getElementById('sectionIndexInner').innerHTML = sections.map(s =>
         `<a class="section-index-btn" href="#${s.id}">
@@ -905,11 +942,41 @@ function buildSnsPlatformLinks(hashtag) {
     };
 }
 
-function renderSns(snsItems) {
-    // 旧 platform 別タブは廃止（各カードが3プラットフォームへ直接ジャンプできるため）
-    const tabContainer = document.getElementById('snsTabs');
-    if (tabContainer) tabContainer.style.display = 'none';
+function renderSnsTrendTabs(data) {
+    const snsCount = (data.sns || []).length;
+    const hashtagCount = (data.hashtags || []).length;
+    const tabs = document.getElementById('snsTrendTabs');
+    if (!tabs) return;
+    tabs.innerHTML = `
+        <button class="sns-trend-tab ${currentSnsTrendTab === 'detail' ? 'active' : ''}" onclick="switchSnsTrendTab('detail')">
+            💬 詳細トピック <span class="count-pill">${snsCount}</span>
+        </button>
+        <button class="sns-trend-tab ${currentSnsTrendTab === 'hashtag' ? 'active' : ''}" onclick="switchSnsTrendTab('hashtag')">
+            🏷️ Hashtag一覧 <span class="count-pill">${hashtagCount}</span>
+        </button>
+    `;
+}
 
+function applySnsTrendTabVisibility() {
+    const snsGrid = document.getElementById('snsGrid');
+    const hashGrid = document.getElementById('hashtagGrid');
+    if (!snsGrid || !hashGrid) return;
+    if (currentSnsTrendTab === 'detail') {
+        snsGrid.style.display = '';
+        hashGrid.style.display = 'none';
+    } else {
+        snsGrid.style.display = 'none';
+        hashGrid.style.display = '';
+    }
+}
+
+function switchSnsTrendTab(tab) {
+    currentSnsTrendTab = tab;
+    if (currentData) renderSnsTrendTabs(currentData);
+    applySnsTrendTabVisibility();
+}
+
+function renderSns(snsItems) {
     const grid = document.getElementById('snsGrid');
     if (!snsItems || !snsItems.length) {
         grid.innerHTML = '<div style="padding:20px;color:#999;text-align:center;">SNS話題はありません</div>';
@@ -987,11 +1054,58 @@ function filterCompetitors(cat) {
     currentCompetitorCat = cat;
     renderCompetitors(currentData.competitors || []);
 }
+
+// === 活動フィルタ ===
+const ACTIVITY_FILTERS = [
+    { key: 'all',     label: 'すべて',          patterns: null },
+    { key: 'new',     label: '新作',            patterns: /新作|新色|新登場|新型|新シリーズ|新コレクション|デビュー|発売|ローンチ/ },
+    { key: 'sale',    label: 'セール/促銷',     patterns: /セール|SALE|OFF|割引|値下|クーポン|キャンペーン|促銷|プレセール/i },
+    { key: 'collab',  label: 'コラボ',          patterns: /コラボ|コラボレーション|×|エクスクルーシブ|別注|限定|collab|capsule/i },
+    { key: 'popup',   label: 'POP UP/イベント', patterns: /POP\s*UP|ポップアップ|イベント|フェア|展示|展覧|巡回|exhibition/i },
+    { key: 'store',   label: '店舗オープン',    patterns: /オープン|開店|旗艦店|フラグシップ|新店|NEW\s*STORE|常設|出店/i }
+];
+
+function matchesActivityFilter(c, filterKey) {
+    if (filterKey === 'all') return true;
+    const f = ACTIVITY_FILTERS.find(x => x.key === filterKey);
+    if (!f || !f.patterns) return true;
+    const text = [c.move || '', c.detail || '', c.name || ''].join(' ');
+    return f.patterns.test(text);
+}
+
+function renderActivityFilter(competitors) {
+    const container = document.getElementById('competitorActivityFilter');
+    if (!container) return;
+    // 各 filter のヒット数
+    const counts = {};
+    ACTIVITY_FILTERS.forEach(f => {
+        counts[f.key] = competitors.filter(c => matchesActivityFilter(c, f.key)).length;
+    });
+    container.innerHTML = `<span class="activity-filter-label">活動タイプ:</span>` +
+        ACTIVITY_FILTERS.map(f =>
+            `<button class="activity-filter-btn ${currentActivityFilter===f.key?'active':''}" onclick="filterByActivity('${f.key}')">
+                ${f.label}<span class="a-count">(${counts[f.key]})</span>
+            </button>`
+        ).join('');
+}
+
+function filterByActivity(key) {
+    currentActivityFilter = key;
+    renderCompetitors(currentData.competitors || []);
+}
+
 function renderCompetitors(competitors) {
     renderCompetitorTabs(competitors);
+    renderActivityFilter(competitors);
     const grid = document.getElementById('competitorGrid');
-    if (!competitors.length) { grid.innerHTML = ''; return; }
-    const filtered = currentCompetitorCat === 'all' ? competitors : competitors.filter(c => c.category === currentCompetitorCat);
+    if (!competitors.length) { grid.innerHTML = '<div style="padding:20px;color:#999;text-align:center;">該当する競合動向はありません</div>'; return; }
+    // カテゴリフィルタ + 活動フィルタの両方適用
+    let filtered = currentCompetitorCat === 'all' ? competitors : competitors.filter(c => c.category === currentCompetitorCat);
+    filtered = filtered.filter(c => matchesActivityFilter(c, currentActivityFilter));
+    if (!filtered.length) {
+        grid.innerHTML = '<div style="padding:20px;color:#999;text-align:center;font-size:13px">該当する活動はありません。フィルタを変更してください。</div>';
+        return;
+    }
     grid.innerHTML = filtered.map(c => {
         const itemId = makeItemId(c);
         // tier ベースのバッジ（後方互換: tier 未設定の旧データはバッジなし）
