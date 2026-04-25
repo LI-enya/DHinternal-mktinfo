@@ -9,48 +9,49 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            /* 統一クリーム版 — 全 section 同じクリーム底、カードを白で強コントラスト */
-            --primary: #2A2D27;
-            --primary-light: #4A463A;
-            --accent: #8B6F47;          /* 古銅金（cream bg で十分映える深め）*/
-            --accent-deep: #6B5232;
-            --accent-soft: #C9A77A;
-            --bg: #E5DBC4;              /* 全 section 共通 cream */
-            --bg-light: #DCD0B6;
-            --card: #FAF4E5;            /* 白に近いカード — 強コントラスト */
-            --card-hover: #FFFFFF;
-            --card-elevated: #F0E5CB;
-            --text: #2A2D27;            /* 暗オリーブテキスト、最大可読性 */
-            --text-secondary: #4A463A;
-            --text-light: #7A715F;
-            --text-muted: #9A9180;
-            --border: rgba(45,48,42,.12);
-            --border-strong: rgba(45,48,42,.25);
-            --border-light: rgba(45,48,42,.06);
-            --tag-bag: #8B6F47;
-            --tag-shoe: #4A463A;
-            --tag-online: #5C5247;
-            --tag-offline: #8A8170;
-            --sns-x: #2A2D27;
-            --sns-ig: #8B6F47;
-            --sns-threads: #2A2D27;
-            --warm: #8B6F47;
-            --warm-dim: rgba(139,111,71,.08);
-            --warm-border: rgba(139,111,71,.25);
+            /* High-class minimal — black anchor + light gray body + white cards + champagne accent */
+            --primary: #1A1A1A;
+            --primary-light: #4A4A4A;
+            --accent: #E7C89C;          /* Champagne gold（柔らか、上品）*/
+            --accent-deep: #C9A77A;
+            --accent-soft: #F0DCBA;
+            --bg: #DADADA;              /* 全 section 統一 light gray */
+            --bg-light: #C9C9C9;
+            --card: #FFFFFF;            /* 純白 cards — 高コントラスト */
+            --card-hover: #FAFAFA;
+            --card-elevated: #F5F5F5;
+            --text: #1A1A1A;            /* 純黒に近い、最強コントラスト */
+            --text-secondary: #3A3A3A;
+            --text-light: #6A6A6A;
+            --text-muted: #999999;
+            --border: rgba(0,0,0,.10);
+            --border-strong: rgba(0,0,0,.25);
+            --border-light: rgba(0,0,0,.05);
+            --tag-bag: #C9A77A;
+            --tag-shoe: #3A3A3A;
+            --tag-online: #4A4A4A;
+            --tag-offline: #8A8A8A;
+            --sns-x: #1A1A1A;
+            --sns-ig: #C9A77A;
+            --sns-threads: #1A1A1A;
+            --warm: #C9A77A;
+            --warm-dim: rgba(201,167,122,.10);
+            --warm-border: rgba(201,167,122,.30);
             /* SUNSET ORANGE — 信号色（unchanged）*/
             --signal: #CC5520;
             --signal-deep: #8B3A14;
             --signal-soft: #E2702E;
             --signal-glow: rgba(204,85,32,.35);
-            /* Header/Footer 用 dark olive アンカー色 */
-            --dark-anchor: #353B33;
+            /* Header アンカー — 純黒 */
+            --dark-anchor: #000000;
         }
         body { font-family: 'Noto Sans JP','Hiragino Kaku Gothic ProN','Source Han Sans JP',sans-serif; background: var(--bg); color: var(--text); line-height: 1.85; font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: "tnum" 1, "kern" 1; }
 
-        /* Header — dark olive anchor、視覚的着地点 */
-        header { background: var(--dark-anchor); color: #E8DDC4; padding: 36px 0 32px; border-bottom: 3px solid var(--accent); }
-        header .logo { color: #E8DDC4; }
-        header .date-display { background: rgba(232,221,196,.10); color: #E8DDC4; }
+        /* Header — pure black anchor、最高級感 */
+        header { background: #000000; color: #FFFFFF; padding: 36px 0 32px; border-bottom: 3px solid var(--accent); }
+        header .logo { color: #FFFFFF; }
+        header .logo span { color: var(--accent); }
+        header .date-display { background: rgba(255,255,255,.10); color: #FFFFFF; border: 1px solid rgba(255,255,255,.20); }
         .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
         .logo { font-weight: 700; font-size: 28px; letter-spacing: 4px; color: var(--text); }
         .logo span { color: var(--accent); font-weight: 300; letter-spacing: 5px; }
@@ -79,15 +80,15 @@
         .archive-dates { display: flex; gap: 8px; flex-wrap: wrap; }
         .archive-date-btn { padding: 7px 16px; border: 1px solid var(--border); background: var(--bg); border-radius: 0; cursor: pointer; font-size: 13px; font-family: inherit; transition: all .2s; display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 90px; color: var(--text-light); }
         .archive-date-btn:hover { border-color: var(--warm); color: var(--warm); }
-        .archive-date-btn.active { background: var(--accent); color: var(--bg); border-color: var(--text); }
+        .archive-date-btn.active { background: var(--accent); color: var(--text); border-color: var(--accent); font-weight: 600; }
         .archive-date-btn .date-label { font-weight: 500; font-size: 13px; }
         .archive-date-btn .today-badge { font-size: 9px; background: var(--warm-dim); color: var(--warm); padding: 1px 8px; border-radius: 0; margin-top: 2px; }
-        .archive-date-btn.active .today-badge { background: rgba(255,255,255,.2); color: var(--bg); }
+        .archive-date-btn.active .today-badge { background: rgba(0,0,0,.15); color: var(--text); }
         .archive-toggle { flex-basis: 100%; margin-top: 4px; padding: 7px 16px; border: 1px dashed var(--border); background: transparent; border-radius: 0; cursor: pointer; font-size: 12px; font-family: inherit; color: var(--text-light); transition: all .2s; }
         .archive-toggle:hover { border-color: var(--warm); color: var(--warm); background: var(--warm-dim); }
         .viewing-archive { background: var(--warm-dim); border: 1px solid var(--warm-border); border-radius: 0; padding: 10px 20px; margin-bottom: 20px; font-size: 13px; color: var(--warm); display: flex; justify-content: space-between; align-items: center; }
         .viewing-archive.hidden { display: none; }
-        .back-today-btn { padding: 5px 14px; background: var(--accent); color: var(--bg); border: none; border-radius: 0; cursor: pointer; font-size: 12px; font-family: inherit; font-weight: 500; }
+        .back-today-btn { padding: 5px 14px; background: var(--accent); color: var(--text); border: none; border-radius: 0; cursor: pointer; font-size: 12px; font-family: inherit; font-weight: 500; }
 
         /* Stats */
         .stats-bar { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 12px; margin-bottom: 24px; }
@@ -130,9 +131,9 @@
         .brand-list-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
         .brand-list-tab { padding: 11px 22px; border: 1px solid var(--border); background: var(--card); border-radius: 0; cursor: pointer; font-size: 15px; font-family: inherit; transition: all .2s; color: var(--text-light); display: flex; align-items: center; gap: 8px; }
         .brand-list-tab:hover { border-color: var(--warm); color: var(--warm); }
-        .brand-list-tab.active { background: var(--accent); color: var(--bg); border-color: var(--text); }
+        .brand-list-tab.active { background: var(--accent); color: var(--text); border-color: var(--accent); font-weight: 600; }
         .brand-list-tab .tab-count { font-size: 11px; padding: 2px 8px; border-radius: 0; background: var(--bg); color: var(--text-light); }
-        .brand-list-tab.active .tab-count { background: rgba(255,255,255,.2); color: var(--bg); }
+        .brand-list-tab.active .tab-count { background: rgba(0,0,0,.15); color: var(--text); }
         .brand-tier-block { background: var(--card); border-radius: 0; padding: 22px 24px; margin-bottom: 16px; box-shadow: 0 1px 0 rgba(232,223,201,.04); }
         .brand-tier-header { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
         .brand-tier-header.primary { color: var(--accent); }
@@ -166,7 +167,7 @@
         .activity-filter-label { font-size: 11px; color: var(--text-light); align-self: center; margin-right: 4px; }
         .activity-filter-btn { padding: 5px 12px; border: 1px solid var(--border); background: var(--card); border-radius: 0; cursor: pointer; font-size: 12px; font-family: inherit; transition: all .15s; color: var(--text-light); }
         .activity-filter-btn:hover { border-color: var(--warm); color: var(--warm); }
-        .activity-filter-btn.active { background: var(--accent); color: var(--bg); border-color: var(--text); font-weight: 500; }
+        .activity-filter-btn.active { background: var(--accent); color: var(--text); border-color: var(--accent); font-weight: 600; }
         .activity-filter-btn .a-count { font-size: 10px; opacity: .7; margin-left: 3px; }
 
         /* Filter Bar */
@@ -174,7 +175,7 @@
         .filter-bar label { font-size: 13px; font-weight: 500; color: var(--text-light); margin-right: 4px; }
         .filter-btn { padding: 6px 16px; border: 1px solid var(--border); background: var(--card); border-radius: 0; cursor: pointer; font-size: 13px; font-family: inherit; transition: all .2s; color: var(--text-light); }
         .filter-btn:hover { border-color: var(--warm); color: var(--warm); }
-        .filter-btn.active { background: var(--accent); color: var(--bg); border-color: var(--text); }
+        .filter-btn.active { background: var(--accent); color: var(--text); border-color: var(--accent); font-weight: 600; }
 
         /* Sections — 全て統一 cream 底、カード白で強コントラスト */
         .section { margin-bottom: 28px; scroll-margin-top: 120px; padding: 40px 36px; background: var(--bg); border-top: 1px solid var(--border); }
@@ -190,7 +191,7 @@
         .sns-platform-tabs { display: flex; gap: 6px; margin-bottom: 16px; }
         .sns-tab { padding: 6px 16px; border: 1px solid var(--border); background: var(--card); border-radius: 0; cursor: pointer; font-size: 13px; font-family: inherit; transition: all .2s; display: flex; align-items: center; gap: 5px; color: var(--text-light); }
         .sns-tab:hover { border-color: var(--text); color: var(--text); }
-        .sns-tab.active { background: var(--accent); color: var(--bg); border-color: var(--text); }
+        .sns-tab.active { background: var(--accent); color: var(--text); border-color: var(--accent); font-weight: 600; }
         .sns-tab .platform-dot { width: 7px; height: 7px; border-radius: 50%; }
         .sns-tab .dot-x { background: var(--text-light); }
         .sns-tab .dot-ig { background: var(--sns-ig); }
@@ -211,15 +212,33 @@
         .sns-platforms-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
         .sns-platforms-label { font-size: 11px; color: var(--text-light); margin-right: 4px; }
         .sns-platform-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 0; font-size: 12px; font-weight: 500; text-decoration: none; transition: all .15s ease; border: 1px solid transparent; line-height: 1; }
-        .sns-platform-btn:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(201,167,122,.40); }
+        .sns-platform-btn:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(0,0,0,.20); }
         .sns-platform-btn svg { width: 16px; height: 16px; display: block; flex-shrink: 0; }
         .sns-platform-btn .sns-platform-name { font-size: 12px; letter-spacing: .3px; }
-        .sns-platform-btn.ig { background: linear-gradient(135deg, #C9A0AE 0%, #C9B093 100%); color: #2A1419; border-color: rgba(232,223,201,.20); }
-        .sns-platform-btn.ig:hover { background: linear-gradient(135deg, #D9B5C0 0%, #D9C0A8 100%); }
-        .sns-platform-btn.threads { background: var(--text); color: var(--bg); border-color: var(--text); }
-        .sns-platform-btn.threads:hover { background: #FFF5E0; }
-        .sns-platform-btn.x { background: var(--text); color: var(--bg); border-color: var(--text); }
-        .sns-platform-btn.x:hover { background: #FFF5E0; }
+
+        /* Instagram — iOS app icon の公式グラデーション */
+        .sns-platform-btn.ig {
+            background: radial-gradient(circle at 28% 110%, #FDF497 0%, #FDF497 5%, #FD5949 45%, #D6249F 60%, #285AEB 90%);
+            color: #FFFFFF;
+            border-color: transparent;
+        }
+        .sns-platform-btn.ig:hover { filter: brightness(1.08); }
+
+        /* Threads — solid 黒（ブランド色） */
+        .sns-platform-btn.threads {
+            background: #000000;
+            color: #FFFFFF;
+            border-color: #000000;
+        }
+        .sns-platform-btn.threads:hover { background: #1A1A1A; }
+
+        /* X — outline 風（透明 + 黒ボーダー、Threads と差別化） */
+        .sns-platform-btn.x {
+            background: #FFFFFF;
+            color: #000000;
+            border: 1.5px solid #000000;
+        }
+        .sns-platform-btn.x:hover { background: #000000; color: #FFFFFF; }
 
         /* Hashtag Trends — compact card with platform jumps */
         .hashtag-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 14px; }
@@ -243,7 +262,7 @@
         .competitor-cat-tabs { display: flex; gap: 6px; margin-bottom: 16px; }
         .competitor-cat-tab { padding: 6px 16px; border: 1px solid var(--border); background: var(--card); border-radius: 0; cursor: pointer; font-size: 13px; font-family: inherit; transition: all .2s; color: var(--text-light); }
         .competitor-cat-tab:hover { border-color: var(--text); color: var(--text); }
-        .competitor-cat-tab.active { background: var(--accent); color: var(--bg); border-color: var(--text); }
+        .competitor-cat-tab.active { background: var(--accent); color: var(--text); border-color: var(--accent); font-weight: 600; }
         .competitor-cat-tab.active-shoe { background: var(--tag-shoe); color: var(--bg); border-color: var(--tag-shoe); }
         .competitor-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(360px,1fr)); gap: 18px; }
         .competitor-card { background: var(--card); border-radius: 0; padding: 22px; box-shadow: 0 1px 0 rgba(232,223,201,.04); border-left: 3px solid var(--border-strong); transition: all .25s ease; }
