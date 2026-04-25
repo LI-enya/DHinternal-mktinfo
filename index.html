@@ -393,8 +393,9 @@
         .tier-badge.primary { background: linear-gradient(135deg, var(--accent), var(--accent-deep)); color: var(--bg); box-shadow: 0 1px 4px rgba(201,167,122,.30); }
         .tier-badge.reference { background: rgba(232, 223, 201, .08); color: var(--text-light); border: 1px solid var(--border); }
         .tier-badge.agent-added { background: var(--card-elevated); color: var(--accent); border: 1px dashed var(--accent); }
-        .competitor-card.is-primary { border-left-color: #8B6F47 !important; border-left-width: 5px; background: linear-gradient(135deg, var(--card-hover) 0%, var(--card) 40%, var(--card) 100%); box-shadow: 0 2px 10px rgba(139,111,71,.10); }
-        .competitor-card.is-primary:hover { box-shadow: 0 6px 20px rgba(139,111,71,.18); }
+        /* Primary card: black editorial bar (magazine cover-line feel) */
+        .competitor-card.is-primary { border-left-color: var(--text) !important; border-left-width: 4px; background: var(--card); box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+        .competitor-card.is-primary:hover { border-left-color: var(--text) !important; box-shadow: 0 4px 16px rgba(0,0,0,.10); }
         .competitor-price-range { font-size: 11px; padding: 3px 10px; border-radius: 0; background: var(--card-elevated); color: var(--accent); margin-left: 4px; }
         .competitor-move { font-size: 16px; font-weight: 600; margin: 10px 0 8px; color: var(--text); line-height: 1.5; }
         .competitor-detail { font-size: 14px; color: var(--text-light); margin-bottom: 10px; line-height: 1.75; }
