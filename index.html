@@ -44,11 +44,16 @@
             --warm: #C9A77A;
             --warm-dim: rgba(201,167,122,.10);
             --warm-border: rgba(201,167,122,.30);
-            /* DEEP WINE — 信号色（高級な edition rouge、champagne と相性 GOOD）*/
-            --signal: #8B2635;
-            --signal-deep: #5C1820;
-            --signal-soft: #B8474D;
-            --signal-glow: rgba(139,38,53,.30);
+            /* ROYAL VIOLET — 信号色（HOT/NEW/急上昇 のみ、跳眼）*/
+            --signal: #7C3AED;
+            --signal-deep: #5B21B6;
+            --signal-soft: #A78BFA;
+            --signal-glow: rgba(124,58,237,.40);
+            /* DUSTY MAUVE — 装飾色（MOLI HANDMADE 風 vintage 紫、source link / accent デコ用）*/
+            --decor: #A88EA0;
+            --decor-deep: #7E6470;
+            --decor-soft: #C7B0BC;
+            --decor-dim: rgba(168,142,160,.12);
             /* Header アンカー — 0A 黒（純黒より柔らか、依然として最高級感）*/
             --dark-anchor: #0A0A0A;
         }
@@ -301,10 +306,10 @@
         .hashtag-row1 { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
         .hashtag-name { font-size: 15px; font-weight: 600; color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .hashtag-trend-pill { font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 0; white-space: nowrap; flex-shrink: 0; }
-        .hashtag-trend-pill.up { background: rgba(139,38,53,.12); color: var(--signal); border: 1px solid rgba(139,38,53,.40); }
+        .hashtag-trend-pill.up { background: rgba(124,58,237,.12); color: var(--signal); border: 1px solid rgba(124,58,237,.45); }
         .hashtag-trend-pill.stable { background: var(--bg); color: var(--text-light); }
         .hashtag-trend-pill.down { background: #F0F3F6; color: var(--tag-shoe); }
-        .hashtag-source { font-size: 11px; color: var(--text-light); display: flex; align-items: center; gap: 4px; }
+        .hashtag-source { font-size: 11px; color: var(--decor-deep); display: flex; align-items: center; gap: 4px; font-weight: 500; }
         .hashtag-platforms { display: flex; gap: 4px; margin-top: 2px; }
         .sns-platform-btn.icon-only { padding: 0; width: 32px; height: 32px; justify-content: center; }
         .sns-platform-btn.icon-only svg { width: 15px; height: 15px; }
@@ -344,10 +349,10 @@
         .hot-badge { background: var(--signal); color: #fff; font-size: 11px; padding: 4px 10px; border-radius: 0; white-space: nowrap; margin-left: 8px; font-weight: 700; letter-spacing: .5px; box-shadow: 0 0 16px var(--signal-glow); }
         .topic-desc { font-size: 14px; color: var(--text-light); margin-bottom: 12px; line-height: 1.75; }
         .source-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-        .source-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--primary); text-decoration: none; background: var(--bg); padding: 4px 12px; border-radius: 0; transition: all .2s; }
-        .source-link:hover { background: var(--primary); color: var(--bg); }
-        .source-link.shoe-link { color: var(--tag-shoe); background: #F0F3F6; }
-        .source-link.shoe-link:hover { background: var(--tag-shoe); color: var(--bg); }
+        .source-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--decor-deep); text-decoration: none; background: var(--decor-dim); padding: 5px 12px; border-radius: 0; border: 1px solid rgba(168,142,160,.30); transition: all .2s; font-weight: 500; }
+        .source-link:hover { background: var(--decor); color: #fff; border-color: var(--decor); }
+        .source-link.shoe-link { color: var(--tag-shoe); background: var(--decor-dim); }
+        .source-link.shoe-link:hover { background: var(--decor); color: #fff; }
 
         .campaign-card { background: var(--card); border-radius: 0; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.04); transition: all .25s ease; }
         .campaign-card:hover { box-shadow: 0 0 0 1px rgba(201,167,122,.40), 0 4px 16px rgba(0,0,0,.30); transform: translateY(-2px); }
@@ -373,7 +378,7 @@
 
         .age-tags { display: flex; gap: 6px; margin-top: 6px; }
         .age-tag { font-size: 11px; padding: 2px 10px; border-radius: 0; background: var(--bg); color: var(--text-light); }
-        .age-tag.highlight { background: var(--card-elevated); color: var(--accent); }
+        .age-tag.highlight { background: var(--decor-dim); color: var(--decor-deep); border: 1px solid rgba(168,142,160,.30); }
 
         .update-note { background: transparent; border: none; padding: 12px 0; margin-bottom: 16px; font-size: 13px; color: var(--text-light); line-height: 1.7; }
 
