@@ -791,7 +791,7 @@
 <div class="container">
 
     <div class="update-note">
-        <em>Updated every 3 days</em> <span class="jp">— 30〜60代女性向けトレンド & キャンペーン情報　·　<svg class="icon"><use href="#i-bag"/></svg> バッグ ¥30K　/　<svg class="icon"><use href="#i-shoe"/></svg> シューズ ¥20K</span>
+        <em>Updated every 3 days</em> <span class="jp">— 30〜60代女性向けトレンド & キャンペーン情報　·　👝 バッグ ¥30K　/　👠 シューズ ¥20K</span>
     </div>
 
     <!-- Quick Nav -->
@@ -1289,8 +1289,8 @@ function renderStats(data) {
     container.innerHTML = `
         <div class="stat-card trend"><div class="number">${hotTopics}</div><div class="label"><svg class="icon"><use href="#i-flame"/></svg> 注目トピック</div></div>
         <div class="stat-card sns"><div class="number">${snsCount}</div><div class="label"><svg class="icon"><use href="#i-social"/></svg> SNS話題</div></div>
-        <div class="stat-card"><div class="number">${data.bagCampaigns.length}</div><div class="label"><svg class="icon"><use href="#i-bag"/></svg> バッグ施策</div></div>
-        <div class="stat-card shoe"><div class="number">${data.shoeCampaigns.length}</div><div class="label"><svg class="icon"><use href="#i-shoe"/></svg> シューズ施策</div></div>
+        <div class="stat-card"><div class="number">${data.bagCampaigns.length}</div><div class="label">👝 バッグ施策</div></div>
+        <div class="stat-card shoe"><div class="number">${data.shoeCampaigns.length}</div><div class="label">👠 シューズ施策</div></div>
         <div class="stat-card"><div class="number">${competitorCount}</div><div class="label"><svg class="icon"><use href="#i-search"/></svg> 競合動向</div></div>
     `;
 }
@@ -1496,7 +1496,7 @@ function renderCompetitors(competitors) {
                 <div class="competitor-brand">${c.brand}${c.priceRange ? `<span class="competitor-price-range">${c.priceRange}</span>` : ''}</div>
                 <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
                     ${tierBadge}
-                    <span class="competitor-cat-icon" title="${c.category==='bag'?'バッグ':'シューズ'}"><svg class="icon"><use href="#${c.category==='bag'?'i-bag':'i-shoe'}"/></svg></span>
+                    <span class="competitor-cat-icon" title="${c.category==='bag'?'バッグ':'シューズ'}">${c.category==='bag'?'👝':'👠'}</span>
                     ${bookmarkBtnHtml(itemId, c.brand, c.move, '競合')}
                 </div>
             </div>
@@ -1546,7 +1546,7 @@ function renderCampaigns(type, campaigns) {
             <div class="campaign-body">
                 <div class="campaign-tags" style="display:flex;justify-content:space-between;align-items:center">
                     <div style="display:flex;gap:6px;flex-wrap:wrap">
-                        <span class="tag tag-${type}">${type==='bag'?'<svg class="icon"><use href="#i-bag"/></svg> バッグ':'<svg class="icon"><use href="#i-shoe"/></svg> シューズ'}</span>
+                        <span class="tag tag-${type}">${type==='bag'?'👝 バッグ':'👠 シューズ'}</span>
                         <span class="tag tag-${c.channel}">${c.channel==='online'?'<svg class="icon"><use href="#i-globe"/></svg> オンライン':'<svg class="icon"><use href="#i-store"/></svg> オフライン'}</span>
                     </div>
                     ${bookmarkBtnHtml(itemId, c.name, c.desc, type==='bag'?'バッグ施策':'シューズ施策')}
