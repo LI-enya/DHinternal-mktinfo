@@ -243,6 +243,12 @@
           "tier": "tone-aligned",
           "reason": "手工皮鞋ブランド（2012年〜）。CEO seed。クラフト×設計、l'aiséの調性に類似。",
           "officialUrl": "https://dwarvesshoes.com/"
+        },
+        {
+          "name": "MANA",
+          "tier": "tone-aligned",
+          "reason": "工場直営の日本女靴ブランド（CEO seed）。craft×設計の路線。伊勢丹新宿・阪急梅田など百貨店並行。l'aisé の調性に近い。",
+          "officialUrl": "https://www.mana-l.com/"
         }
       ],
       "pool": [],
