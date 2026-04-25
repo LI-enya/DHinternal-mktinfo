@@ -12,14 +12,14 @@
             /* High-class minimal — black anchor + light gray body + white cards + champagne accent */
             --primary: #1A1A1A;
             --primary-light: #4A4A4A;
-            --accent: #E7C89C;          /* Champagne gold（柔らか、上品）*/
-            --accent-deep: #C9A77A;
-            --accent-soft: #F0DCBA;
-            --bg: #DADADA;              /* 全 section 統一 light gray */
-            --bg-light: #C9C9C9;
-            --card: #FFFFFF;            /* 純白 cards — 高コントラスト */
-            --card-hover: #FAFAFA;
-            --card-elevated: #F5F5F5;
+            --accent: #D4B488;          /* Champagne gold 深め（白カードで映える）*/
+            --accent-deep: #B89870;
+            --accent-soft: #E7C89C;
+            --bg: #D6D2C9;              /* 微温かいライトグレー（純グレーより quality）*/
+            --bg-light: #C8C4BB;
+            --card: #FFFFFF;            /* 純白 cards — 強コントラスト */
+            --card-hover: #FAFAF7;
+            --card-elevated: #F5F2EB;
             --text: #1A1A1A;            /* 純黒に近い、最強コントラスト */
             --text-secondary: #3A3A3A;
             --text-light: #6A6A6A;
@@ -42,13 +42,13 @@
             --signal-deep: #8B3A14;
             --signal-soft: #E2702E;
             --signal-glow: rgba(204,85,32,.35);
-            /* Header アンカー — 純黒 */
-            --dark-anchor: #000000;
+            /* Header アンカー — 0A 黒（純黒より柔らか、依然として最高級感）*/
+            --dark-anchor: #0A0A0A;
         }
         body { font-family: 'Noto Sans JP','Hiragino Kaku Gothic ProN','Source Han Sans JP',sans-serif; background: var(--bg); color: var(--text); line-height: 1.85; font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: "tnum" 1, "kern" 1; }
 
-        /* Header — pure black anchor、最高級感 */
-        header { background: #000000; color: #FFFFFF; padding: 36px 0 32px; border-bottom: 3px solid var(--accent); }
+        /* Header — soft black anchor（#0A0A0A）、最高級感 */
+        header { background: var(--dark-anchor); color: #FFFFFF; padding: 36px 0 32px; border-bottom: 2px solid var(--accent); }
         header .logo { color: #FFFFFF; }
         header .logo span { color: var(--accent); }
         header .date-display { background: rgba(255,255,255,.10); color: #FFFFFF; border: 1px solid rgba(255,255,255,.20); }
@@ -226,19 +226,19 @@
 
         /* Threads — solid 黒（ブランド色） */
         .sns-platform-btn.threads {
-            background: #000000;
+            background: var(--dark-anchor);
             color: #FFFFFF;
-            border-color: #000000;
+            border-color: var(--dark-anchor);
         }
         .sns-platform-btn.threads:hover { background: #1A1A1A; }
 
-        /* X — outline 風（透明 + 黒ボーダー、Threads と差別化） */
+        /* X — outline 風（白 + 黒ボーダー、Threads と差別化） */
         .sns-platform-btn.x {
             background: #FFFFFF;
-            color: #000000;
-            border: 1.5px solid #000000;
+            color: var(--dark-anchor);
+            border: 1.5px solid var(--dark-anchor);
         }
-        .sns-platform-btn.x:hover { background: #000000; color: #FFFFFF; }
+        .sns-platform-btn.x:hover { background: var(--dark-anchor); color: #FFFFFF; }
 
         /* Hashtag Trends — compact card with platform jumps */
         .hashtag-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 14px; }
