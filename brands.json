@@ -186,6 +186,56 @@
           "officialUrl": "https://nagatani-shop.com/"
         }
       ],
+      "aiSuggested": [
+        {
+          "name": "MANSUR GAVRIEL",
+          "tier": "tone-aligned",
+          "reason": "AI建議。NY発の極簡 + 大胆色彩、ISOLÉ の調性に高度合致。",
+          "officialUrl": "https://www.mansurgavriel.com/"
+        },
+        {
+          "name": "WANDLER",
+          "tier": "tone-aligned",
+          "reason": "AI建議。アムステルダム発、建築的・彫刻的フォルム。",
+          "officialUrl": "https://wandler.com/"
+        },
+        {
+          "name": "STAUD",
+          "tier": "tone-aligned",
+          "reason": "AI建議。LA発、設計性の高いミニマル系。",
+          "officialUrl": "https://staud.clothing/"
+        },
+        {
+          "name": "Cult Gaia",
+          "tier": "tone-aligned",
+          "reason": "AI建議。LA発、彫刻感のあるバッグ。",
+          "officialUrl": "https://cultgaia.com/"
+        },
+        {
+          "name": "土屋鞄",
+          "tier": "tone-aligned",
+          "reason": "AI建議。日本のクラフト最高峰、革鞄の定番。",
+          "officialUrl": "https://tsuchiya-kaban.jp/"
+        },
+        {
+          "name": "Michael Kors",
+          "tier": "trend-watch",
+          "reason": "AI建議。大衆軽奢の主軸、市場大盤の動向観察用。",
+          "officialUrl": "https://www.michaelkors.jp/"
+        },
+        {
+          "name": "Longchamp",
+          "tier": "trend-watch",
+          "reason": "AI建議。実用中档の代表、市場流行の参考に。",
+          "officialUrl": "https://jp.longchamp.com/"
+        },
+        {
+          "name": "Marc Jacobs",
+          "tier": "trend-watch",
+          "reason": "AI建議。SNS話題度高、トレンドリーダー。",
+          "officialUrl": "https://www.marcjacobs.jp/"
+        }
+      ],
       "pool": [],
       "_poolNote": "agent が今期間中に新規追加した候補を蓄積する場所。CEO が定期的にレビューして seed に昇格 or 削除する。"
     }
@@ -249,6 +299,74 @@
           "tier": "tone-aligned",
           "reason": "工場直営の日本女靴ブランド（CEO seed）。craft×設計の路線。伊勢丹新宿・阪急梅田など百貨店並行。l'aisé の調性に近い。",
           "officialUrl": "https://www.mana-l.com/"
+        }
+      ],
+      "aiSuggested": [
+        {
+          "name": "PELLICO",
+          "tier": "tone-aligned",
+          "reason": "AI建議。イタリア発、優雅×中高档、日本展開強い。AMAN取扱。",
+          "officialUrl": "https://pellicojapan.jp/"
+        },
+        {
+          "name": "YOSHITO",
+          "tier": "tone-aligned",
+          "reason": "AI建議。日本の極簡シューズデザイナーブランド。",
+          "officialUrl": "https://yoshito.shop/"
+        },
+        {
+          "name": "RABOKIGOSHI works",
+          "tier": "tone-aligned",
+          "reason": "AI建議。日本のデザイナー系シューズブランド。Made in Japan & Made in Italy。",
+          "officialUrl": "https://raboki-webstore.com/"
+        },
+        {
+          "name": "銀座かねまつ",
+          "tier": "tone-aligned",
+          "reason": "AI建議（CEOから「分類在AI建議」と指示）。日本の老舗優雅系、百貨店専柜中心。",
+          "officialUrl": "https://www.shoesconcierge.jp/"
+        },
+        {
+          "name": "Jimmy Choo",
+          "tier": "trend-watch",
+          "reason": "AI建議。ドレスシューズ顶级标杆。l'aiséの主打dress shoes領域の風向計。価格は遥か上だが、トレンド観察用。",
+          "officialUrl": "https://row.jimmychoo.com/jp/"
+        },
+        {
+          "name": "Manolo Blahnik",
+          "tier": "trend-watch",
+          "reason": "AI建議。クラシックパンプスの世界標準。dress shoes風向計。",
+          "officialUrl": "https://www.manoloblahnik.com/jp/"
+        },
+        {
+          "name": "Aquazzura",
+          "tier": "trend-watch",
+          "reason": "AI建議。設計型ドレスシューズ。dress shoes風向計。",
+          "officialUrl": "https://aquazzura.com/jp_en/"
+        },
+        {
+          "name": "Stuart Weitzman",
+          "tier": "trend-watch",
+          "reason": "AI建議。米中高档、伊勢丹三越LUXURY扱い。dress shoes風向計。",
+          "officialUrl": "https://www.stuartweitzman.com/"
+        },
+        {
+          "name": "Odette e Odile",
+          "tier": "activity-watch",
+          "reason": "AI建議。LUMINE系、季節セール頻繁、活動文案の参考に。",
+          "officialUrl": "https://i.lumine.jp/shops/101/"
+        },
+        {
+          "name": "fitfit",
+          "tier": "activity-watch",
+          "reason": "AI建議。舒適専攻 + 頻繁なキャンペーン。",
+          "officialUrl": "https://fitfit.jp/"
+        },
+        {
+          "name": "MAMIAN",
+          "tier": "activity-watch",
+          "reason": "AI建議。日本中档、常年セール・キャンペーン。",
+          "officialUrl": "https://www.mamian.co.jp/"
         }
       ],
       "pool": [],
