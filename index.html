@@ -173,12 +173,17 @@
                 inset 0 -1px 0 rgba(0,0,0,.15),
                 0 2px 8px rgba(168,137,92,.25);
         }
-        /* 他の chips 全て統一: thin gold outline、透明 bg（簡素化）*/
-        .brand-chip.primary-price,
-        .brand-chip.ai-suggested {
+        /* CEO seed / price-aligned: solid 細枠 */
+        .brand-chip.primary-price {
             background: transparent;
             border: 1px solid var(--border);
-            border-style: solid;
+            color: var(--text);
+            font-weight: 500;
+        }
+        /* AI 拓展品牌: dashed 細枠で識別 */
+        .brand-chip.ai-suggested {
+            background: transparent;
+            border: 1px dashed var(--border-strong);
             color: var(--text);
             font-weight: 500;
         }
@@ -411,13 +416,18 @@
             color: #2A2520;
             border-color: #A8895C;
         }
-        /* 他全 chips: dark zone で透明 + 金細枠（簡素化）*/
-        #brandListSection .brand-chip.primary-price,
+        /* Dark zone CEO seed / price-aligned: 金 solid 細枠 */
+        #brandListSection .brand-chip.primary-price {
+            background: transparent;
+            color: rgba(232,221,196,.85);
+            border: 1px solid rgba(201,167,122,.40);
+            font-weight: 500;
+        }
+        /* Dark zone AI 拓展品牌: 金 dashed 細枠で識別 */
         #brandListSection .brand-chip.ai-suggested {
             background: transparent;
             color: rgba(232,221,196,.85);
-            border-color: rgba(201,167,122,.40);
-            border-style: solid;
+            border: 1px dashed rgba(201,167,122,.55);
             font-weight: 500;
         }
         #brandListSection .brand-chip.primary-price:hover,
