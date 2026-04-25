@@ -957,6 +957,9 @@ const CALENDAR = [
 // ALL_DATA — 日付別アーカイブ（data.json から非同期読込）
 // BRANDS — 対標ブランドリスト（brands.json から非同期読込、永続参照）
 // ============================================================
+// icon helper — SVG library への <use> 短縮
+function icon(name) { return `<svg class="icon"><use href="#${name}"/></svg>`; }
+
 let ALL_DATA = [];
 let BRANDS = null;
 
@@ -1037,7 +1040,7 @@ function renderCalendar() {
     } else {
         let pastHtml = `<button class="calendar-toggle" onclick="toggleCalendarPast()">${calendarPastVisible ? '▲ 過去のイベントを隠す' : `▼ 過去のイベント ${past.length}件を表示`}</button>`;
         if (calendarPastVisible) {
-            pastHtml += '<div class="calendar-past-divider"><svg class="icon"><use href="#i-folder"/></svg> 過去のイベント（参考）</div>';
+            pastHtml += '<div class="calendar-past-divider">' + icon('i-folder') + ' 過去のイベント（参考）</div>';
             pastHtml += '<div class="calendar-events past">' + past.map(ev => renderCalEvent(ev, today, true)).join('') + '</div>';
         }
         pastWrapper.innerHTML = pastHtml;
@@ -1108,10 +1111,10 @@ function renderBrandList() {
 
     tabsContainer.innerHTML = `
         <button class="brand-list-tab ${currentBrandTab === 'bag' ? 'active' : ''}" onclick="switchBrandTab('bag')">
-            <svg class="icon"><use href="#i-bag"/></svg> ${ourBag.name || 'ISOLÉ'}（バッグ） <span class="tab-count">${bagTotal}</span>
+            ${icon('i-bag')} ${ourBag.name || 'ISOLÉ'}（バッグ） <span class="tab-count">${bagTotal}</span>
         </button>
         <button class="brand-list-tab ${currentBrandTab === 'shoe' ? 'active' : ''}" onclick="switchBrandTab('shoe')">
-            <svg class="icon"><use href="#i-shoe"/></svg> ${ourShoe.name || "l'aisé"}（シューズ） <span class="tab-count">${shoeTotal}</span>
+            ${icon('i-shoe')} ${ourShoe.name || "l'aisé"}（シューズ） <span class="tab-count">${shoeTotal}</span>
         </button>
     `;
 
@@ -1134,7 +1137,7 @@ function renderBrandList() {
     // === Primary block ===
     if (primary.length > 0) {
         html += `<div class="brand-tier-block">
-            <div class="brand-tier-header primary"><svg class="icon"><use href="#i-star"/></svg> Primary（${primary.length}）必爬・最重要対標</div>`;
+            <div class="brand-tier-header primary">${icon('i-star')} Primary（${primary.length}）必爬・最重要対標</div>`;
         BRAND_TIER_ORDER_PRIMARY.forEach(tier => {
             const items = primaryByTier[tier] || [];
             if (!items.length) return;
@@ -1150,7 +1153,7 @@ function renderBrandList() {
     const refTotal = refSeed.length + refAi.length;
     if (refTotal > 0) {
         html += `<div class="brand-tier-block">
-            <div class="brand-tier-header reference"><svg class="icon"><use href="#i-chart"/></svg> Reference（${refTotal}）参考</div>`;
+            <div class="brand-tier-header reference">${icon('i-chart')} Reference（${refTotal}）参考</div>`;
         BRAND_TIER_ORDER_REFERENCE.forEach(tier => {
             const grp = refByTier[tier];
             if (!grp || (grp.ceo.length === 0 && grp.ai.length === 0)) return;
@@ -1223,12 +1226,12 @@ function switchToDate(dateStr) {
     else {
         banner.classList.remove('hidden');
         const d = new Date(dateStr);
-        document.getElementById('archiveLabel').innerHTML = '<svg class="icon"><use href="#i-folder"/></svg> アーカイブ表示中：' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+        document.getElementById('archiveLabel').innerHTML = icon('i-folder') + ' アーカイブ表示中：' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
     }
     const titleEl = document.getElementById('topicSectionTitle');
     const meta = '<span class="meta">— 30〜60代女性</span>';
     if (isLatest) titleEl.innerHTML = '今日の注目トピック' + meta;
-    else { const d = new Date(dateStr); titleEl.innerHTML = '<svg class="icon"><use href="#i-folder"/></svg> ' + (d.getMonth()+1)+'/'+d.getDate()+' のトピックアーカイブ' + meta; }
+    else { const d = new Date(dateStr); titleEl.innerHTML = icon('i-folder') + ' ' + (d.getMonth()+1)+'/'+d.getDate()+' のトピックアーカイブ' + meta; }
     currentCompetitorCat = 'all';
     renderPage(currentData);
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1261,13 +1264,13 @@ function renderSectionIndex(data) {
     const snsTotal = (data.sns||[]).length + (data.hashtags||[]).length;
     // 新しい順序：Cal → SNS → Topic → Comp → Bag → Shoe → Brands
     const sections = [
-        { id: 'calendarSection', icon: '<svg class="icon"><use href="#i-calendar"/></svg>', label: '営業カレンダー' },
-        { id: 'snsSection', icon: '<svg class="icon"><use href="#i-social"/></svg>', label: 'SNSトレンド', count: snsTotal },
-        { id: 'topicSection', icon: '<svg class="icon"><use href="#i-flame"/></svg>', label: '注目トピック', count: (data.topics||[]).length },
-        { id: 'competitorSection', icon: '<svg class="icon"><use href="#i-search"/></svg>', label: '競合ブランド', count: (data.competitors||[]).length },
-        { id: 'bagSection', icon: '<svg class="icon"><use href="#i-bag"/></svg>', label: 'バッグ施策', count: (data.bagCampaigns||[]).length },
-        { id: 'shoeSection', icon: '<svg class="icon"><use href="#i-shoe"/></svg>', label: 'シューズ施策', count: (data.shoeCampaigns||[]).length },
-        { id: 'brandListSection', icon: '<svg class="icon"><use href="#i-book"/></svg>', label: '対標リスト', count: brandTotal }
+        { id: 'calendarSection', icon: icon('i-calendar'), label: '営業カレンダー' },
+        { id: 'snsSection', icon: icon('i-social'), label: 'SNSトレンド', count: snsTotal },
+        { id: 'topicSection', icon: icon('i-flame'), label: '注目トピック', count: (data.topics||[]).length },
+        { id: 'competitorSection', icon: icon('i-search'), label: '競合ブランド', count: (data.competitors||[]).length },
+        { id: 'bagSection', icon: icon('i-bag'), label: 'バッグ施策', count: (data.bagCampaigns||[]).length },
+        { id: 'shoeSection', icon: icon('i-shoe'), label: 'シューズ施策', count: (data.shoeCampaigns||[]).length },
+        { id: 'brandListSection', icon: icon('i-book'), label: '対標リスト', count: brandTotal }
     ];
     document.getElementById('sectionIndexInner').innerHTML = sections.map(s =>
         `<a class="section-index-btn" href="#${s.id}">
@@ -1280,7 +1283,7 @@ function renderSectionIndex(data) {
 
 function renderDate(dateStr) {
     const d = new Date(dateStr);
-    document.getElementById('currentDate').innerHTML = '<svg class="icon"><use href="#i-calendar"/></svg> ' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'}) + ' 更新';
+    document.getElementById('currentDate').innerHTML = icon('i-calendar') + ' ' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'}) + ' 更新';
 }
 
 function renderStats(data) {
@@ -1289,11 +1292,11 @@ function renderStats(data) {
     const snsCount = (data.sns||[]).length;
     const competitorCount = (data.competitors||[]).length;
     container.innerHTML = `
-        <div class="stat-card trend"><div class="number">${hotTopics}</div><div class="label"><svg class="icon"><use href="#i-flame"/></svg> 注目トピック</div></div>
-        <div class="stat-card sns"><div class="number">${snsCount}</div><div class="label"><svg class="icon"><use href="#i-social"/></svg> SNS話題</div></div>
+        <div class="stat-card trend"><div class="number">${hotTopics}</div><div class="label">${icon('i-flame')} 注目トピック</div></div>
+        <div class="stat-card sns"><div class="number">${snsCount}</div><div class="label">${icon('i-social')} SNS話題</div></div>
         <div class="stat-card"><div class="number">${data.bagCampaigns.length}</div><div class="label">👝 バッグ施策</div></div>
         <div class="stat-card shoe"><div class="number">${data.shoeCampaigns.length}</div><div class="label">👠 シューズ施策</div></div>
-        <div class="stat-card"><div class="number">${competitorCount}</div><div class="label"><svg class="icon"><use href="#i-search"/></svg> 競合動向</div></div>
+        <div class="stat-card"><div class="number">${competitorCount}</div><div class="label">${icon('i-search')} 競合動向</div></div>
     `;
 }
 
@@ -1401,7 +1404,7 @@ function renderHashtags(hashtags) {
                     <div class="hashtag-name" title="#${tagRaw}">#${tagRaw}</div>
                     ${trendLabel ? `<div class="hashtag-trend-pill ${direction}">${trendLabel}</div>` : ''}
                 </div>
-                ${source ? `<div class="hashtag-source"><svg class="icon"><use href="#i-chart"/></svg> ${source}</div>` : ''}
+                ${source ? `<div class="hashtag-source">${icon('i-chart')} ${source}</div>` : ''}
                 <div class="hashtag-platforms">
                     <a class="sns-platform-btn ig icon-only" href="${links.instagram}" target="_blank" rel="noopener" aria-label="Instagram で #${tagRaw} を見る" title="Instagram で #${tagRaw} を見る">${PLATFORM_ICONS.instagram}</a>
                     <a class="sns-platform-btn threads icon-only" href="${links.threads}" target="_blank" rel="noopener" aria-label="Threads で #${tagRaw} を見る" title="Threads で #${tagRaw} を見る">${PLATFORM_ICONS.threads}</a>
@@ -1419,8 +1422,8 @@ function renderCompetitorTabs(competitors) {
     const shoeCount = competitors.filter(c => c.category === 'shoe').length;
     tabs.innerHTML = [
         { key: 'all', label: `すべて (${competitors.length})` },
-        { key: 'bag', label: `<svg class="icon"><use href="#i-bag"/></svg> バッグ (${bagCount})` },
-        { key: 'shoe', label: `<svg class="icon"><use href="#i-shoe"/></svg> シューズ (${shoeCount})` }
+        { key: 'bag', label: `${icon('i-bag')} バッグ (${bagCount})` },
+        { key: 'shoe', label: `${icon('i-shoe')} シューズ (${shoeCount})` }
     ].map(t => `<button class="competitor-cat-tab ${currentCompetitorCat===t.key?'active':''}${currentCompetitorCat===t.key&&t.key==='shoe'?' active-shoe':''}" onclick="filterCompetitors('${t.key}')">${t.label}</button>`).join('');
 }
 function filterCompetitors(cat) {
@@ -1486,9 +1489,9 @@ function renderCompetitors(competitors) {
         const isAgentAdded = c.tier === 'agent-added';
         let tierBadge = '';
         if (isPrimary) {
-            tierBadge = `<span class="tier-badge primary" title="${c.tier}"><svg class="icon"><use href="#i-star"/></svg> 主要対標</span>`;
+            tierBadge = `<span class="tier-badge primary" title="${c.tier}">${icon('i-star')} 主要対標</span>`;
         } else if (isAgentAdded) {
-            tierBadge = `<span class="tier-badge agent-added" title="agent提案、CEOレビュー待ち"><svg class="icon"><use href="#i-sparkle"/></svg> 新規候補</span>`;
+            tierBadge = `<span class="tier-badge agent-added" title="agent提案、CEOレビュー待ち">${icon('i-sparkle')} 新規候補</span>`;
         } else if ((c.tier || '').startsWith('ref-')) {
             const refLabels = {'ref-trend':'動向','ref-tone':'調性','ref-activity':'活動'};
             tierBadge = `<span class="tier-badge reference" title="${c.tier}">参考·${refLabels[c.tier]||''}</span>`;
@@ -1549,7 +1552,7 @@ function renderCampaigns(type, campaigns) {
                 <div class="campaign-tags" style="display:flex;justify-content:space-between;align-items:center">
                     <div style="display:flex;gap:6px;flex-wrap:wrap">
                         <span class="tag tag-${type}">${type==='bag'?'👝 バッグ':'👠 シューズ'}</span>
-                        <span class="tag tag-${c.channel}">${c.channel==='online'?'<svg class="icon"><use href="#i-globe"/></svg> オンライン':'<svg class="icon"><use href="#i-store"/></svg> オフライン'}</span>
+                        <span class="tag tag-${c.channel}">${c.channel==='online'?icon('i-globe')+' オンライン':icon('i-store')+' オフライン'}</span>
                     </div>
                     ${bookmarkBtnHtml(itemId, c.name, c.desc, type==='bag'?'バッグ施策':'シューズ施策')}
                 </div>
@@ -1558,7 +1561,7 @@ function renderCampaigns(type, campaigns) {
                 <div class="campaign-desc">${c.desc}</div>
                 <div class="age-tags">${c.ageTarget.map(a=>`<span class="age-tag">${a}</span>`).join('')}</div>
                 <div class="campaign-meta">
-                    <span class="campaign-date"><svg class="icon"><use href="#i-calendar"/></svg> ${c.date}</span>
+                    <span class="campaign-date">${icon('i-calendar')} ${c.date}</span>
                     <span class="campaign-price">${c.price}</span>
                 </div>
                 <div class="source-links">${c.sources.map(s=>`<a class="source-link ${type==='shoe'?'shoe-link':''}" href="${s.url}" target="_blank" rel="noopener">🔗 ${s.name}</a>`).join('')}</div>
@@ -1682,12 +1685,12 @@ function renderFavList() {
     }
     list.innerHTML = items.map(f => `
         <div class="fav-item">
-            <button class="fav-item-remove" onclick="removeFav(${currentFavTab},'${f.id.replace(/'/g,"\\'")}')"><svg class="icon"><use href="#i-x"/></svg></button>
+            <button class="fav-item-remove" onclick="removeFav(${currentFavTab},'${f.id.replace(/'/g,"\\'")}')">${icon('i-x')}</button>
             <div class="fav-item-title">${f.title}</div>
             <div class="fav-item-desc">${f.desc}</div>
             <div class="fav-item-meta">
                 <span>${f.type}</span>
-                <span><svg class="icon"><use href="#i-calendar"/></svg> ${f.date}</span>
+                <span>${icon('i-calendar')} ${f.date}</span>
             </div>
         </div>
     `).join('');
