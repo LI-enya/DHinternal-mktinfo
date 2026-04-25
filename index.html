@@ -44,11 +44,11 @@
             --warm: #C9A77A;
             --warm-dim: rgba(201,167,122,.10);
             --warm-border: rgba(201,167,122,.30);
-            /* ROYAL VIOLET — 信号色（HOT/NEW/急上昇 のみ、跳眼）*/
-            --signal: #7C3AED;
-            --signal-deep: #5B21B6;
-            --signal-soft: #A78BFA;
-            --signal-glow: rgba(124,58,237,.40);
+            /* DUSTY MAUVE — 信号色も装飾も統一（vintage 高級感）*/
+            --signal: #A88EA0;
+            --signal-deep: #7E6470;
+            --signal-soft: #C7B0BC;
+            --signal-glow: rgba(168,142,160,.40);
             /* DUSTY MAUVE — 装飾色（MOLI HANDMADE 風 vintage 紫、source link / accent デコ用）*/
             --decor: #A88EA0;
             --decor-deep: #7E6470;
@@ -306,7 +306,7 @@
         .hashtag-row1 { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
         .hashtag-name { font-size: 15px; font-weight: 600; color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .hashtag-trend-pill { font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 0; white-space: nowrap; flex-shrink: 0; }
-        .hashtag-trend-pill.up { background: rgba(124,58,237,.12); color: var(--signal); border: 1px solid rgba(124,58,237,.45); }
+        .hashtag-trend-pill.up { background: rgba(168,142,160,.12); color: var(--signal-deep); border: 1px solid rgba(168,142,160,.45); }
         .hashtag-trend-pill.stable { background: var(--bg); color: var(--text-light); }
         .hashtag-trend-pill.down { background: #F0F3F6; color: var(--tag-shoe); }
         .hashtag-source { font-size: 11px; color: var(--decor-deep); display: flex; align-items: center; gap: 4px; font-weight: 500; }
