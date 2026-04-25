@@ -103,14 +103,16 @@
         .back-today-btn { padding: 5px 14px; background: var(--accent); color: var(--text); border: none; border-radius: 0; cursor: pointer; font-size: 12px; font-family: inherit; font-weight: 500; }
 
         /* Stats — box-less、Domus 風の open numbers */
-        .stats-bar { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 0; margin-bottom: 32px; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        /* === Stats bar — "By the Numbers" Vogue editorial === */
+        .stats-bar { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; margin: 28px 0 64px; padding: 56px 0 36px; border-top: 1px solid var(--text); border-bottom: 1px solid var(--text); position: relative; }
+        .stats-bar::before { content: 'By the Numbers'; position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--bg); padding: 0 18px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: var(--accent-deep); letter-spacing: 0.04em; font-weight: 400; }
         .stat-card { background: transparent; padding: 8px 12px; text-align: center; box-shadow: none; border-right: 1px solid var(--border); }
         .stat-card:last-child { border-right: none; }
-        .stat-card .number { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
+        .stat-card .number { font-family: 'Playfair Display', 'Didot', 'Bodoni 72', serif; font-size: clamp(56px, 6.8vw, 124px); font-style: italic; font-weight: 400; color: var(--text); letter-spacing: -0.045em; line-height: 0.92; display: block; }
         .stat-card.shoe .number { color: var(--tag-shoe); }
-        .stat-card.trend .number { color: var(--accent); }
-        .stat-card.sns .number { color: var(--accent); }
-        .stat-card .label { font-size: 11px; color: var(--text-light); margin-top: 6px; letter-spacing: .8px; text-transform: uppercase; }
+        .stat-card.trend .number { color: var(--accent-deep); }
+        .stat-card.sns .number { color: var(--accent-deep); }
+        .stat-card .label { font-size: 10px; color: var(--text-light); margin-top: 14px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 700; display: block; }
 
         /* Marketing Calendar — open layout（外枠なし）*/
         .calendar-section { background: transparent; padding: 0; margin-bottom: 56px; box-shadow: none; }
@@ -272,6 +274,37 @@
         .calendar-section { scroll-margin-top: 120px; margin-bottom: 56px; }
         .section-title { font-size: 26px; font-weight: 700; margin-bottom: 28px; padding: 0 0 20px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; color: var(--text); letter-spacing: -0.02em; position: relative; text-transform: none; }
         .section-title::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 26px; width: 3px; background: var(--accent); }
+
+        /* ===== Vogue Cover-style typography (TEST: calendar / topic / competitor) ===== */
+        .section-header-mag { margin-bottom: 56px; padding-bottom: 32px; border-bottom: 1px solid var(--text); }
+        /* Kicker — 小 ALL CAPS、雑誌の発行号風 */
+        .kicker { font-size: 12px; font-weight: 700; color: var(--accent-deep); text-transform: uppercase; letter-spacing: 0.32em; margin-bottom: 18px; display: inline-flex; align-items: center; gap: 12px; font-family: 'Noto Sans JP', sans-serif; }
+        .kicker::before { content: ''; display: inline-block; width: 40px; height: 1px; background: var(--accent); }
+        .kicker .title-flame-icon { width: 14px; height: 14px; }
+        /* Headline — 雑誌マスト的巨大 Playfair italic uppercase（Vogue 風 high-contrast Didone）*/
+        .section-title--display, .calendar-title--display {
+            font-family: 'Playfair Display', 'Didot', 'Bodoni 72', 'Times New Roman', serif;
+            font-size: clamp(64px, 11vw, 168px);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 0.92;
+            letter-spacing: -0.045em;
+            text-transform: uppercase;
+            color: var(--text);
+            border: none; padding: 0; margin: 0;
+            display: block;
+        }
+        .section-title--display::before, .calendar-title--display::before { display: none; }
+        .section-title--display .title-flame-icon, .section-title--display .title-deco, .calendar-title--display .title-deco { display: none; }
+        .section-title-meta { display: none; }
+        /* Japanese subtitle — マスト下の説明文 */
+        .section-headline-jp { font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: clamp(15px, 1.2vw, 19px); font-weight: 500; color: var(--text); margin-top: 22px; letter-spacing: 0.04em; line-height: 1.6; }
+        .section-headline-jp .meta { color: var(--text-light); font-weight: 400; margin-left: 8px; letter-spacing: 0.02em; }
+        /* Body upsize: hierarchy をハッキリ（lead 22 / body 17）*/
+        #topicSection .topic-title { font-size: 22px; line-height: 1.35; font-weight: 600; }
+        #topicSection .topic-desc { font-size: 17px; line-height: 1.8; }
+        #competitorSection .competitor-move { font-size: 22px; line-height: 1.35; }
+        #competitorSection .competitor-detail { font-size: 17px; line-height: 1.8; }
 
         /* SNS Section */
         .sns-platform-tabs { display: flex; gap: 6px; margin-bottom: 16px; }
@@ -573,7 +606,8 @@
             .header-inner { flex-direction: column; text-align: center; gap: 8px; }
             .container { padding: 16px; }
             .topics-grid,.campaign-grid,.sns-grid,.competitor-grid,.hashtag-grid { grid-template-columns: 1fr; }
-            .stats-bar { grid-template-columns: repeat(2,1fr); gap: 8px; }
+            .stats-bar { grid-template-columns: repeat(5,1fr); padding: 48px 0 28px; }
+            .stat-card .number { font-size: clamp(44px, 7vw, 88px); }
             .archive-date-btn { min-width: 75px; padding: 6px 10px; }
             .calendar-events { flex-direction: column; }
             .cal-event { min-width: auto; }
@@ -604,10 +638,13 @@
             .viewing-archive { padding: 8px 14px; font-size: 12px; flex-direction: column; gap: 8px; text-align: center; }
 
             /* Stats */
-            .stats-bar { grid-template-columns: repeat(2,1fr); gap: 6px; margin-bottom: 16px; }
-            .stat-card { padding: 12px 8px; border-radius: 0; }
-            .stat-card .number { font-size: 22px; }
-            .stat-card .label { font-size: 10px; }
+            .stats-bar { grid-template-columns: repeat(2,1fr); gap: 0; padding: 36px 0 22px; margin: 18px 0 32px; }
+            .stats-bar::before { font-size: 12px; padding: 0 12px; top: -9px; }
+            .stat-card { padding: 16px 8px; }
+            .stat-card:nth-child(2n) { border-right: none; }
+            .stat-card:nth-child(-n+4) { border-bottom: 1px solid var(--border); margin-bottom: 14px; padding-bottom: 18px; }
+            .stat-card .number { font-size: clamp(48px, 14vw, 72px); }
+            .stat-card .label { font-size: 9px; letter-spacing: 0.18em; margin-top: 8px; }
 
             /* Calendar */
             .calendar-section { padding: 14px; margin-bottom: 16px; }
@@ -623,6 +660,18 @@
             .section { margin-bottom: 24px; scroll-margin-top: 100px; }
             .calendar-section { scroll-margin-top: 100px; }
             .section-title { font-size: 14px; margin-bottom: 12px; padding-bottom: 8px; }
+            /* Vogue Cover TEST mobile */
+            .section-header-mag { margin-bottom: 28px; padding-bottom: 18px; }
+            .section-title--display, .calendar-title--display { font-size: clamp(48px, 16vw, 72px); line-height: 0.95; letter-spacing: -0.04em; }
+            .kicker { font-size: 10px; letter-spacing: 0.22em; margin-bottom: 12px; }
+            .kicker::before { width: 22px; }
+            .kicker .title-flame-icon { width: 11px; height: 11px; }
+            .section-headline-jp { font-size: 13px; margin-top: 12px; line-height: 1.55; }
+            .section-headline-jp .meta { display: block; margin-left: 0; margin-top: 2px; }
+            #topicSection .topic-title { font-size: 17px; }
+            #topicSection .topic-desc { font-size: 14px; }
+            #competitorSection .competitor-move { font-size: 17px; }
+            #competitorSection .competitor-detail { font-size: 14px; }
 
             /* SNS */
             .sns-platform-tabs { gap: 4px; flex-wrap: wrap; }
@@ -739,16 +788,22 @@
 
     <!-- 1. Marketing Calendar -->
     <div class="calendar-section" id="calendarSection">
-        <div class="calendar-header">
-            <div class="calendar-title">📅 直近の営業カレンダー（日本市場）</div>
+        <div class="section-header-mag">
+            <div class="kicker">Vol. 04 · Apr 2026 · Calendar</div>
+            <div class="calendar-title calendar-title--display">Calendar</div>
+            <div class="section-headline-jp">直近の営業カレンダー<span class="meta">— 日本市場・直近 4 週間</span></div>
         </div>
         <div class="calendar-events" id="calendarEvents"></div>
         <div id="calendarPastWrapper"></div>
     </div>
 
-    <!-- 2. SNS トレンド — CREAM block -->
+    <!-- 2. SNS トレンド — DARK block -->
     <div class="section" id="snsSection">
-        <div class="section-title">📱 SNS トレンド</div>
+        <div class="section-header-mag">
+            <div class="kicker">No. 02 · Social Pulse</div>
+            <div class="section-title section-title--display">Social</div>
+            <div class="section-headline-jp">SNS トレンド<span class="meta">— Instagram・Threads・X</span></div>
+        </div>
         <div class="sns-trend-tabs" id="snsTrendTabs"></div>
         <div class="sns-grid" id="snsGrid"></div>
         <div class="hashtag-grid" id="hashtagGrid" style="display:none"></div>
@@ -756,13 +811,21 @@
 
     <!-- 3. 注目トピック — CREAM block（HOT 信号色が際立つ） -->
     <div class="section" id="topicSection">
-        <div class="section-title" id="topicSectionTitle"><svg class="title-flame-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg> 今日の注目トピック（30〜60代女性）</div>
+        <div class="section-header-mag">
+            <div class="kicker"><svg class="title-flame-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>No. 03 · Today's Focus</div>
+            <div class="section-title section-title--display">Topics</div>
+            <div class="section-headline-jp" id="topicSectionTitle">今日の注目トピック<span class="meta">— 30〜60代女性</span></div>
+        </div>
         <div class="topics-grid" id="topicsGrid"></div>
     </div>
 
     <!-- 4. Competitor Watch — DARK OLIVE block -->
     <div class="section" id="competitorSection">
-        <div class="section-title">🔍 競合ブランド動向</div>
+        <div class="section-header-mag">
+            <div class="kicker">No. 04 · Watchlist</div>
+            <div class="section-title section-title--display">Competitor</div>
+            <div class="section-headline-jp">競合ブランド動向<span class="meta">— Primary 8 / AI 拓展 11 ブランド</span></div>
+        </div>
         <div class="competitor-cat-tabs" id="competitorTabs"></div>
         <div class="competitor-activity-filter" id="competitorActivityFilter"></div>
         <div class="competitor-grid" id="competitorGrid"></div>
@@ -778,23 +841,32 @@
         <button class="filter-btn" data-filter="offline">🏬 オフライン</button>
     </div>
 
-    <!-- 5. Bag Campaigns — CREAM block -->
+    <!-- 5. Bag Campaigns — GRAY block -->
     <div class="section" id="bagSection">
-        <div class="section-title">👜 バッグ キャンペーン情報（客単価 ¥30,000）</div>
+        <div class="section-header-mag">
+            <div class="kicker">No. 05 · Bags</div>
+            <div class="section-title section-title--display">Bags</div>
+            <div class="section-headline-jp">バッグ キャンペーン情報<span class="meta">— 客単価 ¥30,000</span></div>
+        </div>
         <div class="campaign-grid" id="bagGrid"></div>
     </div>
 
-    <!-- 6. Shoe Campaigns — DARK OLIVE block -->
+    <!-- 6. Shoe Campaigns — GRAY block -->
     <div class="section" id="shoeSection">
-        <div class="section-title">👟 シューズ キャンペーン情報（客単価 ¥20,000）</div>
+        <div class="section-header-mag">
+            <div class="kicker">No. 06 · Shoes</div>
+            <div class="section-title section-title--display">Shoes</div>
+            <div class="section-headline-jp">シューズ キャンペーン情報<span class="meta">— 客単価 ¥20,000</span></div>
+        </div>
         <div class="campaign-grid" id="shoeGrid"></div>
     </div>
 
-    <!-- 7. Brand List — CREAM browse mode -->
+    <!-- 7. Brand List — DARK browse mode -->
     <div class="section" id="brandListSection">
-        <div class="section-title">
-            📚 対標ブランドリスト
-            <span style="font-size:11px;color:var(--text-light);font-weight:400;margin-left:8px">永続参照・brands.json より</span>
+        <div class="section-header-mag">
+            <div class="kicker">No. 07 · Index</div>
+            <div class="section-title section-title--display">Index</div>
+            <div class="section-headline-jp">対標ブランドリスト<span class="meta">— brands.json より永続参照</span></div>
         </div>
         <div class="brand-list-tabs" id="brandListTabs"></div>
         <div id="brandListContent"></div>
@@ -1118,9 +1190,9 @@ function switchToDate(dateStr) {
         document.getElementById('archiveLabel').textContent = '📂 アーカイブ表示中：' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
     }
     const titleEl = document.getElementById('topicSectionTitle');
-    const flameSvg = '<svg class="title-flame-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>';
-    if (isLatest) titleEl.innerHTML = flameSvg + ' 今日の注目トピック（30〜60代女性）';
-    else { const d = new Date(dateStr); titleEl.textContent = '📂 ' + (d.getMonth()+1)+'/'+d.getDate()+' の注目トピック（30〜60代女性）'; }
+    const meta = '<span class="meta">— 30〜60代女性</span>';
+    if (isLatest) titleEl.innerHTML = '今日の注目トピック' + meta;
+    else { const d = new Date(dateStr); titleEl.innerHTML = (d.getMonth()+1)+'/'+d.getDate()+' のトピックアーカイブ' + meta; }
     currentCompetitorCat = 'all';
     renderPage(currentData);
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
