@@ -13,11 +13,11 @@
             /* High-class minimal — black anchor + light gray body + white cards + champagne accent */
             --primary: #1A1A1A;
             --primary-light: #4A4A4A;
-            --accent: #C9A77A;          /* Champagne gold 深、より金色感 */
-            --accent-deep: #A8895C;
-            --accent-soft: #E7C89C;
-            --bg: #FFFFFF;              /* 主 body — 純白（最大面積、最高級感）*/
-            --bg-cool: #F2F2F0;          /* 副 — 微かにグレー（sticky nav / 区切り帯）*/
+            --accent: #E7C89C;          /* Champagne gold 明るめ */
+            --accent-deep: #C9A77A;
+            --accent-soft: #F0DCBA;
+            --bg: #F2F2F0;              /* 主 body — ライトグレー */
+            --bg-cool: #FFFFFF;          /* 副 — 純白（sticky nav）*/
             --bg-light: #FAFAF7;
             --card: #FFFFFF;            /* 純白 cards（body と同色だが border/shadow で識別）*/
             --card-hover: #FAFAF7;
@@ -52,7 +52,7 @@
         body { font-family: 'Noto Sans JP','Hiragino Kaku Gothic ProN','Source Han Sans JP',sans-serif; background: var(--bg); color: var(--text); line-height: 1.85; font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: "tnum" 1, "kern" 1; }
 
         /* Header — soft black anchor（#0A0A0A）、最高級感 */
-        header { background: var(--dark-anchor); color: #FFFFFF; padding: 36px 0 32px; border-bottom: 2px solid var(--accent); }
+        header { background: var(--dark-anchor); color: #FFFFFF; padding: 36px 0 32px; border-bottom: none; }
         header .logo { color: #FFFFFF; }
         header .logo span { color: var(--accent); }
         header .date-display { background: rgba(255,255,255,.10); color: #FFFFFF; border: 1px solid rgba(255,255,255,.20); }
@@ -367,9 +367,9 @@
         }
         /* Primary core / price-aligned chips は金色グラデを維持（按键不变ルール）*/
         #brandListSection .brand-chip.primary-core {
-            background: linear-gradient(135deg, #C9A77A 0%, #A8895C 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
             color: #1A1A1A;
-            border-color: #C9A77A;
+            border-color: var(--accent);
         }
         #brandListSection .brand-chip.primary-price {
             background: rgba(201,167,122,.20);
