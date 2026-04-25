@@ -37,6 +37,11 @@
             --warm: #C9A77A;
             --warm-dim: rgba(201,167,122,.10);
             --warm-border: rgba(201,167,122,.30);
+            /* SUNSET ORANGE — 重点信号色（HOT / 急上昇 / NEW のみで使用、稀に） */
+            --signal: #E26B36;
+            --signal-deep: #B8501F;
+            --signal-soft: #F58A55;
+            --signal-glow: rgba(226,107,54,.35);
         }
         body { font-family: 'Noto Sans JP','Hiragino Kaku Gothic ProN','Source Han Sans JP',sans-serif; background: var(--bg); color: var(--text); line-height: 1.85; font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: "tnum" 1, "kern" 1; }
 
@@ -141,8 +146,8 @@
         .brand-chip.ai-suggested:hover { border-color: var(--accent); color: var(--accent); background: var(--card-hover); }
         .brand-chip-icon { font-size: 11px; opacity: .8; }
         .brand-chip-arrow { font-size: 10px; opacity: .5; margin-left: 2px; }
-        .brand-chip.has-new { box-shadow: 0 0 0 2px rgba(139,111,71,.20); border-color: var(--accent); }
-        .brand-chip-new { font-size: 10px; background: var(--accent); color: var(--bg); padding: 2px 7px; border-radius: 0; font-weight: 700; margin-left: 4px; letter-spacing: .8px; text-transform: uppercase; }
+        .brand-chip.has-new { box-shadow: 0 0 0 2px var(--signal-glow); border-color: var(--signal); }
+        .brand-chip-new { font-size: 10px; background: var(--signal); color: #fff; padding: 2px 7px; border-radius: 0; font-weight: 700; margin-left: 4px; letter-spacing: .8px; text-transform: uppercase; box-shadow: 0 0 12px var(--signal-glow); }
 
         /* SNS Trend Tabs（詳細トピック/Hashtag一覧 切替） */
         .sns-trend-tabs { display: flex; gap: 6px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 0; }
@@ -287,7 +292,7 @@
         .sns-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
         .sns-hashtag { font-size: 16px; font-weight: 600; color: var(--text); }
         .sns-volume { font-size: 11px; color: var(--text-light); background: var(--bg); padding: 4px 10px; border-radius: 0; }
-        .sns-volume.up { color: var(--accent); background: var(--card-elevated); }
+        .sns-volume.up { color: var(--signal); background: rgba(226,107,54,.10); border: 1px solid rgba(226,107,54,.30); }
         .sns-desc { font-size: 14px; color: var(--text-light); margin: 10px 0 8px; line-height: 1.75; }
         .sns-action { font-size: 13px; color: var(--accent); background: var(--card-elevated); padding: 12px 14px; border-radius: 0; margin-top: 12px; border-left: 3px solid var(--accent); line-height: 1.7; }
         .sns-platforms-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
@@ -310,7 +315,7 @@
         .hashtag-row1 { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
         .hashtag-name { font-size: 15px; font-weight: 600; color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .hashtag-trend-pill { font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 0; white-space: nowrap; flex-shrink: 0; }
-        .hashtag-trend-pill.up { background: var(--card-elevated); color: var(--accent); }
+        .hashtag-trend-pill.up { background: rgba(226,107,54,.12); color: var(--signal); border: 1px solid rgba(226,107,54,.35); }
         .hashtag-trend-pill.stable { background: var(--bg); color: var(--text-light); }
         .hashtag-trend-pill.down { background: #F0F3F6; color: var(--tag-shoe); }
         .hashtag-source { font-size: 11px; color: var(--text-light); display: flex; align-items: center; gap: 4px; }
@@ -347,10 +352,10 @@
         .topics-grid, .campaign-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(360px,1fr)); gap: 18px; }
         .topic-card { background: var(--card); border-radius: 0; padding: 24px; box-shadow: 0 1px 0 rgba(232,223,201,.04); transition: all .25s ease; border-left: 3px solid transparent; }
         .topic-card:hover { box-shadow: 0 0 0 1px rgba(201,167,122,.40), 0 4px 16px rgba(0,0,0,.30); transform: translateY(-2px); }
-        .topic-card.hot { border-left-color: var(--accent); border-left-width: 4px; background: linear-gradient(135deg, var(--card-hover) 0%, var(--card) 35%, var(--card) 100%); }
+        .topic-card.hot { border-left-color: var(--signal); border-left-width: 4px; background: linear-gradient(135deg, rgba(226,107,54,.06) 0%, var(--card) 35%, var(--card) 100%); }
         .topic-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
         .topic-title { font-size: 16px; font-weight: 600; flex: 1; color: var(--text); line-height: 1.5; }
-        .hot-badge { background: var(--card-elevated); color: var(--accent); font-size: 11px; padding: 4px 10px; border-radius: 0; white-space: nowrap; margin-left: 8px; font-weight: 600; }
+        .hot-badge { background: var(--signal); color: #fff; font-size: 11px; padding: 4px 10px; border-radius: 0; white-space: nowrap; margin-left: 8px; font-weight: 700; letter-spacing: .5px; box-shadow: 0 0 16px var(--signal-glow); }
         .topic-desc { font-size: 14px; color: var(--text-light); margin-bottom: 12px; line-height: 1.75; }
         .source-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
         .source-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--primary); text-decoration: none; background: var(--bg); padding: 4px 12px; border-radius: 0; transition: all .2s; }
