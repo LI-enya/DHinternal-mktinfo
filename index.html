@@ -16,12 +16,14 @@
             --accent: #C9A77A;          /* Champagne gold 深、より金色感 */
             --accent-deep: #A8895C;
             --accent-soft: #E7C89C;
-            --bg: #D6D2C9;              /* 主 body — 暖いグレー（メインゾーン）*/
-            --bg-cool: #DADADA;          /* 副 — 冷感グレー（utility ゾーン）*/
-            --bg-light: #E0DCD3;
-            --card: #FFFFFF;            /* 純白 cards — 強コントラスト */
+            --bg: #FFFFFF;              /* 主 body — 純白（最大面積、最高級感）*/
+            --bg-cool: #F2F2F0;          /* 副 — 微かにグレー（sticky nav / 区切り帯）*/
+            --bg-light: #FAFAF7;
+            --card: #FFFFFF;            /* 純白 cards（body と同色だが border/shadow で識別）*/
             --card-hover: #FAFAF7;
             --card-elevated: #F5F2EB;
+            --border: rgba(0,0,0,.10);
+            --border-strong: rgba(0,0,0,.20);
             --text: #1A1A1A;            /* 純黒に近い、最強コントラスト */
             --text-secondary: #3A3A3A;
             --text-light: #6A6A6A;
@@ -137,7 +139,7 @@
         .brand-list-tab.active { background: var(--accent); color: var(--text); border-color: var(--accent); font-weight: 600; }
         .brand-list-tab .tab-count { font-size: 11px; padding: 2px 8px; border-radius: 0; background: var(--bg); color: var(--text-light); }
         .brand-list-tab.active .tab-count { background: rgba(0,0,0,.15); color: var(--text); }
-        .brand-tier-block { background: var(--card); border-radius: 0; padding: 22px 24px; margin-bottom: 16px; box-shadow: 0 1px 0 rgba(232,223,201,.04); }
+        .brand-tier-block { background: var(--card); border-radius: 0; padding: 22px 24px; margin-bottom: 16px; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.04); }
         .brand-tier-header { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
         .brand-tier-header.primary { color: var(--accent); }
         .brand-tier-header.reference { color: var(--text-light); }
@@ -202,7 +204,7 @@
         .sns-tab.active .dot-x, .sns-tab.active .dot-ig, .sns-tab.active .dot-threads { background: #fff; }
 
         .sns-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(360px,1fr)); gap: 18px; }
-        .sns-card { background: var(--card); border-radius: 0; padding: 22px; box-shadow: 0 1px 0 rgba(232,223,201,.04); border-left: 3px solid var(--border-strong); transition: all .2s; }
+        .sns-card { background: var(--card); border-radius: 0; padding: 22px; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.04); border-left: 3px solid var(--border-strong); transition: all .2s; }
         .sns-card:hover { box-shadow: 0 0 0 1px rgba(201,167,122,.40), 0 4px 16px rgba(0,0,0,.30); transform: translateY(-1px); }
         .sns-card.ig { border-left-color: var(--sns-ig); }
         .sns-card.threads { border-left-color: var(--text-light); }
@@ -245,7 +247,7 @@
 
         /* Hashtag Trends — compact card with platform jumps */
         .hashtag-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 14px; }
-        .hashtag-card { background: var(--card); border-radius: 0; padding: 16px 18px; box-shadow: 0 1px 0 rgba(232,223,201,.04); transition: all .2s; display: flex; flex-direction: column; gap: 8px; }
+        .hashtag-card { background: var(--card); border-radius: 0; padding: 16px 18px; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.04); transition: all .2s; display: flex; flex-direction: column; gap: 8px; }
         .hashtag-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.07); transform: translateY(-1px); }
         .hashtag-row1 { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
         .hashtag-name { font-size: 15px; font-weight: 600; color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -268,7 +270,7 @@
         .competitor-cat-tab.active { background: var(--accent); color: var(--text); border-color: var(--accent); font-weight: 600; }
         .competitor-cat-tab.active-shoe { background: var(--tag-shoe); color: var(--bg); border-color: var(--tag-shoe); }
         .competitor-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(360px,1fr)); gap: 18px; }
-        .competitor-card { background: var(--card); border-radius: 0; padding: 22px; box-shadow: 0 1px 0 rgba(232,223,201,.04); border-left: 3px solid var(--border-strong); transition: all .25s ease; }
+        .competitor-card { background: var(--card); border-radius: 0; padding: 22px; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.04); border-left: 3px solid var(--border-strong); transition: all .25s ease; }
         .competitor-card:hover { box-shadow: 0 0 0 1px rgba(201,167,122,.40), 0 4px 16px rgba(0,0,0,.30); transform: translateY(-2px); }
         .competitor-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
         .competitor-brand { font-size: 14px; font-weight: 700; letter-spacing: .5px; color: var(--text); }
@@ -285,7 +287,7 @@
 
         /* Topic / Campaign Cards */
         .topics-grid, .campaign-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(360px,1fr)); gap: 18px; }
-        .topic-card { background: var(--card); border-radius: 0; padding: 24px; box-shadow: 0 1px 0 rgba(232,223,201,.04); transition: all .25s ease; border-left: 3px solid transparent; }
+        .topic-card { background: var(--card); border-radius: 0; padding: 24px; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.04); transition: all .25s ease; border-left: 3px solid transparent; }
         .topic-card:hover { box-shadow: 0 0 0 1px rgba(201,167,122,.40), 0 4px 16px rgba(0,0,0,.30); transform: translateY(-2px); }
         .topic-card.hot { border-left-color: var(--signal); border-left-width: 4px; background: linear-gradient(135deg, rgba(226,107,54,.06) 0%, var(--card) 35%, var(--card) 100%); }
         .topic-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
@@ -298,7 +300,7 @@
         .source-link.shoe-link { color: var(--tag-shoe); background: #F0F3F6; }
         .source-link.shoe-link:hover { background: var(--tag-shoe); color: var(--bg); }
 
-        .campaign-card { background: var(--card); border-radius: 0; overflow: hidden; box-shadow: 0 1px 0 rgba(232,223,201,.04); transition: all .25s ease; }
+        .campaign-card { background: var(--card); border-radius: 0; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.04); transition: all .25s ease; }
         .campaign-card:hover { box-shadow: 0 0 0 1px rgba(201,167,122,.40), 0 4px 16px rgba(0,0,0,.30); transform: translateY(-2px); }
         .campaign-banner { height: 5px; background: linear-gradient(90deg,var(--primary),var(--accent)); }
         .campaign-card.shoe .campaign-banner { background: linear-gradient(90deg,var(--tag-shoe),#95A5B2); }
@@ -665,7 +667,7 @@ let BRANDS = null;
 let currentData = null;
 let currentCompetitorCat = 'all';
 let currentBrandTab = 'bag';  // 'bag' | 'shoe'
-let currentSnsTrendTab = 'detail';  // 'detail' | 'hashtag'
+let currentSnsTrendTab = 'hashtag';  // デフォルト: hashtag 一覧（速覽優先）
 let currentActivityFilter = 'all';  // 'all' | 'new' | 'sale' | 'collab' | 'popup' | 'store'
 
 function init() {
@@ -1021,11 +1023,11 @@ function renderSnsTrendTabs(data) {
     const tabs = document.getElementById('snsTrendTabs');
     if (!tabs) return;
     tabs.innerHTML = `
-        <button class="sns-trend-tab ${currentSnsTrendTab === 'detail' ? 'active' : ''}" onclick="switchSnsTrendTab('detail')">
-            💬 詳細トピック <span class="count-pill">${snsCount}</span>
-        </button>
         <button class="sns-trend-tab ${currentSnsTrendTab === 'hashtag' ? 'active' : ''}" onclick="switchSnsTrendTab('hashtag')">
             🏷️ Hashtag一覧 <span class="count-pill">${hashtagCount}</span>
+        </button>
+        <button class="sns-trend-tab ${currentSnsTrendTab === 'detail' ? 'active' : ''}" onclick="switchSnsTrendTab('detail')">
+            💬 詳細トピック <span class="count-pill">${snsCount}</span>
         </button>
     `;
 }
