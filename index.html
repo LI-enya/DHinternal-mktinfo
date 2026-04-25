@@ -16,8 +16,9 @@
             --accent: #C9A77A;          /* Champagne gold 深、より金色感 */
             --accent-deep: #A8895C;
             --accent-soft: #E7C89C;
-            --bg: #D6D2C9;              /* 微温かいライトグレー（純グレーより quality）*/
-            --bg-light: #C8C4BB;
+            --bg: #D6D2C9;              /* 主 body — 暖いグレー（メインゾーン）*/
+            --bg-cool: #DADADA;          /* 副 — 冷感グレー（utility ゾーン）*/
+            --bg-light: #E0DCD3;
             --card: #FFFFFF;            /* 純白 cards — 強コントラスト */
             --card-hover: #FAFAF7;
             --card-elevated: #F5F2EB;
@@ -59,8 +60,8 @@
         .date-display { font-size: 12px; color: var(--text-light); background: var(--bg); padding: 6px 16px; border-radius: 0; letter-spacing: .3px; }
         .container { max-width: 1240px; margin: 0 auto; padding: 28px 32px; }
 
-        /* Section Index Nav */
-        .section-index { position: sticky; top: 0; z-index: 99; background: var(--card); border-bottom: 1px solid var(--border); padding: 0; box-shadow: 0 1px 0 rgba(232,223,201,.06); }
+        /* Section Index Nav — cool gray で sticky 区別 */
+        .section-index { position: sticky; top: 0; z-index: 99; background: var(--bg-cool); border-bottom: 1px solid var(--border); padding: 0; box-shadow: none; }
         .section-index-inner { max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; gap: 4px; overflow-x: auto; }
         .section-index-inner::-webkit-scrollbar { height: 0; }
         .section-index-btn { padding: 8px 16px; border: none; background: transparent; border-radius: 0; cursor: pointer; font-size: 12px; font-family: inherit; transition: all .2s; text-decoration: none; color: var(--text-light); white-space: nowrap; display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
@@ -73,8 +74,8 @@
         .quick-nav { display: none; }
         .qnav-btn { display: none; }
 
-        /* Archive */
-        .archive-bar { background: var(--card); border-radius: 0; padding: 18px 22px; margin-bottom: 24px; box-shadow: 0 1px 0 rgba(232,223,201,.04); }
+        /* Archive — 透明、open layout（Domus 風 box-less） */
+        .archive-bar { background: transparent; padding: 8px 0 24px; margin-bottom: 16px; box-shadow: none; }
         .archive-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .archive-title { font-size: 13px; font-weight: 600; color: var(--text); }
         .archive-count { font-size: 12px; color: var(--text-light); }
@@ -91,17 +92,18 @@
         .viewing-archive.hidden { display: none; }
         .back-today-btn { padding: 5px 14px; background: var(--accent); color: var(--text); border: none; border-radius: 0; cursor: pointer; font-size: 12px; font-family: inherit; font-weight: 500; }
 
-        /* Stats */
-        .stats-bar { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 12px; margin-bottom: 24px; }
-        .stat-card { background: var(--card); border-radius: 0; padding: 18px; text-align: center; box-shadow: 0 1px 0 rgba(232,223,201,.04); }
-        .stat-card .number { font-size: 26px; font-weight: 700; color: var(--text); }
+        /* Stats — box-less、Domus 風の open numbers */
+        .stats-bar { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 0; margin-bottom: 32px; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .stat-card { background: transparent; padding: 8px 12px; text-align: center; box-shadow: none; border-right: 1px solid var(--border); }
+        .stat-card:last-child { border-right: none; }
+        .stat-card .number { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
         .stat-card.shoe .number { color: var(--tag-shoe); }
         .stat-card.trend .number { color: var(--accent); }
-        .stat-card.sns .number { color: var(--sns-ig); }
-        .stat-card .label { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+        .stat-card.sns .number { color: var(--accent); }
+        .stat-card .label { font-size: 11px; color: var(--text-light); margin-top: 6px; letter-spacing: .8px; text-transform: uppercase; }
 
-        /* Marketing Calendar */
-        .calendar-section { background: var(--card); border-radius: 0; padding: 24px 26px; margin-bottom: 56px; box-shadow: 0 1px 0 rgba(232,223,201,.04); }
+        /* Marketing Calendar — open layout（外枠なし）*/
+        .calendar-section { background: transparent; padding: 0; margin-bottom: 56px; box-shadow: none; }
         .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
         .calendar-title { font-size: 26px; font-weight: 700; color: var(--text); padding-left: 22px; position: relative; letter-spacing: -0.02em; }
         .calendar-title::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; background: var(--accent); }
@@ -179,7 +181,7 @@
         .filter-btn.active { background: var(--accent); color: var(--text); border-color: var(--accent); font-weight: 600; }
 
         /* Sections — 全て統一 cream 底、カード白で強コントラスト */
-        .section { margin-bottom: 28px; scroll-margin-top: 120px; padding: 40px 36px; background: var(--bg); border-top: 1px solid var(--border); }
+        .section { margin-bottom: 64px; scroll-margin-top: 120px; padding: 0; background: transparent; border: none; }
         .section + .section { border-top: none; }
 
         /* Section 識別アクセントを左上にゴールドバーで（リズム作り）*/
@@ -322,7 +324,7 @@
         .age-tag { font-size: 11px; padding: 2px 10px; border-radius: 0; background: var(--bg); color: var(--text-light); }
         .age-tag.highlight { background: var(--card-elevated); color: var(--accent); }
 
-        .update-note { background: var(--bg-light); border: 1px solid var(--border); border-radius: 0; padding: 16px 22px; margin-bottom: 24px; font-size: 14px; color: var(--text-light); line-height: 1.8; }
+        .update-note { background: transparent; border: none; padding: 12px 0; margin-bottom: 16px; font-size: 13px; color: var(--text-light); line-height: 1.7; }
 
         footer { text-align: center; padding: 36px 24px; color: var(--text-light); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
 
