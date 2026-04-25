@@ -121,9 +121,19 @@
         .calendar-events::-webkit-scrollbar { height: 3px; }
         .calendar-events::-webkit-scrollbar-track { background: transparent; }
         .calendar-events::-webkit-scrollbar-thumb { background: var(--border); border-radius: 0; }
-        .cal-event { min-width: 220px; padding: 16px 18px; border-radius: 0; border-left: 4px solid var(--accent); background: var(--card-elevated); flex-shrink: 0; }
-        .cal-event.soon { border-left-color: var(--accent); background: var(--card-elevated); }
-        .cal-event.future { border-left-color: var(--tag-shoe); background: var(--bg-light); }
+        /* Default = future の優しい白カード、border-left 細灰線 */
+        .cal-event { min-width: 220px; padding: 16px 18px; border-radius: 0; border: 1px solid var(--border); border-left: 3px solid var(--text-muted); background: var(--card); flex-shrink: 0; }
+        /* Soon = 1週間以内、champagne ハイライト + 太い金 border-left + 微影 */
+        .cal-event.soon {
+            border-left: 5px solid var(--accent-deep);
+            border-top: 1px solid rgba(201,167,122,.25);
+            border-right: 1px solid rgba(201,167,122,.25);
+            border-bottom: 1px solid rgba(201,167,122,.25);
+            background: linear-gradient(135deg, rgba(231,200,156,.20) 0%, var(--card) 60%);
+            box-shadow: 0 2px 8px rgba(201,167,122,.15);
+        }
+        /* Future = plain card */
+        .cal-event.future { border-left-color: var(--text-muted); background: var(--card); }
         .cal-event-date { font-size: 12px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
         .cal-event.soon .cal-event-date { color: var(--accent); }
         .cal-event.future .cal-event-date { color: var(--tag-shoe); }
@@ -158,28 +168,45 @@
         .brand-chip { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border: 1px solid var(--border); background: var(--bg); border-radius: 0; font-size: 14px; color: var(--text); text-decoration: none; transition: all .15s ease; }
         .brand-chip:hover { border-color: var(--warm); color: var(--warm); background: var(--warm-dim); transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(201,167,122,.30); }
         /* Primary core 只此 2 ブランド: 金属メタリックグラデ（最高級感）*/
+        /* Polished Gold Bar — 多反射点 + 鏡面ハイライト + 影、本物の磨き金属感 */
         .brand-chip.primary-core {
-            background: linear-gradient(135deg,
-                #FFF1B8 0%,
-                #E7C89C 18%,
-                #C9A77A 38%,
-                #A8895C 58%,
-                #C9A77A 78%,
-                #F0DCBA 100%
-            );
-            border: 1px solid #A8895C;
-            color: #2A2520;
+            background:
+                linear-gradient(135deg,
+                    #F4DFA0 0%,    /* highlight 1 */
+                    #C9A055 8%,
+                    #E8C679 16%,   /* highlight 2 */
+                    #A8852E 28%,
+                    #DCBA6A 40%,   /* highlight 3 — 中央バンド */
+                    #8E6E20 52%,   /* shadow */
+                    #C9A055 64%,
+                    #F4DFA0 76%,   /* highlight 4 */
+                    #B8943D 88%,
+                    #E8C679 100%
+                );
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+            border: 1px solid #6E5418;
+            color: #2A1C00;
             font-weight: 700;
+            text-shadow: 0 1px 0 rgba(255,255,255,.5);
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.4),
-                inset 0 -1px 0 rgba(0,0,0,.10),
-                0 1px 4px rgba(0,0,0,.08);
+                inset 0 1px 0 rgba(255,255,255,.6),    /* 上ハイライト */
+                inset 0 -1px 0 rgba(0,0,0,.25),         /* 下シャドウ */
+                inset 1px 0 0 rgba(255,255,255,.3),     /* 左ハイライト */
+                inset -1px 0 0 rgba(0,0,0,.15),         /* 右シャドウ */
+                0 1px 3px rgba(0,0,0,.15),              /* 外影 */
+                0 0 0 1px rgba(110,84,24,.4);           /* 金属環 */
+            transition: all .3s ease;
         }
         .brand-chip.primary-core:hover {
+            background-position: 100% 100%;
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.5),
-                inset 0 -1px 0 rgba(0,0,0,.15),
-                0 2px 8px rgba(168,137,92,.25);
+                inset 0 1px 0 rgba(255,255,255,.8),
+                inset 0 -1px 0 rgba(0,0,0,.30),
+                inset 1px 0 0 rgba(255,255,255,.4),
+                inset -1px 0 0 rgba(0,0,0,.20),
+                0 3px 10px rgba(168,133,46,.40),
+                0 0 0 1px rgba(110,84,24,.6);
         }
         /* CEO seed / price-aligned: solid 細枠 */
         .brand-chip.primary-price {
@@ -264,10 +291,10 @@
         .sns-card.threads { border-left-color: var(--text-light); }
         .sns-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
         .sns-hashtag { font-size: 16px; font-weight: 600; color: var(--text); }
-        .sns-volume { font-size: 11px; color: var(--text-light); background: var(--bg); padding: 4px 10px; border-radius: 0; }
-        .sns-volume.up { color: var(--signal); background: rgba(226,107,54,.10); border: 1px solid rgba(226,107,54,.30); }
+        .sns-volume { font-size: 11px; color: var(--text); background: rgba(0,0,0,.04); padding: 4px 10px; border-radius: 0; line-height: 1.5; max-width: 180px; }
+        .sns-volume.up { color: #FFFFFF; background: var(--signal-deep); border: none; font-weight: 500; }
         .sns-desc { font-size: 14px; color: var(--text-light); margin: 10px 0 8px; line-height: 1.75; }
-        .sns-action { font-size: 13px; color: var(--accent); background: var(--card-elevated); padding: 12px 14px; border-radius: 0; margin-top: 12px; border-left: 3px solid var(--accent); line-height: 1.7; }
+        .sns-action { font-size: 13px; color: var(--text); background: var(--decor-dim); padding: 12px 14px; border-radius: 0; margin-top: 12px; border-left: 3px solid var(--decor); line-height: 1.7; }
         .sns-platforms-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
         .sns-platforms-label { font-size: 11px; color: var(--text-light); margin-right: 4px; }
         .sns-platform-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 0; font-size: 12px; font-weight: 500; text-decoration: none; transition: all .15s ease; border: 1px solid transparent; line-height: 1; }
@@ -374,7 +401,7 @@
         .campaign-card.shoe .campaign-price { color: var(--tag-shoe); }
 
         /* Action hint */
-        .action-hint { font-size: 13px; color: var(--accent); background: var(--card-elevated); padding: 10px 14px; border-radius: 0; margin-top: 10px; border-left: 3px solid var(--accent); }
+        .action-hint { font-size: 13px; color: var(--text); background: var(--decor-dim); padding: 10px 14px; border-radius: 0; margin-top: 10px; border-left: 3px solid var(--decor); line-height: 1.7; }
 
         .age-tags { display: flex; gap: 6px; margin-top: 6px; }
         .age-tag { font-size: 11px; padding: 2px 10px; border-radius: 0; background: var(--bg); color: var(--text-light); }
@@ -417,18 +444,41 @@
             border-color: var(--accent);
             color: var(--accent);
         }
-        /* Primary core: dark zone でも金属メタリック維持 */
+        /* Primary core: dark zone でも金属メタリック維持（上と同じ Polished Gold Bar）*/
         #brandListSection .brand-chip.primary-core {
-            background: linear-gradient(135deg,
-                #FFF1B8 0%,
-                #E7C89C 18%,
-                #C9A77A 38%,
-                #A8895C 58%,
-                #C9A77A 78%,
-                #F0DCBA 100%
-            );
-            color: #2A2520;
-            border-color: #A8895C;
+            background:
+                linear-gradient(135deg,
+                    #F4DFA0 0%,
+                    #C9A055 8%,
+                    #E8C679 16%,
+                    #A8852E 28%,
+                    #DCBA6A 40%,
+                    #8E6E20 52%,
+                    #C9A055 64%,
+                    #F4DFA0 76%,
+                    #B8943D 88%,
+                    #E8C679 100%
+                );
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+            color: #2A1C00;
+            border: 1px solid #6E5418;
+            font-weight: 700;
+            text-shadow: 0 1px 0 rgba(255,255,255,.5);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.6),
+                inset 0 -1px 0 rgba(0,0,0,.30),
+                0 0 0 1px rgba(110,84,24,.5),
+                0 2px 6px rgba(0,0,0,.4);
+            transition: all .3s ease;
+        }
+        #brandListSection .brand-chip.primary-core:hover {
+            background-position: 100% 100%;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.8),
+                inset 0 -1px 0 rgba(0,0,0,.35),
+                0 0 0 1px rgba(244,223,160,.7),
+                0 4px 14px rgba(232,198,121,.40);
         }
         /* Dark zone CEO seed / price-aligned: 金 solid 細枠 */
         #brandListSection .brand-chip.primary-price {
