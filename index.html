@@ -139,21 +139,19 @@
         .sns-platform-btn.x { background: #000; color: #fff; border-color: #000; }
         .sns-platform-btn.x:hover { background: #1a1a1a; }
 
-        /* Hashtag Trends */
+        /* Hashtag Trends — compact card with platform jumps */
         .hashtag-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap: 10px; }
-        .hashtag-card { background: var(--card); border-radius: 10px; padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.03); display: flex; justify-content: space-between; align-items: center; transition: all .2s; }
+        .hashtag-card { background: var(--card); border-radius: 10px; padding: 12px 14px; box-shadow: 0 1px 4px rgba(0,0,0,.03); transition: all .2s; display: flex; flex-direction: column; gap: 6px; }
         .hashtag-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,.06); }
-        .hashtag-info { flex: 1; }
-        .hashtag-name { font-size: 14px; font-weight: 600; color: var(--text); }
-        .hashtag-posts { font-size: 12px; color: var(--text-light); }
-        .hashtag-trend { text-align: right; }
-        .hashtag-change { font-size: 14px; font-weight: 700; }
-        .hashtag-change.up { color: #B85C3A; }
-        .hashtag-change.down { color: var(--tag-shoe); }
-        .hashtag-change.stable { color: var(--text-light); }
-        .hashtag-period { font-size: 11px; color: #aaa; }
-        .hashtag-bar { height: 3px; border-radius: 2px; margin-top: 8px; background: #EDE8E3; }
-        .hashtag-bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg,var(--primary),var(--accent)); }
+        .hashtag-row1 { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+        .hashtag-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .hashtag-trend-pill { font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }
+        .hashtag-trend-pill.up { background: #FDF4F0; color: #B85C3A; }
+        .hashtag-trend-pill.stable { background: var(--bg); color: var(--text-light); }
+        .hashtag-trend-pill.down { background: #F0F3F6; color: var(--tag-shoe); }
+        .hashtag-source { font-size: 11px; color: var(--text-light); display: flex; align-items: center; gap: 4px; }
+        .hashtag-platforms { display: flex; gap: 4px; margin-top: 2px; }
+        .sns-platform-btn.icon-only { padding: 4px 9px; font-size: 12px; }
 
         /* Competitor */
         .competitor-cat-tabs { display: flex; gap: 6px; margin-bottom: 16px; }
@@ -794,20 +792,32 @@ function renderSns(snsItems) {
 // --- Hashtags ---
 function renderHashtags(hashtags) {
     const grid = document.getElementById('hashtagGrid');
-    if (!hashtags.length) { grid.innerHTML = ''; return; }
-    grid.innerHTML = hashtags.map(h => `
-        <div class="hashtag-card">
-            <div class="hashtag-info">
-                <div class="hashtag-name">${h.tag}</div>
-                <div class="hashtag-posts">${h.posts} 件</div>
-                <div class="hashtag-bar"><div class="hashtag-bar-fill" style="width:${h.heat}%"></div></div>
+    if (!hashtags || !hashtags.length) { grid.innerHTML = ''; return; }
+    grid.innerHTML = hashtags.map(h => {
+        // 後方互換: 旧schema (posts/change/direction/heat) と新schema (trend/source) の両方を受ける
+        const tagRaw = (h.tag || '').replace(/^#/, '').trim();
+        const trendLabel = h.trend || h.change || h.posts || '';
+        const direction = h.direction || (
+            /急上昇|上昇|急増/.test(trendLabel) ? 'up' :
+            /低下|下降|減少/.test(trendLabel) ? 'down' : 'stable'
+        );
+        const source = h.source || '';
+        const links = buildSnsPlatformLinks(tagRaw);
+        return `
+            <div class="hashtag-card">
+                <div class="hashtag-row1">
+                    <div class="hashtag-name" title="#${tagRaw}">#${tagRaw}</div>
+                    ${trendLabel ? `<div class="hashtag-trend-pill ${direction}">${trendLabel}</div>` : ''}
+                </div>
+                ${source ? `<div class="hashtag-source">📊 ${source}</div>` : ''}
+                <div class="hashtag-platforms">
+                    <a class="sns-platform-btn ig icon-only" href="${links.instagram}" target="_blank" rel="noopener" title="Instagram の #${tagRaw} へ">📷</a>
+                    <a class="sns-platform-btn threads icon-only" href="${links.threads}" target="_blank" rel="noopener" title="Threads の #${tagRaw} へ">🧵</a>
+                    <a class="sns-platform-btn x icon-only" href="${links.x}" target="_blank" rel="noopener" title="X の #${tagRaw} へ">𝕏</a>
+                </div>
             </div>
-            <div class="hashtag-trend">
-                <div class="hashtag-change ${h.direction}">${h.change}</div>
-                <div class="hashtag-period">vs 先週</div>
-            </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 // --- Competitors ---
