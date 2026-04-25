@@ -13,9 +13,10 @@
             /* High-class minimal — black anchor + light gray body + white cards + champagne accent */
             --primary: #1A1A1A;
             --primary-light: #4A4A4A;
-            --accent: #E7C89C;          /* Champagne gold 明るめ */
-            --accent-deep: #C9A77A;
-            --accent-soft: #F0DCBA;
+            --accent: #A8895C;          /* Deep Champagne — 浅底用、強コントラスト */
+            --accent-deep: #8B6F47;      /* さらに深め（hover/text-deep）*/
+            --accent-bright: #C9A77A;    /* 明るめ champagne — dark zone 用 */
+            --accent-soft: #E7C89C;      /* 最浅 — 装飾 highlight 用 */
             --bg: #F4F4F4;              /* zone 1 + 3 デフォルト（浅白灰）*/
             --bg-cool: #FFFFFF;          /* sticky nav 純白 */
             --zone-light: #F4F4F4;
@@ -168,45 +169,45 @@
         .brand-chip { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border: 1px solid var(--border); background: var(--bg); border-radius: 0; font-size: 14px; color: var(--text); text-decoration: none; transition: all .15s ease; }
         .brand-chip:hover { border-color: var(--warm); color: var(--warm); background: var(--warm-dim); transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(201,167,122,.30); }
         /* Primary core 只此 2 ブランド: 金属メタリックグラデ（最高級感）*/
-        /* Polished Gold Bar — 多反射点 + 鏡面ハイライト + 影、本物の磨き金属感 */
+        /* Polished Champagne Gold — 既存 champagne 家族のみで金属感 */
         .brand-chip.primary-core {
             background:
                 linear-gradient(135deg,
-                    #F4DFA0 0%,    /* highlight 1 */
-                    #C9A055 8%,
-                    #E8C679 16%,   /* highlight 2 */
-                    #A8852E 28%,
-                    #DCBA6A 40%,   /* highlight 3 — 中央バンド */
-                    #8E6E20 52%,   /* shadow */
-                    #C9A055 64%,
-                    #F4DFA0 76%,   /* highlight 4 */
-                    #B8943D 88%,
-                    #E8C679 100%
+                    #F0DCBA 0%,    /* highlight — accent-soft 系 */
+                    #C9A77A 12%,   /* mid — accent-bright */
+                    #E7C89C 24%,   /* highlight band — accent-soft */
+                    #8B6F47 36%,   /* shadow — accent-deep */
+                    #DCBE94 48%,   /* mid-highlight */
+                    #6B5232 60%,   /* deepest shadow */
+                    #C9A77A 72%,   /* mid */
+                    #F0DCBA 84%,   /* highlight */
+                    #A8895C 96%,   /* mid-shadow — accent */
+                    #E7C89C 100%
                 );
             background-size: 200% 200%;
             background-position: 0% 0%;
-            border: 1px solid #6E5418;
-            color: #2A1C00;
+            border: 1px solid #6B5232;
+            color: #2A2520;
             font-weight: 700;
-            text-shadow: 0 1px 0 rgba(255,255,255,.5);
+            text-shadow: 0 1px 0 rgba(255,255,255,.4);
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.6),    /* 上ハイライト */
-                inset 0 -1px 0 rgba(0,0,0,.25),         /* 下シャドウ */
-                inset 1px 0 0 rgba(255,255,255,.3),     /* 左ハイライト */
-                inset -1px 0 0 rgba(0,0,0,.15),         /* 右シャドウ */
-                0 1px 3px rgba(0,0,0,.15),              /* 外影 */
-                0 0 0 1px rgba(110,84,24,.4);           /* 金属環 */
+                inset 0 1px 0 rgba(255,255,255,.55),
+                inset 0 -1px 0 rgba(0,0,0,.20),
+                inset 1px 0 0 rgba(255,255,255,.25),
+                inset -1px 0 0 rgba(0,0,0,.12),
+                0 1px 3px rgba(0,0,0,.10),
+                0 0 0 1px rgba(107,82,50,.30);
             transition: all .3s ease;
         }
         .brand-chip.primary-core:hover {
             background-position: 100% 100%;
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.8),
-                inset 0 -1px 0 rgba(0,0,0,.30),
-                inset 1px 0 0 rgba(255,255,255,.4),
-                inset -1px 0 0 rgba(0,0,0,.20),
-                0 3px 10px rgba(168,133,46,.40),
-                0 0 0 1px rgba(110,84,24,.6);
+                inset 0 1px 0 rgba(255,255,255,.7),
+                inset 0 -1px 0 rgba(0,0,0,.25),
+                inset 1px 0 0 rgba(255,255,255,.35),
+                inset -1px 0 0 rgba(0,0,0,.18),
+                0 3px 10px rgba(168,137,92,.30),
+                0 0 0 1px rgba(107,82,50,.45);
         }
         /* CEO seed / price-aligned: solid 細枠 */
         .brand-chip.primary-price {
@@ -373,7 +374,9 @@
         .topic-card.hot { border-left-color: var(--signal); border-left-width: 4px; background: linear-gradient(135deg, rgba(226,107,54,.06) 0%, var(--card) 35%, var(--card) 100%); }
         .topic-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
         .topic-title { font-size: 16px; font-weight: 600; flex: 1; color: var(--text); line-height: 1.5; }
-        .hot-badge { background: var(--signal); color: #fff; font-size: 11px; padding: 4px 10px; border-radius: 0; white-space: nowrap; margin-left: 8px; font-weight: 700; letter-spacing: .5px; box-shadow: 0 0 16px var(--signal-glow); }
+        .hot-badge { background: var(--signal); color: #fff; font-size: 11px; padding: 4px 10px; border-radius: 0; white-space: nowrap; margin-left: 8px; font-weight: 700; letter-spacing: .5px; box-shadow: 0 0 16px var(--signal-glow); display: inline-flex; align-items: center; gap: 4px; }
+        .hot-flame-icon { width: 11px; height: 11px; fill: currentColor; flex-shrink: 0; }
+        .title-flame-icon { width: 22px; height: 22px; fill: var(--signal); flex-shrink: 0; vertical-align: middle; margin-right: 4px; }
         .topic-desc { font-size: 14px; color: var(--text-light); margin-bottom: 12px; line-height: 1.75; }
         .source-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
         .source-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--decor-deep); text-decoration: none; background: var(--decor-dim); padding: 5px 12px; border-radius: 0; border: 1px solid rgba(168,142,160,.30); transition: all .2s; font-weight: 500; }
@@ -432,6 +435,10 @@
             --border-light: rgba(255,255,255,.06);
             --warm-dim: rgba(201,167,122,.15);
             --warm-border: rgba(201,167,122,.40);
+            /* Dark zone は明るい champagne #C9A77A に override（旧 --accent と同じ）*/
+            --accent: #C9A77A;
+            --accent-deep: #A8895C;
+            --accent-soft: #E7C89C;
         }
         /* Dark zone 内 brand chips: 透明 bg + cream text + 細白ボーダー */
         #brandListSection .brand-chip {
@@ -444,41 +451,41 @@
             border-color: var(--accent);
             color: var(--accent);
         }
-        /* Primary core: dark zone でも金属メタリック維持（上と同じ Polished Gold Bar）*/
+        /* Primary core: dark zone でも champagne 家族メタリック（上と同じ）*/
         #brandListSection .brand-chip.primary-core {
             background:
                 linear-gradient(135deg,
-                    #F4DFA0 0%,
-                    #C9A055 8%,
-                    #E8C679 16%,
-                    #A8852E 28%,
-                    #DCBA6A 40%,
-                    #8E6E20 52%,
-                    #C9A055 64%,
-                    #F4DFA0 76%,
-                    #B8943D 88%,
-                    #E8C679 100%
+                    #F0DCBA 0%,
+                    #C9A77A 12%,
+                    #E7C89C 24%,
+                    #8B6F47 36%,
+                    #DCBE94 48%,
+                    #6B5232 60%,
+                    #C9A77A 72%,
+                    #F0DCBA 84%,
+                    #A8895C 96%,
+                    #E7C89C 100%
                 );
             background-size: 200% 200%;
             background-position: 0% 0%;
-            color: #2A1C00;
-            border: 1px solid #6E5418;
+            color: #2A2520;
+            border: 1px solid #6B5232;
             font-weight: 700;
-            text-shadow: 0 1px 0 rgba(255,255,255,.5);
+            text-shadow: 0 1px 0 rgba(255,255,255,.4);
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.6),
-                inset 0 -1px 0 rgba(0,0,0,.30),
-                0 0 0 1px rgba(110,84,24,.5),
+                inset 0 1px 0 rgba(255,255,255,.55),
+                inset 0 -1px 0 rgba(0,0,0,.25),
+                0 0 0 1px rgba(231,200,156,.35),
                 0 2px 6px rgba(0,0,0,.4);
             transition: all .3s ease;
         }
         #brandListSection .brand-chip.primary-core:hover {
             background-position: 100% 100%;
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.8),
-                inset 0 -1px 0 rgba(0,0,0,.35),
-                0 0 0 1px rgba(244,223,160,.7),
-                0 4px 14px rgba(232,198,121,.40);
+                inset 0 1px 0 rgba(255,255,255,.7),
+                inset 0 -1px 0 rgba(0,0,0,.30),
+                0 0 0 1px rgba(231,200,156,.6),
+                0 4px 14px rgba(201,167,122,.40);
         }
         /* Dark zone CEO seed / price-aligned: 金 solid 細枠 */
         #brandListSection .brand-chip.primary-price {
@@ -754,7 +761,7 @@
 
     <!-- 3. 注目トピック — CREAM block（HOT 信号色が際立つ） -->
     <div class="section" id="topicSection">
-        <div class="section-title" id="topicSectionTitle">🔥 今日の注目トピック（30〜60代女性）</div>
+        <div class="section-title" id="topicSectionTitle"><svg class="title-flame-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg> 今日の注目トピック（30〜60代女性）</div>
         <div class="topics-grid" id="topicsGrid"></div>
     </div>
 
@@ -1116,7 +1123,8 @@ function switchToDate(dateStr) {
         document.getElementById('archiveLabel').textContent = '📂 アーカイブ表示中：' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
     }
     const titleEl = document.getElementById('topicSectionTitle');
-    if (isLatest) titleEl.textContent = '🔥 今日の注目トピック（30〜60代女性）';
+    const flameSvg = '<svg class="title-flame-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>';
+    if (isLatest) titleEl.innerHTML = flameSvg + ' 今日の注目トピック（30〜60代女性）';
     else { const d = new Date(dateStr); titleEl.textContent = '📂 ' + (d.getMonth()+1)+'/'+d.getDate()+' の注目トピック（30〜60代女性）'; }
     currentCompetitorCat = 'all';
     renderPage(currentData);
@@ -1415,7 +1423,7 @@ function renderTopics(topics) {
             <div class="topic-header">
                 <div class="topic-title">${t.title}</div>
                 <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
-                    ${isHot?'<span class="hot-badge">🔥 HOT</span>':''}
+                    ${isHot?'<span class="hot-badge"><svg class="hot-flame-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>HOT</span>':''}
                     ${bookmarkBtnHtml(itemId, t.title, desc, 'トピック')}
                 </div>
             </div>
