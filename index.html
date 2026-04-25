@@ -52,6 +52,8 @@
         .archive-date-btn .date-label { font-weight: 500; font-size: 13px; }
         .archive-date-btn .today-badge { font-size: 9px; background: var(--warm-dim); color: var(--warm); padding: 1px 8px; border-radius: 8px; margin-top: 2px; }
         .archive-date-btn.active .today-badge { background: rgba(255,255,255,.2); color: #fff; }
+        .archive-toggle { flex-basis: 100%; margin-top: 4px; padding: 7px 16px; border: 1px dashed var(--border); background: transparent; border-radius: 10px; cursor: pointer; font-size: 12px; font-family: inherit; color: var(--text-light); transition: all .2s; }
+        .archive-toggle:hover { border-color: var(--warm); color: var(--warm); background: var(--warm-dim); }
         .viewing-archive { background: var(--warm-dim); border: 1px solid var(--warm-border); border-radius: 10px; padding: 10px 20px; margin-bottom: 20px; font-size: 13px; color: var(--warm); display: flex; justify-content: space-between; align-items: center; }
         .viewing-archive.hidden { display: none; }
         .back-today-btn { padding: 5px 14px; background: var(--text); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 12px; font-family: inherit; font-weight: 500; }
@@ -561,18 +563,39 @@ function renderCalendar() {
     }).join('');
 }
 
+const ARCHIVE_DEFAULT_VISIBLE = 8;
+let archiveExpanded = false;
+
 function renderArchiveBar() {
     const container = document.getElementById('archiveDates');
     const countEl = document.getElementById('archiveCount');
     countEl.textContent = ALL_DATA.length + ' 日分のデータ';
     const weekdays = ['日','月','火','水','木','金','土'];
-    container.innerHTML = ALL_DATA.map((entry,i) => {
+
+    const visibleData = archiveExpanded ? ALL_DATA : ALL_DATA.slice(0, ARCHIVE_DEFAULT_VISIBLE);
+
+    const buttonsHtml = visibleData.map(entry => {
         const d = new Date(entry.date);
+        const isLatest = entry.date === ALL_DATA[0].date;
         return `<button class="archive-date-btn ${entry.date===currentData.date?'active':''}" data-date="${entry.date}" onclick="switchToDate('${entry.date}')">
             <span class="date-label">${d.getMonth()+1}/${d.getDate()} (${weekdays[d.getDay()]})</span>
-            ${i===0?'<span class="today-badge">最新</span>':''}
+            ${isLatest ? '<span class="today-badge">最新</span>' : ''}
         </button>`;
     }).join('');
+
+    let toggleHtml = '';
+    if (ALL_DATA.length > ARCHIVE_DEFAULT_VISIBLE) {
+        toggleHtml = archiveExpanded
+            ? `<button class="archive-toggle" onclick="toggleArchive()">▲ 折りたたむ</button>`
+            : `<button class="archive-toggle" onclick="toggleArchive()">▼ 過去の履歴 ${ALL_DATA.length - ARCHIVE_DEFAULT_VISIBLE}件を表示</button>`;
+    }
+
+    container.innerHTML = buttonsHtml + toggleHtml;
+}
+
+function toggleArchive() {
+    archiveExpanded = !archiveExpanded;
+    renderArchiveBar();
 }
 
 function switchToDate(dateStr) {
@@ -580,7 +603,10 @@ function switchToDate(dateStr) {
     if (!entry) return;
     currentData = entry;
     const isLatest = entry.date === ALL_DATA[0].date;
-    document.querySelectorAll('.archive-date-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.date === dateStr));
+    // 隠れた日付に切り替えた場合、アーカイブバーを自動展開
+    const activeIdx = ALL_DATA.findIndex(d => d.date === dateStr);
+    if (activeIdx >= ARCHIVE_DEFAULT_VISIBLE) archiveExpanded = true;
+    renderArchiveBar();
     const banner = document.getElementById('viewingArchive');
     if (isLatest) { banner.classList.add('hidden'); }
     else {
