@@ -16,7 +16,7 @@
             --accent: #E7C89C;          /* Champagne gold 明るめ */
             --accent-deep: #C9A77A;
             --accent-soft: #F0DCBA;
-            --bg: #F2F2F0;              /* 主 body — ライトグレー */
+            --bg: #DADADA;              /* 主 body — グレー（中性、白カード際立つ）*/
             --bg-cool: #FFFFFF;          /* 副 — 純白（sticky nav）*/
             --bg-light: #FAFAF7;
             --card: #FFFFFF;            /* 純白 cards（body と同色だが border/shadow で識別）*/
@@ -41,11 +41,11 @@
             --warm: #C9A77A;
             --warm-dim: rgba(201,167,122,.10);
             --warm-border: rgba(201,167,122,.30);
-            /* SUNSET ORANGE — 信号色（unchanged）*/
-            --signal: #CC5520;
-            --signal-deep: #8B3A14;
-            --signal-soft: #E2702E;
-            --signal-glow: rgba(204,85,32,.35);
+            /* DEEP WINE — 信号色（高級な edition rouge、champagne と相性 GOOD）*/
+            --signal: #8B2635;
+            --signal-deep: #5C1820;
+            --signal-soft: #B8474D;
+            --signal-glow: rgba(139,38,53,.30);
             /* Header アンカー — 0A 黒（純黒より柔らか、依然として最高級感）*/
             --dark-anchor: #0A0A0A;
         }
@@ -149,14 +149,47 @@
         .brand-chips { display: flex; flex-wrap: wrap; gap: 10px; }
         .brand-chip { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border: 1px solid var(--border); background: var(--bg); border-radius: 0; font-size: 14px; color: var(--text); text-decoration: none; transition: all .15s ease; }
         .brand-chip:hover { border-color: var(--warm); color: var(--warm); background: var(--warm-dim); transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(201,167,122,.30); }
-        .brand-chip.primary-core { background: linear-gradient(135deg, #FFE8B8 0%, #FFD480 30%, var(--card-elevated) 100%); border-color: var(--accent); font-weight: 600; }
-        .brand-chip.primary-core:hover { background: linear-gradient(135deg, #DDC2A0 0%, #C9A77A 100%); }
-        .brand-chip.primary-price { background: var(--card-elevated); border-color: rgba(201,167,122,.4); font-weight: 500; }
-        .brand-chip.ai-suggested { border-style: dashed; background: var(--card-elevated); color: var(--accent); }
-        .brand-chip.ai-suggested:hover { border-color: var(--accent); color: var(--accent); background: var(--card-hover); }
+        /* Primary core 只此 2 ブランド: 金属メタリックグラデ（最高級感）*/
+        .brand-chip.primary-core {
+            background: linear-gradient(135deg,
+                #FFF1B8 0%,
+                #E7C89C 18%,
+                #C9A77A 38%,
+                #A8895C 58%,
+                #C9A77A 78%,
+                #F0DCBA 100%
+            );
+            border: 1px solid #A8895C;
+            color: #2A2520;
+            font-weight: 700;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.4),
+                inset 0 -1px 0 rgba(0,0,0,.10),
+                0 1px 4px rgba(0,0,0,.08);
+        }
+        .brand-chip.primary-core:hover {
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.5),
+                inset 0 -1px 0 rgba(0,0,0,.15),
+                0 2px 8px rgba(168,137,92,.25);
+        }
+        /* 他の chips 全て統一: thin gold outline、透明 bg（簡素化）*/
+        .brand-chip.primary-price,
+        .brand-chip.ai-suggested {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-style: solid;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .brand-chip.primary-price:hover,
+        .brand-chip.ai-suggested:hover {
+            border-color: var(--accent);
+            color: var(--accent-deep);
+        }
         .brand-chip-icon { font-size: 11px; opacity: .8; }
         .brand-chip-arrow { font-size: 10px; opacity: .5; margin-left: 2px; }
-        .brand-chip.has-new { box-shadow: 0 0 0 2px var(--signal-glow); border-color: var(--signal); }
+        .brand-chip.has-new { /* simplified: just NEW badge, no chip border highlight */ }
         .brand-chip-new { font-size: 10px; background: var(--signal); color: #fff; padding: 2px 7px; border-radius: 0; font-weight: 700; margin-left: 4px; letter-spacing: .8px; text-transform: uppercase; box-shadow: 0 0 12px var(--signal-glow); }
 
         /* SNS Trend Tabs（詳細トピック/Hashtag一覧 切替） */
@@ -365,22 +398,32 @@
             border-color: var(--accent);
             color: var(--accent);
         }
-        /* Primary core / price-aligned chips は金色グラデを維持（按键不变ルール）*/
+        /* Primary core: dark zone でも金属メタリック維持 */
         #brandListSection .brand-chip.primary-core {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
-            color: #1A1A1A;
-            border-color: var(--accent);
+            background: linear-gradient(135deg,
+                #FFF1B8 0%,
+                #E7C89C 18%,
+                #C9A77A 38%,
+                #A8895C 58%,
+                #C9A77A 78%,
+                #F0DCBA 100%
+            );
+            color: #2A2520;
+            border-color: #A8895C;
         }
-        #brandListSection .brand-chip.primary-price {
-            background: rgba(201,167,122,.20);
-            color: #E7C89C;
-            border-color: rgba(201,167,122,.45);
-        }
+        /* 他全 chips: dark zone で透明 + 金細枠（簡素化）*/
+        #brandListSection .brand-chip.primary-price,
         #brandListSection .brand-chip.ai-suggested {
-            background: rgba(201,167,122,.06);
+            background: transparent;
+            color: rgba(232,221,196,.85);
             border-color: rgba(201,167,122,.40);
-            border-style: dashed;
-            color: #C9A77A;
+            border-style: solid;
+            font-weight: 500;
+        }
+        #brandListSection .brand-chip.primary-price:hover,
+        #brandListSection .brand-chip.ai-suggested:hover {
+            border-color: var(--accent);
+            color: var(--accent);
         }
         /* Active tab on dark */
         #brandListSection .brand-list-tab {
@@ -847,13 +890,11 @@ function brandHasTodayActivity(brandName) {
 function brandChipHtml(b, tier, isAi) {
     const url = b.officialUrl || '#';
     const cls = isAi ? 'ai-suggested' : (tier === 'core' ? 'primary-core' : (tier === 'price-aligned' ? 'primary-price' : ''));
-    const icon = isAi ? '✨' : (tier === 'core' ? '⭐' : '');
     const hasNew = brandHasTodayActivity(b.name);
     const hasNewClass = hasNew ? ' has-new' : '';
     const hasNewBadge = hasNew ? '<span class="brand-chip-new" title="今日に新動向あり">NEW</span>' : '';
     const titleAttr = `${b.name}${isAi?'（AI拓展品牌）':''}${hasNew?' — 今日に新動向あり':''} → 公式サイト`;
     return `<a class="brand-chip ${cls}${hasNewClass}" href="${url}" target="_blank" rel="noopener" title="${titleAttr}">
-        ${icon ? `<span class="brand-chip-icon">${icon}</span>` : ''}
         <span>${b.name}</span>
         ${hasNewBadge}
         <span class="brand-chip-arrow">↗</span>
