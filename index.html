@@ -162,12 +162,9 @@
         .competitor-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(340px,1fr)); gap: 14px; }
         .competitor-card { background: var(--card); border-radius: 12px; padding: 18px; box-shadow: 0 1px 6px rgba(0,0,0,.04); border-left: 3px solid #D5CCC4; transition: all .2s; }
         .competitor-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.08); }
-        .competitor-card.direct { border-left-color: var(--accent); }
         .competitor-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
         .competitor-brand { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; color: var(--text); }
-        .competitor-type { font-size: 11px; padding: 3px 10px; border-radius: 10px; }
-        .competitor-type.direct { background: #FDF4F0; color: #B85C3A; }
-        .competitor-type.indirect { background: #FEF6EE; color: #C4884A; }
+        .competitor-cat-icon { font-size: 16px; line-height: 1; padding: 2px 4px; }
         .tier-badge { font-size: 10px; padding: 2px 8px; border-radius: 8px; font-weight: 600; white-space: nowrap; }
         .tier-badge.primary { background: linear-gradient(135deg, #FFE8B8, #FFD480); color: #8C5A1A; box-shadow: 0 1px 2px rgba(196,136,74,.2); }
         .tier-badge.reference { background: #F0F3F6; color: #7B8A96; }
@@ -348,7 +345,7 @@
             .competitor-grid { gap: 10px; }
             .competitor-card { padding: 14px; border-radius: 10px; }
             .competitor-brand { font-size: 12px; }
-            .competitor-type { font-size: 10px; padding: 2px 8px; }
+            .competitor-cat-icon { font-size: 14px; }
             .competitor-price-range { font-size: 10px; padding: 2px 6px; }
             .competitor-move { font-size: 14px; margin-bottom: 4px; }
             .competitor-detail { font-size: 12px; }
@@ -854,12 +851,12 @@ function renderCompetitors(competitors) {
             const refLabels = {'ref-trend':'動向','ref-tone':'調性','ref-activity':'活動'};
             tierBadge = `<span class="tier-badge reference" title="${c.tier}">参考·${refLabels[c.tier]||''}</span>`;
         }
-        return `<div class="competitor-card ${c.type} ${isPrimary?'is-primary':''}">
+        return `<div class="competitor-card ${isPrimary?'is-primary':''}">
             <div class="competitor-header">
                 <div class="competitor-brand">${c.brand}${c.priceRange ? `<span class="competitor-price-range">${c.priceRange}</span>` : ''}</div>
                 <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
                     ${tierBadge}
-                    <span class="competitor-type ${c.type}">${c.type==='direct'?'直接競合':'間接競合'} · ${c.category==='bag'?'👜':'👟'}</span>
+                    <span class="competitor-cat-icon" title="${c.category==='bag'?'バッグ':'シューズ'}">${c.category==='bag'?'👜':'👟'}</span>
                     ${bookmarkBtnHtml(itemId, c.brand, c.move, '競合')}
                 </div>
             </div>
