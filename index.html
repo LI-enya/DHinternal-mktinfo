@@ -121,6 +121,16 @@
         .sns-volume.up { color: #B85C3A; background: #FDF4F0; }
         .sns-desc { font-size: 13px; color: var(--text-light); margin-bottom: 8px; line-height: 1.7; }
         .sns-action { font-size: 13px; color: #5A7A5E; background: #F2F7F3; padding: 10px 14px; border-radius: 8px; margin-top: 10px; border-left: 3px solid #7BA07E; }
+        .sns-platforms-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+        .sns-platforms-label { font-size: 11px; color: var(--text-light); margin-right: 4px; }
+        .sns-platform-btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 500; text-decoration: none; transition: all .15s ease; border: 1px solid transparent; }
+        .sns-platform-btn:hover { transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,.12); }
+        .sns-platform-btn.ig { background: linear-gradient(135deg, #fce4ec 0%, #ffe0b2 100%); color: #c2185b; border-color: #f48fb1; }
+        .sns-platform-btn.ig:hover { background: linear-gradient(135deg, #f8bbd0 0%, #ffcc80 100%); }
+        .sns-platform-btn.threads { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+        .sns-platform-btn.threads:hover { background: #333; }
+        .sns-platform-btn.x { background: #000; color: #fff; border-color: #000; }
+        .sns-platform-btn.x:hover { background: #1a1a1a; }
 
         /* Hashtag Trends */
         .hashtag-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap: 10px; }
@@ -532,7 +542,6 @@ let ALL_DATA = [];
 // RENDER LOGIC
 // ============================================================
 let currentData = null;
-let currentSnsPlatform = 'all';
 let currentCompetitorCat = 'all';
 
 function init() {
@@ -677,34 +686,51 @@ function renderStats(data) {
 }
 
 // --- SNS ---
+// hashtag からIG/Threads/X の検索URLを自動生成（Instagram > Threads > X の優先順）
+function buildSnsPlatformLinks(hashtag) {
+    const tag = encodeURIComponent((hashtag || '').replace(/^#/, '').trim());
+    return {
+        instagram: `https://www.instagram.com/explore/tags/${tag}/`,
+        threads:   `https://www.threads.com/tag/${tag}`,
+        x:         `https://x.com/hashtag/${tag}?f=live`
+    };
+}
+
 function renderSns(snsItems) {
+    // 旧 platform 別タブは廃止（各カードが3プラットフォームへ直接ジャンプできるため）
     const tabContainer = document.getElementById('snsTabs');
-    const platforms = [{id:'all',label:'すべて'},{id:'x',label:'X (Twitter)',dot:'dot-x'},{id:'instagram',label:'Instagram',dot:'dot-ig'},{id:'threads',label:'Threads',dot:'dot-threads'}];
-    tabContainer.innerHTML = platforms.map(p => `
-        <button class="sns-tab ${currentSnsPlatform===p.id?'active':''}" onclick="filterSns('${p.id}')">
-            ${p.dot?'<span class="platform-dot '+p.dot+'"></span>':''}${p.label}
-        </button>
-    `).join('');
+    if (tabContainer) tabContainer.style.display = 'none';
+
     const grid = document.getElementById('snsGrid');
-    const filtered = currentSnsPlatform === 'all' ? snsItems : snsItems.filter(s => s.platform === currentSnsPlatform);
-    if (!filtered.length) { grid.innerHTML = '<div style="padding:20px;color:#999;text-align:center;">該当するSNS話題はありません</div>'; return; }
-    grid.innerHTML = filtered.map(s => {
+    if (!snsItems || !snsItems.length) {
+        grid.innerHTML = '<div style="padding:20px;color:#999;text-align:center;">SNS話題はありません</div>';
+        return;
+    }
+    grid.innerHTML = snsItems.map(s => {
         const itemId = makeItemId(s);
-        return `<div class="sns-card ${s.platform}">
+        const links = buildSnsPlatformLinks(s.hashtag);
+        const trendStr = s.trend || '';
+        const upClass = trendStr.includes('+') || trendStr.includes('急上昇') || trendStr.includes('上昇') ? 'up' : '';
+        return `<div class="sns-card">
             <div class="sns-card-header">
-                <div class="sns-hashtag">${s.hashtag}</div>
+                <div class="sns-hashtag">#${s.hashtag}</div>
                 <div style="display:flex;align-items:center;gap:6px">
-                    <div class="sns-volume ${s.trend.includes('+')?'up':''}">${s.trend} ${s.volume}</div>
+                    <div class="sns-volume ${upClass}">${trendStr} ${s.volume || ''}</div>
                     ${bookmarkBtnHtml(itemId, s.hashtag, s.desc, 'SNS')}
                 </div>
             </div>
-            <div class="sns-desc">${s.desc}</div>
-            <div class="sns-action">${s.action}</div>
-            <div class="source-links">${s.sources.map(src=>`<a class="source-link" href="${src.url}" target="_blank" rel="noopener">🔗 ${src.name}</a>`).join('')}</div>
+            <div class="sns-desc">${s.desc || ''}</div>
+            ${s.action ? `<div class="sns-action">${s.action}</div>` : ''}
+            ${(s.sources && s.sources.length) ? `<div class="source-links" style="margin-top:10px">${s.sources.map(src=>`<a class="source-link" href="${src.url}" target="_blank" rel="noopener">🔗 ${src.name}</a>`).join('')}</div>` : ''}
+            <div class="sns-platforms-row">
+                <span class="sns-platforms-label">📱 SNSで見る:</span>
+                <a class="sns-platform-btn ig" href="${links.instagram}" target="_blank" rel="noopener" title="Instagram の #${s.hashtag} ページへ">📷 Instagram</a>
+                <a class="sns-platform-btn threads" href="${links.threads}" target="_blank" rel="noopener" title="Threads の #${s.hashtag} ページへ">🧵 Threads</a>
+                <a class="sns-platform-btn x" href="${links.x}" target="_blank" rel="noopener" title="X の #${s.hashtag} ページへ">𝕏 X</a>
+            </div>
         </div>`;
     }).join('');
 }
-function filterSns(platform) { currentSnsPlatform = platform; renderSns(currentData.sns || []); }
 
 // --- Hashtags ---
 function renderHashtags(hashtags) {
