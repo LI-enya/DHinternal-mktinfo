@@ -86,6 +86,13 @@
         .cal-countdown { display: inline-block; font-size: 10px; background: rgba(156,107,74,.1); color: var(--accent); padding: 2px 8px; border-radius: 8px; margin-left: 6px; }
         .cal-event.soon .cal-countdown { background: rgba(196,136,74,.12); color: #C4884A; }
         .cal-event.future .cal-countdown { background: rgba(123,138,150,.1); color: var(--tag-shoe); }
+        .cal-event.past { background: #F5F2EE; border-left-color: #C8C0B6; opacity: .65; }
+        .cal-event.past .cal-event-date { color: var(--text-light); }
+        .cal-event.past .cal-event-name { color: var(--text-light); font-weight: 500; }
+        .cal-event.past .cal-countdown { background: #E5DDD5; color: var(--text-light); }
+        .calendar-toggle { margin-top: 12px; padding: 8px 16px; border: 1px dashed var(--border); background: transparent; border-radius: 10px; cursor: pointer; font-size: 12px; font-family: inherit; color: var(--text-light); transition: all .2s; align-self: flex-start; }
+        .calendar-toggle:hover { border-color: var(--warm); color: var(--warm); background: var(--warm-dim); }
+        .calendar-past-divider { font-size: 11px; color: var(--text-light); padding: 4px 0; margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 12px; }
 
         /* Filter Bar */
         .filter-bar { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
@@ -439,6 +446,7 @@
             <div class="calendar-title">📅 直近の営業カレンダー（日本市場）</div>
         </div>
         <div class="calendar-events" id="calendarEvents"></div>
+        <div id="calendarPastWrapper"></div>
     </div>
 
     <!-- SNS Hot Topics -->
@@ -552,24 +560,75 @@ function init() {
     updateFavCount();
 }
 
+let calendarPastVisible = false;
+
+function renderCalEvent(ev, today, isPast) {
+    const evDate = new Date(ev.date);
+    const diff = Math.ceil((evDate - today) / (1000*60*60*24));
+    let cls;
+    let countdownText;
+    if (isPast) {
+        cls = 'past';
+        countdownText = (-diff) + '日前';
+    } else if (diff === 0) {
+        cls = '';
+        countdownText = '本日';
+    } else if (diff <= 7) {
+        cls = 'soon';
+        countdownText = diff + '日後';
+    } else {
+        cls = 'future';
+        countdownText = diff + '日後';
+    }
+    return `
+        <div class="cal-event ${cls}">
+            <div class="cal-event-date">${(evDate.getMonth()+1)}/${evDate.getDate()} ${ev.category} <span class="cal-countdown">${countdownText}</span></div>
+            <div class="cal-event-name">${ev.name}</div>
+            <div class="cal-event-hint">💡 ${ev.hint}</div>
+        </div>
+    `;
+}
+
 function renderCalendar() {
-    const container = document.getElementById('calendarEvents');
+    const upcomingContainer = document.getElementById('calendarEvents');
+    const pastWrapper = document.getElementById('calendarPastWrapper');
     const today = new Date(ALL_DATA[0].date);
-    container.innerHTML = CALENDAR.map(ev => {
+    today.setHours(0, 0, 0, 0);
+
+    // 今日以降と過去に分割
+    const upcoming = [];
+    const past = [];
+    CALENDAR.forEach(ev => {
         const evDate = new Date(ev.date);
-        const diff = Math.ceil((evDate - today) / (1000*60*60*24));
-        let cls = 'future';
-        if (diff <= 7) cls = 'soon';
-        if (diff <= 0) cls = '';
-        const countdownText = diff <= 0 ? '本日' : diff + '日後';
-        return `
-            <div class="cal-event ${cls}">
-                <div class="cal-event-date">${(evDate.getMonth()+1)}/${evDate.getDate()} ${ev.category} <span class="cal-countdown">${countdownText}</span></div>
-                <div class="cal-event-name">${ev.name}</div>
-                <div class="cal-event-hint">💡 ${ev.hint}</div>
-            </div>
-        `;
-    }).join('');
+        if (evDate >= today) upcoming.push(ev);
+        else past.push(ev);
+    });
+    // 過去は新しい順（直近の過去が先頭）
+    past.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    // 上段：今日以降のイベント
+    if (upcoming.length === 0) {
+        upcomingContainer.innerHTML = '<div style="padding:14px;color:var(--text-light);font-size:13px;">直近の予定はありません。下の「過去のイベント」を参照してください。</div>';
+    } else {
+        upcomingContainer.innerHTML = upcoming.map(ev => renderCalEvent(ev, today, false)).join('');
+    }
+
+    // 下段：過去のイベント（折りたたみ可）
+    if (past.length === 0) {
+        pastWrapper.innerHTML = '';
+    } else {
+        let pastHtml = `<button class="calendar-toggle" onclick="toggleCalendarPast()">${calendarPastVisible ? '▲ 過去のイベントを隠す' : `▼ 過去のイベント ${past.length}件を表示`}</button>`;
+        if (calendarPastVisible) {
+            pastHtml += '<div class="calendar-past-divider">📂 過去のイベント（参考）</div>';
+            pastHtml += '<div class="calendar-events past">' + past.map(ev => renderCalEvent(ev, today, true)).join('') + '</div>';
+        }
+        pastWrapper.innerHTML = pastHtml;
+    }
+}
+
+function toggleCalendarPast() {
+    calendarPastVisible = !calendarPastVisible;
+    renderCalendar();
 }
 
 const ARCHIVE_DEFAULT_VISIBLE = 8;
