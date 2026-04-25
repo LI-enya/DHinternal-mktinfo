@@ -59,46 +59,46 @@
         }
         body { font-family: 'Noto Sans JP','Hiragino Kaku Gothic ProN','Source Han Sans JP',sans-serif; background: var(--bg); color: var(--text); line-height: 1.85; font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: "tnum" 1, "kern" 1; }
 
-        /* Header — soft black anchor（#0A0A0A）、最高級感 */
-        header { background: var(--dark-anchor); color: #FFFFFF; padding: 36px 0 32px; border-bottom: none; }
+        /* Header — magazine colophon (minimal masthead) */
+        header { background: var(--dark-anchor); color: #FFFFFF; padding: 18px 0 16px; border-bottom: none; }
         header .logo { color: #FFFFFF; }
         header .logo span { color: var(--accent); }
-        header .date-display { background: rgba(255,255,255,.10); color: #FFFFFF; border: 1px solid rgba(255,255,255,.20); }
-        .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-        .logo { font-family: 'Playfair Display', 'Times New Roman', serif; font-weight: 600; font-size: 30px; letter-spacing: 1.5px; color: var(--text); font-style: normal; }
-        .logo span { color: var(--accent); font-weight: 400; font-style: italic; letter-spacing: 1px; }
-        .date-display { font-size: 12px; color: var(--text-light); background: var(--bg); padding: 6px 16px; border-radius: 0; letter-spacing: .3px; }
+        header .date-display { background: transparent; color: rgba(255,255,255,.55); border: none; padding: 0; font-style: italic; font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 0.02em; text-transform: none; }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+        .logo { font-family: 'Playfair Display', 'Times New Roman', serif; font-weight: 500; font-size: 22px; letter-spacing: 0.05em; color: var(--text); font-style: normal; }
+        .logo span { color: var(--accent); font-weight: 400; font-style: italic; letter-spacing: 0.04em; }
+        .date-display { font-size: 11px; color: var(--text-light); background: transparent; padding: 0; border-radius: 0; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; }
         .container { max-width: 1240px; margin: 0 auto; padding: 28px 32px; }
 
-        /* Section Index Nav — cool gray で sticky 区別 */
+        /* Section Index Nav — colophon-style minimal sticky */
         .section-index { position: sticky; top: 0; z-index: 99; background: var(--bg-cool); border-bottom: 1px solid var(--border); padding: 0; box-shadow: none; }
-        .section-index-inner { max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; gap: 4px; overflow-x: auto; }
+        .section-index-inner { max-width: 1200px; margin: 0 auto; padding: 6px 24px; display: flex; gap: 0; overflow-x: auto; }
         .section-index-inner::-webkit-scrollbar { height: 0; }
-        .section-index-btn { padding: 8px 16px; border: none; background: transparent; border-radius: 0; cursor: pointer; font-size: 12px; font-family: inherit; transition: all .2s; text-decoration: none; color: var(--text-light); white-space: nowrap; display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
-        .section-index-btn:hover { background: var(--bg); color: var(--text); }
-        .section-index-btn .idx-icon { font-size: 14px; }
-        .section-index-btn .idx-label { font-weight: 500; }
-        .section-index-btn .idx-count { font-size: 10px; background: var(--bg); color: var(--text-light); padding: 1px 6px; border-radius: 0; margin-left: 2px; }
+        .section-index-btn { padding: 6px 12px; border: none; background: transparent; border-radius: 0; cursor: pointer; font-size: 10px; font-family: inherit; transition: all .15s; text-decoration: none; color: var(--text-light); white-space: nowrap; display: flex; align-items: center; gap: 5px; flex-shrink: 0; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 600; }
+        .section-index-btn:hover { background: transparent; color: var(--accent-deep); }
+        .section-index-btn .idx-icon { font-size: 12px; }
+        .section-index-btn .idx-label { font-weight: 600; }
+        .section-index-btn .idx-count { font-size: 9px; background: transparent; color: var(--accent-deep); padding: 0; border-radius: 0; margin-left: 4px; font-style: italic; font-family: 'Playfair Display', serif; letter-spacing: 0; text-transform: none; font-weight: 400; }
 
         /* Quick Nav (legacy, hidden) */
         .quick-nav { display: none; }
         .qnav-btn { display: none; }
 
-        /* Archive — 透明、open layout（Domus 風 box-less） */
-        .archive-bar { background: transparent; padding: 8px 0 24px; margin-bottom: 16px; box-shadow: none; }
-        .archive-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .archive-title { font-size: 13px; font-weight: 600; color: var(--text); }
-        .archive-count { font-size: 12px; color: var(--text-light); }
-        .archive-dates { display: flex; gap: 8px; flex-wrap: wrap; }
-        .archive-date-btn { padding: 7px 16px; border: 1px solid var(--border); background: var(--bg); border-radius: 0; cursor: pointer; font-size: 13px; font-family: inherit; transition: all .2s; display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 90px; color: var(--text-light); }
-        .archive-date-btn:hover { border-color: var(--warm); color: var(--warm); }
-        .archive-date-btn.active { background: var(--accent); color: var(--text); border-color: var(--accent); font-weight: 600; }
-        .archive-date-btn .date-label { font-weight: 500; font-size: 13px; }
-        .archive-date-btn .today-badge { font-size: 9px; background: var(--warm-dim); color: var(--warm); padding: 1px 8px; border-radius: 0; margin-top: 2px; }
-        .archive-date-btn.active .today-badge { background: rgba(0,0,0,.15); color: var(--text); }
-        .archive-toggle { flex-basis: 100%; margin-top: 4px; padding: 7px 16px; border: 1px dashed var(--border); background: transparent; border-radius: 0; cursor: pointer; font-size: 12px; font-family: inherit; color: var(--text-light); transition: all .2s; }
-        .archive-toggle:hover { border-color: var(--warm); color: var(--warm); background: var(--warm-dim); }
-        .viewing-archive { background: var(--warm-dim); border: 1px solid var(--warm-border); border-radius: 0; padding: 10px 20px; margin-bottom: 20px; font-size: 13px; color: var(--warm); display: flex; justify-content: space-between; align-items: center; }
+        /* Archive — colophon-style minimal row */
+        .archive-bar { background: transparent; padding: 4px 0 14px; margin-bottom: 8px; box-shadow: none; }
+        .archive-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+        .archive-title { font-size: 10px; font-weight: 700; color: var(--accent-deep); text-transform: uppercase; letter-spacing: 0.28em; }
+        .archive-count { font-size: 10px; color: var(--text-light); letter-spacing: 0.06em; font-style: italic; font-family: 'Playfair Display', serif; }
+        .archive-dates { display: flex; gap: 4px; flex-wrap: wrap; }
+        .archive-date-btn { padding: 4px 8px; border: none; border-bottom: 1px solid transparent; background: transparent; border-radius: 0; cursor: pointer; font-size: 11px; font-family: inherit; transition: all .15s; display: inline-flex; flex-direction: row; align-items: center; gap: 5px; min-width: auto; color: var(--text-light); letter-spacing: 0.05em; }
+        .archive-date-btn:hover { border-bottom-color: var(--accent); color: var(--text); background: transparent; }
+        .archive-date-btn.active { background: transparent; color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
+        .archive-date-btn .date-label { font-weight: 500; font-size: 11px; letter-spacing: 0.04em; }
+        .archive-date-btn .today-badge { font-size: 8px; background: transparent; color: var(--accent-deep); padding: 0; border-radius: 0; margin-top: 0; margin-left: 2px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; }
+        .archive-date-btn.active .today-badge { background: transparent; color: var(--accent-deep); }
+        .archive-toggle { flex-basis: 100%; margin-top: 4px; padding: 4px 0; border: none; border-bottom: 1px dashed var(--border); background: transparent; border-radius: 0; cursor: pointer; font-size: 10px; font-family: 'Playfair Display', serif; font-style: italic; color: var(--text-light); transition: all .2s; letter-spacing: 0.05em; }
+        .archive-toggle:hover { border-bottom-color: var(--accent); color: var(--text); background: transparent; }
+        .viewing-archive { background: transparent; border: none; border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent); border-radius: 0; padding: 8px 0; margin-bottom: 16px; font-size: 11px; color: var(--accent-deep); display: flex; justify-content: space-between; align-items: center; letter-spacing: 0.06em; }
         .viewing-archive.hidden { display: none; }
         .back-today-btn { padding: 5px 14px; background: var(--accent); color: var(--text); border: none; border-radius: 0; cursor: pointer; font-size: 12px; font-family: inherit; font-weight: 500; }
 
@@ -442,7 +442,8 @@
         .age-tag { font-size: 11px; padding: 2px 10px; border-radius: 0; background: var(--bg); color: var(--text-light); }
         .age-tag.highlight { background: var(--decor-dim); color: var(--decor-deep); border: 1px solid rgba(168,142,160,.30); }
 
-        .update-note { background: transparent; border: none; padding: 12px 0; margin-bottom: 16px; font-size: 13px; color: var(--text-light); line-height: 1.7; }
+        .update-note { background: transparent; border: none; border-bottom: 1px dashed var(--border); padding: 6px 0 10px; margin-bottom: 14px; font-size: 11px; color: var(--text-light); line-height: 1.7; text-align: center; letter-spacing: 0.04em; font-style: italic; font-family: 'Playfair Display', 'Times New Roman', serif; }
+        .update-note .jp { font-family: 'Noto Sans JP', sans-serif; font-style: normal; letter-spacing: 0.02em; }
 
         footer { text-align: center; padding: 48px 24px; color: rgba(255,255,255,.65); font-size: 12px; border-top: none; margin-top: 0; background: #0A0A0A; }
 
@@ -618,8 +619,10 @@
         @media (max-width:480px) {
             body { font-size: 13px; }
             .header-inner { padding: 0 16px; }
-            .logo { font-size: 17px; }
-            .date-display { font-size: 11px; padding: 5px 12px; }
+            .logo { font-size: 17px; letter-spacing: 0.04em; }
+            .date-display { font-size: 10px; padding: 0; letter-spacing: 0.16em; }
+            header { padding: 14px 0 12px; }
+            header .date-display { font-size: 11px; }
             .container { padding: 12px; }
 
             /* Section Index Nav - horizontal scroll on mobile */
@@ -630,11 +633,15 @@
             .section-index-btn .idx-count { font-size: 9px; padding: 1px 5px; }
 
             /* Archive */
-            .archive-bar { padding: 12px 14px; margin-bottom: 14px; }
-            .archive-dates { gap: 6px; }
-            .archive-date-btn { min-width: 68px; padding: 5px 8px; font-size: 12px; }
-            .archive-date-btn .date-label { font-size: 12px; }
-            .archive-date-btn .today-badge { font-size: 8px; }
+            .archive-bar { padding: 4px 0 10px; margin-bottom: 8px; }
+            .archive-header { margin-bottom: 6px; }
+            .archive-title { font-size: 9px; letter-spacing: 0.22em; }
+            .archive-count { font-size: 9px; }
+            .archive-dates { gap: 2px; }
+            .archive-date-btn { min-width: auto; padding: 3px 6px; font-size: 10px; }
+            .archive-date-btn .date-label { font-size: 10px; }
+            .archive-date-btn .today-badge { font-size: 7px; }
+            .archive-toggle { font-size: 9px; }
             .viewing-archive { padding: 8px 14px; font-size: 12px; flex-direction: column; gap: 8px; text-align: center; }
 
             /* Stats */
@@ -756,8 +763,7 @@
 <div class="container">
 
     <div class="update-note">
-        📅 本ページは3日ごとに更新されます。日本の30〜60代女性に人気のトレンドとキャンペーン情報を収集・掲載しています。<br>
-        対象カテゴリ：👜 バッグ（客単価 ¥30,000前後）/ 👟 シューズ（客単価 ¥20,000前後）
+        <em>Updated every 3 days</em> <span class="jp">— 30〜60代女性向けトレンド & キャンペーン情報　·　👜 バッグ ¥30K　/　👟 シューズ ¥20K</span>
     </div>
 
     <!-- Quick Nav -->
