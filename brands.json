@@ -61,14 +61,14 @@
       {
         "name": "YAHKI",
         "tier": "core",
-        "reason": "CEO最核心指名。日本発、年齢に縛られないデザイン、SHIPS/ナノ・ユニバース等で並行展開。",
+        "reason": "核心对标品牌。日本発、年齢に縛られないデザイン、SHIPS/ナノ・ユニバース等で並行展開。",
         "officialUrl": "https://www.yahki.jp/",
         "priceRange": "¥20,000〜¥40,000"
       },
       {
         "name": "VASIC",
         "tier": "core",
-        "reason": "CEO最核心指名（ISOLÉ excelで明示）。NY発・水尾叶子氏設計。\"My Standard Bag\"。Tomorrowland等で展開。",
+        "reason": "核心对标品牌（ISOLÉ excelで明示）。NY発・水尾叶子氏設計。\"My Standard Bag\"。Tomorrowland等で展開。",
         "officialUrl": "https://www.vasic-newyork.jp/",
         "priceRange": "¥30,000〜¥50,000"
       },
@@ -190,49 +190,49 @@
         {
           "name": "MANSUR GAVRIEL",
           "tier": "tone-aligned",
-          "reason": "AI建議。NY発の極簡 + 大胆色彩、ISOLÉ の調性に高度合致。",
+          "reason": "AI拓展品牌。NY発の極簡 + 大胆色彩、ISOLÉ の調性に高度合致。",
           "officialUrl": "https://www.mansurgavriel.com/"
         },
         {
           "name": "WANDLER",
           "tier": "tone-aligned",
-          "reason": "AI建議。アムステルダム発、建築的・彫刻的フォルム。",
+          "reason": "AI拓展品牌。アムステルダム発、建築的・彫刻的フォルム。",
           "officialUrl": "https://wandler.com/"
         },
         {
           "name": "STAUD",
           "tier": "tone-aligned",
-          "reason": "AI建議。LA発、設計性の高いミニマル系。",
+          "reason": "AI拓展品牌。LA発、設計性の高いミニマル系。",
           "officialUrl": "https://staud.clothing/"
         },
         {
           "name": "Cult Gaia",
           "tier": "tone-aligned",
-          "reason": "AI建議。LA発、彫刻感のあるバッグ。",
+          "reason": "AI拓展品牌。LA発、彫刻感のあるバッグ。",
           "officialUrl": "https://cultgaia.com/"
         },
         {
           "name": "土屋鞄",
           "tier": "tone-aligned",
-          "reason": "AI建議。日本のクラフト最高峰、革鞄の定番。",
+          "reason": "AI拓展品牌。日本のクラフト最高峰、革鞄の定番。",
           "officialUrl": "https://tsuchiya-kaban.jp/"
         },
         {
           "name": "Michael Kors",
           "tier": "trend-watch",
-          "reason": "AI建議。大衆軽奢の主軸、市場大盤の動向観察用。",
+          "reason": "AI拓展品牌。大衆軽奢の主軸、市場大盤の動向観察用。",
           "officialUrl": "https://www.michaelkors.jp/"
         },
         {
           "name": "Longchamp",
           "tier": "trend-watch",
-          "reason": "AI建議。実用中档の代表、市場流行の参考に。",
+          "reason": "AI拓展品牌。実用中档の代表、市場流行の参考に。",
           "officialUrl": "https://jp.longchamp.com/"
         },
         {
           "name": "Marc Jacobs",
           "tier": "trend-watch",
-          "reason": "AI建議。SNS話題度高、トレンドリーダー。",
+          "reason": "AI拓展品牌。SNS話題度高、トレンドリーダー。",
           "officialUrl": "https://www.marcjacobs.jp/"
         }
       ],
@@ -246,21 +246,21 @@
       {
         "name": "VIVAIA",
         "tier": "core",
-        "reason": "CEO最核心指名。中国発のサステナブル×設計感シューズブランド。日本展開強い。",
+        "reason": "核心对标品牌。中国発のサステナブル×設計感シューズブランド。日本展開強い。",
         "officialUrl": "https://vivaia.jp/",
         "priceRange": "¥10,000〜¥18,000"
       },
       {
         "name": "Barclay",
         "tier": "core",
-        "reason": "CEO最核心指名。日本ブランド。",
+        "reason": "核心对标品牌。日本ブランド。",
         "officialUrl": "https://www.barclay-store.jp/",
         "priceRange": "¥15,000〜¥30,000"
       },
       {
         "name": "DIANA",
         "tier": "core",
-        "reason": "CEO最核心指名（最核心+価格段対の両方に列挙）。日本の老舗女靴ブランド、商場専柜の主軸。",
+        "reason": "核心对标品牌（最核心+価格段対の両方に列挙）。日本の老舗女靴ブランド、商場専柜の主軸。",
         "officialUrl": "https://www.dianashoes.com/",
         "priceRange": "¥15,000〜¥28,000"
       },
@@ -305,67 +305,67 @@
         {
           "name": "PELLICO",
           "tier": "tone-aligned",
-          "reason": "AI建議。イタリア発、優雅×中高档、日本展開強い。AMAN取扱。",
+          "reason": "AI拓展品牌。イタリア発、優雅×中高档、日本展開強い。AMAN取扱。",
           "officialUrl": "https://pellicojapan.jp/"
         },
         {
           "name": "YOSHITO",
           "tier": "tone-aligned",
-          "reason": "AI建議。日本の極簡シューズデザイナーブランド。",
+          "reason": "AI拓展品牌。日本の極簡シューズデザイナーブランド。",
           "officialUrl": "https://yoshito.shop/"
         },
         {
           "name": "RABOKIGOSHI works",
           "tier": "tone-aligned",
-          "reason": "AI建議。日本のデザイナー系シューズブランド。Made in Japan & Made in Italy。",
+          "reason": "AI拓展品牌。日本のデザイナー系シューズブランド。Made in Japan & Made in Italy。",
           "officialUrl": "https://raboki-webstore.com/"
         },
         {
           "name": "銀座かねまつ",
           "tier": "tone-aligned",
-          "reason": "AI建議（CEOから「分類在AI建議」と指示）。日本の老舗優雅系、百貨店専柜中心。",
+          "reason": "AI拓展品牌（CEOから「分類在AI拓展品牌」と指示）。日本の老舗優雅系、百貨店専柜中心。",
           "officialUrl": "https://www.shoesconcierge.jp/"
         },
         {
           "name": "Jimmy Choo",
           "tier": "trend-watch",
-          "reason": "AI建議。ドレスシューズ顶级标杆。l'aiséの主打dress shoes領域の風向計。価格は遥か上だが、トレンド観察用。",
+          "reason": "AI拓展品牌。ドレスシューズ顶级标杆。l'aiséの主打dress shoes領域の風向計。価格は遥か上だが、トレンド観察用。",
           "officialUrl": "https://row.jimmychoo.com/jp/"
         },
         {
           "name": "Manolo Blahnik",
           "tier": "trend-watch",
-          "reason": "AI建議。クラシックパンプスの世界標準。dress shoes風向計。",
+          "reason": "AI拓展品牌。クラシックパンプスの世界標準。dress shoes風向計。",
           "officialUrl": "https://www.manoloblahnik.com/jp/"
         },
         {
           "name": "Aquazzura",
           "tier": "trend-watch",
-          "reason": "AI建議。設計型ドレスシューズ。dress shoes風向計。",
+          "reason": "AI拓展品牌。設計型ドレスシューズ。dress shoes風向計。",
           "officialUrl": "https://aquazzura.com/jp_en/"
         },
         {
           "name": "Stuart Weitzman",
           "tier": "trend-watch",
-          "reason": "AI建議。米中高档、伊勢丹三越LUXURY扱い。dress shoes風向計。",
+          "reason": "AI拓展品牌。米中高档、伊勢丹三越LUXURY扱い。dress shoes風向計。",
           "officialUrl": "https://www.stuartweitzman.com/"
         },
         {
           "name": "Odette e Odile",
           "tier": "activity-watch",
-          "reason": "AI建議。LUMINE系、季節セール頻繁、活動文案の参考に。",
+          "reason": "AI拓展品牌。LUMINE系、季節セール頻繁、活動文案の参考に。",
           "officialUrl": "https://i.lumine.jp/shops/101/"
         },
         {
           "name": "fitfit",
           "tier": "activity-watch",
-          "reason": "AI建議。舒適専攻 + 頻繁なキャンペーン。",
+          "reason": "AI拓展品牌。舒適専攻 + 頻繁なキャンペーン。",
           "officialUrl": "https://fitfit.jp/"
         },
         {
           "name": "MAMIAN",
           "tier": "activity-watch",
-          "reason": "AI建議。日本中档、常年セール・キャンペーン。",
+          "reason": "AI拓展品牌。日本中档、常年セール・キャンペーン。",
           "officialUrl": "https://www.mamian.co.jp/"
         }
       ],

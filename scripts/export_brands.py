@@ -73,7 +73,7 @@ def collect_rows(brands, category_key, brand_label):
         rows.append({
             "name": entry["name"],
             "url": entry.get("officialUrl", ""),
-            "source": "AI建议",
+            "source": "AI拓展品牌",
             "category": brand_label,
             "tier": "Reference",
             "subTier": TIER_LABELS_ZH.get(entry["tier"], entry["tier"]),
@@ -107,7 +107,7 @@ def write_excel(rows, output_path, brand_name):
         cell.border = border
 
     # 行データ
-    ai_fill = PatternFill("solid", fgColor="FFF8E7")  # AI建议は淡い黄色
+    ai_fill = PatternFill("solid", fgColor="FFF8E7")  # AI拓展品牌は淡い黄色
     primary_fill = PatternFill("solid", fgColor="FDF4F0")  # Primary は淡いオレンジ
 
     for row in rows:
@@ -121,8 +121,8 @@ def write_excel(rows, output_path, brand_name):
             row["reason"],
         ])
         row_idx = ws.max_row
-        # AI建议行を着色
-        if row["source"] == "AI建议":
+        # AI拓展品牌行を着色
+        if row["source"] == "AI拓展品牌":
             for col in range(1, len(headers) + 1):
                 ws.cell(row=row_idx, column=col).fill = ai_fill
         elif row["tier"] == "Primary":
@@ -196,9 +196,9 @@ def render_feishu_text(brands, category_key, brand_display):
         # CEO 先
         for entry in ceo_by_subtier.get(subtier, []):
             lines.append(f"• {entry['name']}; {entry.get('officialUrl','')}")
-        # AI 後（括号で AI建议マーク）
+        # AI 後（括号で AI拓展品牌マーク）
         for entry in ai_by_subtier.get(subtier, []):
-            lines.append(f"• {entry['name']}（AI建议）; {entry.get('officialUrl','')}")
+            lines.append(f"• {entry['name']}（AI拓展品牌）; {entry.get('officialUrl','')}")
 
     return "\n".join(lines)
 
