@@ -328,7 +328,79 @@
 
         .update-note { background: transparent; border: none; padding: 12px 0; margin-bottom: 16px; font-size: 13px; color: var(--text-light); line-height: 1.7; }
 
-        footer { text-align: center; padding: 36px 24px; color: var(--text-light); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+        footer { text-align: center; padding: 48px 24px; color: rgba(255,255,255,.65); font-size: 12px; border-top: 1px solid rgba(255,255,255,.10); margin-top: 0; background: #0A0A0A; }
+
+        /* === DARK ZONE: 対標ブランドリスト + Footer === */
+        #brandListSection {
+            background: #0A0A0A;
+            color: #EFE7D3;
+            padding: 72px 40px;
+            margin-left: calc(-1 * 32px);
+            margin-right: calc(-1 * 32px);
+            margin-bottom: 0;
+            /* CSS variable override で内部要素自動対応 */
+            --text: #EFE7D3;
+            --text-secondary: #C8BC9F;
+            --text-light: #999080;
+            --card: #1A1A1A;
+            --card-elevated: #252525;
+            --card-hover: #2A2A2A;
+            --bg: #0A0A0A;
+            --bg-cool: #1A1A1A;
+            --bg-light: #1A1A1A;
+            --border: rgba(255,255,255,.12);
+            --border-strong: rgba(255,255,255,.22);
+            --border-light: rgba(255,255,255,.06);
+            --warm-dim: rgba(201,167,122,.15);
+            --warm-border: rgba(201,167,122,.40);
+        }
+        /* Dark zone 内 brand chips: 透明 bg + cream text + 細白ボーダー */
+        #brandListSection .brand-chip {
+            background: transparent;
+            color: #EFE7D3;
+            border-color: rgba(255,255,255,.20);
+        }
+        #brandListSection .brand-chip:hover {
+            background: rgba(201,167,122,.12);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        /* Primary core / price-aligned chips は金色グラデを維持（按键不变ルール）*/
+        #brandListSection .brand-chip.primary-core {
+            background: linear-gradient(135deg, #C9A77A 0%, #A8895C 100%);
+            color: #1A1A1A;
+            border-color: #C9A77A;
+        }
+        #brandListSection .brand-chip.primary-price {
+            background: rgba(201,167,122,.20);
+            color: #E7C89C;
+            border-color: rgba(201,167,122,.45);
+        }
+        #brandListSection .brand-chip.ai-suggested {
+            background: rgba(201,167,122,.06);
+            border-color: rgba(201,167,122,.40);
+            border-style: dashed;
+            color: #C9A77A;
+        }
+        /* Active tab on dark */
+        #brandListSection .brand-list-tab {
+            background: transparent;
+            color: rgba(255,255,255,.65);
+            border-color: rgba(255,255,255,.20);
+        }
+        #brandListSection .brand-list-tab.active {
+            background: var(--accent);
+            color: #1A1A1A;
+            border-color: var(--accent);
+        }
+        /* Tier block bg: 微 lift（黒に対し少し明るい）*/
+        #brandListSection .brand-tier-block {
+            background: #141414;
+            border: 1px solid rgba(255,255,255,.08);
+            box-shadow: none;
+        }
+        #brandListSection .section-title { color: #EFE7D3; border-bottom-color: rgba(255,255,255,.10); }
+        #brandListSection .section-title::before { background: var(--accent); }
 
         /* Back to Top */
         .back-to-top { position: fixed; bottom: 28px; right: 28px; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: var(--text); border: none; cursor: pointer; font-size: 18px; font-weight: 700; box-shadow: 0 3px 12px rgba(0,0,0,.25); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s; transform: translateY(8px); }
