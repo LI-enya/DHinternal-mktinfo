@@ -1,0 +1,252 @@
+{
+  "_comment": "DHinternal MktInfo の対標ブランド設定。SKILL.md がこのファイルを読み込んで競合調査を行う。CEO は本ファイルを直接編集してリストを管理する。",
+  "_lastUpdated": "2026-04-25",
+
+  "ourBrands": [
+    {
+      "name": "ISOLÉ",
+      "category": "bag",
+      "url": "https://isole.jp/",
+      "positioning": {
+        "ageCore": "35-44",
+        "ageRange": "25-55",
+        "tone": ["高級", "活力", "色彩大胆", "設計性", "個性", "詩的", "簡約文藝"],
+        "avoid": ["便宜", "硬広", "量販促銷"],
+        "useCases": ["通勤", "デート", "ギフト（母娘・パートナー）", "旅行"]
+      }
+    },
+    {
+      "name": "l'aisé",
+      "category": "shoe",
+      "url": "https://laiseglobal.com/",
+      "slogan": "BEAUTY HAS NO STANDARD HERE",
+      "categoryEmphasis": {
+        "current": "dress shoes",
+        "_note": "★ 現在強化中の主力カテゴリ。agent はトピック・トレンド調査時にドレスシューズ／パンプス／礼服鞋関連を優先抽出すること。"
+      },
+      "positioning": {
+        "ageCore": "35-44",
+        "ageRange": "25-54",
+        "tone": ["高級", "時尚", "設計性", "個性", "詩的", "簡約文藝"],
+        "avoid": ["便宜", "硬広", "量販促銷"],
+        "marketTier": "中档価格段、商場専柜価格水準。品質感+設計感兼備。礼服鞋・浅口鞋を主推",
+        "useCases": ["通勤", "コーデ", "ギフト", "デート", "特別な場面"],
+        "coreProducts": ["ドレスシューズ★", "パンプス★", "ローファー・スリッポン", "ブーツ", "サンダル・ミュール", "バレエシューズ"],
+        "geo": "東京都が核心（新宿・文京・世田谷）、神奈川・千葉・大阪・名古屋・福岡",
+        "socialClass": "中等収入層、個人年収400万円以上",
+        "deviceMix": "モバイル91.1%、iOS主力"
+      }
+    }
+  ],
+
+  "selectionCriteria": {
+    "_comment": "新規候補を Reference pool に追加する際の判断基準",
+    "rules": [
+      "C1. 価格帯：バッグ ¥20,000〜¥40,000 / シューズ ¥15,000〜¥30,000",
+      "C2. ターゲット：30〜50代日本女性（核心 35-44）",
+      "C3. ブランド調性：設計性・物語性・クラフト型。量販・大幅セール・超低価ブランドは除外",
+      "C4. 流通：DTC/EC が主軸、または百貨店並行型",
+      "C5. CEO指名：明示的に対標として指定された場合は無条件で primary に含める",
+      "C6. シューズに関しては、l'aisé の categoryEmphasis（現在 dress shoes）に強く重なる活動・新作を優先抽出"
+    ],
+    "exclusionRules": [
+      "X1. 全球大型ブランド（COACH, FURLA, LV, GUCCI 等）は trend-watch 以外で primary に入れない",
+      "X2. ファストファッション系（ZARA, H&M 等）は対象外",
+      "X3. 50代以上を主軸とした老舗百貨店専業ブランドは原則除外（一部例外あり）"
+    ]
+  },
+
+  "bag": {
+    "primary": [
+      {
+        "name": "YAHKI",
+        "tier": "core",
+        "reason": "CEO最核心指名。日本発、年齢に縛られないデザイン、SHIPS/ナノ・ユニバース等で並行展開。",
+        "officialUrl": "https://www.yahki.jp/",
+        "priceRange": "¥20,000〜¥40,000"
+      },
+      {
+        "name": "VASIC",
+        "tier": "core",
+        "reason": "CEO最核心指名（ISOLÉ excelで明示）。NY発・水尾叶子氏設計。\"My Standard Bag\"。Tomorrowland等で展開。",
+        "officialUrl": "https://www.vasic-newyork.jp/",
+        "priceRange": "¥30,000〜¥50,000"
+      },
+      {
+        "name": "OSOI",
+        "tier": "price-aligned",
+        "reason": "CEO指名・価格帯一致。United Arrows 並行展開。",
+        "officialUrl": "https://store.united-arrows.co.jp/brand/osoi/",
+        "priceRange": "¥30,000〜¥50,000"
+      },
+      {
+        "name": "LEMEME",
+        "tier": "price-aligned",
+        "reason": "CEO指名・価格帯一致。",
+        "officialUrl": "https://lememe.jp/",
+        "priceRange": "¥20,000〜¥40,000"
+      },
+      {
+        "name": "EPOI",
+        "tier": "price-aligned",
+        "reason": "CEO指名・価格帯一致。日本発のレザーバッグブランド。",
+        "officialUrl": "https://www.epoi-jp.com/",
+        "priceRange": "¥25,000〜¥45,000"
+      },
+      {
+        "name": "傳濱野はんどばっぐ",
+        "tier": "price-aligned",
+        "reason": "CEO指名・価格帯一致。皇室御用達の老舗革鞄ブランド。",
+        "officialUrl": "https://www.denhamanobag.jp/",
+        "priceRange": "¥30,000〜¥80,000"
+      },
+      {
+        "name": "Joy Gryson",
+        "tier": "price-aligned",
+        "reason": "CEO指名・価格帯一致。",
+        "officialUrl": "https://joygryson.jp/index.html",
+        "priceRange": "¥20,000〜¥40,000"
+      },
+      {
+        "name": "JW PEI",
+        "tier": "price-aligned",
+        "reason": "CEO指名・価格帯一致。LA発のミニマルバッグブランド、SNS発信力強い。",
+        "officialUrl": "https://jp.jwpei.com/",
+        "priceRange": "¥15,000〜¥35,000"
+      }
+    ],
+
+    "reference": {
+      "_comment": "seed は CEO 提供。pool は agent が selectionCriteria に従って自主補充可能（書込時に\"agent-added\": true をマーク）",
+      "seed": [
+        {
+          "name": "State of Escape",
+          "tier": "tone-aligned",
+          "reason": "ISOLÉ の調性に合致（CEO seed）。",
+          "officialUrl": "https://stateofescape.jp/"
+        },
+        {
+          "name": "GIANNI CHIARINI",
+          "tier": "tone-aligned",
+          "reason": "ISOLÉ の調性に合致（CEO seed）。イタリア発の中高価格帯。",
+          "officialUrl": "https://www.giannichiarini.co.jp/"
+        },
+        {
+          "name": "Strathberry",
+          "tier": "tone-aligned",
+          "reason": "ISOLÉ の調性に合致（CEO seed）。スコットランド発、ミニマル設計。",
+          "officialUrl": "https://jp.strathberry.com/"
+        },
+        {
+          "name": "Polène",
+          "tier": "tone-aligned",
+          "reason": "ISOLÉ の調性に合致（CEO seed）。パリ発、SNSで急成長したミニマルブランド。",
+          "officialUrl": "https://jp.polene-paris.com/"
+        },
+        {
+          "name": "DeMellier London",
+          "tier": "tone-aligned",
+          "reason": "ISOLÉ の調性に合致（CEO seed）。ロンドン発、エシカル×設計性。",
+          "officialUrl": "https://demellierlondon.com/"
+        },
+        {
+          "name": "ELLEME",
+          "tier": "tone-aligned",
+          "reason": "ISOLÉ の調性に合致（CEO seed）。彫刻的フォルム。",
+          "officialUrl": "https://elleme.com/"
+        },
+        {
+          "name": "Paris 64",
+          "tier": "tone-aligned",
+          "reason": "ISOLÉ の調性に合致（CEO seed）。",
+          "officialUrl": "https://paris64.com/zh-jp"
+        },
+        {
+          "name": "COACH",
+          "tier": "trend-watch",
+          "reason": "市場大盤の動向観察用（CEO seed）。同価格帯の競合ではないが、流行・カラー・コラボの方向性を吸収。",
+          "officialUrl": "https://japan.coach.com/"
+        },
+        {
+          "name": "Kate Spade",
+          "tier": "trend-watch",
+          "reason": "市場大盤の動向観察用（CEO seed）。30代女性カジュアル領域のトレンドリーダー。",
+          "officialUrl": "https://www.katespade.jp/"
+        },
+        {
+          "name": "Tory Burch",
+          "tier": "trend-watch",
+          "reason": "市場大盤の動向観察用（CEO seed）。30-40代上品カジュアルの主流。",
+          "officialUrl": "https://www.toryburch.co.jp/"
+        },
+        {
+          "name": "NAGATANI",
+          "tier": "trend-watch",
+          "reason": "ISOLÉ excelで明示された対標ブランド（CEO seed）。クラフト×設計の高価格帯日本ブランド。",
+          "officialUrl": "https://nagatani-shop.com/"
+        }
+      ],
+      "pool": [],
+      "_poolNote": "agent が今期間中に新規追加した候補を蓄積する場所。CEO が定期的にレビューして seed に昇格 or 削除する。"
+    }
+  },
+
+  "shoe": {
+    "primary": [
+      {
+        "name": "VIVAIA",
+        "tier": "core",
+        "reason": "CEO最核心指名。中国発のサステナブル×設計感シューズブランド。日本展開強い。",
+        "officialUrl": "https://vivaia.jp/",
+        "priceRange": "¥10,000〜¥18,000"
+      },
+      {
+        "name": "Barclay",
+        "tier": "core",
+        "reason": "CEO最核心指名。日本ブランド。",
+        "officialUrl": "https://www.barclay-store.jp/",
+        "priceRange": "¥15,000〜¥30,000"
+      },
+      {
+        "name": "DIANA",
+        "tier": "core",
+        "reason": "CEO最核心指名（最核心+価格段対の両方に列挙）。日本の老舗女靴ブランド、商場専柜の主軸。",
+        "officialUrl": "https://www.dianashoes.com/",
+        "priceRange": "¥15,000〜¥28,000"
+      },
+      {
+        "name": "FRG (Free Republic of Glamour)",
+        "tier": "price-aligned",
+        "reason": "CEO指名・価格段対。",
+        "officialUrl": "https://frgjpn.thebase.in/",
+        "priceRange": "¥15,000〜¥25,000"
+      }
+    ],
+
+    "reference": {
+      "_comment": "seed は CEO 提供。pool は agent が selectionCriteria に従って自主補充可能。",
+      "seed": [
+        {
+          "name": "Launa lea",
+          "tier": "activity-watch",
+          "reason": "丸井百貨系の女靴ブランド。CEO seed「活動を見る用」。季節SALE・百貨店連動キャンペーンの参考に。",
+          "officialUrl": "https://launalea.com/"
+        },
+        {
+          "name": "健歩源 (kenpogen)",
+          "tier": "activity-watch",
+          "reason": "30-50代職場女性向け快適パンプスブランド。CEO seed「活動を見る用」。「歩きやすい×美しい」訴求の参考に。",
+          "officialUrl": "https://www.kenpogen.com/"
+        },
+        {
+          "name": "Dwarves Shoes",
+          "tier": "tone-aligned",
+          "reason": "手工皮鞋ブランド（2012年〜）。CEO seed。クラフト×設計、l'aiséの調性に類似。",
+          "officialUrl": "https://dwarvesshoes.com/"
+        }
+      ],
+      "pool": [],
+      "_poolNote": "agent が今期間中に新規追加した候補を蓄積する場所。CEO が定期的にレビューして seed に昇格 or 削除する。"
+    }
+  }
+}
