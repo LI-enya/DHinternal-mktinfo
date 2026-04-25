@@ -94,6 +94,31 @@
         .calendar-toggle:hover { border-color: var(--warm); color: var(--warm); background: var(--warm-dim); }
         .calendar-past-divider { font-size: 11px; color: var(--text-light); padding: 4px 0; margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 12px; }
 
+        /* Brand List Section */
+        .brand-list-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+        .brand-list-tab { padding: 10px 20px; border: 1px solid var(--border); background: var(--card); border-radius: 10px; cursor: pointer; font-size: 14px; font-family: inherit; transition: all .2s; color: var(--text-light); display: flex; align-items: center; gap: 8px; }
+        .brand-list-tab:hover { border-color: var(--warm); color: var(--warm); }
+        .brand-list-tab.active { background: var(--text); color: #fff; border-color: var(--text); }
+        .brand-list-tab .tab-count { font-size: 11px; padding: 2px 8px; border-radius: 8px; background: var(--bg); color: var(--text-light); }
+        .brand-list-tab.active .tab-count { background: rgba(255,255,255,.2); color: #fff; }
+        .brand-tier-block { background: var(--card); border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; box-shadow: 0 1px 6px rgba(0,0,0,.04); }
+        .brand-tier-header { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+        .brand-tier-header.primary { color: #B85C3A; }
+        .brand-tier-header.reference { color: var(--text-light); }
+        .brand-subgroup { margin-bottom: 14px; }
+        .brand-subgroup:last-child { margin-bottom: 0; }
+        .brand-subgroup-title { font-size: 12px; font-weight: 600; color: var(--text-light); margin-bottom: 8px; }
+        .brand-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+        .brand-chip { display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; border: 1px solid var(--border); background: var(--bg); border-radius: 8px; font-size: 13px; color: var(--text); text-decoration: none; transition: all .15s ease; }
+        .brand-chip:hover { border-color: var(--warm); color: var(--warm); background: var(--warm-dim); transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+        .brand-chip.primary-core { background: linear-gradient(135deg, #FFE8B8 0%, #FFD480 30%, #FDF8F4 100%); border-color: #C4884A; font-weight: 600; }
+        .brand-chip.primary-core:hover { background: linear-gradient(135deg, #FFE0A0 0%, #FFC966 30%, #FDF4E8 100%); }
+        .brand-chip.primary-price { background: #FDF4F0; border-color: #E5C5B0; font-weight: 500; }
+        .brand-chip.ai-suggested { border-style: dashed; background: #F2F7F3; color: #5A7A5E; }
+        .brand-chip.ai-suggested:hover { border-color: #7BA07E; color: #5A7A5E; background: #E8F2EA; }
+        .brand-chip-icon { font-size: 11px; opacity: .8; }
+        .brand-chip-arrow { font-size: 10px; opacity: .5; margin-left: 2px; }
+
         /* Filter Bar */
         .filter-bar { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
         .filter-bar label { font-size: 13px; font-weight: 500; color: var(--text-light); margin-right: 4px; }
@@ -444,6 +469,16 @@
         <div id="calendarPastWrapper"></div>
     </div>
 
+    <!-- Brand List (永続参照、brands.json から) -->
+    <div class="section" id="brandListSection">
+        <div class="section-title">
+            📚 対標ブランドリスト
+            <span style="font-size:11px;color:var(--text-light);font-weight:400;margin-left:8px">永続参照・brands.json より</span>
+        </div>
+        <div class="brand-list-tabs" id="brandListTabs"></div>
+        <div id="brandListContent"></div>
+    </div>
+
     <!-- SNS Hot Topics -->
     <div class="section" id="snsSection">
         <div class="section-title">📱 SNS 話題トピック</div>
@@ -538,20 +573,24 @@ const CALENDAR = [
 
 // ============================================================
 // ALL_DATA — 日付別アーカイブ（data.json から非同期読込）
+// BRANDS — 対標ブランドリスト（brands.json から非同期読込、永続参照）
 // ============================================================
 let ALL_DATA = [];
+let BRANDS = null;
 
 // ============================================================
 // RENDER LOGIC
 // ============================================================
 let currentData = null;
 let currentCompetitorCat = 'all';
+let currentBrandTab = 'bag';  // 'bag' | 'shoe'
 
 function init() {
     renderArchiveBar();
     renderPage(currentData);
     setupFilters();
     renderCalendar();
+    renderBrandList();
     updateFavCount();
 }
 
@@ -624,6 +663,117 @@ function renderCalendar() {
 function toggleCalendarPast() {
     calendarPastVisible = !calendarPastVisible;
     renderCalendar();
+}
+
+// === ブランドリスト（永続参照） ===
+const BRAND_TIER_LABELS = {
+    'core': '最核心',
+    'price-aligned': '価格段対',
+    'tone-aligned': '調性対',
+    'trend-watch': '動向参考',
+    'activity-watch': '活動観察'
+};
+const BRAND_TIER_ORDER_PRIMARY = ['core', 'price-aligned'];
+const BRAND_TIER_ORDER_REFERENCE = ['tone-aligned', 'trend-watch', 'activity-watch'];
+
+function brandChipHtml(b, tier, isAi) {
+    const url = b.officialUrl || '#';
+    const cls = isAi ? 'ai-suggested' : (tier === 'core' ? 'primary-core' : (tier === 'price-aligned' ? 'primary-price' : ''));
+    const icon = isAi ? '✨' : (tier === 'core' ? '⭐' : '');
+    return `<a class="brand-chip ${cls}" href="${url}" target="_blank" rel="noopener" title="${b.name}${isAi?'（AI拓展品牌）':''} → 公式サイト">
+        ${icon ? `<span class="brand-chip-icon">${icon}</span>` : ''}
+        <span>${b.name}</span>
+        <span class="brand-chip-arrow">↗</span>
+    </a>`;
+}
+
+function renderBrandList() {
+    if (!BRANDS) {
+        document.getElementById('brandListContent').innerHTML =
+            '<div style="padding:20px;color:var(--text-light);font-size:13px">ブランドリストを読込中...</div>';
+        return;
+    }
+    const tabsContainer = document.getElementById('brandListTabs');
+    const ourBrands = BRANDS.ourBrands || [];
+    const ourBag = ourBrands.find(b => b.category === 'bag') || {};
+    const ourShoe = ourBrands.find(b => b.category === 'shoe') || {};
+
+    const bagSection = BRANDS.bag || {};
+    const shoeSection = BRANDS.shoe || {};
+
+    const bagTotal = (bagSection.primary || []).length
+                   + (bagSection.reference?.seed || []).length
+                   + (bagSection.reference?.aiSuggested || []).length;
+    const shoeTotal = (shoeSection.primary || []).length
+                    + (shoeSection.reference?.seed || []).length
+                    + (shoeSection.reference?.aiSuggested || []).length;
+
+    tabsContainer.innerHTML = `
+        <button class="brand-list-tab ${currentBrandTab === 'bag' ? 'active' : ''}" onclick="switchBrandTab('bag')">
+            👜 ${ourBag.name || 'ISOLÉ'}（バッグ） <span class="tab-count">${bagTotal}</span>
+        </button>
+        <button class="brand-list-tab ${currentBrandTab === 'shoe' ? 'active' : ''}" onclick="switchBrandTab('shoe')">
+            👟 ${ourShoe.name || "l'aisé"}（シューズ） <span class="tab-count">${shoeTotal}</span>
+        </button>
+    `;
+
+    const section = currentBrandTab === 'bag' ? bagSection : shoeSection;
+    const primary = section.primary || [];
+    const refSeed = section.reference?.seed || [];
+    const refAi = section.reference?.aiSuggested || [];
+
+    // Group primary by tier
+    const primaryByTier = {};
+    primary.forEach(b => { (primaryByTier[b.tier] = primaryByTier[b.tier] || []).push(b); });
+
+    // Group reference (CEO + AI) by tier
+    const refByTier = {};
+    refSeed.forEach(b => { (refByTier[b.tier] = refByTier[b.tier] || {ceo: [], ai: []}).ceo.push(b); });
+    refAi.forEach(b => { (refByTier[b.tier] = refByTier[b.tier] || {ceo: [], ai: []}).ai.push(b); });
+
+    let html = '';
+
+    // === Primary block ===
+    if (primary.length > 0) {
+        html += `<div class="brand-tier-block">
+            <div class="brand-tier-header primary">⭐ Primary（${primary.length}）必爬・最重要対標</div>`;
+        BRAND_TIER_ORDER_PRIMARY.forEach(tier => {
+            const items = primaryByTier[tier] || [];
+            if (!items.length) return;
+            html += `<div class="brand-subgroup">
+                <div class="brand-subgroup-title">【${BRAND_TIER_LABELS[tier]}（${items.length}）】</div>
+                <div class="brand-chips">${items.map(b => brandChipHtml(b, tier, false)).join('')}</div>
+            </div>`;
+        });
+        html += '</div>';
+    }
+
+    // === Reference block ===
+    const refTotal = refSeed.length + refAi.length;
+    if (refTotal > 0) {
+        html += `<div class="brand-tier-block">
+            <div class="brand-tier-header reference">📊 Reference（${refTotal}）参考</div>`;
+        BRAND_TIER_ORDER_REFERENCE.forEach(tier => {
+            const grp = refByTier[tier];
+            if (!grp || (grp.ceo.length === 0 && grp.ai.length === 0)) return;
+            const total = grp.ceo.length + grp.ai.length;
+            html += `<div class="brand-subgroup">
+                <div class="brand-subgroup-title">【${BRAND_TIER_LABELS[tier]}（${total}）】</div>
+                <div class="brand-chips">
+                    ${grp.ceo.map(b => brandChipHtml(b, tier, false)).join('')}
+                    ${grp.ai.map(b => brandChipHtml(b, tier, true)).join('')}
+                </div>
+            </div>`;
+        });
+        html += '</div>';
+    }
+
+    document.getElementById('brandListContent').innerHTML = html;
+}
+
+function switchBrandTab(tab) {
+    currentBrandTab = tab;
+    renderBrandList();
 }
 
 const ARCHIVE_DEFAULT_VISIBLE = 8;
@@ -702,8 +852,13 @@ function renderPage(data) {
 }
 
 function renderSectionIndex(data) {
+    const brandTotal = BRANDS
+        ? ((BRANDS.bag?.primary||[]).length + (BRANDS.bag?.reference?.seed||[]).length + (BRANDS.bag?.reference?.aiSuggested||[]).length
+         + (BRANDS.shoe?.primary||[]).length + (BRANDS.shoe?.reference?.seed||[]).length + (BRANDS.shoe?.reference?.aiSuggested||[]).length)
+        : null;
     const sections = [
         { id: 'calendarSection', icon: '📅', label: '営業カレンダー' },
+        { id: 'brandListSection', icon: '📚', label: '対標ブランド', count: brandTotal },
         { id: 'snsSection', icon: '📱', label: 'SNS話題', count: (data.sns||[]).length },
         { id: 'hashtagSection', icon: '📊', label: 'Hashtag動向', count: (data.hashtags||[]).length },
         { id: 'competitorSection', icon: '🔍', label: '競合ブランド', count: (data.competitors||[]).length },
@@ -1072,26 +1227,35 @@ function showLoadError(err) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('./data.json', { cache: 'no-store' })
-        .then(r => {
-            if (!r.ok) throw new Error('HTTP ' + r.status);
+    // data.json と brands.json を並列で読込
+    Promise.all([
+        fetch('./data.json', { cache: 'no-store' }).then(r => {
+            if (!r.ok) throw new Error('data.json HTTP ' + r.status);
             return r.json();
-        })
-        .then(data => {
-            if (!Array.isArray(data) || data.length === 0) {
-                throw new Error('データが空です');
+        }),
+        fetch('./brands.json', { cache: 'no-store' }).then(r => {
+            if (!r.ok) {
+                // brands.json が無くても致命的ではない（dashboard 本体は動く）
+                console.warn('brands.json 読込失敗:', r.status);
+                return null;
             }
-            ALL_DATA = data;
-            currentData = ALL_DATA[0];
-            // init() のエラーは「データ読込失敗」ではなくレンダリングのバグなので
-            // catch とは分離（コンソールにだけ流して画面は壊さない）
-            try {
-                init();
-            } catch (renderErr) {
-                console.error('レンダリング失敗:', renderErr);
-            }
-        })
-        .catch(showLoadError);
+            return r.json();
+        }).catch(err => { console.warn('brands.json 読込エラー:', err); return null; })
+    ])
+    .then(([data, brands]) => {
+        if (!Array.isArray(data) || data.length === 0) {
+            throw new Error('データが空です');
+        }
+        ALL_DATA = data;
+        BRANDS = brands;  // null でも OK（renderBrandList が gracefully handle）
+        currentData = ALL_DATA[0];
+        try {
+            init();
+        } catch (renderErr) {
+            console.error('レンダリング失敗:', renderErr);
+        }
+    })
+    .catch(showLoadError);
 });
 </script>
 </body>
