@@ -167,8 +167,28 @@
         .filter-btn:hover { border-color: var(--warm); color: var(--warm); }
         .filter-btn.active { background: var(--accent); color: var(--bg); border-color: var(--text); }
 
-        /* Sections */
-        .section { margin-bottom: 56px; scroll-margin-top: 120px; }
+        /* Sections — moodboard 風に bg 交替でエディトリアルリズム */
+        .section { margin-bottom: 32px; scroll-margin-top: 120px; padding: 40px 36px; }
+
+        /* 1) Deep dark — 落ち着いた背景（メインの bg と同等） */
+        .section.bg-deep { background: var(--bg-light); border: 1px solid var(--border); }
+
+        /* 2) Warm cream — ベージュ寄り、柔らかい雰囲気 */
+        .section.bg-warm { background: linear-gradient(180deg, #2A2519 0%, #221E16 100%); border: 1px solid rgba(232, 223, 201, .08); }
+
+        /* 3) Gold accent — 金色のハイライト感 */
+        .section.bg-gold {
+            background: linear-gradient(135deg, rgba(201,167,122,.10) 0%, #221E16 50%, var(--bg-light) 100%);
+            border: 1px solid rgba(201,167,122,.18);
+            border-top: 2px solid rgba(201,167,122,.40);
+        }
+
+        /* 4) Cream — 明るめのカード調 */
+        .section.bg-cream {
+            background: linear-gradient(180deg, #2F2A1E 0%, #251F18 100%);
+            border: 1px solid rgba(232, 223, 201, .10);
+        }
+
         .calendar-section { scroll-margin-top: 120px; margin-bottom: 56px; }
         .section-title { font-size: 26px; font-weight: 700; margin-bottom: 28px; padding: 0 0 20px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; color: var(--text); letter-spacing: -0.02em; position: relative; text-transform: none; }
         .section-title::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 26px; width: 3px; background: var(--accent); }
@@ -519,21 +539,21 @@
     </div>
 
     <!-- 2. SNS トレンド（旧 SNS + Hashtag を統合、Tab 切替） -->
-    <div class="section" id="snsSection">
+    <div class="section bg-warm" id="snsSection">
         <div class="section-title">📱 SNS トレンド</div>
         <div class="sns-trend-tabs" id="snsTrendTabs"></div>
         <div class="sns-grid" id="snsGrid"></div>
         <div class="hashtag-grid" id="hashtagGrid" style="display:none"></div>
     </div>
 
-    <!-- 3. 注目トピック -->
-    <div class="section" id="topicSection">
+    <!-- 3. 注目トピック — gold accent でハイライト -->
+    <div class="section bg-gold" id="topicSection">
         <div class="section-title" id="topicSectionTitle">🔥 今日の注目トピック（30〜60代女性）</div>
         <div class="topics-grid" id="topicsGrid"></div>
     </div>
 
     <!-- 4. Competitor Watch（活動フィルタ追加） -->
-    <div class="section" id="competitorSection">
+    <div class="section bg-deep" id="competitorSection">
         <div class="section-title">🔍 競合ブランド動向</div>
         <div class="competitor-cat-tabs" id="competitorTabs"></div>
         <div class="competitor-activity-filter" id="competitorActivityFilter"></div>
@@ -551,19 +571,19 @@
     </div>
 
     <!-- 5. Bag Campaigns -->
-    <div class="section" id="bagSection">
+    <div class="section bg-cream" id="bagSection">
         <div class="section-title">👜 バッグ キャンペーン情報（客単価 ¥30,000）</div>
         <div class="campaign-grid" id="bagGrid"></div>
     </div>
 
     <!-- 6. Shoe Campaigns -->
-    <div class="section" id="shoeSection">
+    <div class="section bg-cream" id="shoeSection">
         <div class="section-title">👟 シューズ キャンペーン情報（客単価 ¥20,000）</div>
         <div class="campaign-grid" id="shoeGrid"></div>
     </div>
 
     <!-- 7. Brand List（永続参照、brands.json から）— 底部 appendix -->
-    <div class="section" id="brandListSection">
+    <div class="section bg-gold" id="brandListSection">
         <div class="section-title">
             📚 対標ブランドリスト
             <span style="font-size:11px;color:var(--text-light);font-weight:400;margin-left:8px">永続参照・brands.json より</span>
