@@ -167,26 +167,101 @@
         .filter-btn:hover { border-color: var(--warm); color: var(--warm); }
         .filter-btn.active { background: var(--accent); color: var(--bg); border-color: var(--text); }
 
-        /* Sections — moodboard 風に bg 交替でエディトリアルリズム */
-        .section { margin-bottom: 32px; scroll-margin-top: 120px; padding: 40px 36px; }
+        /* Sections — Westwood 風 bold color blocks（明暗強コントラスト） */
+        .section { margin-bottom: 32px; scroll-margin-top: 120px; padding: 48px 40px; }
 
-        /* 1) Deep dark — 落ち着いた背景（メインの bg と同等） */
-        .section.bg-deep { background: var(--bg-light); border: 1px solid var(--border); }
-
-        /* 2) Warm cream — ベージュ寄り、柔らかい雰囲気 */
-        .section.bg-warm { background: linear-gradient(180deg, #2A2519 0%, #221E16 100%); border: 1px solid rgba(232, 223, 201, .08); }
-
-        /* 3) Gold accent — 金色のハイライト感 */
-        .section.bg-gold {
-            background: linear-gradient(135deg, rgba(201,167,122,.10) 0%, #221E16 50%, var(--bg-light) 100%);
-            border: 1px solid rgba(201,167,122,.18);
-            border-top: 2px solid rgba(201,167,122,.40);
+        /* DARK OLIVE block — 深い暖いオリーブ／黒 */
+        .section.bg-deep {
+            --text: #EFE7D3;
+            --text-secondary: #C8BC9F;
+            --text-light: #8A7F6A;
+            --card: #1E1A14;
+            --card-elevated: #25201A;
+            --card-hover: #2A2419;
+            --border: rgba(232,223,201,.10);
+            --border-strong: rgba(232,223,201,.18);
+            --bg-light: #1A1612;
+            background: #1F1B14;
+            color: var(--text);
+            border: 1px solid var(--border);
         }
 
-        /* 4) Cream — 明るめのカード調 */
+        /* CREAM block — 米奶油底（テキスト反転） */
         .section.bg-cream {
-            background: linear-gradient(180deg, #2F2A1E 0%, #251F18 100%);
-            border: 1px solid rgba(232, 223, 201, .10);
+            --bg: #DCCFB1;
+            --text: #2A2520;
+            --text-secondary: #4A4030;
+            --text-light: #7A6F58;
+            --card: #F2EAD2;
+            --card-elevated: #E8DCBE;
+            --card-hover: #FFFFFF;
+            --border: rgba(42,37,32,.14);
+            --border-strong: rgba(42,37,32,.25);
+            --bg-light: #E8DCBE;
+            --warm-dim: rgba(168,137,92,.12);
+            --accent: #6B5232;       /* dark bronze on light bg */
+            --accent-deep: #3A2F22;
+            background: var(--bg);
+            color: var(--text);
+            border: none;
+        }
+        /* Cream block 内の active state は dark olive bg + cream text（反転） */
+        .section.bg-cream .archive-date-btn.active,
+        .section.bg-cream .competitor-cat-tab.active,
+        .section.bg-cream .filter-btn.active,
+        .section.bg-cream .activity-filter-btn.active,
+        .section.bg-cream .brand-list-tab.active {
+            background: #2A2520;
+            color: #EFE7D3;
+            border-color: #2A2520;
+        }
+        /* Cream block 内の Threads/X ボタンは dark bg + cream text */
+        .section.bg-cream .sns-platform-btn.threads,
+        .section.bg-cream .sns-platform-btn.x {
+            background: #2A2520;
+            color: #EFE7D3;
+            border-color: #2A2520;
+        }
+        .section.bg-cream .sns-platform-btn.threads:hover,
+        .section.bg-cream .sns-platform-btn.x:hover {
+            background: #3A332A;
+        }
+
+        /* GOLD/TAN block — 暖い棕褐の中間色（HOT / accent ハイライト） */
+        .section.bg-gold {
+            --bg: #A89378;
+            --text: #1F1812;
+            --text-secondary: #3A2F22;
+            --text-light: #5C4E3A;
+            --card: #C9B58A;
+            --card-elevated: #D8C9A4;
+            --card-hover: #E2D5B5;
+            --border: rgba(31,24,18,.18);
+            --border-strong: rgba(31,24,18,.30);
+            --bg-light: #B8A075;
+            --warm-dim: rgba(31,24,18,.06);
+            --accent: #3A2F22;
+            --accent-deep: #1F1812;
+            background: var(--bg);
+            color: var(--text);
+            border-top: 3px solid #1F1812;
+            border-bottom: 3px solid #1F1812;
+        }
+        .section.bg-gold .sns-platform-btn.threads,
+        .section.bg-gold .sns-platform-btn.x {
+            background: #1F1812;
+            color: #EFE7D3;
+            border-color: #1F1812;
+        }
+
+        /* WARM olive — bg-deep より少し明るい（リズム用） */
+        .section.bg-warm {
+            --text: #EFE7D3;
+            --card: #2A2419;
+            --card-elevated: #322B1F;
+            --border: rgba(232,223,201,.10);
+            background: #2A2519;
+            color: var(--text);
         }
 
         .calendar-section { scroll-margin-top: 120px; margin-bottom: 56px; }
@@ -538,21 +613,21 @@
         <div id="calendarPastWrapper"></div>
     </div>
 
-    <!-- 2. SNS トレンド（旧 SNS + Hashtag を統合、Tab 切替） -->
-    <div class="section bg-warm" id="snsSection">
+    <!-- 2. SNS トレンド — CREAM block（明色、長時間閲覧向き） -->
+    <div class="section bg-cream" id="snsSection">
         <div class="section-title">📱 SNS トレンド</div>
         <div class="sns-trend-tabs" id="snsTrendTabs"></div>
         <div class="sns-grid" id="snsGrid"></div>
         <div class="hashtag-grid" id="hashtagGrid" style="display:none"></div>
     </div>
 
-    <!-- 3. 注目トピック — gold accent でハイライト -->
+    <!-- 3. 注目トピック — GOLD/TAN ハイライトブロック -->
     <div class="section bg-gold" id="topicSection">
         <div class="section-title" id="topicSectionTitle">🔥 今日の注目トピック（30〜60代女性）</div>
         <div class="topics-grid" id="topicsGrid"></div>
     </div>
 
-    <!-- 4. Competitor Watch（活動フィルタ追加） -->
+    <!-- 4. Competitor Watch — DARK OLIVE block（核心戦場、集中） -->
     <div class="section bg-deep" id="competitorSection">
         <div class="section-title">🔍 競合ブランド動向</div>
         <div class="competitor-cat-tabs" id="competitorTabs"></div>
@@ -570,20 +645,20 @@
         <button class="filter-btn" data-filter="offline">🏬 オフライン</button>
     </div>
 
-    <!-- 5. Bag Campaigns -->
+    <!-- 5. Bag Campaigns — CREAM block -->
     <div class="section bg-cream" id="bagSection">
         <div class="section-title">👜 バッグ キャンペーン情報（客単価 ¥30,000）</div>
         <div class="campaign-grid" id="bagGrid"></div>
     </div>
 
-    <!-- 6. Shoe Campaigns -->
-    <div class="section bg-cream" id="shoeSection">
+    <!-- 6. Shoe Campaigns — DARK OLIVE block -->
+    <div class="section bg-deep" id="shoeSection">
         <div class="section-title">👟 シューズ キャンペーン情報（客単価 ¥20,000）</div>
         <div class="campaign-grid" id="shoeGrid"></div>
     </div>
 
-    <!-- 7. Brand List（永続参照、brands.json から）— 底部 appendix -->
-    <div class="section bg-gold" id="brandListSection">
+    <!-- 7. Brand List（永続参照、brands.json から）— CREAM browse mode -->
+    <div class="section bg-cream" id="brandListSection">
         <div class="section-title">
             📚 対標ブランドリスト
             <span style="font-size:11px;color:var(--text-light);font-weight:400;margin-left:8px">永続参照・brands.json より</span>
