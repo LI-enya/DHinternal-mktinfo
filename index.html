@@ -446,6 +446,11 @@
         .update-note { background: transparent; border: none; border-bottom: 1px dashed var(--border); padding: 6px 0 10px; margin-bottom: 14px; font-size: 11px; color: var(--text-light); line-height: 1.7; text-align: center; letter-spacing: 0.04em; font-style: italic; font-family: 'Playfair Display', 'Times New Roman', serif; }
         .update-note .jp { font-family: 'Noto Sans JP', sans-serif; font-style: normal; letter-spacing: 0.02em; }
 
+        /* === Icon system (Lucide-style outline, currentColor) === */
+        .icon { width: 1em; height: 1em; vertical-align: -0.14em; flex-shrink: 0; display: inline-block; }
+        .icon-lg { width: 1.2em; height: 1.2em; }
+        .icon-fill { fill: currentColor; }
+
         footer { text-align: center; padding: 48px 24px; color: rgba(255,255,255,.65); font-size: 12px; border-top: none; margin-top: 0; background: #0A0A0A; }
 
         /* === DARK ZONE: 対標ブランドリスト + Footer === */
@@ -750,6 +755,28 @@
 </head>
 <body>
 
+<!-- ===== Icon Library (outline 1.6, currentColor) ===== -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2.5" x2="8" y2="6"/><line x1="16" y1="2.5" x2="16" y2="6"/></symbol>
+    <symbol id="i-social" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7"/><line x1="20.5" y1="20.5" x2="15.5" y2="15.5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 9h13l-1 11.5h-11L5.5 9z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></symbol>
+    <symbol id="i-shoe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17.5C2.5 15 4 13.5 6.5 13L13 11.5c2-.5 3.5 0 5 1.5l2.5 2.5c1 1 .5 2.5-1 2.5H3.5c-.5 0-1-.5-1-1z"/><line x1="6" y1="14" x2="7" y2="17.5"/><line x1="9" y1="13" x2="10" y2="17.5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6a3 3 0 0 1 3 3v14"/><path d="M20 4h-6a3 3 0 0 0-3 3v14"/><path d="M4 4v17h16V4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="4" y2="11"/><line x1="10" y1="20" x2="10" y2="4"/><line x1="16" y1="20" x2="16" y2="14"/><line x1="22" y1="20" x2="22" y2="8"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a1 1 0 0 1 1-1h5l2 2h8a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><line x1="2.5" y1="12" x2="21.5" y2="12"/><path d="M12 2.5c2.5 3 4 6 4 9.5s-1.5 6.5-4 9.5c-2.5-3-4-6-4-9.5s1.5-6.5 4-9.5z"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18"/><path d="M9.5 20v-6h5v6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2.5 14.85,9 22,9.5 16.5,14.5 18.3,21.5 12,17.5 5.7,21.5 7.5,14.5 2,9.5 9.15,9"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5z"/><line x1="19" y1="3" x2="20" y2="5"/><line x1="20" y1="19" x2="21" y2="21"/></symbol>
+    <symbol id="i-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13.5"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+  </defs>
+</svg>
+
 <header>
     <div class="header-inner">
         <div class="logo">DH<span>internal</span> MktInfo</div>
@@ -764,7 +791,7 @@
 <div class="container">
 
     <div class="update-note">
-        <em>Updated every 3 days</em> <span class="jp">— 30〜60代女性向けトレンド & キャンペーン情報　·　👜 バッグ ¥30K　/　👟 シューズ ¥20K</span>
+        <em>Updated every 3 days</em> <span class="jp">— 30〜60代女性向けトレンド & キャンペーン情報　·　<svg class="icon"><use href="#i-bag"/></svg> バッグ ¥30K　/　<svg class="icon"><use href="#i-shoe"/></svg> シューズ ¥20K</span>
     </div>
 
     <!-- Quick Nav -->
@@ -781,7 +808,7 @@
     <!-- Archive -->
     <div class="archive-bar">
         <div class="archive-header">
-            <div class="archive-title">📂 日付を選択</div>
+            <div class="archive-title">Archive · 日付選択</div>
             <div class="archive-count" id="archiveCount"></div>
         </div>
         <div class="archive-dates" id="archiveDates"></div>
@@ -842,10 +869,10 @@
     <div class="filter-bar">
         <label>フィルター：</label>
         <button class="filter-btn active" data-filter="all">すべて</button>
-        <button class="filter-btn" data-filter="bag">👜 バッグのみ</button>
-        <button class="filter-btn" data-filter="shoe">👟 シューズのみ</button>
-        <button class="filter-btn" data-filter="online">🌐 オンライン</button>
-        <button class="filter-btn" data-filter="offline">🏬 オフライン</button>
+        <button class="filter-btn" data-filter="bag"><svg class="icon"><use href="#i-bag"/></svg> バッグのみ</button>
+        <button class="filter-btn" data-filter="shoe"><svg class="icon"><use href="#i-shoe"/></svg> シューズのみ</button>
+        <button class="filter-btn" data-filter="online"><svg class="icon"><use href="#i-globe"/></svg> オンライン</button>
+        <button class="filter-btn" data-filter="offline"><svg class="icon"><use href="#i-store"/></svg> オフライン</button>
     </div>
 
     <!-- 5. Bag Campaigns — GRAY block -->
@@ -881,7 +908,7 @@
 </div>
 
 <!-- Back to Top -->
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg class="icon"><use href="#i-arrow-up"/></svg></button>
 
 <!-- Favorites Toggle -->
 <button class="fav-toggle" id="favToggle" onclick="toggleFavPanel()">
@@ -894,7 +921,7 @@
 <div class="fav-panel" id="favPanel">
     <div class="fav-panel-header">
         <div class="fav-panel-title">★ 收藏夹</div>
-        <button class="fav-close" onclick="toggleFavPanel()">✕</button>
+        <button class="fav-close" onclick="toggleFavPanel()"><svg class="icon"><use href="#i-x"/></svg></button>
     </div>
     <div class="fav-tabs" id="favTabs">
         <button class="fav-tab active" onclick="switchFavTab(0)">冉收藏</button>
@@ -1008,7 +1035,7 @@ function renderCalendar() {
     } else {
         let pastHtml = `<button class="calendar-toggle" onclick="toggleCalendarPast()">${calendarPastVisible ? '▲ 過去のイベントを隠す' : `▼ 過去のイベント ${past.length}件を表示`}</button>`;
         if (calendarPastVisible) {
-            pastHtml += '<div class="calendar-past-divider">📂 過去のイベント（参考）</div>';
+            pastHtml += '<div class="calendar-past-divider"><svg class="icon"><use href="#i-folder"/></svg> 過去のイベント（参考）</div>';
             pastHtml += '<div class="calendar-events past">' + past.map(ev => renderCalEvent(ev, today, true)).join('') + '</div>';
         }
         pastWrapper.innerHTML = pastHtml;
@@ -1079,10 +1106,10 @@ function renderBrandList() {
 
     tabsContainer.innerHTML = `
         <button class="brand-list-tab ${currentBrandTab === 'bag' ? 'active' : ''}" onclick="switchBrandTab('bag')">
-            👜 ${ourBag.name || 'ISOLÉ'}（バッグ） <span class="tab-count">${bagTotal}</span>
+            <svg class="icon"><use href="#i-bag"/></svg> ${ourBag.name || 'ISOLÉ'}（バッグ） <span class="tab-count">${bagTotal}</span>
         </button>
         <button class="brand-list-tab ${currentBrandTab === 'shoe' ? 'active' : ''}" onclick="switchBrandTab('shoe')">
-            👟 ${ourShoe.name || "l'aisé"}（シューズ） <span class="tab-count">${shoeTotal}</span>
+            <svg class="icon"><use href="#i-shoe"/></svg> ${ourShoe.name || "l'aisé"}（シューズ） <span class="tab-count">${shoeTotal}</span>
         </button>
     `;
 
@@ -1105,7 +1132,7 @@ function renderBrandList() {
     // === Primary block ===
     if (primary.length > 0) {
         html += `<div class="brand-tier-block">
-            <div class="brand-tier-header primary">⭐ Primary（${primary.length}）必爬・最重要対標</div>`;
+            <div class="brand-tier-header primary"><svg class="icon"><use href="#i-star"/></svg> Primary（${primary.length}）必爬・最重要対標</div>`;
         BRAND_TIER_ORDER_PRIMARY.forEach(tier => {
             const items = primaryByTier[tier] || [];
             if (!items.length) return;
@@ -1121,7 +1148,7 @@ function renderBrandList() {
     const refTotal = refSeed.length + refAi.length;
     if (refTotal > 0) {
         html += `<div class="brand-tier-block">
-            <div class="brand-tier-header reference">📊 Reference（${refTotal}）参考</div>`;
+            <div class="brand-tier-header reference"><svg class="icon"><use href="#i-chart"/></svg> Reference（${refTotal}）参考</div>`;
         BRAND_TIER_ORDER_REFERENCE.forEach(tier => {
             const grp = refByTier[tier];
             if (!grp || (grp.ceo.length === 0 && grp.ai.length === 0)) return;
@@ -1194,12 +1221,12 @@ function switchToDate(dateStr) {
     else {
         banner.classList.remove('hidden');
         const d = new Date(dateStr);
-        document.getElementById('archiveLabel').textContent = '📂 アーカイブ表示中：' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+        document.getElementById('archiveLabel').innerHTML = '<svg class="icon"><use href="#i-folder"/></svg> アーカイブ表示中：' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
     }
     const titleEl = document.getElementById('topicSectionTitle');
     const meta = '<span class="meta">— 30〜60代女性</span>';
     if (isLatest) titleEl.innerHTML = '今日の注目トピック' + meta;
-    else { const d = new Date(dateStr); titleEl.innerHTML = (d.getMonth()+1)+'/'+d.getDate()+' のトピックアーカイブ' + meta; }
+    else { const d = new Date(dateStr); titleEl.innerHTML = '<svg class="icon"><use href="#i-folder"/></svg> ' + (d.getMonth()+1)+'/'+d.getDate()+' のトピックアーカイブ' + meta; }
     currentCompetitorCat = 'all';
     renderPage(currentData);
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1232,13 +1259,13 @@ function renderSectionIndex(data) {
     const snsTotal = (data.sns||[]).length + (data.hashtags||[]).length;
     // 新しい順序：Cal → SNS → Topic → Comp → Bag → Shoe → Brands
     const sections = [
-        { id: 'calendarSection', icon: '📅', label: '営業カレンダー' },
-        { id: 'snsSection', icon: '📱', label: 'SNSトレンド', count: snsTotal },
-        { id: 'topicSection', icon: '🔥', label: '注目トピック', count: (data.topics||[]).length },
-        { id: 'competitorSection', icon: '🔍', label: '競合ブランド', count: (data.competitors||[]).length },
-        { id: 'bagSection', icon: '👜', label: 'バッグ施策', count: (data.bagCampaigns||[]).length },
-        { id: 'shoeSection', icon: '👟', label: 'シューズ施策', count: (data.shoeCampaigns||[]).length },
-        { id: 'brandListSection', icon: '📚', label: '対標リスト', count: brandTotal }
+        { id: 'calendarSection', icon: '<svg class="icon"><use href="#i-calendar"/></svg>', label: '営業カレンダー' },
+        { id: 'snsSection', icon: '<svg class="icon"><use href="#i-social"/></svg>', label: 'SNSトレンド', count: snsTotal },
+        { id: 'topicSection', icon: '<svg class="icon"><use href="#i-flame"/></svg>', label: '注目トピック', count: (data.topics||[]).length },
+        { id: 'competitorSection', icon: '<svg class="icon"><use href="#i-search"/></svg>', label: '競合ブランド', count: (data.competitors||[]).length },
+        { id: 'bagSection', icon: '<svg class="icon"><use href="#i-bag"/></svg>', label: 'バッグ施策', count: (data.bagCampaigns||[]).length },
+        { id: 'shoeSection', icon: '<svg class="icon"><use href="#i-shoe"/></svg>', label: 'シューズ施策', count: (data.shoeCampaigns||[]).length },
+        { id: 'brandListSection', icon: '<svg class="icon"><use href="#i-book"/></svg>', label: '対標リスト', count: brandTotal }
     ];
     document.getElementById('sectionIndexInner').innerHTML = sections.map(s =>
         `<a class="section-index-btn" href="#${s.id}">
@@ -1251,7 +1278,7 @@ function renderSectionIndex(data) {
 
 function renderDate(dateStr) {
     const d = new Date(dateStr);
-    document.getElementById('currentDate').textContent = '📅 ' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'}) + ' 更新';
+    document.getElementById('currentDate').innerHTML = '<svg class="icon"><use href="#i-calendar"/></svg> ' + d.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'long'}) + ' 更新';
 }
 
 function renderStats(data) {
@@ -1260,11 +1287,11 @@ function renderStats(data) {
     const snsCount = (data.sns||[]).length;
     const competitorCount = (data.competitors||[]).length;
     container.innerHTML = `
-        <div class="stat-card trend"><div class="number">${hotTopics}</div><div class="label">🔥 注目トピック</div></div>
-        <div class="stat-card sns"><div class="number">${snsCount}</div><div class="label">📱 SNS話題</div></div>
-        <div class="stat-card"><div class="number">${data.bagCampaigns.length}</div><div class="label">👜 バッグ施策</div></div>
-        <div class="stat-card shoe"><div class="number">${data.shoeCampaigns.length}</div><div class="label">👟 シューズ施策</div></div>
-        <div class="stat-card"><div class="number">${competitorCount}</div><div class="label">🔍 競合動向</div></div>
+        <div class="stat-card trend"><div class="number">${hotTopics}</div><div class="label"><svg class="icon"><use href="#i-flame"/></svg> 注目トピック</div></div>
+        <div class="stat-card sns"><div class="number">${snsCount}</div><div class="label"><svg class="icon"><use href="#i-social"/></svg> SNS話題</div></div>
+        <div class="stat-card"><div class="number">${data.bagCampaigns.length}</div><div class="label"><svg class="icon"><use href="#i-bag"/></svg> バッグ施策</div></div>
+        <div class="stat-card shoe"><div class="number">${data.shoeCampaigns.length}</div><div class="label"><svg class="icon"><use href="#i-shoe"/></svg> シューズ施策</div></div>
+        <div class="stat-card"><div class="number">${competitorCount}</div><div class="label"><svg class="icon"><use href="#i-search"/></svg> 競合動向</div></div>
     `;
 }
 
@@ -1372,7 +1399,7 @@ function renderHashtags(hashtags) {
                     <div class="hashtag-name" title="#${tagRaw}">#${tagRaw}</div>
                     ${trendLabel ? `<div class="hashtag-trend-pill ${direction}">${trendLabel}</div>` : ''}
                 </div>
-                ${source ? `<div class="hashtag-source">📊 ${source}</div>` : ''}
+                ${source ? `<div class="hashtag-source"><svg class="icon"><use href="#i-chart"/></svg> ${source}</div>` : ''}
                 <div class="hashtag-platforms">
                     <a class="sns-platform-btn ig icon-only" href="${links.instagram}" target="_blank" rel="noopener" aria-label="Instagram で #${tagRaw} を見る" title="Instagram で #${tagRaw} を見る">${PLATFORM_ICONS.instagram}</a>
                     <a class="sns-platform-btn threads icon-only" href="${links.threads}" target="_blank" rel="noopener" aria-label="Threads で #${tagRaw} を見る" title="Threads で #${tagRaw} を見る">${PLATFORM_ICONS.threads}</a>
@@ -1390,8 +1417,8 @@ function renderCompetitorTabs(competitors) {
     const shoeCount = competitors.filter(c => c.category === 'shoe').length;
     tabs.innerHTML = [
         { key: 'all', label: `すべて (${competitors.length})` },
-        { key: 'bag', label: `👜 バッグ (${bagCount})` },
-        { key: 'shoe', label: `👟 シューズ (${shoeCount})` }
+        { key: 'bag', label: `<svg class="icon"><use href="#i-bag"/></svg> バッグ (${bagCount})` },
+        { key: 'shoe', label: `<svg class="icon"><use href="#i-shoe"/></svg> シューズ (${shoeCount})` }
     ].map(t => `<button class="competitor-cat-tab ${currentCompetitorCat===t.key?'active':''}${currentCompetitorCat===t.key&&t.key==='shoe'?' active-shoe':''}" onclick="filterCompetitors('${t.key}')">${t.label}</button>`).join('');
 }
 function filterCompetitors(cat) {
@@ -1457,9 +1484,9 @@ function renderCompetitors(competitors) {
         const isAgentAdded = c.tier === 'agent-added';
         let tierBadge = '';
         if (isPrimary) {
-            tierBadge = `<span class="tier-badge primary" title="${c.tier}">⭐ 主要対標</span>`;
+            tierBadge = `<span class="tier-badge primary" title="${c.tier}"><svg class="icon"><use href="#i-star"/></svg> 主要対標</span>`;
         } else if (isAgentAdded) {
-            tierBadge = `<span class="tier-badge agent-added" title="agent提案、CEOレビュー待ち">🆕 新規候補</span>`;
+            tierBadge = `<span class="tier-badge agent-added" title="agent提案、CEOレビュー待ち"><svg class="icon"><use href="#i-sparkle"/></svg> 新規候補</span>`;
         } else if ((c.tier || '').startsWith('ref-')) {
             const refLabels = {'ref-trend':'動向','ref-tone':'調性','ref-activity':'活動'};
             tierBadge = `<span class="tier-badge reference" title="${c.tier}">参考·${refLabels[c.tier]||''}</span>`;
@@ -1469,7 +1496,7 @@ function renderCompetitors(competitors) {
                 <div class="competitor-brand">${c.brand}${c.priceRange ? `<span class="competitor-price-range">${c.priceRange}</span>` : ''}</div>
                 <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
                     ${tierBadge}
-                    <span class="competitor-cat-icon" title="${c.category==='bag'?'バッグ':'シューズ'}">${c.category==='bag'?'👜':'👟'}</span>
+                    <span class="competitor-cat-icon" title="${c.category==='bag'?'バッグ':'シューズ'}"><svg class="icon"><use href="#${c.category==='bag'?'i-bag':'i-shoe'}"/></svg></span>
                     ${bookmarkBtnHtml(itemId, c.brand, c.move, '競合')}
                 </div>
             </div>
@@ -1519,8 +1546,8 @@ function renderCampaigns(type, campaigns) {
             <div class="campaign-body">
                 <div class="campaign-tags" style="display:flex;justify-content:space-between;align-items:center">
                     <div style="display:flex;gap:6px;flex-wrap:wrap">
-                        <span class="tag tag-${type}">${type==='bag'?'👜 バッグ':'👟 シューズ'}</span>
-                        <span class="tag tag-${c.channel}">${c.channel==='online'?'🌐 オンライン':'🏬 オフライン'}</span>
+                        <span class="tag tag-${type}">${type==='bag'?'<svg class="icon"><use href="#i-bag"/></svg> バッグ':'<svg class="icon"><use href="#i-shoe"/></svg> シューズ'}</span>
+                        <span class="tag tag-${c.channel}">${c.channel==='online'?'<svg class="icon"><use href="#i-globe"/></svg> オンライン':'<svg class="icon"><use href="#i-store"/></svg> オフライン'}</span>
                     </div>
                     ${bookmarkBtnHtml(itemId, c.name, c.desc, type==='bag'?'バッグ施策':'シューズ施策')}
                 </div>
@@ -1529,7 +1556,7 @@ function renderCampaigns(type, campaigns) {
                 <div class="campaign-desc">${c.desc}</div>
                 <div class="age-tags">${c.ageTarget.map(a=>`<span class="age-tag">${a}</span>`).join('')}</div>
                 <div class="campaign-meta">
-                    <span class="campaign-date">📅 ${c.date}</span>
+                    <span class="campaign-date"><svg class="icon"><use href="#i-calendar"/></svg> ${c.date}</span>
                     <span class="campaign-price">${c.price}</span>
                 </div>
                 <div class="source-links">${c.sources.map(s=>`<a class="source-link ${type==='shoe'?'shoe-link':''}" href="${s.url}" target="_blank" rel="noopener">🔗 ${s.name}</a>`).join('')}</div>
@@ -1653,12 +1680,12 @@ function renderFavList() {
     }
     list.innerHTML = items.map(f => `
         <div class="fav-item">
-            <button class="fav-item-remove" onclick="removeFav(${currentFavTab},'${f.id.replace(/'/g,"\\'")}')">✕</button>
+            <button class="fav-item-remove" onclick="removeFav(${currentFavTab},'${f.id.replace(/'/g,"\\'")}')"><svg class="icon"><use href="#i-x"/></svg></button>
             <div class="fav-item-title">${f.title}</div>
             <div class="fav-item-desc">${f.desc}</div>
             <div class="fav-item-meta">
                 <span>${f.type}</span>
-                <span>📅 ${f.date}</span>
+                <span><svg class="icon"><use href="#i-calendar"/></svg> ${f.date}</span>
             </div>
         </div>
     `).join('');
@@ -1675,7 +1702,7 @@ function showLoadError(err) {
     if (container) {
         container.innerHTML = `
             <div style="padding:60px 20px;text-align:center;color:var(--text-light);">
-                <div style="font-size:48px;margin-bottom:16px;">⚠️</div>
+                <div style="font-size:48px;margin-bottom:16px;color:var(--accent-deep);"><svg class="icon" style="width:48px;height:48px;"><use href="#i-warning"/></svg></div>
                 <div style="font-size:16px;margin-bottom:8px;color:var(--text);">データの読み込みに失敗しました</div>
                 <div style="font-size:13px;">少し時間をおいて再読み込みしてください</div>
                 <div style="font-size:11px;margin-top:16px;opacity:.6;">${err.message}</div>
