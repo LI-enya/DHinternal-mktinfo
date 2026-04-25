@@ -1,0 +1,11 @@
+# Local Claude Code preview config (not part of the deployed site)
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
