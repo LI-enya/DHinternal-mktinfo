@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Icon Picker — Bag & Shoe</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Helvetica Neue', sans-serif; background: #F4F4F4; color: #1A1A1A; padding: 40px; line-height: 1.5; }
+  h1 { font-family: 'Playfair Display', 'Times New Roman', serif; font-style: italic; font-size: 56px; font-weight: 400; letter-spacing: -0.03em; margin-bottom: 8px; }
+  .sub { font-size: 13px; color: #666; margin-bottom: 40px; letter-spacing: 0.04em; font-style: italic; }
+  h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 32px; font-weight: 400; margin: 40px 0 24px; padding-bottom: 12px; border-bottom: 1px solid #1A1A1A; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .card { background: #fff; padding: 24px 16px; border: 1px solid rgba(0,0,0,.10); text-align: center; }
+  .card .label { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #A8895C; margin-bottom: 18px; }
+  .card .icon-row { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 14px; }
+  .icon { color: #1A1A1A; }
+  .small { width: 14px; height: 14px; }
+  .medium { width: 24px; height: 24px; }
+  .large { width: 48px; height: 48px; }
+  .context { font-size: 13px; color: #666; padding-top: 12px; border-top: 1px dashed #ddd; display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .context .icon { width: 13px; height: 13px; vertical-align: -0.14em; color: #1A1A1A; }
+  .pick { font-size: 11px; color: #A88EA0; margin-top: 12px; font-style: italic; }
+  .id-tag { display: inline-block; background: #1A1A1A; color: #fff; padding: 2px 8px; font-size: 10px; font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: 0.05em; }
+</style>
+</head>
+<body>
+
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+  <defs>
+    <!-- ===== BAG OPTIONS ===== -->
+    <symbol id="bag-A" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 2 L3 6 V20 a2 2 0 0 0 2 2 H19 a2 2 0 0 0 2-2 V6 L18 2 Z"/>
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <path d="M16 10 a4 4 0 0 1 -8 0"/>
+    </symbol>
+
+    <symbol id="bag-B" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="9" width="16" height="13"/>
+      <path d="M8 9 V6 a1.5 1.5 0 0 1 1.5 -1.5 H10.5 a1.5 1.5 0 0 1 1.5 1.5 V9"/>
+      <path d="M12 9 V6 a1.5 1.5 0 0 1 1.5 -1.5 H14.5 a1.5 1.5 0 0 1 1.5 1.5 V9"/>
+    </symbol>
+
+    <symbol id="bag-C" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 9 L19 9 L18 21 L6 21 Z"/>
+      <path d="M8 9 V5.5 a4 4 0 0 1 8 0 V9"/>
+    </symbol>
+
+    <symbol id="bag-D" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 8 V20 a1 1 0 0 0 1 1 H18 a1 1 0 0 0 1 -1 V8 L17 5 L7 5 Z"/>
+      <line x1="5" y1="8" x2="19" y2="8"/>
+      <path d="M9 5 Q9 2 11 2 Q13 2 13 5"/>
+      <path d="M11 5 Q11 2 13 2 Q15 2 15 5"/>
+    </symbol>
+
+    <symbol id="bag-E" viewBox="0 0 24 24">
+      <path d="M5 8 H 19 L 20 21 H 4 Z" fill="currentColor"/>
+      <path d="M9 8 V5.5 a3 3 0 0 1 6 0 V8" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    </symbol>
+
+    <symbol id="bag-F" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <!-- structured tote (Birkin/Kelly style trapezoid + rectangular handle) -->
+      <path d="M4 10 L20 10 L19 21 L5 21 Z"/>
+      <rect x="9" y="5" width="6" height="5" rx="0.5"/>
+      <line x1="4" y1="13" x2="20" y2="13"/>
+    </symbol>
+
+    <!-- ===== SHOE OPTIONS ===== -->
+    <symbol id="shoe-A" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <!-- current -->
+      <path d="M2 18 L 21 18 Q 22.5 18 22.5 16.5 Q 22.5 14.5 19.5 14 L 14 13 L 14 4.5 L 17.5 4.5"/>
+      <path d="M2 18 Q 2 14 4.5 13 L 14 13"/>
+    </symbol>
+
+    <symbol id="shoe-B" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <!-- classic pump - foot + thin tall heel column -->
+      <path d="M2 17 Q 2 14 4 14 L 17 14 Q 21 14 21 17 L 2 17 Z"/>
+      <line x1="2" y1="17" x2="21" y2="17"/>
+      <line x1="17" y1="14" x2="17" y2="6"/>
+      <line x1="17" y1="6" x2="20" y2="6"/>
+    </symbol>
+
+    <symbol id="shoe-C" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <!-- stiletto pointed toe + sweeping heel -->
+      <path d="M2 17 L 18 17 Q 22 17 22 14 L 19 14 Q 17 14 16 13 L 4 13 Q 2 14 2 17 Z"/>
+      <line x1="2" y1="17" x2="22" y2="17"/>
+    </symbol>
+
+    <symbol id="shoe-D" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <!-- side profile with heel rising from sole at back -->
+      <path d="M3 16 Q 3 13 5 13 L 14 13 L 14 5 L 18 5 L 18 13 Q 21 13 21 16 L 3 16 Z"/>
+      <line x1="3" y1="16" x2="21" y2="16"/>
+    </symbol>
+
+    <symbol id="shoe-E" viewBox="0 0 24 24">
+      <!-- filled silhouette pump -->
+      <path d="M3 17 Q3 14 5 13 L14 13 L14 5 L17 5 L17 13 Q21 13 21 16 L21 17 Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="shoe-F" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <!-- elegant Louboutin-style: pointed toe + thin curved heel -->
+      <path d="M2 17 L 19 17 Q 21 17 21 15 Q 21 13 18 13 L 8 13 L 5 14 Q 2 15 2 17 Z"/>
+      <path d="M16 13 L 16 6"/>
+      <path d="M14 6 L 19 6"/>
+    </symbol>
+  </defs>
+</svg>
+
+<h1>Icon Picker</h1>
+<div class="sub">Bag & High-heel — pick your favorite</div>
+
+<h2>Bag <span style="font-size:13px;color:#666;font-style:normal;font-family:'Helvetica Neue';letter-spacing:0.1em;">— shopping / handbag / tote</span></h2>
+<div class="grid">
+  <div class="card">
+    <div class="label">Bag-A · Shopping (Heroicons)</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#bag-A"/></svg>
+      <svg class="icon medium"><use href="#bag-A"/></svg>
+      <svg class="icon large"><use href="#bag-A"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#bag-A"/></svg> バッグ ¥30K</div>
+    <div class="pick">折り目袋型 + 中央に開口カーブ。現在の icon。</div>
+  </div>
+  <div class="card">
+    <div class="label">Bag-B · Tote 2-handle</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#bag-B"/></svg>
+      <svg class="icon medium"><use href="#bag-B"/></svg>
+      <svg class="icon large"><use href="#bag-B"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#bag-B"/></svg> バッグ ¥30K</div>
+    <div class="pick">長方形 + 2本ハンドル（トート）</div>
+  </div>
+  <div class="card">
+    <div class="label">Bag-C · Classic Handbag</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#bag-C"/></svg>
+      <svg class="icon medium"><use href="#bag-C"/></svg>
+      <svg class="icon large"><use href="#bag-C"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#bag-C"/></svg> バッグ ¥30K</div>
+    <div class="pick">台形ボディ + アーチ型ハンドル</div>
+  </div>
+  <div class="card">
+    <div class="label">Bag-D · Paper Shopping</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#bag-D"/></svg>
+      <svg class="icon medium"><use href="#bag-D"/></svg>
+      <svg class="icon large"><use href="#bag-D"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#bag-D"/></svg> バッグ ¥30K</div>
+    <div class="pick">紙袋風 + 折り目 + 2 ループハンドル</div>
+  </div>
+  <div class="card">
+    <div class="label">Bag-E · Filled Silhouette</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#bag-E"/></svg>
+      <svg class="icon medium"><use href="#bag-E"/></svg>
+      <svg class="icon large"><use href="#bag-E"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#bag-E"/></svg> バッグ ¥30K</div>
+    <div class="pick">塗りつぶしシルエット + outline ハンドル</div>
+  </div>
+  <div class="card">
+    <div class="label">Bag-F · Birkin / Kelly</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#bag-F"/></svg>
+      <svg class="icon medium"><use href="#bag-F"/></svg>
+      <svg class="icon large"><use href="#bag-F"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#bag-F"/></svg> バッグ ¥30K</div>
+    <div class="pick">構造的トート（Birkin/Kelly 風）+ 角型ハンドル</div>
+  </div>
+</div>
+
+<h2>High Heel <span style="font-size:13px;color:#666;font-style:normal;font-family:'Helvetica Neue';letter-spacing:0.1em;">— pump / stiletto / Louboutin</span></h2>
+<div class="grid">
+  <div class="card">
+    <div class="label">Shoe-A · Phosphor Heel</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#shoe-A"/></svg>
+      <svg class="icon medium"><use href="#shoe-A"/></svg>
+      <svg class="icon large"><use href="#shoe-A"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#shoe-A"/></svg> シューズ ¥20K</div>
+    <div class="pick">現在の icon。Phosphor 系。</div>
+  </div>
+  <div class="card">
+    <div class="label">Shoe-B · Classic Pump</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#shoe-B"/></svg>
+      <svg class="icon medium"><use href="#shoe-B"/></svg>
+      <svg class="icon large"><use href="#shoe-B"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#shoe-B"/></svg> シューズ ¥20K</div>
+    <div class="pick">足部 + 細い heel column が後ろに立つ</div>
+  </div>
+  <div class="card">
+    <div class="label">Shoe-C · Stiletto (pointed)</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#shoe-C"/></svg>
+      <svg class="icon medium"><use href="#shoe-C"/></svg>
+      <svg class="icon large"><use href="#shoe-C"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#shoe-C"/></svg> シューズ ¥20K</div>
+    <div class="pick">尖り toe + sweeping heel curve</div>
+  </div>
+  <div class="card">
+    <div class="label">Shoe-D · Side Profile Heel</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#shoe-D"/></svg>
+      <svg class="icon medium"><use href="#shoe-D"/></svg>
+      <svg class="icon large"><use href="#shoe-D"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#shoe-D"/></svg> シューズ ¥20K</div>
+    <div class="pick">側面 + 後方にヒール柱（最も「靴」らしい）</div>
+  </div>
+  <div class="card">
+    <div class="label">Shoe-E · Filled Pump</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#shoe-E"/></svg>
+      <svg class="icon medium"><use href="#shoe-E"/></svg>
+      <svg class="icon large"><use href="#shoe-E"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#shoe-E"/></svg> シューズ ¥20K</div>
+    <div class="pick">塗りつぶし silhouette。最大の視認性。</div>
+  </div>
+  <div class="card">
+    <div class="label">Shoe-F · Louboutin Style</div>
+    <div class="icon-row">
+      <svg class="icon small"><use href="#shoe-F"/></svg>
+      <svg class="icon medium"><use href="#shoe-F"/></svg>
+      <svg class="icon large"><use href="#shoe-F"/></svg>
+    </div>
+    <div class="context"><svg class="icon"><use href="#shoe-F"/></svg> シューズ ¥20K</div>
+    <div class="pick">尖り toe + 高い細身ヒール (Louboutin 風)</div>
+  </div>
+</div>
+
+<div style="margin-top:60px;padding:24px;background:#fff;border:1px dashed #ddd;font-size:13px;line-height:1.7;">
+  <strong style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;display:block;margin-bottom:8px;">使い方</strong>
+  各 icon は 14 / 24 / 48px の 3 サイズで表示しています（実際の Web では 14-16px が中心）。
+  気に入った組み合わせ ID（例: <span class="id-tag">Bag-C + Shoe-D</span>）を教えてください。即座に index.html へ反映します。
+</div>
+
+</body>
+</html>

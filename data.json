@@ -1,6 +1,6 @@
 [
   {
-    "date": "2026-04-25",
+    "date": "2026-04-26",
     "sns": [
       {
         "hashtag": "ワンハンドルバッグ",
@@ -50,28 +50,41 @@
         ]
       },
       {
-        "hashtag": "GW商戦2026",
+        "hashtag": "STRUCTURED GRACE",
         "trend": "急上昇",
-        "volume": "REGAL・MAMIAN・各百貨店一斉スタート",
-        "desc": "2026 GW（4/29-5/6 の8日間）に向け各ブランドがクーポン・キャンペーン展開。10〜20%OFF・限定ノベルティが主流。",
-        "action": "【施策案】GW期間中の限定特典・送料無料・先着ノベルティで競合との差別化。",
+        "volume": "Re:EDIT 2026春夏トレンド特集（4月アップデート）",
+        "desc": "Re:EDIT が 2026春夏の核心コンセプトとして掲示。構築された服 × レース・シアー透け感の対比、ワークウェア由来の機能性 × 余白の美しさ。",
+        "action": "【施策案】ISOLÉ・YAHKIの彫刻的フォルム品をSTRUCTURED GRACEとして特集。2026SSコレクションページ全面更新。",
         "sources": [
           {
-            "name": "REGAL Sneakers CAMPAIGN",
-            "url": "https://www.regal.co.jp/shop_news/detail/regal-shoes/26s-regal-sneakers-campaign"
+            "name": "Re:EDIT 2026春夏トレンド",
+            "url": "https://reedit.jp/blogs/magazine/1460"
           }
         ]
       },
       {
-        "hashtag": "母の日ギフト2026",
-        "trend": "シーズン上昇",
-        "volume": "ファッションプレス特集・各百貨店訴求中",
-        "desc": "5/10 母の日に向け4月後半からギフト商戦が本格化。40〜60代向け上質バッグ・パンプスが主軸。",
-        "action": "【施策案】ラッピング・メッセージカード対応を訴求面に明記。母娘コーデ提案も。",
+        "hashtag": "ロエベハンモック京都コラボ",
+        "trend": "急上昇",
+        "volume": "WWDJAPAN特集／話題沸騰",
+        "desc": "ロエベのアイコンバッグ「ハンモック」が京都の陶芸ユニット スナ・フジタとコラボ。シカと桜を描いた春らしい絵柄。日本クラフトとハイブランドの融合。",
+        "action": "【施策案】日本クラフト×設計性の文脈で ISOLÉ ストーリーの再発信。京都・職人系コラボの可能性検討。",
         "sources": [
           {
-            "name": "ファッションプレス 春バッグ特集",
-            "url": "https://www.fashion-press.net/news/140112"
+            "name": "WWDJAPAN 2026春夏注目バッグ",
+            "url": "https://www.wwdjapan.com/articles/2258039"
+          }
+        ]
+      },
+      {
+        "hashtag": "ディオリー",
+        "trend": "注目",
+        "volume": "ディオール新ショルダーバッグ／J.アンダーソン初設計、2026年2月発売予定",
+        "desc": "ディオールがJonathan Anderson初設計のショルダーバッグ「ディオリー」を発表。クラシック × アバンギャルドの新方向、市場大盤動向の指標。",
+        "action": "【参考】ディオールの新ショルダー方向性は ISOLÉ ショルダー軸の参考に。「ディオリー型」のコーデ提案でSNS投稿テスト。",
+        "sources": [
+          {
+            "name": "WWDJAPAN 2026春夏注目バッグ",
+            "url": "https://www.wwdjapan.com/articles/2258039"
           }
         ]
       }
@@ -126,6 +139,21 @@
         "tag": "キーチャームバッグ",
         "trend": "急上昇",
         "source": "WEAR.jp 春2026"
+      },
+      {
+        "tag": "STRUCTURED GRACE",
+        "trend": "急上昇",
+        "source": "Re:EDIT・各媒体"
+      },
+      {
+        "tag": "ロエベハンモック",
+        "trend": "急上昇",
+        "source": "WWDJAPAN"
+      },
+      {
+        "tag": "ディオリー",
+        "trend": "注目",
+        "source": "WWDJAPAN"
       }
     ],
     "competitors": [
@@ -344,6 +372,42 @@
             "url": "https://precious.jp/articles/-/54088"
           }
         ]
+      },
+      {
+        "brand": "Barclay",
+        "tier": "primary-core",
+        "type": "direct",
+        "category": "shoe",
+        "priceRange": "¥15,000〜¥30,000",
+        "move": "2026春夏 メッシュ×レザー透け感パンプス + アーチサポート バレエシューズ展開中",
+        "detail": "神戸発、メイドインジャパンの婦人靴ブランド。シアー素材を取り込んだ春夏新作。アーチサポート構造のバレエは通勤層に強い。",
+        "action": "【参考】コア対標。メイドインジャパン訴求 + 機能設計（アーチサポート）の組合せが l'aisé と最も近い。",
+        "sources": [
+          {
+            "name": "BARCLAY公式 パンプス",
+            "url": "https://www.barclay-store.jp/SHOP/269037/269038/list.html"
+          },
+          {
+            "name": "BARCLAY公式オンライン",
+            "url": "https://www.barclay-store.jp/"
+          }
+        ]
+      },
+      {
+        "brand": "傳濱野はんどばっぐ",
+        "tier": "primary-price-aligned",
+        "type": "direct",
+        "category": "bag",
+        "priceRange": "¥30,000〜¥80,000",
+        "move": "皇室御用達ブランド・明治より140年以上の老舗、本革鞄を価格帯 ¥30,000〜¥80,000 で展開",
+        "detail": "「日本女性の美しさを引き立てる」訴求。140年以上の歴史と皇室御用達のブランドストーリーが強み。",
+        "action": "【参考】老舗ストーリー × 革素材は最強の母の日訴求。ISOLÉ のクラフトストーリーを母の日コンテンツで再発信検討。",
+        "sources": [
+          {
+            "name": "傳濱野はんどばっぐ公式",
+            "url": "https://www.denhamanobag.jp/"
+          }
+        ]
       }
     ],
     "topics": [
@@ -378,6 +442,18 @@
         "url": "https://classy-online.jp/partner/prtimes/314438/",
         "impact": "high",
         "action": "【参考】l'aisé のドレスシューズ主打方向と完全一致。「抜け感」キーワードを l'aisé のコピーにも採用検討。"
+      },
+      {
+        "title": "2026春夏キーワード「STRUCTURED GRACE」浮上 — 構築 + 透け感 + 余白",
+        "desc": "Re:EDIT が 2026年4月、春のシーズンコンセプトとして「STRUCTURED GRACE」を掲示。構築された服に余白という美しさを組み合わせ、ジャケットとパンツのセットアップ軸でワークウェア由来の強さ・機能・直線とレース・シアーの柔らかさ・透け感・曲線を編集。",
+        "ageGroup": "30-50代",
+        "hot": true,
+        "sources": [
+          {
+            "name": "Re:EDIT 2026春夏トレンド",
+            "url": "https://reedit.jp/blogs/magazine/1460"
+          }
+        ]
       }
     ],
     "bagCampaigns": [
