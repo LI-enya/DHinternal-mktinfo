@@ -10,7 +10,7 @@
 | 文件 | 谁动它 | 用途 |
 |---|---|---|
 | `brands.json` | **CEO 自己改** | 竞品列表 + 品牌定位 |
-| `data.json` | Claude 自动写 | 实际数据（每3天更新） |
+| `data.json` | Claude 自动写 | 实际数据（每周日 / 周四 18:00 JST 更新）|
 | `index.html` | Claude 改（让 Claude 改） | 页面骨架（极少改）|
 
 > **原则**：你直接编辑 `brands.json` 即可，剩下的 Claude 都能搞定。
@@ -103,7 +103,7 @@ git commit -m "brands: 移除 XXX" && git push
 
 ### ⑤ 改自动更新频率
 
-当前是 3 天一次（cron `0 8 */3 * *`）。
+当前是 **每周日 + 周四 18:00 JST**（cron `0 18 * * 0,4`），对应团队周一 + 周五早上 review 的前一晚。
 
 **告诉 Claude**：「把 daily-mktinfo-update 改成每天/每周/每 N 天」，他会用 `mcp__scheduled-tasks__update_scheduled_task` 工具改。
 
@@ -155,7 +155,7 @@ python scripts/export_brands.py
 | 失败原因 | 应对 |
 |---|---|
 | G0: bag primary ヒット数 < 3 | 多半是某个 primary 品牌官网/新闻最近没新内容。可以等下次更新。如果连续2-3次都失败，检查 brands.json 里那几个品牌 URL 是否还活着 |
-| G2: 重复度 > 70% | 信号是这3天市场太"安静"，Claude 找不到足够的新动向。可以等下次更新 |
+| G2: 重复度 > 70% | 信号是这几天市场太"安静"，Claude 找不到足够的新动向。可以等下次更新 |
 | G3: URL 大量失效 | 某些品牌官网改版了。让 Claude 检查 brands.json 里的 URL 列表 |
 
 **手动重试**：让 Claude 重跑一次 SKILL.md。
@@ -185,7 +185,7 @@ python scripts/export_brands.py
 ```
 DHinternal-mktinfo/                          # GitHub 仓库
 ├── index.html                ← 页面骨架（极少改）
-├── data.json                 ← 数据（每3天 Claude 自动更新）
+├── data.json                 ← 数据（每周日/周四 18:00 JST Claude 自动更新）
 ├── brands.json               ← 竞品列表 + 品牌定位（CEO 主要编辑这个）
 ├── WORKFLOW.md               ← 本文
 ├── .github/workflows/
