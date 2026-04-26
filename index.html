@@ -1362,7 +1362,7 @@ function renderSns(snsItems) {
         const itemId = makeItemId(s);
         const links = buildSnsPlatformLinks(s.hashtag);
         const trendStr = s.trend || '';
-        const upClass = trendStr.includes('+') || trendStr.includes('急上昇') || trendStr.includes('上昇') ? 'up' : '';
+        const upClass = trendStr.includes('+') || trendStr.includes('急上昇') || trendStr.includes('上昇') || trendStr.includes('注目') ? 'up' : '';
         return `<div class="sns-card">
             <div class="sns-card-header">
                 <div class="sns-hashtag">#${s.hashtag}</div>
