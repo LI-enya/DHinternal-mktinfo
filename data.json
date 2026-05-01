@@ -1,5 +1,590 @@
 [
   {
+    "date": "2026-04-30",
+    "sns": [
+      {
+        "hashtag": "ディオールアーチー",
+        "trend": "急上昇",
+        "volume": "ファッションプレス・WWDJAPAN・PR TIMES 同時報道、4/30 BLACK以外発売",
+        "desc": "ジョナサン・アンダーソンが手掛けた Dior の新作ショルダー「ディオール アーチー」（¥640,000）が 4/30 にブラウン・カーキ・ブルー発売。アーチ型ハンドル＋CDバックル。グレインドレザー使用で凹凸質感が特徴。",
+        "action": "【参考】ハイブランド新アイコンバッグの方向性。ISOLÉ ショルダー軸の「ハンドル形状」訴求の参考に。",
+        "sources": [
+          {
+            "name": "ファッションプレス ディオール アーチー",
+            "url": "https://www.fashion-press.net/news/145152"
+          },
+          {
+            "name": "PR TIMES ディオール アーチー",
+            "url": "https://prtimes.jp/main/html/rd/p/000002834.000008795.html"
+          }
+        ]
+      },
+      {
+        "hashtag": "母の日バッグチャーム",
+        "trend": "急上昇",
+        "volume": "E! Online・複数媒体報道／COACH・Kate Spade・Tory Burch がバッグチャームを母の日ギフトとして展開",
+        "desc": "5/10 母の日に向けて、COACH（ロゴ＋ハート＋星＋チェリー）／Kate Spade（ダックスフンド）／Tory Burch（3Dプリント苺）等がバッグチャームを母娘ギフト軸で訴求。「軽奢×個性」が今期の母の日新潮流。",
+        "action": "【施策案】ISOLÉ・YAHKIに「バッグチャーム×母の日ギフト」セット販売検討。¥3,000-5,000帯のチャームを母の日訴求の補助商材に。",
+        "sources": [
+          {
+            "name": "E! Online Mother's Day bag charms 2026",
+            "url": "https://www.eonline.com/news/1430867/bag-charms-for-mothers-day-2026-shop-gifts-from-coach-tory-burch-more"
+          }
+        ]
+      },
+      {
+        "hashtag": "トーンオイルヌメタン",
+        "trend": "注目",
+        "volume": "土屋鞄 4/2発売、ファッションプレス・FORZA STYLE・VAGUE 等媒体掲載多数",
+        "desc": "土屋鞄のロングセラー「トーンオイルヌメ」シリーズに数量限定色「タン」が4/2発売。ベージュより暗くブラウンより明るい中間色、経年変化で深いブラウンへ。鞄14型＋スマホショルダー＋Apple Watch用バンド。フラップバックパック ¥132,000～キーケース ¥16,500。",
+        "action": "【参考】「数量限定色 + 経年変化ストーリー」のクラフト訴求はISOLÉ の革素材コンテンツに転用可。",
+        "sources": [
+          {
+            "name": "土屋鞄 トーンオイルヌメ「タン」",
+            "url": "https://tsuchiya-kaban.jp/blogs/news/news_260204"
+          },
+          {
+            "name": "ファッションプレス 土屋鞄タン",
+            "url": "https://www.fashion-press.net/news/144839"
+          }
+        ]
+      },
+      {
+        "hashtag": "リネア",
+        "trend": "注目",
+        "volume": "JIL SANDER 新アイコンバッグ、4/1発売、Linea Shoulder ¥305,800／Top Handle ¥390,500",
+        "desc": "JIL SANDER の2026春夏コレクションの新アイコンバッグ「リネア」が4/1発売。彫刻のような横長フォルムが特徴。ショルダー＆ハンドバッグタイプを展開。極簡＋アーキテクチャル路線が ISOLÉ の調性に近い。",
+        "action": "【参考】極簡×彫刻フォルムの市場ポジション参考。ISOLÉ の主力フォルム訴求方向と整合。",
+        "sources": [
+          {
+            "name": "ファッションプレス JIL SANDER リネア",
+            "url": "https://www.fashion-press.net/news/144918"
+          }
+        ]
+      },
+      {
+        "hashtag": "Feel the Comfort",
+        "trend": "急上昇",
+        "volume": "VIVAIA 春2026キャンペーン、TWICE NAYEONを起用、ブランド初の有名人タイアップ",
+        "desc": "VIVAIA がブランド初のセレブリティタイアップとして TWICE NAYEONを春2026キャンペーン「Feel the Comfort」に起用。マンハッタン撮影。Carol Sneakerina ($159) / Margot Mary Jane ($149) / Cecily Mesh Mary Jane ($149) を中心に展開。シューレース＆チャームのカスタマイズも訴求。",
+        "action": "【参考】コア対標品牌の有名人タイアップ事例。l'aisé のキャンペーンモデル戦略の参考に。「Feel the〇〇」型の感性訴求コピーも研究。",
+        "sources": [
+          {
+            "name": "VANITYMIX VIVAIA NAYEON",
+            "url": "https://www.vanitymix.jp/fashion/vivaia/"
+          }
+        ]
+      },
+      {
+        "hashtag": "フレッピー",
+        "trend": "急上昇",
+        "volume": "WWDJAPAN 2026春夏トレンド特集／米プレッピー×仏フレンチテイストの融合",
+        "desc": "アメリカンプレッピー（学生風端正）にフレンチテイスト（仏軽奢）を加えた「フレッピー（フレンチ・プレッピー）」が2026春夏のキー方向。きちんと感×抜け感の両立が新ルール。",
+        "action": "【施策案】ISOLÉ・l'aisé の春夏スタイリング提案で「フレッピー」キーワードを導入。「通勤×コーデ」訴求の差別化軸として。",
+        "sources": [
+          {
+            "name": "WWDJAPAN フレッピー 2026春夏",
+            "url": "https://www.wwdjapan.com/articles/2288694"
+          }
+        ]
+      }
+    ],
+    "hashtags": [
+      {
+        "tag": "ディオールアーチー",
+        "trend": "急上昇",
+        "source": "ファッションプレス・PR TIMES"
+      },
+      {
+        "tag": "母の日ギフトバッグ2026",
+        "trend": "シーズン急上昇",
+        "source": "三越伊勢丹・高島屋"
+      },
+      {
+        "tag": "バッグチャーム",
+        "trend": "急上昇",
+        "source": "E! Online・複数媒体"
+      },
+      {
+        "tag": "トーンオイルヌメタン",
+        "trend": "注目",
+        "source": "土屋鞄・FORZA STYLE"
+      },
+      {
+        "tag": "リネア",
+        "trend": "注目",
+        "source": "JIL SANDER・ファッションプレス"
+      },
+      {
+        "tag": "FeelTheComfort",
+        "trend": "急上昇",
+        "source": "VIVAIA・複数媒体"
+      },
+      {
+        "tag": "フレッピー",
+        "trend": "急上昇",
+        "source": "WWDJAPAN"
+      },
+      {
+        "tag": "GWバッグ2026",
+        "trend": "シーズン急上昇",
+        "source": "WEAR.jp"
+      },
+      {
+        "tag": "ストラップサンダル",
+        "trend": "継続上昇",
+        "source": "PELLICO・ファッションプレス"
+      },
+      {
+        "tag": "フリンジバッグ",
+        "trend": "注目",
+        "source": "WWDJAPAN"
+      },
+      {
+        "tag": "ハリーポッターDIANA",
+        "trend": "急上昇",
+        "source": "ファッションプレス"
+      },
+      {
+        "tag": "メリージェーンシアー",
+        "trend": "上昇",
+        "source": "PELLICO SUNNY"
+      }
+    ],
+    "competitors": [
+      {
+        "brand": "VASIC",
+        "tier": "primary-core",
+        "type": "direct",
+        "category": "bag",
+        "priceRange": "¥58,300〜¥121,100",
+        "move": "MAISON VASIC 六本木店 GW期間営業継続中、Avenue tote ¥121,100 が新色展開で人気",
+        "detail": "東京ミッドタウン Galleria 2F の常設旗艦店は4/25オープン後 GW 集客の主力に。Avenue tote（¥121,100）と Bond Mini（¥58,300）の新色＋パーソナライズが客単価向上策。",
+        "action": "【参考】コア対標。GW 期間の旗艦店動線・接客フローを実地観察推奨。",
+        "sources": [
+          {
+            "name": "FASHIONSNAP MAISON VASIC ROPPONGI",
+            "url": "https://www.fashionsnap.com/article/2025-04-14/maison-vasic-roppongi/"
+          },
+          {
+            "name": "VASIC公式 Tokyo Midtown",
+            "url": "https://www.vasic-newyork.jp/"
+          }
+        ]
+      },
+      {
+        "brand": "YAHKI",
+        "tier": "primary-core",
+        "type": "direct",
+        "category": "bag",
+        "priceRange": "¥20,000〜¥40,000",
+        "move": "2026SS 新色「latte / tobacco / moss / charcoal / beige」展開、YH-794 LATTE ¥20,000＋税が定番化",
+        "detail": "2026春夏は穏やかで透明感のあるトーン群（latte / tobacco / moss / charcoal / beige）でミニマルレザーの色彩拡張。YH-785 BLACK ¥26,000＋税、YH-787 STONE ¥29,000＋税、YH-794 LATTE ¥20,000＋税が中心価格帯。",
+        "action": "【参考】コア対標。「色彩トーンで変化を作る」戦略は ISOLÉ の色設計（活力＋大胆色彩）と方向は同じだが質感が静的。差別化軸を再確認。",
+        "sources": [
+          {
+            "name": "とれまがニュース YAHKI 2026SS",
+            "url": "https://news.toremaga.com/release/others/3974877.html"
+          },
+          {
+            "name": "YAHKI公式 BAG",
+            "url": "https://www.yahki.jp/shopbrand/bag/"
+          }
+        ]
+      },
+      {
+        "brand": "EPOI",
+        "tier": "primary-price-aligned",
+        "type": "direct",
+        "category": "bag",
+        "priceRange": "¥7,700〜¥170,500",
+        "move": "母の日（5/10）ギフト訴求展開中、Tuck Series 2WAY ショルダー ¥91,300、5月母の日特集ページ稼働",
+        "detail": "公式ストアで母の日ギフトに革小物（パスケース・IDケース・ストラップ）と Tuck Series バッグの組合せ訴求。日本製レザーの「使い込み変化」ストーリーが母娘軸に響く構造。",
+        "action": "【参考】価格段対品牌。「母の日：革小物 + バッグ」の組合せ訴求は ISOLÉ にも転用可。",
+        "sources": [
+          {
+            "name": "Epoi 公式オンラインストア",
+            "url": "https://www.epoi-jp.com/"
+          },
+          {
+            "name": "Epoi 新着",
+            "url": "https://www.epoi-jp.com/c/new-arrivals"
+          }
+        ]
+      },
+      {
+        "brand": "JW PEI",
+        "tier": "primary-price-aligned",
+        "type": "direct",
+        "category": "bag",
+        "priceRange": "¥15,000〜¥35,000",
+        "move": "NEW IN-BAGS 春夏新作集中投入、新規登録10%OFF＋¥16,000以上送料無料を継続",
+        "detail": "JW PEI Japan Official で春夏新作の「NEW IN-BAGS」セクションを稼働。ビーガンレザー軸で WEAR.jp 等のSNS露出も増加。価格帯は ISOLÉ より下だが SNS発信力で先行。",
+        "action": "【参考】価格段対。SNS発信×NEW INコレクション運営の継続性が学習対象。",
+        "sources": [
+          {
+            "name": "JW PEI Japan Official",
+            "url": "https://jp.jwpei.com/"
+          },
+          {
+            "name": "JW PEI NEW IN-BAGS",
+            "url": "https://jp.jwpei.com/collections/new-in-bags"
+          }
+        ]
+      },
+      {
+        "brand": "傳濱野はんどばっぐ",
+        "tier": "primary-price-aligned",
+        "type": "direct",
+        "category": "bag",
+        "priceRange": "¥30,000〜¥80,000",
+        "move": "母の日（5/10）特集稼働中、皇室御用達140年の老舗ストーリーを軸にギフト訴求",
+        "detail": "公式・楽天双方で母の日ギフト軸の訴求を強化。「日本女性の美しさを引き立てる」コピーと140年の歴史が母娘ギフトに直結。価格帯 ¥30,000-¥80,000 が母の日購買中央値に合致。",
+        "action": "【参考】「老舗ストーリー × 母の日」は最強の母娘ギフト訴求。ISOLÉ のクラフトストーリーを母の日コピーで再構成検討。",
+        "sources": [
+          {
+            "name": "傳濱野はんどばっぐ公式",
+            "url": "https://www.denhamanobag.jp/"
+          }
+        ]
+      },
+      {
+        "brand": "DIANA",
+        "tier": "primary-core",
+        "type": "direct",
+        "category": "shoe",
+        "priceRange": "¥17,050〜¥22,000",
+        "move": "Harry Potter Vol.3 4/29 一般発売開始（先行4/24-26）、GW期間中ホグワーツ4寮シューズが店頭主力",
+        "detail": "Harry Potter コラボ第3弾は4/29から全国一般発売。ホグワーツ4寮・Love Potion・ピグミーパフ計16型。GW期間の集客主力商材として店頭・EC同時展開。1点購入でアクリルキーチェーン+ステッカー贈呈継続。",
+        "action": "【参考】コア対標。コラボ商法を「先行→一般→GW中の店頭主力」の流れで確立。l'aisé の月次商品サイクル設計の参考。",
+        "sources": [
+          {
+            "name": "ファッションプレス DIANA Harry Potter Vol.3",
+            "url": "https://www.fashion-press.net/news/145648"
+          },
+          {
+            "name": "DIANA公式",
+            "url": "https://www.dianashoes.com/"
+          }
+        ]
+      },
+      {
+        "brand": "VIVAIA",
+        "tier": "primary-core",
+        "type": "direct",
+        "category": "shoe",
+        "priceRange": "¥10,000〜¥18,000",
+        "move": "春2026キャンペーン「Feel the Comfort」TWICE NAYEON起用、Carol Sneakerina $159 / Margot Mary Jane $149 / Cecily Mesh Mary Jane $149",
+        "detail": "ブランド初のセレブリティタイアップ。マンハッタン撮影のキャンペーン動画＋Sneakerina Music Box（カスタマイズ用シューレース＋チャーム）。5周年期間のメンバーシップ強化と連動。Cecily Mesh Mary Jane はシアー素材路線。",
+        "action": "【参考】コア対標。「セレブ×カスタマイズ×サステナブル」の三位一体は l'aisé の主力カテゴリ訴求の参考。NAYEON経由のアジア圏SNSアテンション設計が特に学習価値。",
+        "sources": [
+          {
+            "name": "VANITYMIX VIVAIA NAYEON",
+            "url": "https://www.vanitymix.jp/fashion/vivaia/"
+          }
+        ]
+      },
+      {
+        "brand": "Barclay",
+        "tier": "primary-core",
+        "type": "direct",
+        "category": "shoe",
+        "priceRange": "¥15,000〜¥30,000",
+        "move": "2026春夏 メッシュ×レザー透け感パンプス展開、母の日 5/10 ギフト訴求併走",
+        "detail": "神戸発・メイドインジャパン婦人靴。シアー素材を取り込んだ春夏新作とアーチサポート構造のバレエが通勤層に強い。母の日ギフト軸の訴求で 30-50代女性向けの店頭集客を強化。",
+        "action": "【参考】コア対標。メイドインジャパン×機能設計（アーチサポート）×母の日訴求の組合せは l'aisé と方向最も近い。3軸並走の構造を学習。",
+        "sources": [
+          {
+            "name": "BARCLAY公式 パンプス",
+            "url": "https://www.barclay-store.jp/SHOP/269037/269038/list.html"
+          },
+          {
+            "name": "BARCLAY公式オンライン",
+            "url": "https://www.barclay-store.jp/"
+          }
+        ]
+      },
+      {
+        "brand": "土屋鞄",
+        "tier": "ref-tone",
+        "type": "indirect",
+        "category": "bag",
+        "priceRange": "¥16,500〜¥132,000",
+        "move": "トーンオイルヌメ「タン」数量限定色 4/2 発売、鞄14型＋スマホショルダー＋Apple Watchバンド、FORZA STYLE・ファッションプレス4月複数掲載",
+        "detail": "ベージュより暗くブラウンより明るい中間色「タン」を限定投入。経年変化で濃いブラウン系へ深化するエイジングを訴求。フラップバックパック ¥132,000、デイリートートが中心ライン。母の日ギフト特集ページも5/8〆切で稼働。",
+        "action": "【参考】調性合致 AI拓展。「数量限定色 × 経年変化ストーリー × 母の日タイアップ」の3点セットは ISOLÉ のクラフトコンテンツ設計の最強テンプレート。",
+        "sources": [
+          {
+            "name": "土屋鞄 トーンオイルヌメ「タン」",
+            "url": "https://tsuchiya-kaban.jp/blogs/news/news_260204"
+          },
+          {
+            "name": "ファッションプレス 土屋鞄タン",
+            "url": "https://www.fashion-press.net/news/144839"
+          },
+          {
+            "name": "土屋鞄 母の日ギフト",
+            "url": "https://tsuchiya-kaban.jp/pages/gift-mothersday"
+          }
+        ]
+      },
+      {
+        "brand": "PELLICO",
+        "tier": "ref-tone",
+        "type": "indirect",
+        "category": "shoe",
+        "priceRange": "¥35,000〜¥60,000",
+        "move": "PELLICO SUNNY シアー素材メリージェーン（レモンイエロー・ブルー）4月新作、ストラップサンダル・フラットサンダル4月初投入",
+        "detail": "PELLICO SUNNY のシアー素材メリージェーンが2026春夏新作の主力に。ツイード・ドット柄も並走。ストラップサンダル（上品ゴールドパーツ）と上質レザーフラットサンダルは4月初に投入済み。",
+        "action": "【参考】AI拓展。l'aisé の主打 dress shoes と最も近い「上品×素材実験」路線。「シアー × メリージェーン」を l'aisé の素材軸に取り込み検討。",
+        "sources": [
+          {
+            "name": "Marisol PELLICO 2026 春夏展示会",
+            "url": "https://marisol.hpplus.jp/article/149205"
+          },
+          {
+            "name": "ファッションプレス ペリーコ サンダル",
+            "url": "https://www.fashion-press.net/news/144782"
+          }
+        ]
+      },
+      {
+        "brand": "Jimmy Choo",
+        "tier": "ref-trend",
+        "type": "indirect",
+        "category": "shoe",
+        "priceRange": "¥80,000〜¥150,000",
+        "move": "SPRING 2026 COLLECTION POPUP（伊勢丹新宿 3/4-17）でドロップヒール＋FAIZ・MIMMI・BON BON・CINCH 展開",
+        "detail": "Jimmy Choo の春2026パンプスポップアップが伊勢丹新宿で実施。SCARLETT（コルセット詳細）・IXIA（シャープスクエア）・FAIZ（レース＋メタルトゥキャップ）・MIMMI（立体コサージュ）。「ドロップヒール」が春のキーシルエット。",
+        "action": "【参考】AI拓展。価格帯遥か上だがドレスシューズ風向計として最重要。「ドロップヒール」「立体ディテール」は l'aisé のドレスシューズコピーに転用検討。",
+        "sources": [
+          {
+            "name": "POPAP Jimmy Choo SPRING 2026",
+            "url": "https://www.popap.biz/popup-list/jimmy-choo-0304"
+          },
+          {
+            "name": "Precious Jimmy Choo ドロップヒール",
+            "url": "https://precious.jp/articles/-/54088"
+          }
+        ]
+      },
+      {
+        "brand": "fitfit",
+        "tier": "ref-activity",
+        "type": "indirect",
+        "category": "shoe",
+        "priceRange": "¥9,000〜¥18,000",
+        "move": "GWセール展開中、コンフォートパンプス／バレエ／ショートブーツのセール価格が並走",
+        "detail": "フィットフィット公式のGW期間セールがパンプス・コンフォートスニーカー・ショートブーツの主力カテゴリで展開中。3月カタログとも連動。「快適×大人」訴求は l'aisé のコア顧客と一部重なる。",
+        "action": "【参考】活動見る用 AI拓展。GW セール訴求の「サブカテゴリ並走」設計が学習価値。l'aisé の店内サブカテゴリの並走戦略の参考。",
+        "sources": [
+          {
+            "name": "fitfit セール",
+            "url": "https://fitfit.jp/search/?campaignType=1"
+          },
+          {
+            "name": "fitfit 春カタログ 2026",
+            "url": "https://fitfit.jp/contents/2026march_catalogue/"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "title": "ディオール アーチー BLACK以外 4/30 発売（¥640,000、ジョナサン・アンダーソン初設計シリーズ展開）",
+        "summary": "Dior 新作「アーチー」のブラウン・カーキ・ブルーが4/30発売。アイコンのアーチ型ハンドル＋CDバックル、グレインドレザー使用。レディース＆メンズ展開、ハイブランド新アイコン軸。",
+        "source": "ファッションプレス・PR TIMES",
+        "url": "https://www.fashion-press.net/news/145152",
+        "impact": "high",
+        "action": "【参考】ハイブランド新アイコン方向性。「アーチ型ハンドル」「CDロゴバックル」のディテール訴求方法を ISOLÉ ショルダーラインに参考。"
+      },
+      {
+        "title": "母の日 5/10 直前商戦：COACH／Kate Spade／Tory Burch 等がバッグチャームを母娘ギフトの新潮流に",
+        "summary": "5/10 母の日に向けて、COACH・Kate Spade・Tory Burch が3Dプリント苺やダックスフンド等のバッグチャームを母の日ギフトとして同時展開。「軽奢×個性」が新潮流。",
+        "source": "E! Online・複数媒体",
+        "url": "https://www.eonline.com/news/1430867/bag-charms-for-mothers-day-2026-shop-gifts-from-coach-tory-burch-more",
+        "impact": "high",
+        "action": "【施策案】ISOLÉ・YAHKI に「バッグ＋チャーム」セット販売を母の日訴求で投入検討。¥3,000-5,000帯の補助商材として。"
+      },
+      {
+        "title": "土屋鞄「トーンオイルヌメ」数量限定色「タン」4/2発売、鞄14型＋革小物、母の日5/10ギフト併走",
+        "summary": "ベージュより暗くブラウンより明るい中間色「タン」を限定投入。経年変化で濃いブラウン系に深化。フラップバックパック ¥132,000～キーケース ¥16,500。母の日ギフト軸も5/8〆切で稼働。",
+        "source": "ファッションプレス",
+        "url": "https://www.fashion-press.net/news/144839",
+        "impact": "high",
+        "action": "【参考】「数量限定色×経年変化×母の日」の3点セット訴求は ISOLÉ のクラフトコンテンツ設計の最強テンプレート。"
+      },
+      {
+        "title": "WWDJAPAN「フレッピー」（フレンチ・プレッピー）が2026春夏キーワードに、米プレッピー×仏軽奢の融合",
+        "summary": "アメリカンプレッピー（学生風端正）にフレンチテイスト（仏軽奢）を加えた「フレッピー」が2026春夏のキー方向。きちんと感×抜け感の両立が新ルール。",
+        "source": "WWDJAPAN",
+        "url": "https://www.wwdjapan.com/articles/2288694",
+        "impact": "medium",
+        "action": "【施策案】ISOLÉ・l'aisé の春夏スタイリング提案で「フレッピー」を導入。「通勤×コーデ」訴求の差別化軸として。"
+      }
+    ],
+    "bagCampaigns": [
+      {
+        "brand": "土屋鞄",
+        "name": "トーンオイルヌメ「タン」数量限定色 4/2発売 + 母の日ギフト特集",
+        "desc": "数量限定色「タン」を鞄14型＋スマホショルダー＋Apple Watchバンドで投入。母の日5/10向けには5/8 7:59〆切のお届けキャンペーン併走。",
+        "channel": "online",
+        "price": "¥16,500〜¥132,000",
+        "date": "2026-04-02 発売 / 母の日 5/10 まで",
+        "ageTarget": [
+          "30代",
+          "40代",
+          "50代",
+          "60代"
+        ],
+        "sources": [
+          {
+            "name": "土屋鞄 トーンオイルヌメ「タン」",
+            "url": "https://tsuchiya-kaban.jp/blogs/news/news_260204"
+          },
+          {
+            "name": "土屋鞄 母の日ギフト",
+            "url": "https://tsuchiya-kaban.jp/pages/gift-mothersday"
+          }
+        ]
+      },
+      {
+        "brand": "Dior",
+        "name": "ディオール アーチー（ブラウン・カーキ・ブルー）4/30発売",
+        "desc": "ジョナサン・アンダーソン手掛けの新作ショルダーバッグ。アーチ型ハンドル＋CDバックル、グレインドレザー使用。¥640,000、4色展開（ブラックは先行発売済み）。",
+        "channel": "offline",
+        "price": "¥640,000",
+        "date": "2026-04-30 発売",
+        "ageTarget": [
+          "30代",
+          "40代",
+          "50代"
+        ],
+        "sources": [
+          {
+            "name": "ファッションプレス ディオール アーチー",
+            "url": "https://www.fashion-press.net/news/145152"
+          }
+        ]
+      },
+      {
+        "brand": "JIL SANDER",
+        "name": "リネア（Linea）新アイコンバッグ 4/1発売",
+        "desc": "彫刻のような横長フォルムが特徴の新アイコンバッグ。Linea Shoulder ¥305,800 / Top Handle ¥390,500。極簡＋アーキテクチャル路線。",
+        "channel": "online",
+        "price": "¥305,800〜¥390,500",
+        "date": "2026-04-01 発売",
+        "ageTarget": [
+          "30代",
+          "40代",
+          "50代"
+        ],
+        "sources": [
+          {
+            "name": "ファッションプレス JIL SANDER リネア",
+            "url": "https://www.fashion-press.net/news/144918"
+          }
+        ]
+      },
+      {
+        "brand": "傳濱野はんどばっぐ",
+        "name": "母の日 5/10 ギフト特集",
+        "desc": "皇室御用達140年の老舗ストーリーを軸にギフト訴求。¥30,000-¥80,000帯が母娘ギフト中央値に合致。",
+        "channel": "online",
+        "price": "¥30,000〜¥80,000",
+        "date": "母の日 5/10 まで",
+        "ageTarget": [
+          "30代",
+          "40代",
+          "50代",
+          "60代"
+        ],
+        "sources": [
+          {
+            "name": "傳濱野はんどばっぐ公式",
+            "url": "https://www.denhamanobag.jp/"
+          }
+        ]
+      }
+    ],
+    "shoeCampaigns": [
+      {
+        "brand": "DIANA",
+        "name": "Harry Potter × DIANA Vol.3 4/29 一般発売開始",
+        "desc": "ホグワーツ4寮・Love Potion・ピグミーパフモチーフのシューズ・バッグ計16型。GW期間中の店頭主力商材。1点購入でアクリルキーチェーン+ステッカー贈呈。",
+        "channel": "offline",
+        "price": "¥17,000〜¥30,000",
+        "date": "2026-04-29 一般発売",
+        "ageTarget": [
+          "30代",
+          "40代"
+        ],
+        "sources": [
+          {
+            "name": "ファッションプレス DIANA Harry Potter",
+            "url": "https://www.fashion-press.net/news/145648"
+          }
+        ]
+      },
+      {
+        "brand": "VIVAIA",
+        "name": "Spring 2026「Feel the Comfort」NAYEONキャンペーン",
+        "desc": "TWICE NAYEONをブランド初のセレブリティとして起用。マンハッタン撮影。Carol Sneakerina $159 / Margot Mary Jane $149 / Cecily Mesh Mary Jane $149。Sneakerina Music Box でカスタマイズ訴求。",
+        "channel": "online",
+        "price": "$139〜$159",
+        "date": "2026 春 展開中",
+        "ageTarget": [
+          "20代",
+          "30代",
+          "40代"
+        ],
+        "sources": [
+          {
+            "name": "VANITYMIX VIVAIA NAYEON",
+            "url": "https://www.vanitymix.jp/fashion/vivaia/"
+          }
+        ]
+      },
+      {
+        "brand": "fitfit",
+        "name": "GWセール展開中（パンプス／コンフォートスニーカー／ショートブーツ）",
+        "desc": "GW期間のセール価格をパンプス・コンフォートスニーカー・ショートブーツで並走展開。3月の春カタログとも連動。",
+        "channel": "online",
+        "price": "¥9,000〜¥18,000",
+        "date": "GW 期間中",
+        "ageTarget": [
+          "40代",
+          "50代"
+        ],
+        "sources": [
+          {
+            "name": "fitfit セール",
+            "url": "https://fitfit.jp/search/?campaignType=1"
+          }
+        ]
+      },
+      {
+        "brand": "MAMIAN",
+        "name": "GW特別キャンペーン 最大20%OFFクーポン",
+        "desc": "ゴールデンウィーク特別キャンペーンで最大20%OFFクーポン配布。トレンドパンプス・サンダル・フラットシューズ全カテゴリで展開。",
+        "channel": "online",
+        "price": "¥6,000〜¥18,000",
+        "date": "GW 期間中",
+        "ageTarget": [
+          "30代",
+          "40代",
+          "50代"
+        ],
+        "sources": [
+          {
+            "name": "MAMIAN セール",
+            "url": "https://www.mamian.co.jp/collections/sale"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "date": "2026-04-26",
     "sns": [
       {
