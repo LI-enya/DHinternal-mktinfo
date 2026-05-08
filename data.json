@@ -1,5 +1,631 @@
 [
   {
+    "date": "2026-05-08",
+    "sns": [
+      {
+        "hashtag": "ストレイヴン稼働中",
+        "trend": "急上昇",
+        "volume": "土屋鞄 5/7発売直後の SNS露出加速、Pre-Spring 2026 主力新作として複数媒体掲載",
+        "desc": "土屋鞄の新作ショルダー「ストレイヴン」が 5/7（木）発売されラインアップ4型（ラージ／クロスボディ／ミディアム／2way ワンハンドル）が公式EC稼働中。「相反要素から生む洗練リラックス感」のコピーで母の日 5/8 7:59 注文〆切のラスト数時間と並走、自分用＋ギフト両軸で需要を捕捉。",
+        "action": "【参考】「発売翌日 = 母の日2日前」のタイミング設計と「自分用×ギフト両軸」の運用は ISOLÉ の母の日新作投入タイミングのテンプレート。発売直後のSNS露出と購入導線を実地観察。",
+        "sources": [
+          {
+            "name": "土屋鞄 2026 Spring/Summer",
+            "url": "https://tsuchiya-kaban.jp/pages/look-spring-summer"
+          },
+          {
+            "name": "土屋鞄 母の日ギフト",
+            "url": "https://tsuchiya-kaban.jp/pages/gift-mothersday"
+          }
+        ]
+      },
+      {
+        "hashtag": "母の日2日前",
+        "trend": "シーズン急上昇",
+        "volume": "三越伊勢丹・大丸松坂屋・楽天・ヤフショ 母の日特集 + 業界横断 締切タイマー連動、5/8 朝で多くの百貨店EC注文〆切",
+        "desc": "母の日 5/10（日）まで2日。土屋鞄 5/8 7:59、多くの百貨店ECが今朝で「母の日お届け確定」最終便を締切、店頭駆け込みと当日発送ECに需要が集中。2026年予算中央値 ¥3,000-4,999、「実用 × 気持ちが伝わる」が選定軸。",
+        "action": "【施策案】ISOLÉ・l'aisé は5/8-5/10 で「ラスト2日／店頭駆け込み／当日発送可」訴求の専用LP／LINE配信を投入。¥3,000-5,000帯の革製チャーム・カードケース・ポーチ等の補助商材を訴求軸に。",
+        "sources": [
+          {
+            "name": "三越伊勢丹 母の日2026",
+            "url": "https://www.mistore.jp/shopping/feature/shops_f3/mothersday_sp"
+          },
+          {
+            "name": "大丸松坂屋 母の日トレンド2026",
+            "url": "https://www.daimaru-matsuzakaya.jp/mothersday/chishiki1/"
+          }
+        ]
+      },
+      {
+        "hashtag": "BONDリボン結び",
+        "trend": "急上昇",
+        "volume": "VASIC 公式 + TOMORROWLAND 別注、ブランド10周年記念モデルとして発信",
+        "desc": "VASIC 「BOND」シリーズ10周年記念モデル。先端の紐をリボン結び風に再構成し、ブランドのシグネチャーノットに新しい表情。BOND・BOND MINI・BOND MINI MINI 全サイズで展開、5月のリボントレンドと連動。TOMORROWLAND別注 BOND MINI STUDS も並走。",
+        "action": "【参考】コア対標。「定番アイコンの結び目をリボン化」のディテール再解釈は ISOLÉ のシグネチャーバッグの周年企画・記念モデル設計の参考。",
+        "sources": [
+          {
+            "name": "VASIC BOND ALL SIZES",
+            "url": "https://www.vasic-newyork.jp/en/collections/bond-all"
+          },
+          {
+            "name": "TOMORROWLAND VASIC BOND MINI STUDS",
+            "url": "https://store.tomorrowland.co.jp/item/vasic/33035203086.html"
+          }
+        ]
+      },
+      {
+        "hashtag": "ストローカーゴトート",
+        "trend": "急上昇",
+        "volume": "COACH 春夏新作 + 複数媒体記事掲載、5月のラフィア／ストロー継続トレンドの一翼",
+        "desc": "COACH 大人気「カーゴトート」のストロー素材版が 2026春夏で注目。実用容量×ストロー素材の異素材MIXがGW後の街着・通勤シーンに直結。ハイブランド×実用カテゴリのトレンド合流点として機能、母の日2日前の「自分への報酬」ファネルにも接続。",
+        "action": "【施策案】ISOLÉ のサマートート企画でラフィア／ストロー素材の限定型番を5月下旬投入検討。「実用容量 × 天然素材」の二軸訴求でGW後の通勤・カジュアル両用需要を拾う。",
+        "sources": [
+          {
+            "name": "STYLE HAUS かごバッグ20選 2026",
+            "url": "https://stylehaus.jp/articles/24214/"
+          },
+          {
+            "name": "Coach Spring 2026 Explore Your Story",
+            "url": "https://japan.coach.com/shop/campaign/explore-your-story"
+          }
+        ]
+      },
+      {
+        "hashtag": "スリムローファー",
+        "trend": "上昇",
+        "volume": "amiami・STYLE HAUS・三越伊勢丹 同時発信、2026春は厚底→スリム転換の節目",
+        "desc": "ここ数年続いた「厚底×重厚」ローファーから「スリム×洗練」への明確な転換。乙女心をくすぐる繊細な装飾（チェーン／ベルト／ビット）が並走。30〜40代女性のオフィス通勤シーンで存在感を強める。GW明けの平日通勤シフト2日目で需要顕在化。",
+        "action": "【施策案】l'aisé のドレスシューズ／ローファー商品ページで「スリムシルエット × 装飾モチーフ（チェーン／ベルト／ビット）」のキーワード追加とコーデ写真の細身強調を。GW後通勤需要に直結。",
+        "sources": [
+          {
+            "name": "amiami 2026SS洗練パンプス＆ローファー",
+            "url": "https://www.amiami345.shop/blog/2026ss_trendshoes/"
+          },
+          {
+            "name": "三越伊勢丹 2026春夏婦人靴",
+            "url": "https://www.mistore.jp/shopping/feature/women_f2/ladiesshoes_spring_w.html"
+          }
+        ]
+      },
+      {
+        "hashtag": "ピーカブー開けっぱなし",
+        "trend": "注目",
+        "volume": "WWDJAPAN・STYLE HAUS 2026春夏キーバッグ特集で言及、フェンディの新提案",
+        "desc": "フェンディ「ピーカブー」のフラップを開けっ放しで持つ新ルール。中身を覗かせる「抜け感×ノンシャラン」が2026春夏の上品カジュアルの核。ワンハンドル／2way設計のバッグでも応用可能。",
+        "action": "【参考】ハイブランド由来の「持ち方の新ルール」は ISOLÉ のショルダー／ハンドバッグのライフスタイル写真演出に直接転用可。「フラップ開け」「中身覗かせ」の構図を商品ページに散布。",
+        "sources": [
+          {
+            "name": "WWDJAPAN でかバッグ抱え持ち 2026春夏",
+            "url": "https://www.wwdjapan.com/articles/2292332"
+          },
+          {
+            "name": "STYLE HAUS ワンハンドルバッグ 2026",
+            "url": "https://stylehaus.jp/articles/29562/"
+          }
+        ]
+      }
+    ],
+    "hashtags": [
+      {
+        "tag": "ストレイヴン稼働中",
+        "trend": "急上昇",
+        "source": "土屋鞄"
+      },
+      {
+        "tag": "母の日2日前",
+        "trend": "シーズン急上昇",
+        "source": "業界横断"
+      },
+      {
+        "tag": "BONDリボン結び",
+        "trend": "急上昇",
+        "source": "VASIC 10周年"
+      },
+      {
+        "tag": "ストローカーゴトート",
+        "trend": "急上昇",
+        "source": "COACH・STYLE HAUS"
+      },
+      {
+        "tag": "スリムローファー",
+        "trend": "上昇",
+        "source": "amiami・三越伊勢丹"
+      },
+      {
+        "tag": "ピーカブー開けっぱなし",
+        "trend": "注目",
+        "source": "WWDJAPAN"
+      },
+      {
+        "tag": "メッシュパンプス",
+        "trend": "継続上昇",
+        "source": "#CBK magazine・三越伊勢丹"
+      },
+      {
+        "tag": "リボンパンプス",
+        "trend": "継続上昇",
+        "source": "amiami・三越伊勢丹"
+      },
+      {
+        "tag": "ラフィアバッグ",
+        "trend": "シーズン主力",
+        "source": "STYLE HAUS"
+      },
+      {
+        "tag": "シアー素材パンプス",
+        "trend": "継続上昇",
+        "source": "amiami・複数媒体"
+      },
+      {
+        "tag": "MadeInJapan革靴",
+        "trend": "注目",
+        "source": "三越伊勢丹"
+      },
+      {
+        "tag": "ExploreYourStory",
+        "trend": "注目",
+        "source": "COACH Spring 2026"
+      }
+    ],
+    "competitors": [
+      {
+        "brand": "土屋鞄",
+        "tier": "ref-tone",
+        "type": "indirect",
+        "category": "bag",
+        "priceRange": "¥16,500〜¥132,000",
+        "move": "5/7（木）ショルダーバッグ「ストレイヴン」4型 発売稼働中、母の日 5/8 7:59 注文〆切ラスト数時間でラージ／クロスボディ／ミディアム／2way ワンハンドル の駆け込み需要を集中刈取",
+        "detail": "Pre-Spring 2026 ラインの新作ショルダー「ストレイヴン」が 5/7（木）発売後、本日 5/8 7:59 の母の日配送〆切ラスト数時間でEC稼働。「相反する要素が生む洗練リラックス感」のコピーで4型ラインアップ、自分用＋ギフトの両軸需要を捕捉。",
+        "action": "【参考】調性合致 AI拓展。「発売翌日 = 母の日2日前」のタイミング設計は ISOLÉ の母の日新作投入タイミングのテンプレート。発売直後の購入導線・SNS露出を実地観察。",
+        "sources": [
+          {
+            "name": "土屋鞄 2026 Spring/Summer",
+            "url": "https://tsuchiya-kaban.jp/pages/look-spring-summer"
+          },
+          {
+            "name": "土屋鞄 母の日ギフト",
+            "url": "https://tsuchiya-kaban.jp/pages/gift-mothersday"
+          }
+        ]
+      },
+      {
+        "brand": "VASIC",
+        "tier": "primary-core",
+        "type": "direct",
+        "category": "bag",
+        "priceRange": "¥55,000〜¥121,100",
+        "move": "BOND シリーズ10周年記念モデル投入、紐先端を「リボン結び風」に再構成、BOND/BOND MINI/BOND MINI MINI 全サイズ + TOMORROWLAND別注 BOND MINI STUDS 並走",
+        "detail": "公式 vasic-newyork.jp で BOND シリーズ10周年記念モデル稼働。シグネチャーの結び目（ノット）の先端を「リボン結び」風に再構成し、5月のリボントレンドと連動。TOMORROWLAND別注の BOND MINI STUDS（スタッズ装飾）も並走。BLACK・BEIGE・他主要カラー継続。",
+        "action": "【参考】コア対標。「定番アイコンの周年記念ディテール再解釈 × 季節トレンド連動」の3点同時運用は ISOLÉ の周年企画・記念モデル設計の参考フォーマット。",
+        "sources": [
+          {
+            "name": "VASIC BOND ALL SIZES",
+            "url": "https://www.vasic-newyork.jp/en/collections/bond-all"
+          },
+          {
+            "name": "TOMORROWLAND VASIC BOND MINI STUDS",
+            "url": "https://store.tomorrowland.co.jp/item/vasic/33035203086.html"
+          }
+        ]
+      },
+      {
+        "brand": "JW PEI",
+        "tier": "primary-price-aligned",
+        "type": "direct",
+        "category": "bag",
+        "priceRange": "¥15,000〜¥35,000",
+        "move": "母の日 5/10 2日前ラストスパート、¥15,000〜¥35,000 価格帯で2026年母の日中央値予算 ¥3,000-4,999 の上位需要を縦断的に捕捉、SNS拡散主軸",
+        "detail": "JW PEI Japan Official が NEW IN-BAGS / NEW IN ラインで春夏新作集中投入を継続。2026年の母の日予算中央値 ¥3,000-4,999 のチャーム・小物層に対し、本体価格帯 ¥15,000-¥35,000 が「ちょっと背伸びしたデザイナーバッグ」需要を上位刈取。Lemon8/WEAR.jp の若年層SNS拡散が主軸。",
+        "action": "【参考】価格段対。「母の日予算中央値の上位需要を縦断捕捉」+「SNSドリブン拡散」の戦略フレームは ISOLÉ の若年層獲得施策の参考に。",
+        "sources": [
+          {
+            "name": "JW PEI NEW IN-BAGS",
+            "url": "https://jp.jwpei.com/collections/new-in-bags"
+          },
+          {
+            "name": "JW PEI Japan Official",
+            "url": "https://jp.jwpei.com/"
+          }
+        ]
+      },
+      {
+        "brand": "EPOI",
+        "tier": "primary-price-aligned",
+        "type": "direct",
+        "category": "bag",
+        "priceRange": "¥9,900〜¥170,500",
+        "move": "梅田店「母の日推奨ツールズシリーズ」展開、ID ケース ¥11,000 / パスケース ¥11,000 / ストラップ ¥9,900 で「1万円以内 × 革小物 × 母の日2日前」の3点訴求",
+        "detail": "Epoi 梅田（グランフロント大阪）で母の日推奨ラインアップ稼働。ツールズ ID ケース ¥11,000、ツールズ パスケース ¥11,000、ツールズ ストラップ ¥9,900 を「1万円以内で買える本格レザー」として母の日 5/10 ラスト2日訴求の主軸に。サングラス／メガネケース、キーケース、カードケース、ミラーも並走。",
+        "action": "【参考】価格段対。「1万円以内 × 革小物 × 母の日」の明快な価格軸プロモは ISOLÉ・l'aisé の母の日補助商材戦略（バッグチャーム／カードケース等）の参考。店舗単位（梅田／丸の内）の地域連動施策も学習対象。",
+        "sources": [
+          {
+            "name": "Epoi 梅田 母の日2026",
+            "url": "https://www.epoi-jp.com/contents/blog/epoi-umeda-mothersday2026/"
+          },
+          {
+            "name": "Epoi 公式オンラインストア",
+            "url": "https://www.epoi-jp.com/"
+          }
+        ]
+      },
+      {
+        "brand": "YAHKI",
+        "tier": "primary-core",
+        "type": "direct",
+        "category": "bag",
+        "priceRange": "¥20,000〜¥40,000",
+        "move": "公式 + ZOZOTOWN + nano universe + ジョリサック + STUDIOUS 等の多販路で 2026春夏新色 latte/tobacco/moss/charcoal/beige を継続展開、5月後半のクリーンミニマル路線を強化",
+        "detail": "YAHKI 公式 yahki.jp + ZOZOTOWN + nano universe + STUDIOUS + ジョリサック等で 2026春夏新色（latte/tobacco/moss/charcoal/beige）の多販路並行展開を継続。デザイナー永田順子＋ディレクター永田雄二郎の旅由来ストーリーを5月後半向けにクリーンミニマルで継続発信。",
+        "action": "【参考】コア対標。「公式直販 × 多販路並行 × ストーリー継続発信」のミニマル戦略は ISOLÉ の販路設計の参考。販路ごとのセール政策の差を実地監視。",
+        "sources": [
+          {
+            "name": "YAHKI公式オンラインストア BAG",
+            "url": "https://www.yahki.jp/shopbrand/bag/"
+          },
+          {
+            "name": "YAHKI ZOZOTOWN",
+            "url": "https://zozo.jp/brand/yahki/"
+          }
+        ]
+      },
+      {
+        "brand": "傳濱野はんどばっぐ",
+        "tier": "primary-price-aligned",
+        "type": "direct",
+        "category": "bag",
+        "priceRange": "¥30,000〜¥80,000",
+        "move": "GW明け 5/7-5/8 平日復帰 → 母の日 5/10 2日前のラストスパート、皇室御用達140年ストーリー × Tina Lizard / clavis / Floria 新作で「ちゃんとしたい母の日」需要を直接刈取",
+        "detail": "GW期間（5/2-5/6）の営業告知から、平日復帰した 5/7-5/8 → 母の日 5/10 2日前のラストスパートに移行。「春のはじまりから手にしたい最新作」として Tina Lizard（リザード）、clavis（錠前金具名刺入れ）、Floria（春の新作）が並ぶ。140年ブランド × ¥30,000-¥80,000 価格中央値が「ちゃんとした母の日」需要に最適化。",
+        "action": "【参考】価格段対。「老舗140年ストーリー × 母の日2日前ラストスパート × 春の新作シリーズ」の3点同時運用は ISOLÉ の母の日訴求テンプレート。",
+        "sources": [
+          {
+            "name": "傳濱野はんどばっぐ公式",
+            "url": "https://www.denhamanobag.jp/"
+          }
+        ]
+      },
+      {
+        "brand": "DIANA",
+        "tier": "primary-core",
+        "type": "direct",
+        "category": "shoe",
+        "priceRange": "¥15,000〜¥28,000",
+        "move": "GW明け 5/7-5/8 平日通勤シフト2日目、Harry Potter Vol.3 + GWサンダル新作（5/1）の販売軸を母の日 5/10 ギフト訴求にスイッチ、X公式の発信を「平日通勤×母の日」へ転換",
+        "detail": "GW期間（4/29-5/6）のHarry Potter Vol.3 + GWサンダル新作の集客主力期間が終了し、5/7-5/8 平日通勤シフトに移行。X公式アカウントの発信は「GWにオススメ」→「母の日 5/10 ラスト2日 + 平日通勤」へ完全切替。サンダル軸とパンプス軸の両軸並走で需要を捕捉。",
+        "action": "【参考】コア対標。「GW最終日 → 平日通勤 → 母の日 → サンダル本格化」の月内3段切替リズムは l'aisé の店内導線とSNS発信の月次リズム設計の参考。",
+        "sources": [
+          {
+            "name": "DIANA公式オンラインショップ",
+            "url": "https://www.dianashoes.com/"
+          },
+          {
+            "name": "ファッションプレス DIANA Harry Potter Vol.3",
+            "url": "https://www.fashion-press.net/news/145648"
+          }
+        ]
+      },
+      {
+        "brand": "VIVAIA",
+        "tier": "primary-core",
+        "type": "direct",
+        "category": "shoe",
+        "priceRange": "¥10,000〜¥18,000",
+        "move": "母の日 5/10 2日前ラストスパート、Cecily Mesh Mary Jane $149 を主役に TWICE NAYEON「Feel the Comfort」春2026キャンペーン継続稼働、30日返品保証で「贈って失敗しない」訴求",
+        "detail": "VIVAIA Japan の母の日2026特集が 5/10 2日前のラストスパート期に。NAYEON春キャンペーン導線を母の日刈取に集中、Cecily Mesh Mary Jane $149 が「メッシュ × 母の日 × ¥10,000帯」三重訴求軸。30日返品保証は「サイズ不安なギフト需要」への王道リスク低減策。",
+        "action": "【参考】コア対標。「セレブキャンペーン × メッシュ素材 × 母の日2日前 × 30日返品」の4点パッケージは l'aisé のメッシュドレスシューズ投入時の参考フォーマット。返品保証訴求の有無で母の日CV率の差分を実地検証推奨。",
+        "sources": [
+          {
+            "name": "VIVAIA 母の日2026 特集",
+            "url": "https://vivaia.jp/pages/mothersday-test"
+          },
+          {
+            "name": "VIVAIA 新着サンダル",
+            "url": "https://vivaia.jp/collections/new-in-sandals"
+          }
+        ]
+      },
+      {
+        "brand": "Barclay",
+        "tier": "primary-core",
+        "type": "direct",
+        "category": "shoe",
+        "priceRange": "¥15,000〜¥30,000",
+        "move": "VITA NOVA「ソフトカッターローファー」「リボンバレエパンプス」+ チュールメッシュバレエ で母の日 5/10 訴求のラスト2日間スパート、Made in Japan × 機能設計（アーチサポート）軸",
+        "detail": "メイドインジャパン婦人靴の中軸。チュールメッシュ素材の春夏限定バレエ + VITA NOVA「ソフトカッターローファー」「リボンバレエパンプス」を母の日 5/10 ギフト訴求のラスト2日間に集中投入。アーチサポート × 耐久クッションの機能設計で「歩きやすさ × ギフト価値」両立。",
+        "action": "【参考】コア対標。「Made in Japan × 機能設計 × 母の日ラスト2日間 × メッシュ／リボン トレンド対応」の4軸並走は l'aisé のドレスシューズ運用と方向最も近い。スリムローファー転換にも先回り。",
+        "sources": [
+          {
+            "name": "BARCLAY公式 パンプス",
+            "url": "https://www.barclay-store.jp/SHOP/269037/269038/list.html"
+          },
+          {
+            "name": "BARCLAY公式オンライン",
+            "url": "https://www.barclay-store.jp/"
+          }
+        ]
+      },
+      {
+        "brand": "PELLICO",
+        "tier": "ref-tone",
+        "type": "indirect",
+        "category": "shoe",
+        "priceRange": "¥37,400〜¥148,500",
+        "move": "三越伊勢丹オンライン NEW マーク陳列継続、SILVER ¥82,500 / SAMI ¥74,800-82,500 / DAMA ¥79,200 / ANIMA ¥82,500 の春夏新作主力ライン稼働中",
+        "detail": "イタリア・フォッソ発（1963年〜）。三越伊勢丹オンラインストアが「NEW」マークで春夏新作集中陳列を継続：SILVER サンダル ¥82,500、SAMI サンダル ¥74,800〜¥82,500、DAMA パンプス ¥79,200、ANIMA パンプス ¥82,500。AMAN・ELLE SHOP・トゥモローランド の3層販路並走。",
+        "action": "【参考】調性合致 AI拓展。l'aisé の主打ドレスシューズの直接対標。「百貨店EC × セレクトショップEC × ブランド系EC」の三層販路設計を実地監視、価格設計（¥74,800-82,500 中央値）の参考に。",
+        "sources": [
+          {
+            "name": "三越伊勢丹 PELLICO 2026春夏",
+            "url": "https://www.mistore.jp/shopping/brand/women_b/012958.html"
+          },
+          {
+            "name": "ELLE SHOP PELLICO",
+            "url": "https://elleshop.jp/web/brand/pellico/"
+          }
+        ]
+      },
+      {
+        "brand": "COACH",
+        "tier": "ref-trend",
+        "type": "indirect",
+        "category": "bag",
+        "priceRange": "¥30,000〜¥80,000",
+        "move": "Spring 2026「Explore Your Story」キャンペーン稼働、Tabby/Brooklyn 新作 + バッグチャーム + ストロー素材カーゴトートで母の日 5/10 2日前刈取",
+        "detail": "COACH Japan が Spring 2026 キャンペーン「Explore Your Story」を稼働、Tabby/Brooklyn の新作アイコンバッグ + バッグチャーム + ストロー素材カーゴトート の3軸を母の日 5/10 直前訴求に集中。前週から継続するロゴ／ハート／星／チェリーのチャーム軸も並走。",
+        "action": "【参考】市場大盤 CEO seed。「春キャンペーン × アイコンバッグ × チャーム × 天然素材」の4軸同時運用は ISOLÉ の母の日訴求のテンプレート。¥3,000-5,000帯のバッグチャーム補助商材化を実地検証推奨。",
+        "sources": [
+          {
+            "name": "COACH Spring 2026 Explore Your Story",
+            "url": "https://japan.coach.com/shop/campaign/explore-your-story"
+          },
+          {
+            "name": "COACH 母の日ギフト レディース",
+            "url": "https://japan.coach.com/shop/gift/women/mother"
+          }
+        ]
+      },
+      {
+        "brand": "Polène",
+        "tier": "ref-tone",
+        "type": "indirect",
+        "category": "bag",
+        "priceRange": "¥104,000〜¥134,000",
+        "move": "5/15 Edition 出荷予定の1週間前ファネル設計、母の日後の「自分への報酬」需要を捕捉、Smooth Clay ¥104,000 / Cognac ¥119,000 / Rhizome Cognac/Marine ¥134,000",
+        "detail": "Polène Japan が母の日後の5/15 出荷で Edition シリーズの限定色を投入予定。母の日（贈り物）→ 5/15（自分への報酬）の連続需要捕捉設計。Smooth Clay ¥104,000、Cognac ¥119,000、Rhizome Cognac/Marine 各 ¥134,000。表参道旗艦店2023年9月オープン後のファネル運用継続。",
+        "action": "【参考】調性合致 CEO seed。「母の日 → 自分への報酬 への連続需要捕捉ファネル」は ISOLÉ の限定型番運用の参考。母の日直後（5/12-5/16）の「自分用」訴求LP投入を実地検証推奨。",
+        "sources": [
+          {
+            "name": "Polène 新作 NEW IN",
+            "url": "https://jp.polene-paris.com/collections/new-in"
+          },
+          {
+            "name": "Polène Japan 公式",
+            "url": "https://jp.polene-paris.com/"
+          }
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "title": "土屋鞄「ストレイヴン」5/7（木）4型ラインアップ発売、母の日 5/8 7:59 注文〆切ラスト数時間で駆け込み需要刈取",
+        "summary": "Pre-Spring 2026 ラインの新作ショルダー「ストレイヴン」が 2026/5/7（木）発売。ラージ／クロスボディ／ミディアム／2way ワンハンドル の4型展開。「相反要素から生む洗練リラックス感」のコンセプト。本日 5/8 7:59 の母の日配送〆切ラスト数時間で自分用＋ギフト両軸の駆け込み需要を捕捉。",
+        "source": "土屋鞄製造所",
+        "url": "https://tsuchiya-kaban.jp/pages/look-spring-summer",
+        "impact": "high",
+        "action": "【参考】「発売翌日 = 母の日2日前」のタイミング設計と「自分用×ギフト両軸」の運用は ISOLÉ の母の日新作投入タイミングの最強テンプレート。発売直後のSNS露出と決済導線を実地観察。"
+      },
+      {
+        "title": "母の日 5/10 まで2日：5/8 朝で多くの百貨店EC配送〆切、店頭駆け込みと当日発送ECに需要集中",
+        "summary": "三越伊勢丹・大丸松坂屋・楽天 等の母の日特集が「お届け間に合う最終ライン」を訴求。土屋鞄 5/8 7:59、多くの百貨店ECが今朝で「母の日お届け確定」最終便を締切、店頭駆け込みと当日発送ECに需要が集中。2026年予算中央値 ¥3,000-4,999、「実用 × 気持ちが伝わる」が選定軸。",
+        "source": "三越伊勢丹・大丸松坂屋・複数媒体",
+        "url": "https://www.mistore.jp/shopping/feature/shops_f3/mothersday_sp",
+        "impact": "high",
+        "action": "【施策案】ISOLÉ・l'aisé は5/8-5/10 で「ラスト2日／店頭駆け込み／当日発送可」訴求の専用LP／LINE配信を投入。¥3,000-5,000帯の革製チャーム・カードケース・ポーチ等の補助商材を訴求軸に。"
+      },
+      {
+        "title": "COACH Spring 2026「Explore Your Story」キャンペーン稼働、Tabby/Brooklyn + バッグチャーム + ストロー素材カーゴトートの4軸",
+        "summary": "COACH Japan が春夏キャンペーン「Explore Your Story」を稼働。Tabby/Brooklyn の新作アイコンバッグ、ロゴ／ハート／星／チェリーのバッグチャーム、ストロー素材のカーゴトート の3軸を母の日 5/10 直前訴求に集中。「軽奢 × 実用 × 個性」の3点セット。",
+        "source": "COACH Japan",
+        "url": "https://japan.coach.com/shop/campaign/explore-your-story",
+        "impact": "medium",
+        "action": "【参考】「春キャンペーン × アイコンバッグ × チャーム × 天然素材」の4軸同時運用は ISOLÉ の母の日訴求テンプレート。¥3,000-5,000 帯バッグチャーム補助商材化と「ラフィア／ストロー」素材展開を5月下旬投入で検討。"
+      },
+      {
+        "title": "婦人靴トレンド転換：厚底ローファー → スリムローファー、シアー／メッシュ／リボンの繊細装飾が GW明け 平日通勤2日目で存在感",
+        "summary": "amiami・三越伊勢丹・STYLE HAUS が同時発信。2026春は厚底×重厚から「スリム×洗練」への明確な転換、繊細な装飾（チェーン／ベルト／ビット／リボン）が並走。シアー／メッシュ素材は通勤シーンに浸透、GW明けの平日通勤シフト2日目で需要顕在化。",
+        "source": "amiami・三越伊勢丹・STYLE HAUS",
+        "url": "https://www.amiami345.shop/blog/2026ss_trendshoes/",
+        "impact": "high",
+        "action": "【施策案】l'aisé の主力ドレスシューズ／ローファー商品ページで「スリムシルエット × 装飾モチーフ」のキーワード追加とコーデ写真の細身強調を5/8-5/14 で実装。GW後通勤需要に直結。"
+      }
+    ],
+    "bagCampaigns": [
+      {
+        "brand": "土屋鞄",
+        "name": "ストレイヴン 4型 5/7（木）発売稼働中 + 母の日 5/8 7:59 注文〆切ラスト数時間",
+        "desc": "Pre-Spring 2026 ラインの新作ショルダー「ストレイヴン」4型（ラージ／クロスボディ／ミディアム／2way ワンハンドル）が5/7発売後 EC稼働中。本日 5/8 7:59 の母の日配送〆切ラスト数時間で駆け込み需要を刈取。",
+        "channel": "online",
+        "price": "¥16,500〜¥132,000",
+        "date": "5/7発売稼働中 / 母の日〆切 5/8 7:59",
+        "ageTarget": [
+          "30代",
+          "40代",
+          "50代"
+        ],
+        "sources": [
+          {
+            "name": "土屋鞄 2026 Spring/Summer",
+            "url": "https://tsuchiya-kaban.jp/pages/look-spring-summer"
+          },
+          {
+            "name": "土屋鞄 母の日ギフト",
+            "url": "https://tsuchiya-kaban.jp/pages/gift-mothersday"
+          }
+        ]
+      },
+      {
+        "brand": "VASIC",
+        "name": "BOND シリーズ10周年記念モデル（リボン結び風ノット）+ TOMORROWLAND別注 BOND MINI STUDS",
+        "desc": "BOND の紐先端を「リボン結び」風に再構成した10周年記念モデル。BOND・BOND MINI・BOND MINI MINI 全サイズで展開。TOMORROWLAND別注 BOND MINI STUDS（スタッズ装飾）も並走。",
+        "channel": "online",
+        "price": "¥55,000〜¥121,100",
+        "date": "稼働中（5月のリボントレンドと連動）",
+        "ageTarget": [
+          "30代",
+          "40代"
+        ],
+        "sources": [
+          {
+            "name": "VASIC BOND ALL SIZES",
+            "url": "https://www.vasic-newyork.jp/en/collections/bond-all"
+          },
+          {
+            "name": "TOMORROWLAND VASIC BOND MINI STUDS",
+            "url": "https://store.tomorrowland.co.jp/item/vasic/33035203086.html"
+          }
+        ]
+      },
+      {
+        "brand": "EPOI",
+        "name": "梅田店 母の日 推奨 ツールズシリーズ（ID ¥11,000 / パスケース ¥11,000 / ストラップ ¥9,900）",
+        "desc": "Epoi 梅田（グランフロント大阪）の母の日推奨ラインアップ。ツールズ ID ケース ¥11,000、パスケース ¥11,000、ストラップ ¥9,900 を「1万円以内 × 本格レザー × 母の日2日前」訴求で集中投入。",
+        "channel": "store_and_online",
+        "price": "¥9,900〜¥11,000",
+        "date": "母の日 5/10 まで",
+        "ageTarget": [
+          "30代",
+          "40代",
+          "50代"
+        ],
+        "sources": [
+          {
+            "name": "Epoi 梅田 母の日2026",
+            "url": "https://www.epoi-jp.com/contents/blog/epoi-umeda-mothersday2026/"
+          }
+        ]
+      },
+      {
+        "brand": "COACH",
+        "name": "Spring 2026「Explore Your Story」+ 母の日ギフト（Tabby / Brooklyn / バッグチャーム / ストローカーゴトート）",
+        "desc": "春夏キャンペーン「Explore Your Story」を稼働、Tabby/Brooklyn の新作アイコンバッグ + バッグチャーム + ストロー素材カーゴトートの3軸を母の日 5/10 2日前訴求に集中。",
+        "channel": "online",
+        "price": "¥30,000〜¥80,000",
+        "date": "Spring 2026 稼働中 / 母の日 5/10 まで",
+        "ageTarget": [
+          "30代",
+          "40代",
+          "50代"
+        ],
+        "sources": [
+          {
+            "name": "COACH Spring 2026 Explore Your Story",
+            "url": "https://japan.coach.com/shop/campaign/explore-your-story"
+          },
+          {
+            "name": "COACH 母の日ギフト レディース",
+            "url": "https://japan.coach.com/shop/gift/women/mother"
+          }
+        ]
+      }
+    ],
+    "shoeCampaigns": [
+      {
+        "brand": "DIANA",
+        "name": "GW明け 5/7-5/8 平日通勤シフト：Harry Potter Vol.3 + GWサンダル新作 → 母の日 5/10 ラストスパート",
+        "desc": "GW期間（4/29-5/6）の主力商材 Harry Potter Vol.3（4/29発売16型）+ GWサンダル新作（5/1発信）が 5/7-5/8 平日通勤シフト + 母の日 5/10 ラストスパートに切替。X公式アカウント発信を「GW」→「母の日」へスイッチ。",
+        "channel": "store_and_online",
+        "price": "¥17,050〜¥28,000",
+        "date": "5/7-5/8 平日通勤シフト / 5/10 母の日 ラストスパート",
+        "ageTarget": [
+          "20代",
+          "30代",
+          "40代",
+          "50代"
+        ],
+        "sources": [
+          {
+            "name": "ファッションプレス DIANA Harry Potter Vol.3",
+            "url": "https://www.fashion-press.net/news/145648"
+          },
+          {
+            "name": "DIANA公式オンラインショップ",
+            "url": "https://www.dianashoes.com/"
+          }
+        ]
+      },
+      {
+        "brand": "VIVAIA",
+        "name": "母の日 5/10 2日前ラストスパート：Cecily Mesh Mary Jane $149 + NAYEON「Feel the Comfort」+ 30日返品保証",
+        "desc": "母の日2026特集ページが 5/10 2日前ラストスパート期に。NAYEON 春キャンペーン導線を母の日刈取に集中、Cecily Mesh Mary Jane $149 が「メッシュ × 母の日 × ¥10,000帯」三重訴求軸。30日返品保証で「贈って失敗しない」リスク低減。",
+        "channel": "online",
+        "price": "$149〜（¥10,000〜¥18,000相当）",
+        "date": "母の日 5/10 まで",
+        "ageTarget": [
+          "20代",
+          "30代",
+          "40代",
+          "50代"
+        ],
+        "sources": [
+          {
+            "name": "VIVAIA 母の日2026 特集",
+            "url": "https://vivaia.jp/pages/mothersday-test"
+          },
+          {
+            "name": "VIVAIA 新着サンダル",
+            "url": "https://vivaia.jp/collections/new-in-sandals"
+          }
+        ]
+      },
+      {
+        "brand": "Barclay",
+        "name": "VITA NOVA リボンバレエ + ソフトカッターローファー + チュールメッシュバレエ：母の日 5/10 ラスト2日間",
+        "desc": "メイドインジャパン婦人靴の春夏ラインアップ。チュールメッシュバレエ + VITA NOVA「ソフトカッターローファー」「リボンバレエパンプス」を母の日 5/10 ギフトのラスト2日間に集中投入。アーチサポート × 耐久クッションで「歩きやすさ × ギフト価値」両立。",
+        "channel": "online",
+        "price": "¥15,000〜¥30,000",
+        "date": "母の日 5/10 まで",
+        "ageTarget": [
+          "30代",
+          "40代",
+          "50代"
+        ],
+        "sources": [
+          {
+            "name": "BARCLAY公式 パンプス",
+            "url": "https://www.barclay-store.jp/SHOP/269037/269038/list.html"
+          },
+          {
+            "name": "BARCLAY公式オンライン",
+            "url": "https://www.barclay-store.jp/"
+          }
+        ]
+      },
+      {
+        "brand": "PELLICO",
+        "name": "三越伊勢丹「NEW」陳列：SILVER ¥82,500 / SAMI ¥74,800-82,500 / DAMA ¥79,200 / ANIMA ¥82,500",
+        "desc": "三越伊勢丹オンラインの「NEW」マーク陳列で2026春夏新作主力ラインを継続展開。SILVER サンダル ¥82,500、SAMI サンダル ¥74,800〜¥82,500、DAMA パンプス ¥79,200、ANIMA パンプス ¥82,500。AMAN・ELLE SHOP・トゥモローランドの3層販路並走。",
+        "channel": "online",
+        "price": "¥74,800〜¥82,500",
+        "date": "2026春夏稼働中",
+        "ageTarget": [
+          "30代",
+          "40代",
+          "50代"
+        ],
+        "sources": [
+          {
+            "name": "三越伊勢丹 PELLICO 2026春夏",
+            "url": "https://www.mistore.jp/shopping/brand/women_b/012958.html"
+          },
+          {
+            "name": "ELLE SHOP PELLICO",
+            "url": "https://elleshop.jp/web/brand/pellico/"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "date": "2026-05-05",
     "sns": [
       {
